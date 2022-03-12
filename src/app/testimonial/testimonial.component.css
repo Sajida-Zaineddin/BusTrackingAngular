@@ -1,0 +1,507 @@
+/* Testimonials Area css
+============================================================================================ */
+
+.testimonials_item_area .testi_item_inner {
+    max-width: 1030px;
+    margin: 0px auto -75px;
+}
+
+.testimonials_item_area .testi_item_inner .media {
+    margin-bottom: 75px;
+}
+
+.testimonials_item_area .testi_item_inner .media .d-flex {
+    padding-right: 90px;
+    text-align: center;
+    display: block !important;
+    position: relative;
+}
+
+.testimonials_item_area .testi_item_inner .media .d-flex:before {
+    content: "";
+    height: 105px;
+    width: 1px;
+    background: #a1a1a1;
+    position: absolute;
+    right: 45px;
+    top: 40px;
+}
+
+.testimonials_item_area .testi_item_inner .media .d-flex img {
+    padding-top: 25px;
+}
+
+.testimonials_item_area .testi_item_inner .media .d-flex h3 {
+    text-align: center;
+    color: #e8e8e8;
+    font-family: Arial;
+    font-size: 120px;
+    line-height: 60px;
+    margin-top: 50px;
+}
+
+.testimonials_item_area .testi_item_inner .media .media-body p {
+    color: #797979;
+    font-size: 22px;
+    line-height: 28px;
+    letter-spacing: .66px;
+    font-family: "Lora", serif;
+    padding-top: 40px;
+    margin-bottom: 0px;
+}
+
+.testimonials_item_area .testi_item_inner .media .media-body h5 {
+    color: #3e606b;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: .66px;
+    font-family: "Open Sans", sans-serif;
+    font-style: italic;
+    margin-bottom: 0px;
+    padding-top: 30px;
+}
+
+
+/* End Testimonials Area css
+============================================================================================ */
+
+
+/* Single Blog Area css
+============================================================================================ */
+
+.b_single_text {
+    font-size: 24px;
+    color: #3e606b;
+    font-family: "Playfair Display", serif;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.single_blog_inner .blog_item {
+    margin-bottom: 0px;
+}
+
+.two_column_text {
+    margin-bottom: 55px;
+}
+
+.two_column_text p {
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+    line-height: 26px;
+    color: #797979;
+    margin-bottom: 0px;
+    font-weight: normal;
+}
+
+.single_element_text p {
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+    line-height: 26px;
+    color: #797979;
+    margin-bottom: 0px;
+    font-weight: normal;
+}
+
+.single_element_text p a {
+    color: #f195b2;
+    text-decoration: underline;
+}
+
+.cm_title_br {
+    font-size: 24px;
+    color: #3e606b;
+    font-family: "Playfair Display", serif;
+    font-weight: bold;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+}
+
+.cm_title_br:before {
+    content: "";
+    width: 25px;
+    background: #acb2b4;
+    position: absolute;
+    right: -45px;
+    height: 1px;
+    bottom: 5px;
+}
+
+.s_comment_list {
+    margin-top: 45px;
+}
+
+.s_comment_list .s_comment_list_inner {
+    border: 1px solid #eeeeee;
+}
+
+.s_comment_list .s_comment_list_inner .media {
+    padding-top: 25px;
+    padding-bottom: 28px;
+    padding-left: 25px;
+    padding-right: 75px;
+    margin-top: 0px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.s_comment_list .s_comment_list_inner .media .d-flex {
+    padding-right: 30px;
+}
+
+.s_comment_list .s_comment_list_inner .media .media-body h4 {
+    font-size: 15px;
+    font-family: "Playfair Display", serif;
+    letter-spacing: .45px;
+    line-height: normal;
+    color: #3e606b;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.s_comment_list .s_comment_list_inner .media .media-body p {
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+    color: #898989;
+    line-height: 26px;
+    margin-bottom: 0px;
+}
+
+.s_comment_list .s_comment_list_inner .media .media-body .date_rep {
+    margin-top: 10px;
+}
+
+.s_comment_list .s_comment_list_inner .media .media-body .date_rep a {
+    font-size: 14px;
+    font-family: "Open Sans", sans-serif;
+    letter-spacing: .39px;
+    color: #aeaeae;
+    margin-right: 20px;
+    position: relative;
+}
+
+.s_comment_list .s_comment_list_inner .media .media-body .date_rep a:before {
+    content: "";
+    background: #aeaeae;
+    height: 13px;
+    width: 1px;
+    position: absolute;
+    right: -12px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.s_comment_list .s_comment_list_inner .media .media-body .date_rep a:last-child {
+    color: #f195b2;
+}
+
+.s_comment_list .s_comment_list_inner .media .media-body .date_rep a:last-child:before {
+    display: none;
+}
+
+.s_comment_list .s_comment_list_inner .media .media-body .media {
+    background: transparent;
+    padding-left: 0px;
+    padding-top: 40px;
+    padding-right: 0px;
+}
+
+.s_comment_list .s_comment_list_inner .media:nth-child(even) {
+    background: #fcfcfc;
+}
+
+.s_comment_list .s_comment_list_inner .media:last-child {
+    border-bottom: none;
+}
+
+.s_comment_area {
+    margin-top: 60px;
+}
+
+.s_comment_area .s_comment_inner {
+    background: #f7f7f7;
+    border: 1px solid #eeeeee;
+    padding: 50px 35px;
+}
+
+.s_comment_area .s_comment_inner .contact_us_form .form-group {
+    margin-bottom: 20px;
+}
+
+.s_comment_area .s_comment_inner .contact_us_form .form-group input {
+    background: #fff;
+    font-size: 17px;
+    color: #afaeae;
+    height: 45px;
+    border: 1px solid #eeeeee;
+    border-radius: 0px;
+    padding: 0px 20px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background: #fff;
+    font-family: "Playfair Display", serif;
+    line-height: 45px;
+}
+
+.s_comment_area .s_comment_inner .contact_us_form .form-group input.placeholder {
+    font-size: 17px;
+    color: #afaeae;
+    font-family: "Playfair Display", serif;
+    line-height: 45px;
+}
+
+.s_comment_area .s_comment_inner .contact_us_form .form-group input:-moz-placeholder {
+    font-size: 17px;
+    color: #afaeae;
+    font-family: "Playfair Display", serif;
+    line-height: 45px;
+}
+
+.s_comment_area .s_comment_inner .contact_us_form .form-group input::-moz-placeholder {
+    font-size: 17px;
+    color: #afaeae;
+    font-family: "Playfair Display", serif;
+    line-height: 45px;
+}
+
+.s_comment_area .s_comment_inner .contact_us_form .form-group input::-webkit-input-placeholder {
+    font-size: 17px;
+    color: #afaeae;
+    font-family: "Playfair Display", serif;
+    line-height: 45px;
+}
+
+.s_comment_area .s_comment_inner .contact_us_form .form-group textarea {
+    background: #fff;
+    border-color: #eeeeee;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    height: 172px;
+    padding: 15px 20px;
+    border-radius: 0px;
+    resize: none;
+    font-size: 17px;
+    color: #afaeae;
+    font-family: "Playfair Display", serif;
+}
+
+.s_comment_area .s_comment_inner .contact_us_form .form-group textarea.placeholder {
+    font-size: 17px;
+    color: #afaeae;
+    font-family: "Playfair Display", serif;
+}
+
+.s_comment_area .s_comment_inner .contact_us_form .form-group textarea:-moz-placeholder {
+    font-size: 17px;
+    color: #afaeae;
+    font-family: "Playfair Display", serif;
+}
+
+.s_comment_area .s_comment_inner .contact_us_form .form-group textarea::-moz-placeholder {
+    font-size: 17px;
+    color: #afaeae;
+    font-family: "Playfair Display", serif;
+}
+
+.s_comment_area .s_comment_inner .contact_us_form .form-group textarea::-webkit-input-placeholder {
+    font-size: 17px;
+    color: #afaeae;
+    font-family: "Playfair Display", serif;
+}
+
+.s_comment_area .s_comment_inner .contact_us_form .form-group:last-child {
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+.s_comment_area .s_comment_inner .contact_us_form .form-group .order_s_btn {
+    background: #f195b2;
+    font-size: 14px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    padding: 0px 45px;
+}
+
+
+/* End Single Blog Area css
+============================================================================================ */
+
+
+/* Contact Us Area css
+============================================================================================ */
+
+.contact_form_area .main_title {
+    padding-bottom: 55px;
+}
+
+.contact_us_form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact_us_form .form-group:last-child {
+    margin-bottom: 0px;
+    margin-top: 20px;
+}
+
+.contact_us_form .form-group input {
+    height: 48px;
+    border-radius: 3px;
+    border: 1px solid #ededed;
+    padding: 0px 20px;
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+    color: #797979;
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.contact_us_form .form-group input.placeholder {
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+    color: #797979;
+}
+
+.contact_us_form .form-group input:-moz-placeholder {
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+    color: #797979;
+}
+
+.contact_us_form .form-group input::-moz-placeholder {
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+    color: #797979;
+}
+
+.contact_us_form .form-group input::-webkit-input-placeholder {
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+    color: #797979;
+}
+
+.contact_us_form .form-group textarea {
+    height: 206px;
+    border-radius: 3px;
+    border: 1px solid #ededed;
+    padding: 20px 20px;
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+    color: #797979;
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    resize: none;
+}
+
+.contact_us_form .form-group textarea.placeholder {
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+    color: #797979;
+}
+
+.contact_us_form .form-group textarea:-moz-placeholder {
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+    color: #797979;
+}
+
+.contact_us_form .form-group textarea::-moz-placeholder {
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+    color: #797979;
+}
+
+.contact_us_form .form-group textarea::-webkit-input-placeholder {
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+    color: #797979;
+}
+
+.contact_us_form .form-group .order_s_btn {
+    background: #f195b2;
+    font-size: 14px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    padding: 0px 48px;
+}
+
+.contact_details .contact_d_item {
+    margin-bottom: 40px;
+}
+
+.contact_details .contact_d_item:last-child {
+    margin-bottom: 0px;
+}
+
+.contact_details .contact_d_item h3 {
+    font-size: 18px;
+    font-family: "Playfair Display", serif;
+    font-weight: bold;
+    color: #3e606b;
+    margin-bottom: 15px;
+}
+
+.contact_details .contact_d_item p {
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+    color: #797979;
+    line-height: 26px;
+    margin-bottom: 0px;
+}
+
+.contact_details .contact_d_item p+p {
+    margin-top: 10px;
+}
+
+.contact_details .contact_d_item h5 {
+    font-size: 18px;
+    font-family: "Playfair Display", serif;
+    font-weight: bold;
+    color: #3e606b;
+}
+
+.contact_details .contact_d_item h5 a {
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+    color: #797979;
+    line-height: 26px;
+    font-weight: normal;
+}
+
+.contact_details .contact_d_item h5+h5 {
+    margin-bottom: 0px;
+}
+
+.map_area .mapBox {
+    min-height: 485px;
+}
+
+
+/* End Contact Us Area css
+============================================================================================ */
+
+.testimonials_item_area .testi_item_inner .media {
+    display: block;
+}
+
+.testimonials_item_area .testi_item_inner .media .d-flex {
+    padding-right: 0px;
+    text-align: left;
+}
+
+.testimonials_item_area .testi_item_inner .media .d-flex h3 {
+    display: none;
+}
+
+.testimonials_item_area .testi_item_inner .media .d-flex::before {
+    display: none;
+}
+
+.testimonials_item_area .testi_item_inner .media .media-body p {
+    font-size: 18px;
+    line-height: 28px;
+    font-style: italic;
+}
