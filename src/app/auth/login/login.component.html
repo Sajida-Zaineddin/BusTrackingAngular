@@ -1,1 +1,40 @@
-<p>login works!</p>
+<app-header></app-header>
+<div id="login">
+    <div class="login-card">
+
+        <div class="card-title">
+            <h1>Please Sign In</h1>
+        </div>
+
+        <div class="content">
+            <form method="POST" action="#">
+
+                <input matInput id="email" type="email" [formControl]="email" name="email" title="email" placeholder="Email">
+                <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+                    Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="email.hasError('required')">
+                    Email is <strong>required</strong>
+                </mat-error>
+                <input id="password" [formControl]="password" type="password" name="password" title="password" placeholder="Password">
+                <mat-error style="text-align: center;" *ngIf="password.hasError('minlength')  && !password.hasError('required')">
+                    Please enter strong password
+                </mat-error>
+                <mat-error *ngIf="password.hasError('required')">
+                    password is <strong>required</strong>
+                </mat-error>
+                <div class="level options">
+                    <div class="checkbox level-left">
+                        <input type="checkbox" id="checkbox" class="regular-checkbox">
+                        <label for="checkbox"></label>
+                        <span>Remember me</span>
+                    </div>
+
+                    <a class="btn btn-link level-right" href="#">Forgot Password?</a>
+                </div>
+
+                <button [disabled]="!email.valid || !password.valid" class="btn btn-primary" (click)="submit()">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
