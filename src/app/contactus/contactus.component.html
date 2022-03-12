@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-lg-8">
                 <div id="map">
-                   
+
 
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3382.5642980145494!2d35.8490662155479!3d32.0269140291576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151c9f6ad8385f7d%3A0xe7d6abb3657e41de!2sEducational%20growth!5e0!3m2!1sen!2sjo!4v1647096349730!5m2!1sen!2sjo"
                         width="100%" height="420px" frameborder="0" style="border:0; border-radius: 15px; position: relative; z-index: 2;" allowfullscreen=""></iframe>
@@ -43,27 +43,27 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <form id="contact" action="" method="post"  [formGroup]="registerForm">
+                <form id="contact" action="" method="post" [formGroup]="registerForm">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="section-heading">
                                 <h6></h6>
                                 <h4>Say <em>Hello</em></h4>
-                              
+
                             </div>
                         </div>
                         <div class="col-lg-12">
                             <fieldset>
-                                <input type="name" name="name" id="name" formControlName="fullName" placeholder="Full Name" >
-                            
+                                <input type="name" name="name" id="name" formControlName="fullName" placeholder="Full Name">
+
                                 <mat-error *ngIf="registerForm.controls['fullName'].hasError('required')">
-                                   Name is <strong>required</strong> 
+                                    Name is <strong>required</strong>
                                 </mat-error>
                             </fieldset>
                         </div>
                         <div class="col-lg-12">
                             <fieldset>
-                                <input type="text" name="email" id="email" formControlName="email" placeholder="Your Email" >
+                                <input type="text" name="email" id="email" formControlName="email" placeholder="Your Email">
                                 <mat-error *ngIf="registerForm.controls['email'].hasError('email') && !registerForm.controls['email'].hasError('required')">
                                     Please enter a valid email
                                 </mat-error>
@@ -76,9 +76,8 @@
                             <fieldset>
                                 <textarea name="message" id="message" formControlName="message" placeholder="Your Message"></textarea>
                                 <mat-error *ngIf="registerForm.controls['message'].hasError('required')">
-                                     Message is <strong>required</strong>
+                                    Message is <strong>required</strong>
                                 </mat-error>
-                           
                             </fieldset>
                         </div>
                         <div class="col-lg-12">

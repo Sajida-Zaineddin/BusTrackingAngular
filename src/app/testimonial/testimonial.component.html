@@ -79,18 +79,38 @@
                     <div class="s_comment_area">
                         <h3 class="cm_title_br">Give Us Your Testimonial</h3>
                         <div class="s_comment_inner">
-                            <form class="row contact_us_form" action="http://galaxyanalytics.net/demos/cake/theme/cake-html/contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                            <form class="row contact_us_form" method="post" [formGroup]="registerForm" action="" id="contactForm" novalidate="novalidate">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+                                    <fieldset>
+                                        <input class="form-control" type="name" name="name" id="name" formControlName="fullName" placeholder="Full Name">
+                                        <mat-error *ngIf="registerForm.controls['fullName'].hasError('required')">
+                                            Name is <strong>required</strong>
+                                        </mat-error>
+                                    </fieldset>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email address">
+                                    <fieldset>
+                                        <input class="form-control" type="email" name="email" id="email" formControlName="email" placeholder="Your Email">
+                                        <mat-error *ngIf="registerForm.controls['email'].hasError('email') && !registerForm.controls['email'].hasError('required')">
+                                            Please enter a valid email
+                                        </mat-error>
+                                        <mat-error *ngIf="registerForm.controls['email'].hasError('required')">
+                                            Email is <strong>required</strong>
+                                        </mat-error>
+                                    </fieldset>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <textarea class="form-control" name="message" id="message" rows="1" placeholder="Wrtie message"></textarea>
+                                    <fieldset>
+                                        <textarea class="form-control" name="message" id="message" formControlName="message" placeholder="Your Message"></textarea>
+                                        <mat-error *ngIf="registerForm.controls['message'].hasError('required')">
+                                            Message is <strong>required</strong>
+                                        </mat-error>
+                                    </fieldset>
                                 </div>
                                 <div class="form-group ">
-                                    <button type="submit" value="submit" class="btn btn-primary p-2 ">submit now</button>
+                                    <fieldset>
+                                        <button type="submit" value="submit" class="btn btn-primary p-2 " [disabled]=" !registerForm.valid ">Send  Message  </button>
+                                    </fieldset>
                                 </div>
                             </form>
                         </div>
