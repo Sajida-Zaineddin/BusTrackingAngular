@@ -16,8 +16,7 @@
                 <mat-error *ngIf="registerForm.controls['email'].hasError('required')">
                     email is <strong>required</strong>
                 </mat-error>
-                <input id="password" type="password" formControlName="password" name="yourPassword" title="password" placeholder="Your password" [value]="yourPassword">
-
+                <input id="password" type="password" formControlName="password" name="yourPassword" title="password" placeholder="Your password" value={{yourPassword}} >
                 <mat-error *ngIf="registerForm.controls['password'].hasError('minlength') && !registerForm.controls['password'].hasError('required')">
                     Please enter a valid password
                 </mat-error>

@@ -25,7 +25,10 @@ export class LoginComponent implements OnInit {
 
     if (this.registerForm.controls['rememberMe'].value == true) {
       this.checkCheckBoxvalue()
-    }
+      console.log(localStorage.getItem('email'));
+      console.log(localStorage.getItem('password'));
+      
+    }  
 
   }
 
@@ -34,10 +37,7 @@ export class LoginComponent implements OnInit {
     localStorage.setItem('email', this.registerForm.controls['email'].value)
     localStorage.setItem('password', this.registerForm.controls['password'].value)
 
-
-
-
   }
 
-
+ 
 }
