@@ -14,7 +14,7 @@ export class ContactusComponent implements OnInit {
   registerForm: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     fullName: new FormControl('', Validators.required),
-    Message: new FormControl('' , Validators.required)
+    message: new FormControl('' , Validators.required)
 
   })
 
