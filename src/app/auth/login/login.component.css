@@ -4,28 +4,28 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background: #F7F7F7;
+    margin-top: 5%;
 }
 
 #login .login-card {
     background: #fff;
-    width: 24rem;
-    box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.11);
+    width: 25rem;
+    box-shadow: 10px 20px 20px 10px rgba(0, 0, 0, 0.11);
 }
 
 #login .login-card .card-title {
-    background-color: #00b89c;
-    padding: 2rem;
+    background-color: #F5BDA1;
+    padding: 1.5rem;
 }
 
 #login .login-card .card-title h1 {
     color: #fff;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 2rem;
 }
 
 #login .login-card .content {
-    padding: 3rem 2.5rem 5rem;
+    padding: 4rem 2rem 4rem;
 }
 
 #login .login-card #email,
@@ -49,7 +49,7 @@
 #login .login-card #email:focus,
 #login .login-card #password:active,
 #login .login-card #password:focus {
-    border-color: #00d1b2;
+    border-color: #F5BDA1;
 }
 
 #login .login-card .checkbox {
@@ -73,20 +73,20 @@
 #login .login-card button {
     cursor: pointer;
     font-size: 1.2rem;
-    color: #00d1b2;
+    color: #F5BDA1;
     border-radius: 4rem;
     display: block;
     width: 100%;
     background: transparent;
-    border: 2px solid #00d1b2;
+    border: 2px solid #F5BDA1;
     padding: 0.9rem 0 1.1rem;
     transition: color 0.5s, border-color 0.5s;
 }
 
 #login .login-card button:hover,
 #login .login-card button:focus {
-    color: #009e86;
-    border-color: #009e86;
+    color: #ff9966;
+    border-color: #ff9966;
 }
 
 #login .login-card button:active {
@@ -105,6 +105,7 @@ label {
     background-color: #fafafa;
     border: 1px solid #dbdbdb;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    margin-top: 15px;
     padding: 7px;
     border-radius: 3px;
     display: inline-block;
@@ -112,16 +113,16 @@ label {
 }
 
 .regular-checkbox:checked+label {
-    background-color: #e9ecee;
+    background-color: #aaabac;
 }
 
 .regular-checkbox:checked+label:after {
     content: "✔";
-    font-size: 11px;
+    font-size: 12px;
     position: absolute;
     top: 0;
     left: 3px;
-    color: #b5b5b5;
+    color: #8a8a8a;
 }
 
 input:focus,
