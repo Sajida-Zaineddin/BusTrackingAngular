@@ -1,0 +1,78 @@
+
+<button mat-raised-button color="accent" (click)= "create()">Create new Buses </button>
+
+<!-- 
+<button (click)="openUpdateDialog(bus.id , bus.Busnumber , bus.Busdriver , bus.Busteacher)">update</button> -->
+<table >
+<tr>
+    <th>bus id </th>
+<th> Busnumber</th>
+
+<th> Busdriver</th>
+
+<th> Busteacher</th>
+
+</tr>
+<tr *ngFor="let bus of home.data" >
+
+    <th>{{ bus.id}}</th>
+    
+    <th> {{bus.busnumber}}</th>
+    
+    <th> {{bus.busteacher}}</th>
+    <th> {{bus.busdriver}}</th>
+
+    <th><button (click)="openUpdateDialog(bus.id , bus.busnumber , bus.busdriver , bus.busteacher)">update</button></th>
+    <td><button (click)="openDeleteDialog(bus.id)">Delete</button> 
+    </tr>
+
+</table>
+
+    
+<ng-template #callUpdateDialog>
+
+    <form [formGroup]="updatForm">
+        <ul>
+        <li>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>ID </mat-label>
+            <label type="number" matInput formControlName="id" [(ngModel)]="bus.id" 
+            placeholder=" "></label>
+          </mat-form-field></li>       
+           <li>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Enter the bus number </mat-label>
+                <input type="number" matInput formControlName="busnumber" 
+                placeholder=" " [(ngModel)]="bus.busnumber" >
+              </mat-form-field></li>
+              <li>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Enter the bus driver </mat-label>
+                    <input type="number" matInput formControlName="busdriver" 
+                    placeholder=" " [(ngModel)]="bus.busdriver" >
+                  </mat-form-field></li>
+                  <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter the bus teacher </mat-label>
+                        <input type="number" matInput formControlName="busteacher" 
+                        placeholder=" " [(ngModel)]="bus.busteacher">
+                      </mat-form-field></li>
+                      
+
+        
+          </ul>
+          <button (click)="updateBus()">Update</button>
+    </form>
+
+
+</ng-template>
+
+
+    <ng-template #callDeleteDialog>
+        <h2>Are You Sure you want ti delete this item</h2>
+        <mat-dialog-actions align="end">
+          <button mat-button mat-dialog-close="no">No</button>
+          <button mat-button mat-dialog-close="yes" >yes</button>
+        </mat-dialog-actions>
+        
+        </ng-template>
