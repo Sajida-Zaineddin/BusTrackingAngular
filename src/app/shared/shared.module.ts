@@ -2,13 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import {  ToastrModule, ToastNoAnimation,  ToastNoAnimationModule} from 'ngx-toastr';
 import{HttpClientModule}from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -20,6 +21,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FooterComponent
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     CommonModule,
     MatFormFieldModule,
     MatInputModule,
@@ -28,10 +31,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ToastNoAnimationModule.forRoot(),
     ToastrModule.forRoot(),
     HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
+  
   ],
   exports: [
+    FormsModule,
+    ReactiveFormsModule,
     HeaderComponent,
     FooterComponent,
     MatFormFieldModule,
@@ -39,8 +43,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     MatDialogModule,
     HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
+
    
   ]
 })
