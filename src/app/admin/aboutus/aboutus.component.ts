@@ -1,5 +1,5 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { AboutusService } from 'src/app/services/aboutus.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -16,10 +16,12 @@ export class AboutusComponent implements OnInit {
 
   @ViewChild('callUpdateDialog') callUpdateDialog!: TemplateRef<any>
   @ViewChild('callDeleteDialog') callDeleteDialog!: TemplateRef<any>
-  @ViewChild('search') search!: TemplateRef<any>
+  @ViewChild('callCreateDialog') callCreateDialog!: TemplateRef<any>
+
+
 
   about: any = {}
-  searchValue:any = 0;
+
   constructor(private dialog: MatDialog, public home: AboutusService) { }
 
 
@@ -31,21 +33,35 @@ export class AboutusComponent implements OnInit {
     imagepath: new FormControl()   
   })
 
+
+  CreateForm :FormGroup =new FormGroup({
+  
+    title:new FormControl('',Validators.required),
+    information:new FormControl('',Validators.required),
+    
+    imagepath:new FormControl()
+  })
   ngOnInit(): void {
     this.home.getAll();
   }
 
+
+  save(){
+    this.home.createAboutus(this.CreateForm.value);
+    window.location.reload();
+  }
+
   openCreatedialog() {
-    // this.dialog.open(CreateComponent)
+    this.dialog.open(this.callCreateDialog)
 
   }
 
-  openDeleteDialog(courseid: any) {
+  openDeleteDialog(Aboutusid: any) {
     const dialogRef = this.dialog.open(this.callDeleteDialog);
     dialogRef.afterClosed().subscribe((res) => {
       if (res !== undefined) {
         if (res == "yes") {
-          this.home.delete(courseid);
+          this.home.delete(Aboutusid);
           window.location.reload();
         }
         else if (res == "no")
@@ -89,26 +105,14 @@ export class AboutusComponent implements OnInit {
     console.log("updatForm",this.updatForm.value);
     console.log("about",this.about);
 
-    this.home.updateCourse(this.updatForm.value);
+    this.home.updateAboutus(this.updatForm.value);
     window.location.reload();
 
   }
 
 
 
-  InputValue(ev:any){
 
-    this.searchValue=ev.target.value;
-    console.log(this.searchValue);
-  }
-
-  searchAbout(){
-    console.log(this.searchValue);
-    
-    this.home.sreachv(this.searchValue);
-    this.dialog.open(this.search)
-
-  }
 
 }
 
