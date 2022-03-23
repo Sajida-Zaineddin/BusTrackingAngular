@@ -11,14 +11,17 @@ import { SharedModule } from './shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-
+import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule } from 'ngx-toastr';
+import{HttpClientModule}from  '@angular/common/http';
+import { CreateComponent } from './admin/create/create.component';
 @NgModule({
   declarations: [
     AppComponent,
     TestimonialComponent,
     AboutusComponent,
     ContactusComponent,
-    HomeComponent
+    HomeComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +32,9 @@ import { MatInputModule } from '@angular/material/input';
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
+    ToastNoAnimationModule.forRoot(),
+    ToastrModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

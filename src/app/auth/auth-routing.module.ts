@@ -1,6 +1,7 @@
 import { registerLocaleData } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AboutusEditComponent } from '../admin/aboutus-edit/aboutus-edit.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
@@ -13,6 +14,7 @@ const routes: Routes = [
     path:'register',
     component:RegisterComponent
   },
+ 
 ];
 
 @NgModule({

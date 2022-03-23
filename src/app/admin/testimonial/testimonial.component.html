@@ -1,0 +1,52 @@
+<!-- <button (click)="openCreatedialog()">Create New  </button> -->
+<button (click)="openCreatedialog()">Create New </button>
+<table style="margin:0 auto">
+    <tr>
+        <th> Testimonial number </th>
+        <th> customer name </th>
+        <th> Feed back </th>
+        <th> Image </th>
+        <th> Testimonial Status </th>
+        <th> opr</th>
+    </tr>
+    <tr *ngFor="let testimonials of testimonial.data">
+        <td>{{testimonials.id}}</td>
+        <td>{{testimonials.name}}</td>
+        <td>{{testimonials.feedback }}</td>
+        <td><img src="../../../assets/images/{{testimonials.imagepath}}" style="height: 50px;width:50px;"></td>
+        <td>
+            {{testimonials.status}}
+        </td>
+        <td>
+            <button (click)="openUpdateDailog(testimonials.id,
+            testimonials.name,testimonials.feedback ,testimonials.status,testimonials.imagepath)">Update</button>
+        </td>
+    </tr>
+</table>
+
+
+<ng-template #callUpdateDailog>
+    <form [formGroup]="UpdateForm">
+        <ul>
+            <li>
+                <p>{{testtemonialsData.name}}</p>
+            </li>
+
+            <li>
+                <p>{{testtemonialsData.feedback}}</p>
+            </li>
+
+           
+
+            <li>
+                <select formControlName="status">
+                    <option [ngValue]="null" disabled>Choose your status</option>
+
+                    <option  *ngFor="let item of testimonial.test" [ngValue]="item.status"> {{item.status}}</option>
+
+                </select>
+            </li>
+        </ul>
+        <button (click)="update()">Update</button>
+    </form>
+</ng-template>
