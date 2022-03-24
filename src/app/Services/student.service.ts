@@ -8,6 +8,10 @@ export class StudentService {
 
   student:any=[];
 
+  status: any = [];
+  parentname: any = [];
+  busnumber: any = [];
+
   constructor(private http:HttpClient ) {  }
   getAll(){
     //show spinner 
@@ -15,6 +19,46 @@ export class StudentService {
     //hits Api 
       this.http.get('https://localhost:44346/api/student/getall').subscribe((res)=>{
       this.student=res;
+     // this.spinner.hide();
+    //  this.toastr.success('Data Retrieved !!');
+    },err=>{
+     // this.spinner.hide();
+     // this.toastr.error(err.message, err.status);
+    })
+  }
+
+  getGetRoundStatus(){
+    //show spinner 
+   // this.spinner.show();
+    //hits Api 
+      this.http.get('https://localhost:44346/api/student/GetRoundStatus').subscribe((res)=>{
+      this.status=res;
+     // this.spinner.hide();
+    //  this.toastr.success('Data Retrieved !!');
+    },err=>{
+     // this.spinner.hide();
+     // this.toastr.error(err.message, err.status);
+    })
+  }
+  GetBusNum(){
+    //show spinner 
+   // this.spinner.show();
+    //hits Api 
+      this.http.get('https://localhost:44346/api/student/GetBusNum').subscribe((res)=>{
+      this.busnumber=res;
+     // this.spinner.hide();
+    //  this.toastr.success('Data Retrieved !!');
+    },err=>{
+     // this.spinner.hide();
+     // this.toastr.error(err.message, err.status);
+    })
+  }
+  GetParentName(){
+    //show spinner 
+   // this.spinner.show();
+    //hits Api 
+      this.http.get('https://localhost:44346/api/student/getparentname').subscribe((res)=>{
+      this.parentname=res;
      // this.spinner.hide();
     //  this.toastr.success('Data Retrieved !!');
     },err=>{
@@ -38,7 +82,7 @@ export class StudentService {
   update(student:any){
     //  body.imagename=this.display_Image;
    
-      this.http.put('https://localhost:44346/api/student/update/',student).subscribe((res)=>{
+      this.http.put('https://localhost:44346/api/student/update',student).subscribe((res)=>{
       //  this.toastr.success('updated Successfully :)');
   
       },err=>{
