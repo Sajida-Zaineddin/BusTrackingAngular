@@ -84,4 +84,14 @@ export class TestimonialService {
         this.toastr.error(err.message, err.status);
       })
   }
+
+
+  delete(id: number) {
+    this.http.delete('https://localhost:44346/api/Testimonial/delete/' + id).subscribe((res) => {
+      this.toastr.success('Deleted Successfully :) ')
+    }, err => {
+      this.toastr.error(err.message, err.status);
+    })
+
+  }
 }
