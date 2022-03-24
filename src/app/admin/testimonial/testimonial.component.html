@@ -1,0 +1,112 @@
+<!-- <button (click)="openCreatedialog()">Create New  </button> -->
+<button (click)="openCreatedialog()">Create New </button>
+<table style="margin:0 auto">
+    <tr>
+        <th> Testimonial number </th>
+        <th> customer name </th>
+        <th> Feed back </th>
+        <th> Image </th>
+        <th> Testimonial Status </th>
+        <th> opr</th>
+    </tr>
+    <tr *ngFor="let testimonials of testimonial.data">
+        <td>{{testimonials.id}}</td>
+        <td>{{testimonials.name}}</td>
+        <td>{{testimonials.feedback }}</td>
+        <td><img src="../../../assets/images/{{testimonials.imagepath}}" style="height: 50px;width:50px;"></td>
+        <td>
+            {{testimonials.status}}
+        </td>
+        <td>
+            <button (click)="openUpdateDailog(testimonials.id,
+            testimonials.name,testimonials.feedback ,testimonials.status,testimonials.imagepath)">Update</button>
+        </td>
+    </tr>
+</table>
+
+
+<ng-template #callUpdateDailog>
+    <form [formGroup]="UpdateForm">
+        <ul>
+            <li>
+                <p>{{testtemonialsData.name}}</p>
+            </li>
+
+            <li>
+                <p>{{testtemonialsData.feedback}}</p>
+            </li>
+
+
+
+            <li>
+                <select formControlName="status">
+                    <option [ngValue]="null" disabled>Choose your status</option>
+
+                    <option *ngFor="let item of testimonial.test" [ngValue]="item.status"> {{item.status}}</option>
+
+                </select>
+            </li>
+        </ul>
+        <button (click)="update()">Update</button>
+    </form>
+</ng-template>
+
+
+
+
+<ng-template #callCreateDailog>
+    <h2 mat-dialog-title> Add Course </h2>
+    <mat-dialog-content class="mat-typography">
+
+        <form [formGroup]="CreateForm" class="example-form">
+            <ul>
+
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Your Name </mat-label>
+                        <input type="text" matInput formControlName="name" placeholder="name ">
+                        <mat-error *ngIf="CreateForm.controls['name'].hasError('required')">
+                            title is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+
+
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Your Feedback </mat-label>
+                        <input type="text" matInput formControlName="feedback" placeholder="feedback ">
+                        <mat-error *ngIf="CreateForm.controls['feedback'].hasError('required')">
+                            information is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+
+
+
+                <li>
+                    <input type="file" #file placeholder="Choose Image" formControlName="imagepath"
+                        (change)="uploadFile(file.files)" style="display:none;">
+                    <button class="btn btn-dark" (click)="file.click()">Upload Image</button>
+                </li>
+
+                <li>
+                    <select formControlName="status">
+                        <option [ngValue]="null" disabled>Choose your status</option>
+
+                        <option *ngFor="let item of testimonial.test" [ngValue]="item.status"> {{item.status}}</option>
+
+                    </select>
+
+                </li>
+            </ul>
+        </form>
+
+
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button class="btn btn-danger" mat-button mat-dialog-close>Cancel</button>
+        <button class="btn btn-success" mat-button [mat-dialog-close]="true" (click)="save()"
+            cdkFocusInitial>Save</button>
+    </mat-dialog-actions>
+</ng-template>
