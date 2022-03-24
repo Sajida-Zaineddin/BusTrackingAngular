@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContentComponent } from './content/content.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ManageBusComponent } from './manage-bus/manage-bus.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 
 const routes: Routes = [
@@ -14,10 +13,6 @@ const routes: Routes = [
   {
     path:'content',
     component:ContentComponent
-  },
-  {
-    path:'bus',
-    component:ManageBusComponent
   },
   {
     path:'aboutus',
