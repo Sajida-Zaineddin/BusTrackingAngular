@@ -10,6 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { TestimonialComponent } from './testimonial/testimonial.component';
     DashboardComponent,
     ManageBusComponent,
     AboutusComponent,
-    TestimonialComponent
+    TestimonialComponent,
+    UserComponent
   ],
   imports: [
     CommonModule,
