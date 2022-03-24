@@ -4,22 +4,22 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminRoutingModule } from './admin-routing.module';
 import { ContentComponent } from './content/content.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ManageBusComponent } from './manage-bus/manage-bus.component';
 import { SharedModule } from '../shared/shared.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { AboutusEditorComponent } from './aboutus-editor/aboutus-editor.component';
+import { BusComponent } from './bus/bus.component';
 
 @NgModule({
   declarations: [
     ContentComponent,
     DashboardComponent,
-    ManageBusComponent,
     AboutusComponent,
     TestimonialComponent,
-    AboutusEditorComponent
+    AboutusEditorComponent,
+    BusComponent
   ],
   imports: [
     CommonModule,

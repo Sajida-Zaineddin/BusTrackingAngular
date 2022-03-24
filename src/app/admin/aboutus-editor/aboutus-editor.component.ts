@@ -46,6 +46,8 @@ export class AboutusEditorComponent implements OnInit {
 
 
   save() {
+    console.log(this.CreateForm.value);
+    
     this.aboutuseEitor.createAboutusEditor(this.CreateForm.value);
     window.location.reload();
   }
