@@ -1,0 +1,36 @@
+table, th, td {
+    border: 1px solid;
+    
+  }
+  .container { 
+    height: 800px;
+    position: relative;
+ border: 3px solid green;  
+  }
+  
+  .center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  table {
+    height: 600px;
+    width: 600px;
+    text-align: center;
+}
+
+button.btn.btn-primary {
+  margin-left: 50px;
+  margin-top: 50px;
+}
+td {
+  padding: 14px;
+}
+
+button.btn.btn-dark {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
