@@ -11,10 +11,11 @@ import { TestimonialService } from 'src/app/services/testimonial.service';
 export class TestimonialComponent implements OnInit {
 
   @ViewChild('callUpdateDailog') callUpdateDailog! :TemplateRef<any>
-  @ViewChild('callCreateDailog') callCreateDailog! :TemplateRef<any>
   @ViewChild('callUpdateDailog') callUpdateDailodg! :TemplateRef<any>
-  testtemonialsData: any = {}
+  @ViewChild('callDeleteDialog') callDeleteDialog! :TemplateRef<any>
 
+  testtemonialsData: any = {}
+  
 
   UpdateForm:FormGroup=new FormGroup({
     id:new FormControl(),   
@@ -37,11 +38,7 @@ export class TestimonialComponent implements OnInit {
     }
   
  
-    openCreatedialog() {
-      this.testimonial.gettestStatus();
-      this.dialog.open(this.callCreateDailog)
-  
-    }
+
   
     openUpdateDailog(ids: any, namee: any, rev: any,stat:any ,imagename2: any) {
       
@@ -75,6 +72,7 @@ export class TestimonialComponent implements OnInit {
       console.log( this.testimonial.test);
       
       this.testimonial.updateTestimonial(this.UpdateForm.value);
+      window.location.reload();
     }
 
   
@@ -83,23 +81,25 @@ export class TestimonialComponent implements OnInit {
       console.log(this.CreateForm.value);
       
       this.testimonial.createTestimonial(this.CreateForm.value);
+      window.location.reload();
+    }
+
+
+    openDeleteDialog(testid: any) {
+      const dialogRef = this.dialog.open(this.callDeleteDialog);
+      dialogRef.afterClosed().subscribe((res) => {
+        if (res !== undefined) {
+          if (res == "yes") {
+            this.testimonial.delete(testid);
+            window.location.reload();
+          }
+          else if (res == "no")
+            console.log("Thank you ");
+  
+        }
+      })
   
     }
 
 
-    // openDeleteDialog(Aboutusid: any) {
-    //   const dialogRef = this.dialog.open(this.callDeleteDialog);
-    //   dialogRef.afterClosed().subscribe((res) => {
-    //     if (res !== undefined) {
-    //       if (res == "yes") {
-    //         this.home.delete(Aboutusid);
-    //         window.location.reload();
-    //       }
-    //       else if (res == "no")
-    //         console.log("Thank you ");
-  
-    //     }
-    //   })
-  
-    // }
   }
