@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AttendanceService } from 'src/app/Services/attendance.service';
 
 @Component({
   selector: 'app-manage-attendance',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManageAttendanceComponent implements OnInit {
 
-  constructor() { }
+  constructor(public home:AttendanceService) { }
 
   ngOnInit(): void {
+    this.home.getAll();
   }
 
 }
