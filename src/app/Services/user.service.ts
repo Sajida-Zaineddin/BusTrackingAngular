@@ -54,6 +54,9 @@ export class UserService {
 
 
   updateUser(body: any) {
+    if (this.display_Image != undefined) {
+      body.imagepath = this.display_Image;
+    }
     this.http.put('https://localhost:44346/api/User/Update/', body).subscribe((res) => {
       this.toastr.success('Updated Successfully :) ')
     }, err => {
@@ -61,7 +64,6 @@ export class UserService {
     })
   }
 
-  
   uploadAttachment(file: FormData) {
     this.http.post('https://localhost:44346/api/User/UploadImage/', file)
       .subscribe((res: any) => {
@@ -72,7 +74,6 @@ export class UserService {
         this.toastr.error(err.message, err.status);
       })
   }
-
 
   deleteUser(id: number) {
     this.http.delete('https://localhost:44346/api/User/Delete/' + id).subscribe((res) => {
