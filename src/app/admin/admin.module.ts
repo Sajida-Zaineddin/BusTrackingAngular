@@ -11,6 +11,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { AboutusEditorComponent } from './aboutus-editor/aboutus-editor.component';
 import { BusComponent } from './bus/bus.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { BusComponent } from './bus/bus.component';
     AboutusComponent,
     TestimonialComponent,
     AboutusEditorComponent,
-    BusComponent
+    BusComponent,
+    UserComponent
   ],
   imports: [
     CommonModule,
