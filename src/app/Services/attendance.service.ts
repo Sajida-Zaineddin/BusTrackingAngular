@@ -5,6 +5,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AttendanceService {
   attendance:any=[];
+
+  status: any = [];
+  name: any = [];
+  busnumber: any = [];
+
   constructor(private http:HttpClient) { }
   getAll(){
     //show spinner 
@@ -19,6 +24,48 @@ export class AttendanceService {
      // this.toastr.error(err.message, err.status);
     })
   }
+  GETATTENDANCESTATUS(){
+    //show spinner 
+   // this.spinner.show();
+    //hits Api 
+      this.http.get('https://localhost:44346/api/attendance/GetAttendance').subscribe((res)=>{
+      this.status=res;
+     // this.spinner.hide();
+    //  this.toastr.success('Data Retrieved !!');
+    },err=>{
+     // this.spinner.hide();
+     // this.toastr.error(err.message, err.status);
+    })
+  }
+  
+  GETSTUDENTNAME(){
+    //show spinner 
+   // this.spinner.show();
+    //hits Api 
+      this.http.get('https://localhost:44346/api/attendance/GetStudent').subscribe((res)=>{
+      this.name=res;
+     // this.spinner.hide();
+    //  this.toastr.success('Data Retrieved !!');
+    },err=>{
+     // this.spinner.hide();
+     // this.toastr.error(err.message, err.status);
+    })
+  }
+  
+  GETBUSNUMBER(){
+    //show spinner 
+   // this.spinner.show();
+    //hits Api 
+      this.http.get('https://localhost:44346/api/attendance/GetBusNum').subscribe((res)=>{
+      this.busnumber=res;
+     // this.spinner.hide();
+    //  this.toastr.success('Data Retrieved !!');
+    },err=>{
+     // this.spinner.hide();
+     // this.toastr.error(err.message, err.status);
+    })
+  }
+  
   
   create(attendance:any){
     //  this.spinner.show();

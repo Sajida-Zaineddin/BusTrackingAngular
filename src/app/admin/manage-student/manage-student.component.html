@@ -1,3 +1,6 @@
+<button class="btn btn-primary" style="color: red;" (click)="openCreatedialog()">Create New student  </button> 
+
+
 
 
 <table style="margin:0 auto">
@@ -121,10 +124,10 @@
 
                     <option *ngFor="let item2 of home.busnumber" [ngValue]="item2.busnumber"> {{item2.busnumber}}</option>
                 </select>
-                <select formControlName="parentname">
+                <select formControlName="parefullNamentname">
                     <option [ngValue]="null" disabled>Choose Parent Name</option>
 
-                    <option *ngFor="let item1 of home.parentname" [ngValue]="item1.parentname"> {{item1.parentname}}</option>
+                    <option *ngFor="let item1 of home.fullName" [ngValue]="item1.fullName"> {{item1.fullName}}</option>
            
                 </select>
            
@@ -144,3 +147,76 @@
     </mat-dialog-actions>
 
 </ng-template>
+
+<ng-template #callCreateDialog>
+    <h2 mat-dialog-title> Add student information </h2>
+    <mat-dialog-content class="mat-typography">
+
+        <form [formGroup]="CreateForm" class="example-form">
+            <ul>
+
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter the name </mat-label>
+                        <input type="text" matInput formControlName="name" placeholder="titel ">
+                        <mat-error *ngIf="CreateForm.controls['name'].hasError('required')">
+                            name is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter the xhome </mat-label>
+                        <input type="text" matInput formControlName="xhome" placeholder="titel ">
+                        <mat-error *ngIf="CreateForm.controls['xhome'].hasError('required')">
+                            xhome is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter the yhome </mat-label>
+                        <input type="text" matInput formControlName="yhome" placeholder="titel ">
+                        <mat-error *ngIf="CreateForm.controls['yhome'].hasError('required')">
+                            yhome is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter the grade </mat-label>
+                        <input type="text" matInput formControlName="grade" placeholder="titel ">
+                        <mat-error *ngIf="CreateForm.controls['grade'].hasError('required')">
+                            grade is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <select formControlName="status">
+                    <option [ngValue]="null" disabled>Choose Round status</option>
+
+                    <option *ngFor="let item of home.status" [ngValue]="item.status"> {{item.status}}</option>
+         
+                </select>
+                <select formControlName="busnumber">
+                    <option [ngValue]="null" disabled>Choose Bus Number</option>
+
+                    <option *ngFor="let item2 of home.busnumber" [ngValue]="item2.busnumber"> {{item2.busnumber}}</option>
+                </select>
+                <select formControlName="fullName">
+                    <option [ngValue]="null" disabled>Choose Parent Name</option>
+
+                    <option *ngFor="let item1 of home.fullName" [ngValue]="item1.fullName"> {{item1.fullName}}</option>
+           
+                </select>
+
+            </ul>
+        </form>
+        <mat-dialog-actions align="end">
+            <button mat-button mat-dialog-close>Cancel</button>
+            <button mat-button [mat-dialog-close]="true" (click)="save()" cdkFocusInitial>Save</button>
+        </mat-dialog-actions>
+
+
+    </mat-dialog-content>
+
+

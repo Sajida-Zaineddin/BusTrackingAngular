@@ -11,6 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class ManageStudentComponent implements OnInit {
   @ViewChild('callUpdateDailog') callUpdateDailog! :TemplateRef<any>
   @ViewChild('callDeleteDialog') callDeleteDialog! :TemplateRef<any>
+  @ViewChild('callCreateDialog') callCreateDialog! :TemplateRef<any>
 
   studentData: any = []
   student:any= [];
@@ -57,9 +58,6 @@ export class ManageStudentComponent implements OnInit {
   openUpdateDailog(id1: any, name1: any, xhome1: any,yhome1:any ,grade1:any,status1: any ,fullName1:any ,busnumber1:any) {
     console.log(id1,name1);
     this.home.update
-    // this.home.getGetRoundStatus();
-    // this.home.GetBusNum();
-    // this.home.GetParentName();
 
     this.studentData = {
       id: id1,
@@ -70,11 +68,11 @@ export class ManageStudentComponent implements OnInit {
       status:status1,
       fullName:fullName1,
       busnumber:busnumber1
- 
     }
 
-    this.UpdateForm.controls['id'].setValue(this.student.id1);
+
     this.dialog.open(this.callUpdateDailog)
+    this.UpdateForm.controls['id'].setValue(id1);
 
   }
   openDeleteDialog(id1: any) {
@@ -96,10 +94,6 @@ export class ManageStudentComponent implements OnInit {
     {
      
       this.home.update(this.UpdateForm.value);
-      // console.log( this.home.status);
-      // console.log( this.home.parentname);
-      // console.log( this.home.busnumber);
-      // this.home.update(this.UpdateForm.value);
 
       window.location.reload();
     }
@@ -107,11 +101,16 @@ export class ManageStudentComponent implements OnInit {
     save(){
       console.log(this.CreateForm.value);
       
-      this.student.create(this.CreateForm.value);
+      this.home.create(this.CreateForm.value);
       window.location.reload();
     }
 
-
+    openCreatedialog() {
+      this.home.getAll();
+      this.dialog.open(this.callCreateDialog)
+  
+    }
+  
   
 
 }

@@ -28,7 +28,8 @@ import { BusComponent } from './bus/bus.component';
     AboutusComponent,
     TestimonialComponent,
     AboutusEditorComponent,
-    BusComponent
+    BusComponent,
+
   ],
   imports: [
     CommonModule,

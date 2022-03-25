@@ -9,7 +9,7 @@ export class StudentService {
   student:any=[];
 
   status: any = [];
-  parentname: any = [];
+  fullName: any = [];
   busnumber: any = [];
 
   constructor(private http:HttpClient ) {  }
@@ -58,7 +58,7 @@ export class StudentService {
    // this.spinner.show();
     //hits Api 
       this.http.get('https://localhost:44346/api/student/getparentname').subscribe((res)=>{
-      this.parentname=res;
+      this.fullName=res;
      // this.spinner.hide();
     //  this.toastr.success('Data Retrieved !!');
     },err=>{
