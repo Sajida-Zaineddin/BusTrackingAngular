@@ -64,7 +64,8 @@ export class UserComponent implements OnInit {
     this.userservice.uploadAttachment(fromData);
   }
 
-  openCreatedialog() {
+  openCreateDialog() {
+    this.userservice.getRole();
     this.dialog.open(this.callCreateDialog)
   }
 
