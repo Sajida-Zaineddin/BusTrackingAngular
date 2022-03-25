@@ -15,6 +15,10 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { AboutusEditorComponent } from './aboutus-editor/aboutus-editor.component';
 import { BusComponent } from './bus/bus.component';
+import { UserComponent } from './user/user.component';
+import { LoginManegeDataComponent } from './login-manege-data/login-manege-data.component';
+import { RoleComponent } from './role/role.component';
+
 
 
 @NgModule({
@@ -29,6 +33,9 @@ import { BusComponent } from './bus/bus.component';
     TestimonialComponent,
     AboutusEditorComponent,
     BusComponent,
+    UserComponent,
+    RoleComponent,
+    LoginManegeDataComponent
 
   ],
   imports: [

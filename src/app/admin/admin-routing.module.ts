@@ -9,7 +9,11 @@ import { ManageAttendanceComponent } from './manage-attendance/manage-attendance
 import { ManageContactUsComponent } from './manage-contact-us/manage-contact-us.component';
 import { ManageFooterComponent } from './manage-footer/manage-footer.component';
 import { ManageStudentComponent } from './manage-student/manage-student.component';
+import { LoginManegeDataComponent } from './login-manege-data/login-manege-data.component';
+import { RoleComponent } from './role/role.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
+import { UserComponent } from './user/user.component';
+
 
 const routes: Routes = [
   {
@@ -48,9 +52,18 @@ const routes: Routes = [
     path:'aboutusEditor',
     component:AboutusEditorComponent
   },
-
-
-
+  {
+    path:'user',
+    component:UserComponent
+  },
+  {
+    path:'role',
+    component:RoleComponent
+  },
+  {
+    path:'loginManage',
+    component:LoginManegeDataComponent
+  }
 ];
 
 @NgModule({
