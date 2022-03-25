@@ -1,0 +1,130 @@
+<button class="btn btn-primary" (click)="openCreatedialog()">Create New </button>
+
+<table style="margin: 0 auto;">
+    <tr>
+        <th>ID</th>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Image</th>
+        <th>Role</th>
+        <th>Opreation</th>
+    </tr>
+    <tr *ngFor="let item of user.data">
+        <td>{{item.id}}</td>
+        <td>{{item.fullName}}</td>
+        <td>{{item.email}}</td>
+        <td>{{item.phone}}</td>
+        <td><img src="../../../assets/images/{{item.imagepath}}" style="height: 50px;width: 50px;"></td>
+        <td>{{item.rolename}}</td>
+        <td><button class="btn btn-danger" (click)="openDeleteDialog(item.id)">Delete</button>
+            <button class="btn btn-secondary" (click)="openUpdateDialog(item.id, item.name, item.mail, item.mobile, item.image, item.role)">Update</button>
+        </td>
+    </tr>
+</table>
+
+<ng-template #callCreateDialog>
+    <h2 mat-dialog-title> Add New User </h2>
+    <mat-dialog-content class="mat-typography">
+        <form [formGroup]="CreateForm" class="example-form">
+            <ul>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>User Full Name </mat-label>
+                        <input type="text" matInput formControlName="fullName" [(ngModel)]="userValues.fullName" placeholder="Enter User Full Name">
+                        <mat-error *ngIf="UpdateForm.controls['fullName'].hasError('required')">
+                            feild is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>User Email </mat-label>
+                        <input type="email" matInput formControlName="email" [(ngModel)]="userValues.email" placeholder="Enter User Email">
+                        <mat-error *ngIf="UpdateForm.controls['email'].hasError('required')">
+                            feild is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>User Phone </mat-label>
+                        <input type="text" matInput formControlName="phone" [(ngModel)]="userValues.phone" placeholder="Enter User Phone">
+                        <mat-error *ngIf="UpdateForm.controls['phone'].hasError('required')">
+                            feild is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <input type="file" #file placeholder="Choose Image" formControlName="imagepath" (change)="uploadFile(file.files)" style="display:none;">
+                    <button class="btn btn-dark" (click)="file.click()">Upload Image</button>
+                </li>
+                <li>
+                    <select formControlName="rolename">
+                        <option [ngValue]="null" disabled>Choose User Role</option>
+                        <option *ngFor="let item of user.data" [ngValue]="item.rolename">{{item.rolename}}</option>
+                    </select>
+                </li>
+            </ul>
+        </form>
+        <mat-dialog-actions align="end">
+            <button mat-button mat-dialog-close>Cancel</button>
+            <button mat-button [mat-dialog-close]="true" (click)="save()" cdkFocusInitial>Save</button>
+        </mat-dialog-actions>
+    </mat-dialog-content>
+</ng-template>
+
+
+<ng-template #callUpdateDialog>
+    <form [formGroup]="UpdateForm">
+        <ul>
+            <li>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>User Full Name </mat-label>
+                    <input type="text" matInput formControlName="fullName" [(ngModel)]="userValues.fullName" placeholder="Enter User Full Name">
+                    <mat-error *ngIf="UpdateForm.controls['fullName'].hasError('required')">
+                        feild is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </li>
+            <li>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>User Email </mat-label>
+                    <input type="email" matInput formControlName="email" [(ngModel)]="userValues.email" placeholder="Enter User Email">
+                    <mat-error *ngIf="UpdateForm.controls['email'].hasError('required')">
+                        feild is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </li>
+            <li>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>User Phone </mat-label>
+                    <input type="text" matInput formControlName="phone" [(ngModel)]="userValues.phone" placeholder="Enter User Phone">
+                    <mat-error *ngIf="UpdateForm.controls['phone'].hasError('required')">
+                        feild is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </li>
+            <li>
+                <input type="file" #file placeholder="Choose Image" formControlName="imagepath" (change)="uploadFile(file.files)" style="display:none;">
+                <button class="btn btn-dark" (click)="file.click()">Upload Image</button>
+            </li>
+            <li>
+                <select formControlName="rolename">
+                    <option [ngValue]="null" disabled>Choose User Role</option>
+                    <option *ngFor="let item of user.data" [ngValue]="item.rolename">{{item.rolename}}</option>
+                </select>
+            </li>
+        </ul>
+        <button class="btn btn-success" mat-button [mat-dialog-close]="true" (click)="update()">Update</button>
+    </form>
+</ng-template>
+
+
+<ng-template #callDeleteDialog>
+    <h2>Are You Sure You Want To Delete This Item</h2>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close="no">No</button>
+        <button mat-button mat-dialog-close="yes">yes</button>
+    </mat-dialog-actions>
+</ng-template>

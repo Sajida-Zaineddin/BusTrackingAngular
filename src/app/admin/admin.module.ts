@@ -11,7 +11,10 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { AboutusEditorComponent } from './aboutus-editor/aboutus-editor.component';
 import { BusComponent } from './bus/bus.component';
+import { RoleComponent } from './role/role.component';
+import { UserComponent } from './user/user.component';
 import { LoginManegeDataComponent } from './login-manege-data/login-manege-data.component';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { LoginManegeDataComponent } from './login-manege-data/login-manege-data.
     TestimonialComponent,
     AboutusEditorComponent,
     BusComponent,
+    UserComponent,
+    RoleComponent,
     LoginManegeDataComponent
+
   ],
   imports: [
     CommonModule,
