@@ -10,7 +10,7 @@
         <th>Role</th>
         <th>Opreation</th>
     </tr>
-    <tr *ngFor="let item of user.data">
+    <tr *ngFor="let item of userservice.data">
         <td>{{item.id}}</td>
         <td>{{item.fullName}}</td>
         <td>{{item.email}}</td>
@@ -62,7 +62,7 @@
                 <li>
                     <select formControlName="rolename">
                         <option [ngValue]="null" disabled>Choose User Role</option>
-                        <option *ngFor="let item of user.data" [ngValue]="item.rolename">{{item.rolename}}</option>
+                        <option *ngFor="let item of userservice.user" [ngValue]="item.rolename">{{item.rolename}}</option>
                     </select>
                 </li>
             </ul>
@@ -112,7 +112,7 @@
             <li>
                 <select formControlName="rolename">
                     <option [ngValue]="null" disabled>Choose User Role</option>
-                    <option *ngFor="let item of user.data" [ngValue]="item.rolename">{{item.rolename}}</option>
+                    <option *ngFor="let item of userservice.user" [ngValue]="item.rolename">{{item.rolename}}</option>
                 </select>
             </li>
         </ul>

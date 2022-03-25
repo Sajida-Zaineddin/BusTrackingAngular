@@ -33,22 +33,24 @@ export class UserComponent implements OnInit {
     rolename: new FormControl('', Validators.required)
   })
 
-  constructor(private dialog:MatDialog, public user:UserService) { }
+  constructor(private dialog:MatDialog, public userservice:UserService) { }
 
   ngOnInit(): void {
-    this.user.getUsers();
+    this.userservice.getUsers();
   }
 
   save()
   {
     console.log(this.CreateForm.value);
-    this.user.createUser(this.CreateForm.value);
+    this.userservice.createUser(this.CreateForm.value);
     window.location.reload();
   }
 
   update()
   {
-    this.user.updateUser(this.UpdateForm.value);
+    console.log( this.userservice.user);
+
+    this.userservice.updateUser(this.UpdateForm.value);
     window.location.reload();
   }
 
@@ -59,7 +61,7 @@ export class UserComponent implements OnInit {
     const uploadfile=<File>file[0];
     const formData=new FormData();
     formData.append('file',uploadfile,uploadfile.name);
-    this.user.uploadAttachment(formData);
+    this.userservice.uploadAttachment(formData);
   }
 
   openCreatedialog() {
@@ -71,7 +73,7 @@ export class UserComponent implements OnInit {
     dialogRef.afterClosed().subscribe((res) => {
       if (res !== undefined) {
         if (res == "yes") {
-          this.user.deleteUser(userId);
+          this.userservice.deleteUser(userId);
           window.location.reload();
         }
         else if (res == "no")
@@ -80,16 +82,17 @@ export class UserComponent implements OnInit {
     })
   }
 
-  openUpdateDialog(id: any, name: any, mail: any, mobile: any, image: any, role: any) {
+  openUpdateDialog(ids: any, name: any, mail: any, mobile: any, image: any, role: any) {
+    this.userservice.getRole();
     this.userValues = {
-      id: id,
+      id: ids,
       fullName: name,
       email: mail,
       phone: mobile,
       imagepath: image,
       rolename: role,
     }
-    this.UpdateForm.controls['id'].setValue(id);
+    this.UpdateForm.controls['id'].setValue(ids);
     this.UpdateForm.controls['fullName'].setValue(name);
     this.UpdateForm.controls['email'].setValue(mail);
     this.UpdateForm.controls['phone'].setValue(mobile);
