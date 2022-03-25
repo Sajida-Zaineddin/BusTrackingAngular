@@ -2,17 +2,17 @@
 
 <table style="margin: 0 auto;">
     <tr>
-        <th>ID</th>
+
         <th>Bus Number </th>
         <th>Driver Name </th>
         <th>Teacher Name </th>
         <th>Opreation</th>
     </tr>
     <tr *ngFor="let item of busservice.data;let i=index">
-        <td>{{busservice.data[i].id}}</td>
-        <td>{{item.busnumber}}</td>
-        <td>{{item.busdriver}}</td>
-        <td>{{item.busteacher}}</td>
+
+        <td>{{busservice.busDrivers[i].busnumber}}</td>
+        <td>{{busservice.busDrivers[i].fullName}}</td>
+        <td>{{busservice.busTeachers[i].fullName}}</td>
 
         <td><button class="btn btn-danger" (click)="openDeleteDialog(item.id)">Delete</button>
 

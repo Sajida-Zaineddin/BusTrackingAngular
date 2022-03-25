@@ -34,6 +34,8 @@ export class BusComponent implements OnInit {
   })
 
   ngOnInit(): void {
+    this.busservice.getBusDrivers();
+    this.busservice.getBusTeachers();
     this.busservice.getAll();
     
   }

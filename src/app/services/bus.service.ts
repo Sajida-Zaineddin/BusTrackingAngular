@@ -16,6 +16,8 @@ export class BusService {
   teachers: any =[];
   drivers : any = [];
 
+  busTeachers: any =[];
+  busDrivers : any = [];
 
   getAll() {
     //show spinner
@@ -105,5 +107,42 @@ export class BusService {
     })
 
   }
+
+
+  getBusDrivers() {
+    //show spinner
+    this.spinner.show();
+    //hite api
+    this.http.get('https://localhost:44346/api/Bus/GetBusDrivers/').subscribe((res) => {
+      this.busDrivers = res;
+      //hide spinner
+      this.spinner.hide();
+      // res --> show toastr
+      this.toastr.success('Data Retrieved !!');
+    }, err => {
+      this.spinner.hide();
+      this.toastr.error('Error ')
+    })
+
+  }
+  
+
+  getBusTeachers() {
+    //show spinner
+    this.spinner.show();
+    //hite api
+    this.http.get('https://localhost:44346/api/Bus/GetBusTeachers/').subscribe((res) => {
+      this.busTeachers = res;
+      //hide spinner
+      this.spinner.hide();
+      // res --> show toastr
+      this.toastr.success('Data Retrieved !!');
+    }, err => {
+      this.spinner.hide();
+      this.toastr.error('Error ')
+    })
+
+  }
+  
 
 }
