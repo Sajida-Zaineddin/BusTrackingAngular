@@ -13,6 +13,7 @@ import { AboutusEditorComponent } from './aboutus-editor/aboutus-editor.componen
 import { BusComponent } from './bus/bus.component';
 import { RoleComponent } from './role/role.component';
 import { UserComponent } from './user/user.component';
+import { LoginManegeDataComponent } from './login-manege-data/login-manege-data.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { UserComponent } from './user/user.component';
     AboutusEditorComponent,
     BusComponent,
     UserComponent,
-    RoleComponent
+    RoleComponent,
+    LoginManegeDataComponent
 
   ],
   imports: [

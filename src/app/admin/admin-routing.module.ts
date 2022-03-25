@@ -5,6 +5,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { BusComponent } from './bus/bus.component';
 import { ContentComponent } from './content/content.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginManegeDataComponent } from './login-manege-data/login-manege-data.component';
 import { RoleComponent } from './role/role.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { UserComponent } from './user/user.component';
@@ -42,6 +43,10 @@ const routes: Routes = [
   {
     path:'role',
     component:RoleComponent
+  },
+  {
+    path:'loginManage',
+    component:LoginManegeDataComponent
   }
 ];
 
