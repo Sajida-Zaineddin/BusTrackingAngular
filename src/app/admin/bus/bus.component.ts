@@ -1,7 +1,7 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { BusService } from 'src/app/services/bus.service';
+import { BusService } from 'src/app/Services/bus.service';
 
 @Component({
   selector: 'app-bus',
