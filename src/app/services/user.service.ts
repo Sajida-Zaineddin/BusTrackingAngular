@@ -7,6 +7,7 @@ import { ToastrService } from 'ngx-toastr';
   providedIn: 'root'
 })
 export class UserService {
+
   constructor(private http: HttpClient, private spinner: NgxSpinnerService, private toastr: ToastrService) { }
 
   display_Image: any;
@@ -14,22 +15,20 @@ export class UserService {
   results: any = [];
   user: any = [];
 
-
-   getUserRole() {
-    this.http.get('https://localhost:44346/api/user/GetRole')
+  getRole() {
+    this.http.get('https://localhost:44346/api/User/GetRole')
       .subscribe((res) => {
         console.log(res)
         this.user = res;
         this.toastr.success('Successfully :) ')
       }, err => {
-        this.toastr.error('Something Error ');
+        this.toastr.error('something error ');
       })
-
     console.log(this.user);
   }
 
   getUsers() {
-    this.http.get('https://localhost:44346/api/user/GetAll')
+    this.http.get('https://localhost:44346/api/User/GetAll')
       .subscribe((res) => {
         console.log(res)
         this.data = res;
@@ -37,17 +36,14 @@ export class UserService {
       }, err => {
         this.toastr.error('something error ');
       })
-
     console.log(this.data);
   }
 
   createUser(data: any) {
     this.spinner.show();
-
     data.imagepath = this.display_Image;
-    this.http.post('https://localhost:44346/api/user/Create/', data)
+    this.http.post('https://localhost:44346/api/User/Create/', data)
       .subscribe((res: any) => {
-
         this.spinner.hide();
         this.toastr.success('Saved Successfully :) ')
       }, err => {
@@ -58,17 +54,18 @@ export class UserService {
 
 
   updateUser(body: any) {
-
-    this.http.put('https://localhost:44346/api/user/Update/', body).subscribe((res) => {
+    if (this.display_Image != undefined) {
+      body.imagepath = this.display_Image;
+    }
+    this.http.put('https://localhost:44346/api/User/Update/', body).subscribe((res) => {
       this.toastr.success('Updated Successfully :) ')
     }, err => {
-      this.toastr.error('Something Error ');
+      this.toastr.error('something error ');
     })
   }
 
-  
   uploadAttachment(file: FormData) {
-    this.http.post('https://localhost:44346/api/user/UploadImage/', file)
+    this.http.post('https://localhost:44346/api/User/UploadImage/', file)
       .subscribe((res: any) => {
         if (res)
           console.log(res);
@@ -77,5 +74,12 @@ export class UserService {
         this.toastr.error(err.message, err.status);
       })
   }
-}
 
+  deleteUser(id: number) {
+    this.http.delete('https://localhost:44346/api/User/Delete/' + id).subscribe((res) => {
+      this.toastr.success('Deleted Successfully :) ')
+    }, err => {
+      this.toastr.error(err.message, err.status);
+    })
+  }
+}
