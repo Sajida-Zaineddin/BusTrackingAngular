@@ -5,8 +5,10 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { BusComponent } from './bus/bus.component';
 import { ContentComponent } from './content/content.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { RoleComponent } from './role/role.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { UserComponent } from './user/user.component';
+
 
 const routes: Routes = [
   {
@@ -37,6 +39,10 @@ const routes: Routes = [
     path:'user',
     component:UserComponent
   },
+  {
+    path:'role',
+    component:RoleComponent
+  }
 ];
 
 @NgModule({
