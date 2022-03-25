@@ -34,7 +34,8 @@ export class BusComponent implements OnInit {
   })
 
   ngOnInit(): void {
-    this.busservice.getAll()
+    this.busservice.getAll();
+    
   }
 
 
@@ -45,7 +46,8 @@ export class BusComponent implements OnInit {
   }
 
   openCreatedialog() {
-
+    this.busservice.getDrivers();
+    this.busservice.getTeachers();
     this.dialog.open(this.callCreateDialog)
 
   }

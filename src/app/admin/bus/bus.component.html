@@ -34,7 +34,7 @@
 
             <li>
                 <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>Enter the title </mat-label>
+                    <mat-label>Enter the bus number </mat-label>
                     <input type="number" matInput formControlName="busnumber" [(ngModel)]="busValues.busnumber" placeholder="busnumber ">
                     <mat-error *ngIf="updatForm.controls['busnumber'].hasError('required')">
                         title is <strong>required</strong>
@@ -89,37 +89,34 @@
 
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter the title </mat-label>
-                        <input type="text" matInput formControlName="titel" placeholder="titel ">
-                        <mat-error *ngIf="CreateForm.controls['titel'].hasError('required')">
+                        <mat-label>Enter the bus number </mat-label>
+                        <input type="number" matInput formControlName="busnumber" [(ngModel)]="busValues.busnumber" placeholder="busnumber ">
+                        <mat-error *ngIf="updatForm.controls['busnumber'].hasError('required')">
                             title is <strong>required</strong>
                         </mat-error>
                     </mat-form-field>
                 </li>
+
                 <li>
-
-
-                    <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter the information </mat-label>
-                        <input type="text" matInput formControlName="text" placeholder="text">
-                        <mat-error *ngIf="CreateForm.controls['text'].hasError('required')">
-                            information is <strong>required</strong>
-                        </mat-error>
-                    </mat-form-field>
+                    <label for="driver">Choose a driver:</label>
+                    <select formControlName="busdriver">
+                            <option [ngValue]="null" disabled>Choose your bus driver</option>
+        
+                            <option *ngFor="let item of busservice.drivers" [ngValue]="item.id"> {{item.fullName}}</option>
+        
+                        </select>
                 </li>
+
                 <li>
+                    <label for="teacher">Choose a teacher:</label>
+                    <select formControlName="busteacher">
+                            <option [ngValue]="null" disabled>Choose the teacher</option>
+        
+                            <option *ngFor="let item of busservice.teachers" [ngValue]="item.id"> {{item.fullName}}</option>
+        
+                        </select>
+                </li>
 
-
-
-
-                    <li>
-                        <!-- <select formControlName="aboutid">
-                                <option [ngValue]="null" disabled>Choose your status</option>
-            
-                                <option *ngFor="let item of aboutuseEitor.abId" [ngValue]="item.id"> {{item.id}}</option>
-            
-                            </select> -->
-                    </li>
             </ul>
         </form>
         <mat-dialog-actions align="end">
