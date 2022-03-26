@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild  } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { UserService } from 'src/app/services/user.service';
@@ -16,6 +16,8 @@ export class UserComponent implements OnInit {
 
   userValues: any = {}
 
+  constructor(private dialog:MatDialog, public userservice:UserService) { }
+
   CreateForm: FormGroup = new FormGroup({
     fullName: new FormControl('', Validators.required),
     email: new FormControl('', Validators.required),
@@ -26,14 +28,12 @@ export class UserComponent implements OnInit {
 
   UpdateForm: FormGroup = new FormGroup({
     id: new FormControl(),
-    fullName: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.required),
-    phone: new FormControl('', Validators.required),
+    fullName: new FormControl(),
+    email: new FormControl(),
+    phone: new FormControl(),
     imagepath: new FormControl(),
-    rolename: new FormControl('', Validators.required)
+    rolename: new FormControl()
   })
-
-  constructor(private dialog:MatDialog, public userservice:UserService) { }
 
   ngOnInit(): void {
     this.userservice.getUsers();
@@ -49,22 +49,23 @@ export class UserComponent implements OnInit {
   update()
   {
     console.log( this.userservice.user);
-
     this.userservice.updateUser(this.UpdateForm.value);
     window.location.reload();
   }
 
   uploadFile(file:any)
   {
-    if(file.length===0)
-    return;
-    const uploadfile=<File>file[0];
-    const formData=new FormData();
-    formData.append('file',uploadfile,uploadfile.name);
-    this.userservice.uploadAttachment(formData);
+    if(file.length===0){
+      return;
+    }
+    let fileUpload=<File>file[0];
+    const fromData=new FormData();
+    fromData.append('file',fileUpload,fileUpload.name);
+    this.userservice.uploadAttachment(fromData);
   }
 
-  openCreatedialog() {
+  openCreateDialog() {
+    this.userservice.getRole();
     this.dialog.open(this.callCreateDialog)
   }
 
@@ -83,7 +84,7 @@ export class UserComponent implements OnInit {
   }
 
   openUpdateDialog(ids: any, name: any, mail: any, mobile: any, image: any, role: any) {
-    this.userservice.getRole();
+   
     this.userValues = {
       id: ids,
       fullName: name,
@@ -98,6 +99,7 @@ export class UserComponent implements OnInit {
     this.UpdateForm.controls['phone'].setValue(mobile);
     this.UpdateForm.controls['imagepath'].setValue(image);
     this.UpdateForm.controls['rolename'].setValue(role);
+    this.userservice.getRole();
     this.dialog.open(this.callUpdateDialog)
   }
 }
