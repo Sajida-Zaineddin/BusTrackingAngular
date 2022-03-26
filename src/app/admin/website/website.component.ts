@@ -25,7 +25,7 @@ export class WebsiteComponent implements OnInit {
     aboutusid: new FormControl('', Validators.required)
   })
 
-  UpdatForm: FormGroup = new FormGroup({
+  UpdateForm: FormGroup = new FormGroup({
     id: new FormControl(),
     websitename: new FormControl(),
     websitelogo: new FormControl(),
@@ -40,6 +40,11 @@ export class WebsiteComponent implements OnInit {
   save() {
     console.log(this.CreateForm.value);
     this.webService.createWebsite(this.CreateForm.value);
+    window.location.reload();
+  }
+
+  updateWeb() {
+    this.webService.updateWebsite(this.UpdateForm.value);
     window.location.reload();
   }
 
@@ -58,11 +63,11 @@ export class WebsiteComponent implements OnInit {
       aboutusid: aId
     }
     console.log("website.websitelogo", this.website.imagepath);
-    this.UpdatForm.controls['id'].setValue(ids);
-    this.UpdatForm.controls['websitename'].setValue(name);
-    this.UpdatForm.controls['websitelogo'].setValue(image);
-    this.UpdatForm.controls['contactusid'].setValue(cId);
-    this.UpdatForm.controls['aboutusid'].setValue(aId);
+    this.UpdateForm.controls['id'].setValue(ids);
+    this.UpdateForm.controls['websitename'].setValue(name);
+    this.UpdateForm.controls['websitelogo'].setValue(image);
+    this.UpdateForm.controls['contactusid'].setValue(cId);
+    this.UpdateForm.controls['aboutusid'].setValue(aId);
     this.webService.getContactId();
     this.webService.getAboutId();
     this.dialog.open(this.callUpdateDialog)
@@ -92,10 +97,4 @@ export class WebsiteComponent implements OnInit {
     fromData.append('file', fileUpload, fileUpload.name);
     this.webService.uploadAttachment(fromData);
   }
-
-  updateWeb() {
-    this.webService.updateWebsite(this.UpdatForm.value);
-    window.location.reload();
-  }
-
 }

@@ -25,7 +25,7 @@ export class WebsiteHomeComponent implements OnInit {
     websiteid: new FormControl('', Validators.required)
   })
 
-  UpdatForm: FormGroup = new FormGroup({
+  UpdateForm: FormGroup = new FormGroup({
     id: new FormControl(),
     titel: new FormControl(),
     text: new FormControl(),
@@ -43,8 +43,13 @@ export class WebsiteHomeComponent implements OnInit {
     window.location.reload();
   }
 
+  updateWebHome() {
+    this.webHomeService.updateWebHome(this.UpdateForm.value);
+    window.location.reload();
+  }
+
   openCreatedialog() {
-    this.webHomeService.getWebHomeId();
+    this.webHomeService.getWebId();
     this.dialog.open(this.callCreateDialog)
   }
 
@@ -57,21 +62,21 @@ export class WebsiteHomeComponent implements OnInit {
       websiteid: wid
     }
     console.log("web.imagepath", this.web.imagepath);
-    this.UpdatForm.controls['id'].setValue(ids);
-    this.UpdatForm.controls['titel'].setValue(tit);
-    this.UpdatForm.controls['text'].setValue(txt);
-    this.UpdatForm.controls['imagepath'].setValue(image);
-    this.UpdatForm.controls['websiteid'].setValue(wid);
-    this.webHomeService.getWebHomeId();
+    this.UpdateForm.controls['id'].setValue(ids);
+    this.UpdateForm.controls['titel'].setValue(tit);
+    this.UpdateForm.controls['text'].setValue(txt);
+    this.UpdateForm.controls['imagepath'].setValue(image);
+    this.UpdateForm.controls['websiteid'].setValue(wid);
+    this.webHomeService.getWebId();
     this.dialog.open(this.callUpdateDialog)
   }
 
-  openDeleteDialog(Aboutusid: any) {
+  openDeleteDialog(webHomeId: any) {
     const dialogRef = this.dialog.open(this.callDeleteDialog);
     dialogRef.afterClosed().subscribe((res) => {
       if (res !== undefined) {
         if (res == "yes") {
-          this.webHomeService.deleteWebHome(Aboutusid);
+          this.webHomeService.deleteWebHome(webHomeId);
           window.location.reload();
         }
         else if (res == "no")
@@ -89,10 +94,5 @@ export class WebsiteHomeComponent implements OnInit {
     const fromData = new FormData();
     fromData.append('file', fileUpload, fileUpload.name);
     this.webHomeService.uploadAttachment(fromData);
-  }
-
-  updateWebHome() {
-    this.webHomeService.updateWebHome(this.UpdatForm.value);
-    window.location.reload();
   }
 }
