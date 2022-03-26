@@ -30,7 +30,7 @@ export class WebsiteHomeService {
     })
   }
 
-  getWebHomeId() {
+  getWebId() {
     //show spinner
     this.spinner.show();
     //hite api
