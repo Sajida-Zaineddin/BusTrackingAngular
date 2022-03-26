@@ -32,6 +32,10 @@ const routes: Routes = [
     path:'admin',
     loadChildren:()=>AdminModule
   },
+  {
+    path:'auth',
+    loadChildren:()=>AuthModule
+  },
 ];
 
 @NgModule({

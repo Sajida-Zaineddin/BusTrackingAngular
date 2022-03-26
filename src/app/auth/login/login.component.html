@@ -9,14 +9,14 @@
         <div class="content">
             <form method="POST" action="#" [formGroup]="registerForm">
 
-                <input id="email" type="email" formControlName="email" name="youremail" title="email" placeholder="Your Email" [value]="youremail">
+                <input id="email" type="email" formControlName="email" name="youremail" title="email" placeholder="Your Email" [(ngModel)]="youremail">
                 <mat-error *ngIf="registerForm.controls['email'].hasError('email') && !registerForm.controls['email'].hasError('required')">
                     Please enter a valid email
                 </mat-error>
                 <mat-error *ngIf="registerForm.controls['email'].hasError('required')">
                     email is <strong>required</strong>
                 </mat-error>
-                <input id="password" type="password" formControlName="password" name="yourPassword" title="password" placeholder="Your password" value={{yourPassword}} >
+                <input id="password" type="password" formControlName="password" name="yourPassword" title="password" placeholder="Your password" [(ngModel)]="yourPassword">
                 <mat-error *ngIf="registerForm.controls['password'].hasError('minlength') && !registerForm.controls['password'].hasError('required')">
                     Please enter a valid password
                 </mat-error>

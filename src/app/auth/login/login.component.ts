@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +8,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  
-  youremail = localStorage.getItem('email')
-  yourPassword = localStorage.getItem('password')
+
+
+  public youremail: any = localStorage.getItem('email');
+  public yourPassword: any = localStorage.getItem('password');
 
   registerForm: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -17,7 +19,9 @@ export class LoginComponent implements OnInit {
     rememberMe: new FormControl('')
 
   })
-  constructor() { }
+  constructor(public auth: AuthService) { }
+
+
 
   ngOnInit(): void {
   }
@@ -25,10 +29,10 @@ export class LoginComponent implements OnInit {
 
     if (this.registerForm.controls['rememberMe'].value == true) {
       this.checkCheckBoxvalue()
-      console.log(localStorage.getItem('email'));
-      console.log(localStorage.getItem('password'));
-      
-    }  
+
+    }
+    this.auth.submit(this.registerForm, this.registerForm.controls['email'].value, this.registerForm.controls['password'].value)
+
 
   }
 
@@ -39,5 +43,5 @@ export class LoginComponent implements OnInit {
 
   }
 
- 
+
 }
