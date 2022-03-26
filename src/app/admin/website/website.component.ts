@@ -73,12 +73,12 @@ export class WebsiteComponent implements OnInit {
     this.dialog.open(this.callUpdateDialog)
   }
 
-  openDeleteDialog(id: any) {
+  openDeleteDialog(webId: any) {
     const dialogRef = this.dialog.open(this.callDeleteDialog);
     dialogRef.afterClosed().subscribe((res) => {
       if (res !== undefined) {
         if (res == "yes") {
-          this.webService.deleteWebsite(id);
+          this.webService.deleteWebsite(webId);
           window.location.reload();
         }
         else if (res == "no")
