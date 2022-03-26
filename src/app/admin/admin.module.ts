@@ -18,6 +18,8 @@ import { BusComponent } from './bus/bus.component';
 import { UserComponent } from './user/user.component';
 import { LoginManegeDataComponent } from './login-manege-data/login-manege-data.component';
 import { RoleComponent } from './role/role.component';
+import { WebsiteComponent } from './website/website.component';
+import { WebsiteHomeComponent } from './website-home/website-home.component';
 
 
 
@@ -35,7 +37,9 @@ import { RoleComponent } from './role/role.component';
     BusComponent,
     UserComponent,
     RoleComponent,
-    LoginManegeDataComponent
+    LoginManegeDataComponent,
+    WebsiteComponent,
+    WebsiteHomeComponent
 
   ],
   imports: [

@@ -13,6 +13,8 @@ import { LoginManegeDataComponent } from './login-manege-data/login-manege-data.
 import { RoleComponent } from './role/role.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { UserComponent } from './user/user.component';
+import { WebsiteHomeComponent } from './website-home/website-home.component';
+import { WebsiteComponent } from './website/website.component';
 
 
 const routes: Routes = [
@@ -63,7 +65,15 @@ const routes: Routes = [
   {
     path:'loginManage',
     component:LoginManegeDataComponent
-  }
+  },
+  {
+    path:'webHome',
+    component:WebsiteHomeComponent
+  },
+  {
+    path:'website',
+    component:WebsiteComponent
+  },
 ];
 
 @NgModule({
