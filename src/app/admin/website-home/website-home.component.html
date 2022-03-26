@@ -24,7 +24,6 @@
 <ng-template #callCreateDialog>
     <h2 mat-dialog-title> Add New Website Home</h2>
     <mat-dialog-content class="mat-typography">
-
         <form [formGroup]="CreateForm" class="example-form">
             <ul>
                 <li>
@@ -53,7 +52,7 @@
                 <li>
                     <select formControlName="websiteid">
                         <option [ngValue]="null" disabled>Choose ID</option>
-                        <option *ngFor="let item of webHomeService.webId" [ngValue]="item.id"> {{item.id}}</option>
+                        <option *ngFor="let item of webHomeService.webId" [ngValue]="item.id">{{item.id}}</option>
                     </select>
                 </li>
             </ul>
@@ -66,13 +65,13 @@
 </ng-template>
 
 <ng-template #callUpdateDialog>
-    <form [formGroup]="UpdatForm">
+    <form [formGroup]="UpdateForm">
         <ul>
             <li>
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>The Title </mat-label>
                     <input type="text" matInput formControlName="titel" [(ngModel)]="web.titel" placeholder="Enter Titel">
-                    <mat-error *ngIf="UpdatForm.controls['titel'].hasError('required')">
+                    <mat-error *ngIf="UpdateForm.controls['titel'].hasError('required')">
                         title is <strong>required</strong>
                     </mat-error>
                 </mat-form-field>
@@ -81,7 +80,7 @@
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>The Information </mat-label>
                     <input type="text" matInput formControlName="text" [(ngModel)]="web.text" placeholder="Enter Information">
-                    <mat-error *ngIf="UpdatForm.controls['text'].hasError('required')">
+                    <mat-error *ngIf="UpdateForm.controls['text'].hasError('required')">
                         information is <strong>required</strong>
                     </mat-error>
                 </mat-form-field>

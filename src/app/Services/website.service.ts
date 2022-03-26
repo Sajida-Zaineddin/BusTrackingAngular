@@ -65,7 +65,7 @@ export class WebsiteService {
 
   createWebsite(data: any) {
     this.spinner.show();
-    data.imagepath = this.display_Image;
+    data.websitelogo = this.display_Image;
     this.http.post('https://localhost:44346/api/Website/Create/', data)
       .subscribe((res: any) => {
         this.spinner.hide();
@@ -78,7 +78,7 @@ export class WebsiteService {
 
   updateWebsite(body: any) {
     if (this.display_Image != undefined) {
-      body.imagepath = this.display_Image;
+      body.websitelogo = this.display_Image;
     }
     this.http.put('https://localhost:44346/api/Website/Update/', body).subscribe((res) => {
       this.toastr.success('Updated Successfully :) ')
@@ -100,7 +100,7 @@ export class WebsiteService {
       .subscribe((res: any) => {
         if (res)
           console.log(res);
-        this.display_Image = res.imagepath;
+        this.display_Image = res.websitelogo;
       }, err => {
         this.toastr.error(err.message, err.status);
       })
