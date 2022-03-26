@@ -37,10 +37,16 @@
     <form [formGroup]="UpdateForm">
         <ul>
             <li>
+                <select formControlName="fullName">
+                    <option [ngValue]="null" disabled>Choose student Name</option>
+
+                    <option *ngFor="let item1 of home.name" [ngValue]="item1.name"> {{item1.name}}</option>
+           
+                </select>
                 <h3 style="color: red;"> 
                     <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter Student name</mat-label>
-                        <input type="text" matInput formControlName="name"
+                        <mat-label>Enter Date of attendance</mat-label>
+                        <input type="date" matInput formControlName="dateofattendance"
                          [(ngModel)]="attendanceData.dateofattendance">
                       </mat-form-field>
                     </h3>
@@ -49,45 +55,25 @@
 
       
    
-            <li>
-                <h3 style="color: red;">
-                    <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter Student grade</mat-label>
-                        <input type="text" matInput formControlName="grade"
-                         [(ngModel)]="attendanceData.status">
-                      </mat-form-field>
-                </h3>
-   
-                <h3 style="color: red;">
-                    <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter Student status</mat-label>
-                        <input type="text" matInput formControlName="status"
-                         [(ngModel)]="attendanceData.status">
-                      </mat-form-field>
-                </h3>
-   
-            </li>
-
-            
-            <li>
-                <h3 style="color: red;">
-                    <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter parent fullName</mat-label>
-                        <input type="text" matInput formControlName="fullName"
-                         [(ngModel)]="attendanceData.name">
-                      </mat-form-field>
-                </h3>
-                <h3 style="color: red;">
-                    <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter bus number </mat-label>
-                        <input type="number" matInput formControlName="busnumber"
-                         [(ngModel)]="attendanceData.busnumber">
-                      </mat-form-field>
-                </h3>
-              
            
-            </li>
-            
+   
+        
+
+                <select formControlName="status">
+                    <option [ngValue]="null" disabled>Choose Attendance status</option>
+
+                    <option *ngFor="let item of home.status" [ngValue]="item.status"> {{item.status}}</option>
+         
+                </select>
+                <select formControlName="busnumber">
+                    <option [ngValue]="null" disabled>Choose Bus Number</option>
+
+                    <option *ngFor="let item2 of home.busnumber" [ngValue]="item2.busnumber"> {{item2.busnumber}}</option>
+                </select>
+          
+   
+       
+    
         
 
         </ul>
@@ -116,7 +102,7 @@
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Enter the dateofattendance </mat-label>
-                        <input type="text" matInput formControlName="dateofattendance" placeholder="titel ">
+                        <input type="date" matInput formControlName="dateofattendance" placeholder="titel ">
                         <mat-error *ngIf="CreateForm.controls['dateofattendance'].hasError('required')">
                             name is <strong>required</strong>
                         </mat-error>
