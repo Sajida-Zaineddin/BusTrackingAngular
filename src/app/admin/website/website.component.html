@@ -1,0 +1,103 @@
+<button class="btn btn-primary" (click)="openCreatedialog()">Create New </button>
+
+<table style="margin: 0 auto;">
+    <tr>
+        <th>ID</th>
+        <th>Website Name</th>
+        <th>Website Logo</th>
+        <th>Contact Us ID</th>
+        <th>About Us ID</th>
+        <th>Opreation</th>
+    </tr>
+    <tr *ngFor="let item of webService.data">
+        <td>{{item.id}}</td>
+        <td>{{item.websitename}}</td>
+        <td><img src="../../../assets/images/{{item.websitelogo}}" style="height: 50px;width: 50px;"></td>
+        <td>{{item.contactusid}}</td>
+        <td>{{item.aboutusid}}</td>
+        <td><button class="btn btn-danger" (click)="openDeleteDialog(item.id)">Delete</button>
+            <button class="btn btn-secondary" (click)="openUpdateDialog(item.id,item.websitename,item.websitelogo,item.contactusid,item.aboutusid)">Update</button>
+        </td>
+    </tr>
+</table>
+
+<ng-template #callCreateDialog>
+    <h2 mat-dialog-title> Add New Website</h2>
+    <mat-dialog-content class="mat-typography">
+
+        <form [formGroup]="CreateForm" class="example-form">
+            <ul>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>The Website Name </mat-label>
+                        <input type="text" matInput formControlName="websitename" placeholder="Enter Website Name">
+                        <mat-error *ngIf="CreateForm.controls['websitename'].hasError('required')">
+                            title is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <input type="file" #file placeholder="Choose Image" formControlName="websitelogo" (change)="uploadFile(file.files)" style="display:none;">
+                    <button class="btn btn-dark" (click)="file.click()">Upload Image</button>
+                </li>
+                <li>
+                    <select formControlName="contactusid">
+                        <option [ngValue]="null" disabled>Choose ID</option>
+                        <option *ngFor="let item of webService.contactId" [ngValue]="item.id"> {{item.id}}</option>
+                    </select>
+                </li>
+                <li>
+                    <select formControlName="aboutusid">
+                        <option [ngValue]="null" disabled>Choose ID</option>
+                        <option *ngFor="let item of webService.aboutId" [ngValue]="item.id"> {{item.id}}</option>
+                    </select>
+                </li>
+            </ul>
+        </form>
+        <mat-dialog-actions align="end">
+            <button mat-button mat-dialog-close>Cancel</button>
+            <button mat-button [mat-dialog-close]="true" (click)="save()" cdkFocusInitial>Save</button>
+        </mat-dialog-actions>
+    </mat-dialog-content>
+</ng-template>
+
+<ng-template #callUpdateDialog>
+    <form [formGroup]="UpdatForm">
+        <ul>
+            <li>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>The Website Name </mat-label>
+                    <input type="text" matInput formControlName="websitename" [(ngModel)]="website.websitename" placeholder="Enter Website Name">
+                    <mat-error *ngIf="UpdatForm.controls['websitename'].hasError('required')">
+                        title is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </li>
+            <li>
+                <input type="file" #file placeholder="Choose Image" formControlName="websitelogo" [(ngModel)]="website.websitelogo" (change)="uploadFile(file.files)" style="display:none;">
+                <button class="btn btn-dark" (click)="file.click()">Upload Image</button>
+            </li>
+            <li>
+                <select formControlName="contactusid">
+                    <option [ngValue]="null" disabled>Choose ID</option>
+                    <option *ngFor="let item of webService.contactId" [ngValue]="item.id"> {{item.id}}</option>
+                </select>
+            </li>
+            <li>
+                <select formControlName="aboutusid">
+                    <option [ngValue]="null" disabled>Choose ID</option>
+                    <option *ngFor="let item of webService.aboutId" [ngValue]="item.id"> {{item.id}}</option>
+                </select>
+            </li>
+        </ul>
+        <button class="btn btn-success" mat-button [mat-dialog-close]="true" (click)="updateWeb()">Update</button>
+    </form>
+</ng-template>
+
+<ng-template #callDeleteDialog>
+    <h2>Are You Sure You Want To Delete This Item</h2>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close="no">No</button>
+        <button mat-button mat-dialog-close="yes">yes</button>
+    </mat-dialog-actions>
+</ng-template>

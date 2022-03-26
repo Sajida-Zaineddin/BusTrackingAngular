@@ -1,4 +1,4 @@
-<button class="btn btn-primary" (click)="openCreatedialog()">Create New </button>
+<button class="btn btn-primary" (click)="openCreateDialog()">Create New </button>
 
 <table style="margin: 0 auto;">
     <tr>
@@ -10,7 +10,7 @@
         <th>Role</th>
         <th>Opreation</th>
     </tr>
-    <tr *ngFor="let item of user.data">
+    <tr *ngFor="let item of userservice.data">
         <td>{{item.id}}</td>
         <td>{{item.fullName}}</td>
         <td>{{item.email}}</td>
@@ -18,7 +18,7 @@
         <td><img src="../../../assets/images/{{item.imagepath}}" style="height: 50px;width: 50px;"></td>
         <td>{{item.rolename}}</td>
         <td><button class="btn btn-danger" (click)="openDeleteDialog(item.id)">Delete</button>
-            <button class="btn btn-secondary" (click)="openUpdateDialog(item.id, item.name, item.mail, item.mobile, item.image, item.role)">Update</button>
+            <button class="btn btn-secondary" (click)="openUpdateDialog(item.id, item.fullName, item.email, item.phone, item.imagepath, item.rolename)">Update</button>
         </td>
     </tr>
 </table>
@@ -31,8 +31,8 @@
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>User Full Name </mat-label>
-                        <input type="text" matInput formControlName="fullName" [(ngModel)]="userValues.fullName" placeholder="Enter User Full Name">
-                        <mat-error *ngIf="UpdateForm.controls['fullName'].hasError('required')">
+                        <input type="text" matInput formControlName="fullName" placeholder="Enter User Full Name">
+                        <mat-error *ngIf="CreateForm.controls['fullName'].hasError('required')">
                             feild is <strong>required</strong>
                         </mat-error>
                     </mat-form-field>
@@ -40,8 +40,8 @@
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>User Email </mat-label>
-                        <input type="email" matInput formControlName="email" [(ngModel)]="userValues.email" placeholder="Enter User Email">
-                        <mat-error *ngIf="UpdateForm.controls['email'].hasError('required')">
+                        <input type="email" matInput formControlName="email" placeholder="Enter User Email">
+                        <mat-error *ngIf="CreateForm.controls['email'].hasError('required')">
                             feild is <strong>required</strong>
                         </mat-error>
                     </mat-form-field>
@@ -49,8 +49,8 @@
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>User Phone </mat-label>
-                        <input type="text" matInput formControlName="phone" [(ngModel)]="userValues.phone" placeholder="Enter User Phone">
-                        <mat-error *ngIf="UpdateForm.controls['phone'].hasError('required')">
+                        <input type="text" matInput formControlName="phone" placeholder="Enter User Phone">
+                        <mat-error *ngIf="CreateForm.controls['phone'].hasError('required')">
                             feild is <strong>required</strong>
                         </mat-error>
                     </mat-form-field>
@@ -62,7 +62,7 @@
                 <li>
                     <select formControlName="rolename">
                         <option [ngValue]="null" disabled>Choose User Role</option>
-                        <option *ngFor="let item of user.data" [ngValue]="item.rolename">{{item.rolename}}</option>
+                        <option *ngFor="let item of userservice.user" [ngValue]="item.rolename">{{item.rolename}}</option>
                     </select>
                 </li>
             </ul>
@@ -112,7 +112,7 @@
             <li>
                 <select formControlName="rolename">
                     <option [ngValue]="null" disabled>Choose User Role</option>
-                    <option *ngFor="let item of user.data" [ngValue]="item.rolename">{{item.rolename}}</option>
+                    <option *ngFor="let item of userservice.user" [ngValue]="item.rolename">{{item.rolename}}</option>
                 </select>
             </li>
         </ul>
