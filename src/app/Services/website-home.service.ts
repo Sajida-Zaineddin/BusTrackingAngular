@@ -12,7 +12,7 @@ export class WebsiteHomeService {
 
   display_Image: any;
   data: any = []
-  webHomeId: any = [];
+  webId: any = [];
 
   getWebHome() {
     //show spinner
@@ -35,7 +35,7 @@ export class WebsiteHomeService {
     this.spinner.show();
     //hite api
     this.http.get('https://localhost:44346/api/Website/GetAll/').subscribe((res) => {
-      this.webHomeId = res;
+      this.webId = res;
       //hide spinner
       this.spinner.hide();
       // res --> show toastr

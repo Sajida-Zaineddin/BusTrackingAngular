@@ -53,7 +53,7 @@
                 <li>
                     <select formControlName="websiteid">
                         <option [ngValue]="null" disabled>Choose ID</option>
-                        <option *ngFor="let item of webHomeService.webHomeId" [ngValue]="item.id"> {{item.id}}</option>
+                        <option *ngFor="let item of webHomeService.webId" [ngValue]="item.id"> {{item.id}}</option>
                     </select>
                 </li>
             </ul>
@@ -93,7 +93,7 @@
             <li>
                 <select formControlName="websiteid">
                     <option [ngValue]="null" disabled>Choose ID</option>
-                    <option *ngFor="let item of webHomeService.webHomeId" [ngValue]="item.id"> {{item.id}}</option>
+                    <option *ngFor="let item of webHomeService.webId" [ngValue]="item.id"> {{item.id}}</option>
                 </select>
             </li>
         </ul>
