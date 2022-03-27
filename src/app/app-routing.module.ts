@@ -6,6 +6,7 @@ import { AuthModule } from './auth/auth.module';
 import { AutherizationGuard } from './autherization.guard';
 import { ContactusComponent } from './contactus/contactus.component';
 import { HomeComponent } from './home/home.component';
+import { TeacherModule } from './teacher/teacher.module';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 
 const routes: Routes = [
@@ -32,6 +33,11 @@ const routes: Routes = [
   {
     path:'admin',
     loadChildren:()=>AdminModule,
+    canActivate:[AutherizationGuard]
+  },
+  {
+    path:'teacher',
+    loadChildren:()=>TeacherModule,
     canActivate:[AutherizationGuard]
   },
   {

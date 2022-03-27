@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
+  toggle:boolean=true;
   constructor(private router:Router) { }
 
   ngOnInit(): void {
@@ -18,5 +18,10 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['auth/login']);
     localStorage.clear();
 
+}
+editprofile(){
+    this.toggle=false;
+    this.router.navigate(['teacher/EditProfile']);
+  
 }
 }
