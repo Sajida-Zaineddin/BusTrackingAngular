@@ -15,7 +15,8 @@ const routes: Routes = [{
 {
   path:'attendance',
   component:ChildAttendanceComponent
-}];
+}
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

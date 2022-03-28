@@ -38,10 +38,7 @@ const routes: Routes = [
     path:'footer',
     component:ManageFooterComponent
   },
-  {
-    path:'attendance',
-    component:ManageAttendanceComponent
-  },
+
   {
     path:'aboutus',
     component:AboutusComponent
@@ -61,6 +58,10 @@ const routes: Routes = [
   {
     path:'role',
     component:RoleComponent
+  },
+  {
+    path:'attendance',
+    component:ManageAttendanceComponent
   },
   {
     path:'loginManage',

@@ -5,10 +5,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AttendanceService {
   attendance:any=[];
-
-  status: any = [];
-  name: any = [];
-  busnumber: any = [];
+  status:any=[];
+  name:any=[];
+  busnumber:any=[];
+  students:any=[];
 
   constructor(private http:HttpClient) { }
   getAll(){
@@ -65,13 +65,26 @@ export class AttendanceService {
      // this.toastr.error(err.message, err.status);
     })
   }
+  GetStudentList(){
+    //show spinner 
+   // this.spinner.show();
+    //hits Api 
+      this.http.get('https://localhost:44346/api/bus/GetStudentList').subscribe((res)=>{
+      this.students=res;
+     // this.spinner.hide();
+    //  this.toastr.success('Data Retrieved !!');
+    },err=>{
+     // this.spinner.hide();
+     // this.toastr.error(err.message, err.status);
+    })
+  }
   
   
   create(attendance:any){
     //  this.spinner.show();
      // body.imagename=this.display_Image;
       this.http.post('https://localhost:44346/api/attendance/create/',attendance).subscribe((res)=>{
-        debugger;
+
       //  this.spinner.hide();
        // this.toastr.success('saved Successfully :)');
       },error=>{
