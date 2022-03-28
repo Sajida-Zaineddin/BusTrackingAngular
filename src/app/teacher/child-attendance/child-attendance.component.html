@@ -1,4 +1,25 @@
 
+        <form [formGroup]="CreateForm1" class="example-form">
+            <ul>
+
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Search student Name </mat-label>
+                        <input type="text" matInput formControlName="name" placeholder="name ">
+                      
+                    </mat-form-field>
+               
+                </li>
+      
+  
+
+            </ul>
+        </form>
+        <mat-dialog-actions align="end">
+            <button mat-button [mat-dialog-close]="true" (click)="search()" cdkFocusInitial>Search</button>
+        </mat-dialog-actions>
+
+
 <!-- 
 
 <button class="btn btn-primary" style="color: red;" (click)="openCreatedialog()">Create New student  </button> 

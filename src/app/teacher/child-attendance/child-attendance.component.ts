@@ -31,6 +31,11 @@ export class ChildAttendanceComponent implements OnInit {
   busnumber:new FormControl('',Validators.required),
 
 })
+CreateForm1 :FormGroup =new FormGroup({  
+  
+  name:new FormControl('')
+
+})
   constructor(public home:AttendanceService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -39,6 +44,7 @@ export class ChildAttendanceComponent implements OnInit {
     this.home.GETBUSNUMBER();
     this.home.GETSTUDENTNAME();
     this.home.GetStudentList();
+
   }
   save() {
     console.log(this.CreateForm.value);
@@ -67,9 +73,6 @@ export class ChildAttendanceComponent implements OnInit {
     })
 
   }
-
-
- 
   openUpdateDailog(id1: any, dateofattendance1: any, status1: any,name1:any ,busnumber1:any) {
 
     this.home.update
@@ -94,6 +97,17 @@ export class ChildAttendanceComponent implements OnInit {
   
       this.home.update(this.UpdateForm.value);
       window.location.reload();
+   }
+
+   search(){
+    this.home.getAll();
+    console.log(this.home.search.name);
+    console.log(this.CreateForm1.value);
+    this.home.search(this.CreateForm1.value);
+    window.location.reload();
+
+  
+
    }
   }
 

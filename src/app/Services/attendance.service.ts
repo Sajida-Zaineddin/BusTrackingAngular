@@ -25,6 +25,19 @@ export class AttendanceService {
      // this.toastr.error(err.message, err.status);
     })
   }
+  search(name:any){
+    //  this.spinner.show();
+     // body.imagename=this.display_Image;
+      this.http.post('https://localhost:44346/api/student/SearchStudent/',name).subscribe((res)=>{
+
+      //  this.spinner.hide();
+       // this.toastr.success('saved Successfully :)');
+      },error=>{
+       // this.spinner.hide();
+       // this.toastr.error(error.status,error.message);
+      })
+    }
+ 
   GETATTENDANCESTATUS(){
     //show spinner 
    // this.spinner.show();

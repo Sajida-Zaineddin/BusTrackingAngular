@@ -33,6 +33,7 @@ export class AttendaceStatusService {
        // this.toastr.error(error.status,error.message);
       })
     }
+
     update(attendancestatus:any){
       //  body.imagename=this.display_Image;
      
