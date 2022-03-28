@@ -5,7 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 const routes: Routes = [{
-  path:'EditProfile',
+  path:'editProfile',
   component:EditProfileComponent
 },
 {

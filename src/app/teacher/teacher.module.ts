@@ -5,6 +5,7 @@ import { TeacherRoutingModule } from './teacher-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { ChildAttendanceComponent } from './child-attendance/child-attendance.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ChildAttendanceComponent } from './child-attendance/child-attendance.co
   ],
   imports: [
     CommonModule,
-    TeacherRoutingModule
+    TeacherRoutingModule,
+    SharedModule
   ]
 })
 export class TeacherModule { }
