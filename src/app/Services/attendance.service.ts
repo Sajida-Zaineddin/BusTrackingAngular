@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AttendanceService {
   attendance:any=[];
+  attendance1:any=[];
   status:any=[];
   name:any=[];
   busnumber:any=[];
@@ -92,10 +93,10 @@ export class AttendanceService {
        // this.toastr.error(error.status,error.message);
       })
     }
-    update(attendance:any){
+    update(attendance1:any){
       //  body.imagename=this.display_Image;
      
-        this.http.put('https://localhost:44346/api/attendance/update/',attendance).subscribe((res)=>{
+        this.http.put('https://localhost:44346/api/attendance/update/',attendance1).subscribe((res)=>{
         //  this.toastr.success('updated Successfully :)');
     
         },err=>{

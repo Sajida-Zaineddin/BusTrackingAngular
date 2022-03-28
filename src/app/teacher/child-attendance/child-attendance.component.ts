@@ -13,6 +13,7 @@ export class ChildAttendanceComponent implements OnInit {
   @ViewChild('callDeleteDialog') callDeleteDialog! :TemplateRef<any>
   @ViewChild('callCreateDialog') callCreateDialog! :TemplateRef<any>
   attendanceData: any = []
+  attendance1:any=[];
 
   UpdateForm:FormGroup=new FormGroup({
     id : new FormControl(),
@@ -48,7 +49,7 @@ export class ChildAttendanceComponent implements OnInit {
   openCreatedialog() {
     this.home.getAll();
     this.dialog.open(this.callCreateDialog)
-
+ 
   }
 
   openDeleteDialog(id1: any) {
@@ -68,29 +69,33 @@ export class ChildAttendanceComponent implements OnInit {
   }
 
 
-  // openUpdateDialog(id1: any, abouttext1: any, city1: any, phone1: any,email1:any) {
+ 
+  openUpdateDailog(id1: any, dateofattendance1: any, status1: any,name1:any ,busnumber1:any) {
 
-  //   this.footerData = {
-  //     id: id1,
-  //     abouttext: abouttext1,
-  //     city: city1,
-  //     phone: phone1,
-  //     email:email1
+    this.home.update
 
-  //   }
-  //   this.UpdateForm.controls['id'].setValue(id1);
+    this.attendance1 = {
+      id: id1,
+      dateofattendance:dateofattendance1,
+      status:status1,
+      name:name1,
+      busnumber:busnumber1,
+ 
+    }
+    this.UpdateForm.controls['id'].setValue(id1);
+    this.UpdateForm.controls['dateofattendance'].setValue(dateofattendance1);
+    this.UpdateForm.controls['name'].setValue(name1);
+    this.UpdateForm.controls['busnumber'].setValue(busnumber1);
+    this.dialog.open(this.callUpdateDailog)
 
-  //   // this.home.getAll();
-
-  //   this.dialog.open(this.callUpdateDailog)
-
-  // }
+}
 
   update() {
-    this.home.update(this.UpdateForm.value);
-    window.location.reload();
-
+  
+      this.home.update(this.UpdateForm.value);
+      window.location.reload();
+   }
   }
 
 
-}
+
