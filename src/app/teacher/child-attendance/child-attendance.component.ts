@@ -21,16 +21,15 @@ export class ChildAttendanceComponent implements OnInit {
     status:new FormControl(),
     name:new FormControl(),
     busnumber:new FormControl(),
-
  })
 
- CreateForm :FormGroup =new FormGroup({  
+ CreateForm :FormGroup =new FormGroup({
   dateofattendance:new FormControl('',Validators.required),
-  status:new FormControl('',Validators.required),    
+  status:new FormControl('',Validators.required),
   name:new FormControl('',Validators.required),
   busnumber:new FormControl('',Validators.required),
-
 })
+
 CreateForm1 :FormGroup =new FormGroup({  
   
   name:new FormControl('')
@@ -90,11 +89,9 @@ CreateForm1 :FormGroup =new FormGroup({
     this.UpdateForm.controls['name'].setValue(name1);
     this.UpdateForm.controls['busnumber'].setValue(busnumber1);
     this.dialog.open(this.callUpdateDailog)
-
 }
 
-  update() {
-  
+  update() {  
       this.home.update(this.UpdateForm.value);
       window.location.reload();
    }
@@ -104,10 +101,7 @@ CreateForm1 :FormGroup =new FormGroup({
     console.log(this.home.search.name);
     console.log(this.CreateForm1.value);
     this.home.search(this.CreateForm1.value);
-    window.location.reload();
-
-  
-
+    window.location.reload(); 
    }
   }
 
