@@ -8,7 +8,7 @@
 <body>
     <h1>mymap</h1>
     <div class="my-google-map">
-        <google-map height="500px" width="100%" [zoom]="zoom" [center]="center" [options]="options">
+        <google-map id="map" height="500px" width="100%" [zoom]="zoom" [center]="center" [options]="options">
             <map-marker *ngFor="let marker of markers" [position]="marker.position" [label]="marker.label" [title]="marker.title" [options]="marker.options">
             </map-marker>
         </google-map>

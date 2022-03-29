@@ -1,5 +1,7 @@
 import { Component, OnInit,ViewEncapsulation} from '@angular/core';
 
+import { BusService } from 'src/app/Services/bus.service';
+
 
 @Component({
   selector: 'app-driver-home',
@@ -23,7 +25,7 @@ export class DriverHomeComponent implements OnInit {
     minZoom: 8,
   }
 
-  constructor(){
+  constructor(public busService :BusService){
     navigator.geolocation.getCurrentPosition((position) => {
       this.center = {
         lat: position.coords.latitude,
@@ -34,6 +36,11 @@ export class DriverHomeComponent implements OnInit {
   }
   ngOnInit(): void {
     this.addMarkers();
+    this.busService.getBusInfoByName();  
+    this.busService.getBusRoutes();
+    this.busService.getBusStudents();
+  
+    
   }
  zoomIn() {
     if (this.options.maxZoom != null && this.zoom < this.options.maxZoom) this.zoom++
@@ -56,7 +63,21 @@ export class DriverHomeComponent implements OnInit {
       },
       title: 'Marker title ' + (this.markers.length + 1),
       options: { animation: google.maps.Animation.DROP },
-    })
+    
+    },
+    {
+      position: {
+        lat: this.center.lat +1,
+        lng: this.center.lng +1 ,
+      },
+      label: {
+        color: 'white',
+        text: 'Marker label ' + (this.markers.length + 1),
+      },
+      title: 'Marker title ' + (this.markers.length + 1),
+      options: { animation: google.maps.Animation.DROP },
+    }
+    )
   }
 
 }
