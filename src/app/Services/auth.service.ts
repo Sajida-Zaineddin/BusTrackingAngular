@@ -35,11 +35,14 @@ export class AuthService {
       let data:any= jwt_decode(String(res));
 
       localStorage.setItem('user',JSON.stringify({...data}))
-     if(data.role==='Admin')
+     if(data.role==='Admin'){        
+        
      this.router.navigate(['admin/dashboard'])
-     else if (data.role==='customer')
-     this.router.navigate(['customer/customer'])
+     }
+     else if (data.role==='Driver')
+     this.router.navigate(['driver/home'])
     
+     localStorage.setItem('name',data.unique_name)
      
    },err=>{
      console.log(err);

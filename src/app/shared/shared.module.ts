@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import {  ToastrModule, ToastNoAnimation,  ToastNoAnimationModule} from 'ngx-toastr';
 import{HttpClientModule}from '@angular/common/http';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 
 
@@ -22,6 +23,7 @@ import{HttpClientModule}from '@angular/common/http';
   ],
   imports: [
     FormsModule,
+    GoogleMapsModule,
     ReactiveFormsModule,
     CommonModule,
     MatFormFieldModule,
@@ -35,6 +37,7 @@ import{HttpClientModule}from '@angular/common/http';
   ],
   exports: [
     FormsModule,
+    GoogleMapsModule,
     ReactiveFormsModule,
     HeaderComponent,
     FooterComponent,

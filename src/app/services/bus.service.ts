@@ -15,10 +15,14 @@ export class BusService {
   data: any = [];
   teachers: any =[];
   drivers : any = [];
-
+  busData:any = [];
+  busStudents:any = [];
   busTeachers: any =[];
   busDrivers : any = [];
+  busRoutes:any = [];
 
+  
+  username:any  = localStorage.getItem('name')
   getAll() {
     //show spinner
     this.spinner.show();
@@ -37,6 +41,67 @@ export class BusService {
   }
 
   
+  getBusRoutes() {
+    //show spinner
+    
+    this.spinner.show();
+    //hite api
+    this.http.get('https://localhost:44346/api/bus/GetRoutesInfoByUsername/'+this.username).subscribe((res1) => {
+      this.busRoutes =res1;  
+      console.log('Routes',this.busRoutes);    
+      //hide spinner
+      this.spinner.hide();
+      // res --> show toastr
+      this.toastr.success('Data Retrieved !!');
+    }, err => {
+      this.spinner.hide();
+      this.toastr.error('Error ')
+    })
+
+  }
+
+  getBusStudents() {
+    //show spinner
+    
+    this.spinner.show();
+    //hite api
+    this.http.get('https://localhost:44346/api/bus/GetStudentsInfoByUsername/'+this.username).subscribe((res1) => {
+      this.busStudents =res1;
+      console.log('students',this.busStudents);
+      
+      //hide spinner
+      this.spinner.hide();
+      // res --> show toastr
+      this.toastr.success('Data Retrieved !!');
+    }, err => {
+      this.spinner.hide();
+      this.toastr.error('Error ')
+    })
+
+  }
+
+  getBusInfoByName() {
+    //show spinner
+    this.spinner.show();
+    //hite api
+    this.http.get('https://localhost:44346/api/bus/GetBusInfoByUsername/'+this.username).subscribe((res) => {
+      this.busData =res;
+
+      console.log(this.busData)
+      
+      //hide spinner
+      this.spinner.hide();
+      // res --> show toastr
+      this.toastr.success('Data Retrieved !!');
+    }, err => {
+      this.spinner.hide();
+      this.toastr.error('Error ')
+    })
+   
+ 
+  }
+  
+
   getDrivers() {
     //show spinner
     this.spinner.show();

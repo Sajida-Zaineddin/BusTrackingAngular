@@ -5,6 +5,7 @@ import { AdminModule } from './admin/admin.module';
 import { AuthModule } from './auth/auth.module';
 import { AutherizationGuard } from './autherization.guard';
 import { ContactusComponent } from './contactus/contactus.component';
+import { DriverModule } from './driver/driver.module';
 import { HomeComponent } from './home/home.component';
 import { TeacherModule } from './teacher/teacher.module';
 import { TestimonialComponent } from './testimonial/testimonial.component';
@@ -43,6 +44,10 @@ const routes: Routes = [
   {
     path:'auth',
     loadChildren:()=>AuthModule
+  },
+  {
+    path:'driver',
+    loadChildren:()=>DriverModule
   },
 ];
 

@@ -15,7 +15,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './Interceptor/token.interceptor';
 import { ToastNoAnimationModule, ToastrModule } from 'ngx-toastr';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +24,7 @@ import { ToastNoAnimationModule, ToastrModule } from 'ngx-toastr';
     HomeComponent,
   ],
   imports: [
+    
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule, 
