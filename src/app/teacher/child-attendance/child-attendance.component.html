@@ -186,6 +186,63 @@
             </mat-dialog-actions>
     
         </ng-template>
+        <ng-template #callCreateDialog>
+            <h2 mat-dialog-title> Abcence Status </h2>
+            <mat-dialog-content class="mat-typography">
+        
+                <form [formGroup]="CreateForm" class="example-form">
+                    <ul>
+        
+                        <li>
+                            <mat-form-field class="example-full-width" appearance="fill">
+                                <mat-label>Enter the title </mat-label>
+                                <input type="date" matInput formControlName="dateofattendance" placeholder="dateofattendance ">
+                                <mat-error *ngIf="CreateForm.controls['dateofattendance'].hasError('required')">
+                                    dateofattendance is <strong>required</strong>
+                                </mat-error>
+                            </mat-form-field>
+                        </li>
+              
+                        
+        
+        
+            
+            <select formControlName="status">
+                <option [ngValue]="null" disabled>Choose student Abcence status</option>
+        
+                <option *ngFor="let item3 of home.status" [ngValue]="item3.status"> {{item3.status}}</option>
+        
+            </select>
+            <!-- <select formControlName="name">
+                <option [ngValue]="null" disabled>Choose student status</option>
+        
+                <option *ngFor="let item3 of home.name" [ngValue]="item3.name"> {{item3.name}}</option>
+        
+            </select>
+            <select formControlName="busnumber">
+                <option [ngValue]="null" disabled>Choose student status</option>
+        
+                <option *ngFor="let item3 of home.busnumber" [ngValue]="item3.busnumber"> {{item3.busnumber}}</option>
+        
+            </select> -->
+        
+                    </ul>
+                </form>
+                <mat-dialog-actions align="end">
+                    <button mat-button mat-dialog-close>Cancel</button>
+                    <button mat-button [mat-dialog-close]="true" (click)="save()" cdkFocusInitial>Save</button>
+                </mat-dialog-actions>
+        
+        
+            </mat-dialog-content>
+            <ng-template #callDeleteDialog>
+                <h2>Are You Sure you want to delete this item</h2>
+                <mat-dialog-actions align="end">
+                    <button mat-button mat-dialog-close="no">No</button>
+                    <button mat-button mat-dialog-close="yes">yes</button>
+                </mat-dialog-actions>
+        
+            </ng-template>
     
     
     <!-- 
