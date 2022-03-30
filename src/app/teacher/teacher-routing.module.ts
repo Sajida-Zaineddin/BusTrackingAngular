@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ChildAttendanceComponent } from './child-attendance/child-attendance.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { SearchStudentNameComponent } from './search-student-name/search-student-name.component';
 
 const routes: Routes = [{
   path:'editProfile',
@@ -15,6 +16,10 @@ const routes: Routes = [{
 {
   path:'attendance',
   component:ChildAttendanceComponent
+},
+{
+  path:'search',
+  component:SearchStudentNameComponent
 }
 ];
 

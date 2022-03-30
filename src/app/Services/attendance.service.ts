@@ -12,7 +12,7 @@ export class AttendanceService {
   attendance1:any=[];
   status:any=[];
   name:any=[];
-  busnumber:any=[];
+  busnumber1:any=[];
   students:any=[];
 
   constructor(private http:HttpClient, private spinner :NgxSpinnerService,private toastr:ToastrService) { }
@@ -29,6 +29,21 @@ export class AttendanceService {
       this.toastr.error(err.message, err.status);
     })
   }
+
+  GETBUSNUMBER(){
+     
+    this.spinner.show();
+    
+       this.http.get('https://localhost:44346/api/attendance/GetBusNum').subscribe((res)=>{
+       this.busnumber1=res;
+      this.spinner.hide();
+    this.toastr.success('Data Retrieved !!');
+     },err=>{
+    this.spinner.hide();
+       this.toastr.error(err.message, err.status);
+     })
+   }
+   
   search(name:any){
     this.spinner.show();
       this.http.post('https://localhost:44346/api/student/SearchStudent/',name).subscribe((res)=>{
@@ -69,19 +84,7 @@ this.spinner.show();
     })
   }
   
-  GETBUSNUMBER(){
-     
-   this.spinner.show();
-   
-      this.http.get('https://localhost:44346/api/attendance/GetBusNum').subscribe((res)=>{
-      this.busnumber=res;
-     this.spinner.hide();
-   this.toastr.success('Data Retrieved !!');
-    },err=>{
-   this.spinner.hide();
-      this.toastr.error(err.message, err.status);
-    })
-  }
+
   GetStudentList(){
     
 this.spinner.show();

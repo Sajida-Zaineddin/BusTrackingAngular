@@ -15,6 +15,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './Interceptor/token.interceptor';
 import { ToastNoAnimationModule, ToastrModule } from 'ngx-toastr';
+import { HttpClientModule } from '@angular/common/http';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,14 +36,18 @@ import { ToastNoAnimationModule, ToastrModule } from 'ngx-toastr';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
+
     ReactiveFormsModule,
+    Ng2SearchPipeModule,
     ToastNoAnimationModule.forRoot(),
     ToastrModule.forRoot({
       timeOut: 3000,
       positionClass: 'toast-bottom-center',
       preventDuplicates: true,
+      
      
     }),
+    
   ],
   providers: [
     {
