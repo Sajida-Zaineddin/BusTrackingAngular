@@ -29,23 +29,31 @@
     <link rel="stylesheet" href="./assets/assets1/css/style.css">
 
     <link rel="shortcut icon" href="./assets/assets1/images/bus.ico" />
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8TQIsK3xXv_lJQxb_NYFCFyu4s85wlno&v=weekly" async></script>
+
+    <style>
+        .my-google-map {
+            width: 800px;
+            height: 600px;
+        }
+    </style>
 </head>
 
-<body class="mat-typography">
+<body class="mat-typography ">
     <app-root></app-root>
 
     <!-- Scripts -->
     <!-- Bootstrap core JavaScript -->
-    <script src="./assets/vendor/jquery/jquery.min.js"></script>
-    <script src="./assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/vendor/jquery/jquery.min.js "></script>
+    <script src="./assets/vendor/bootstrap/js/bootstrap.bundle.min.js "></script>
 
-    <script src="./assets/js/isotope.min.js"></script>
-    <script src="./assets/js/owl-carousel.js"></script>
-    <script src="./assets/js/lightbox.js"></script>
-    <script src="./assets/js/tabs.js"></script>
-    <script src="./assets/js/video.js"></script>
-    <script src="./assets/js/slick-slider.js"></script>
-    <script src="./assets/js/custom.js"></script>
+    <script src="./assets/js/isotope.min.js "></script>
+    <script src="./assets/js/owl-carousel.js "></script>
+    <script src="./assets/js/lightbox.js "></script>
+    <script src="./assets/js/tabs.js "></script>
+    <script src="./assets/js/video.js "></script>
+    <script src="./assets/js/slick-slider.js "></script>
+    <script src="./assets/js/custom.js "></script>
     <script>
         //according to loftblog tut
         $('.nav li:first').addClass('active');
@@ -53,7 +61,7 @@
         var showSection = function showSection(section, isAnimate) {
             var
                 direction = section.replace(/#/, ''),
-                reqSection = $('.section').filter('[data-section="' + direction + '"]'),
+                reqSection = $('.section').filter('[data-section=" ' + direction + ' "]'),
                 reqSectionPos = reqSection.offset().top - 0;
 
             if (isAnimate) {
