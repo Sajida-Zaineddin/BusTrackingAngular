@@ -1,0 +1,23 @@
+
+  <!-- <div class="form-group col-md-4">
+    <input type="text" class="form-control"  placeholder="Enter Keyword for filter result" [(ngModel)]="searchedKeyword">
+    <button class="btn btn-primary" style="color: red;" (click)="search()">search</button>
+  </div> -->
+
+
+<table style="margin:0 auto">
+    <tr>
+     
+       <th> name </th> 
+   
+
+    </tr>
+    <tr *ngFor="let student of home.student">
+     
+        <td>{{student.name}}</td>
+  
+     
+     
+   
+    </tr>
+</table> 

@@ -52,6 +52,7 @@ CreateForm1 :FormGroup =new FormGroup({
     this.home.GETSTUDENTNAME();
 
   }
+  
   save() {
     console.log(this.CreateForm.value);
     this.home.create(this.CreateForm.value);
@@ -125,6 +126,8 @@ this.home.update
 
     //  this.dialog.open(this.callCreateDialog1)
    }
-  }
+  
+}
+  
 
 

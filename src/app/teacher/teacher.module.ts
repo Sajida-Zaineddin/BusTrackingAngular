@@ -6,13 +6,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { ChildAttendanceComponent } from './child-attendance/child-attendance.component';
 import { SharedModule } from '../shared/shared.module';
+import { SearchStudentNameComponent } from './search-student-name/search-student-name.component';
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
     EditProfileComponent,
-    ChildAttendanceComponent
+    ChildAttendanceComponent,
+    SearchStudentNameComponent
   ],
   imports: [
     CommonModule,
