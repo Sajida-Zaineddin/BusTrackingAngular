@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -114,6 +115,33 @@ export class BusService {
       this.toastr.success('Data Retrieved !!');
     }, err => {
       this.spinner.hide();
+      this.toastr.error('Error ')
+    })
+
+  }
+
+  changeStudentBusStatus(lat:any) {
+     
+    this.http.get('https://localhost:44346/api/student/UPDATESTUDENTBUSSTATUS/'+lat).subscribe((res) => {
+           
+   
+      this.toastr.success('Data Retrieved !!');
+    }, err => {
+    
+      this.toastr.error('Error ')
+    })
+
+  }
+
+
+  changeAllStudentsBusStatus() {
+     
+    this.http.get('https://localhost:44346/api/student/UpdateAllStudentsBusStatus/').subscribe((res) => {
+           
+   
+      this.toastr.success('Data Retrieved !!');
+    }, err => {
+    
       this.toastr.error('Error ')
     })
 
