@@ -26,16 +26,14 @@
         <tr>
     
             <th>student name </th>
-            
+            <th>absent status </th>
         </tr>
         <tr *ngFor="let item of homeStudent.student;let i=index">
     
-            <td>{{homeStudent.fullName[i]}}</td>
-            
-    
+            <td>{{homeStudent.fullName}}</td>
+            <td><input type="checkbox" name="absent"></td>               
             <td><button class="btn btn-danger" (click)="sendEmail(item.email)">notify parent</button> </td>
-    
-    
+       
     
         </tr>
     </table>
