@@ -16,6 +16,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './Interceptor/token.interceptor';
 import { ToastNoAnimationModule, ToastrModule } from 'ngx-toastr';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxSpinnerModule } from "ngx-spinner";
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     HomeComponent,
   ],
   imports: [
-    
+    NgxSpinnerModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule, 
