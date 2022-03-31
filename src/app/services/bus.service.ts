@@ -21,6 +21,7 @@ export class BusService {
   busTeachers: any =[];
   busDrivers : any = [];
   busRoutes:any = [];
+  busRoutesByUsername:any =[];
 
   
   username:any  = localStorage.getItem('name')
@@ -226,6 +227,26 @@ export class BusService {
     //hite api
     this.http.get('https://localhost:44346/api/Bus/GetBusTeachers/').subscribe((res) => {
       this.busTeachers = res;
+      //hide spinner
+      this.spinner.hide();
+      // res --> show toastr
+      this.toastr.success('Data Retrieved !!');
+    }, err => {
+      this.spinner.hide();
+      this.toastr.error('Error ')
+    })
+
+  }
+
+
+  getBusRouteByUsername() {
+    //show spinner
+    this.spinner.show();
+    //hite api
+    this.http.get('https://localhost:44346/api/route/SELECTFROMROUTEBYUSERNAME/'+this.username).subscribe((res) => {
+      this.busRoutesByUsername = res;
+     
+      
       //hide spinner
       this.spinner.hide();
       // res --> show toastr
