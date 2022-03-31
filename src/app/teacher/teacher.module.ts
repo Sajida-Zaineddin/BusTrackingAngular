@@ -7,6 +7,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { ChildAttendanceComponent } from './child-attendance/child-attendance.component';
 import { SharedModule } from '../shared/shared.module';
 import { SearchStudentNameComponent } from './search-student-name/search-student-name.component';
+import { DayAttendanceComponent } from './day-attendance/day-attendance.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { SearchStudentNameComponent } from './search-student-name/search-student
     DashboardComponent,
     EditProfileComponent,
     ChildAttendanceComponent,
-    SearchStudentNameComponent
+    SearchStudentNameComponent,
+    DayAttendanceComponent
   ],
   imports: [
     CommonModule,
