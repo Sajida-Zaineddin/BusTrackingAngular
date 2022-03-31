@@ -240,6 +240,7 @@ body {
 }
 
 .main-button-gradient a:hover {
+    color: white;
     background: rgb(219, 138, 222);
     background: linear-gradient(-145deg, rgba(219, 138, 222, 1) 0%, rgba(246, 191, 159, 1) 100%);
     opacity: 0.9;
@@ -753,6 +754,7 @@ section.main-banner {
 }
 
 .main-banner {
+    position: relative;
     padding-top: 180px;
 }
 
@@ -777,7 +779,8 @@ section.main-banner {
     z-index: 1;
 }
 
-.main-banner .header-text::after {
+
+/*.main-banner .header-text::after {
     position: absolute;
     background-image: url(../images/banner-left-dec.png);
     width: 214px;
@@ -786,12 +789,22 @@ section.main-banner {
     left: 0;
     bottom: -240px;
     z-index: 1;
+}*/
+
+.bck_graphic img {
+    position: absolute;
+    left: 0;
+    bottom: -140px;
+    display: block;
+    width: 214px;
+    height: 429px;
+    z-index: 1;
 }
 
 .main-banner .header-text h6 {
     position: relative;
     z-index: 2;
-    font-size: 17px;
+    font-size: 20px;
     font-weight: 500;
     text-transform: capitalize;
     color: #777777;

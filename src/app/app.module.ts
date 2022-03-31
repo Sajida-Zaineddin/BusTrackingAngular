@@ -17,6 +17,8 @@ import { TokenInterceptor } from './Interceptor/token.interceptor';
 import { ToastNoAnimationModule, ToastrModule } from 'ngx-toastr';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { CarouselModule } from 'ngx-owl-carousel-o';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +37,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-
+    CarouselModule,
     ReactiveFormsModule,
     Ng2SearchPipeModule,
     ToastNoAnimationModule.forRoot(),
