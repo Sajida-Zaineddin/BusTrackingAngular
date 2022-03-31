@@ -1,8 +1,10 @@
 
 
-import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { outputAst } from '@angular/compiler';
+import { Component, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { BusComponent } from 'src/app/admin/bus/bus.component';
 import { AttendanceService } from 'src/app/Services/attendance.service';
 import { BusService } from 'src/app/Services/bus.service';
@@ -20,9 +22,8 @@ export class ChildAttendanceComponent implements OnInit {
   @ViewChild('callCreateDialog') callCreateDialog! :TemplateRef<any>
   @ViewChild('callselectDialog') callselectDialog! :TemplateRef<any>
 
-
   constructor(public home:AttendanceService,public homeStudent:StudentService, public dialog: MatDialog
-    , public homebus: BusService)
+    , public homebus: BusService , public router:Router)
  { }
 
   ngOnInit(): void {
@@ -135,9 +136,22 @@ attData: any = [];
       window.location.reload();
     }
 
-   
-  
-  
+    ShowAttendance(ev:any){
+      this.busnumber=ev.target.value;
+    // console.log(ev.target.value);
+    }
+
+    DayAttendance(){
+      var bus = this.busnumber;
+
+      this.home.GETSTUDENTLIST(bus)
+      console.log(bus)
+
+      this.router.navigate(['teacher/manageAttendance'])
+ 
+    }
+
+    
 
 }
   
