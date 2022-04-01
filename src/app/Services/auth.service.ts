@@ -37,6 +37,7 @@ export class AuthService {
       localStorage.setItem('user',JSON.stringify({...data}))
      if(data.role==='Admin'){        
         
+        
      this.router.navigate(['admin/dashboard'])
      }
      else if (data.role==='Driver')

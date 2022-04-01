@@ -21,6 +21,7 @@ export class BusService {
   busTeachers: any =[];
   busDrivers : any = [];
   busRoutes:any = [];
+  busRoutesByUsername:any =[];
 
   
   username:any  = localStorage.getItem('name')
@@ -123,12 +124,9 @@ export class BusService {
   changeStudentBusStatus(lat:any) {
      
     this.http.get('https://localhost:44346/api/student/UPDATESTUDENTBUSSTATUS/'+lat).subscribe((res) => {
-           
-   
-      this.toastr.success('Data Retrieved !!');
-    }, err => {
-    
-      this.toastr.error('Error ')
+              
+    }, err => {   
+      
     })
 
   }
@@ -137,12 +135,9 @@ export class BusService {
   changeAllStudentsBusStatus() {
      
     this.http.get('https://localhost:44346/api/student/UpdateAllStudentsBusStatus/').subscribe((res) => {
-           
-   
-      this.toastr.success('Data Retrieved !!');
+                  
     }, err => {
-    
-      this.toastr.error('Error ')
+         
     })
 
   }
@@ -236,6 +231,59 @@ export class BusService {
     })
 
   }
+
+
+  getBusRouteByUsername() {
+    //show spinner
+    this.spinner.show();
+    //hite api
+    this.http.get('https://localhost:44346/api/route/SELECTFROMROUTEBYUSERNAME/'+this.username).subscribe((res) => {
+      this.busRoutesByUsername = res;
+     
+      
+      //hide spinner
+      this.spinner.hide();
+      // res --> show toastr
+      this.toastr.success('Data Retrieved !!');
+    }, err => {
+      this.spinner.hide();
+      this.toastr.error('Error ')
+    })
+
+  }
   
+
+  
+  SetCurrentBusLocation(data: any) {
+    this.spinner.show();   
+    this.http.post('https://localhost:44346/api/route/SETCURRENTBUSLOCATION/', data)
+      .subscribe((res: any) => {
+
+        this.spinner.hide();
+        this.toastr.success('Saved Successfully :) ')
+      }, err => {
+        this.spinner.hide();
+        this.toastr.error(err.message, err.status)
+      })
+
+
+  }
+
+    
+  setCurrentBusLocationAfterEnd(data: any) {
+    this.spinner.show();   
+    console.log(data)
+    this.http.post('https://localhost:44346/api/route/setCurrentBusLocationAfterEnd/', data)
+      .subscribe((res: any) => {
+
+        this.spinner.hide();
+        this.toastr.success('Saved Successfully :) ')
+      }, err => {
+        this.spinner.hide();
+        this.toastr.error(err.message, err.status)
+      })
+
+
+  }
 
 }
