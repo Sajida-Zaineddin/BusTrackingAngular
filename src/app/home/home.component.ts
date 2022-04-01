@@ -37,5 +37,4 @@ export class HomeComponent implements OnInit {
     },
     nav: true
   }
-
 }
