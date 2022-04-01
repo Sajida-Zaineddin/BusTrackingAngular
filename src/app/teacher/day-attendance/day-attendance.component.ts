@@ -7,7 +7,7 @@ import { RoundStatusService } from 'src/app/Services/round-status.service';
 import { StudentService } from 'src/app/Services/student.service';
 
 import {ChildAttendanceComponent} from '../child-attendance/child-attendance.component';
-@Injectable() 
+ 
 @Component({
   selector: 'app-day-attendance',
   templateUrl: './day-attendance.component.html',
@@ -18,9 +18,9 @@ export class DayAttendanceComponent implements OnInit {
   @ViewChild('callDeleteDialog') callDeleteDialog! :TemplateRef<any>
   @ViewChild('callCreateDialog') callCreateDialog! :TemplateRef<any>
   @ViewChild('callselectDialog') callselectDialog! :TemplateRef<any>
-  // @Input() bus :number | undefined;  
+  @Input() bu :number | undefined;  
   constructor(public home:AttendanceService,public homeStudent:StudentService, public dialog: MatDialog
-    , public homebus: BusService, public round:RoundStatusService , public child : ChildAttendanceComponent)
+    , public homebus: BusService, public round:RoundStatusService )
  { }
 
 
@@ -35,7 +35,6 @@ export class DayAttendanceComponent implements OnInit {
     this.home.GETSTUDENTNAME();
 
   }
-  @Input() bus:number | undefined;
 
   Values:any=[];
 
@@ -86,11 +85,6 @@ attData: any = [];
 this.home.sendEmail
 this.email=this.student.getAll.email
   }
-
-
-  
- 
-  
     update()
       {
        
@@ -111,7 +105,7 @@ this.email=this.student.getAll.email
      this.CreateForm.controls['dateofattendance'].setValue(Date.now);
         // this.CreateForm.controls['dateofattendance'].setValue(dateofattendance1);
         // this.CreateForm.controls['status'].setValue(status1);
-        this.CreateForm.controls['busnumber'].setValue(this.bus);
+      this.CreateForm.controls['busnumber'].setValue(this.bu);
 
         console.log(this.CreateForm.value);
         this.home.create(this.CreateForm.value);
