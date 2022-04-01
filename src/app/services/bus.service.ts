@@ -151,7 +151,7 @@ export class BusService {
       //hide spinner
       this.spinner.hide();
       // res --> show toastr
-      this.toastr.success('Data Retrieved !!');
+      
     }, err => {
       this.spinner.hide();
       this.toastr.error('Error ')
@@ -167,7 +167,7 @@ export class BusService {
       .subscribe((res: any) => {
 
         this.spinner.hide;
-        this.toastr.success('Saved Successfully :) ')
+       
       }, err => {
         this.spinner.hide();
         this.toastr.error(err.message, err.status)
@@ -206,7 +206,7 @@ export class BusService {
       //hide spinner
       this.spinner.hide();
       // res --> show toastr
-      this.toastr.success('Data Retrieved !!');
+
     }, err => {
       this.spinner.hide();
       this.toastr.error('Error ')
@@ -224,7 +224,7 @@ export class BusService {
       //hide spinner
       this.spinner.hide();
       // res --> show toastr
-      this.toastr.success('Data Retrieved !!');
+
     }, err => {
       this.spinner.hide();
       this.toastr.error('Error ')
@@ -244,7 +244,7 @@ export class BusService {
       //hide spinner
       this.spinner.hide();
       // res --> show toastr
-      this.toastr.success('Data Retrieved !!');
+   
     }, err => {
       this.spinner.hide();
       this.toastr.error('Error ')
@@ -260,7 +260,7 @@ export class BusService {
       .subscribe((res: any) => {
 
         this.spinner.hide();
-        this.toastr.success('Saved Successfully :) ')
+       
       }, err => {
         this.spinner.hide();
         this.toastr.error(err.message, err.status)
@@ -277,7 +277,7 @@ export class BusService {
       .subscribe((res: any) => {
 
         this.spinner.hide();
-        this.toastr.success('Saved Successfully :) ')
+     
       }, err => {
         this.spinner.hide();
         this.toastr.error(err.message, err.status)
