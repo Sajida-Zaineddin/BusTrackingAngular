@@ -3,10 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { AdminModule } from './admin/admin.module';
 import { AuthModule } from './auth/auth.module';
+import { AutherizationDriverGuard } from './autherization-driver.guard';
 import { AutherizationGuard } from './autherization.guard';
 import { ContactusComponent } from './contactus/contactus.component';
 import { DriverModule } from './driver/driver.module';
 import { HomeComponent } from './home/home.component';
+import { ParentModule } from './parent/parent.module';
 import { TeacherModule } from './teacher/teacher.module';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 
@@ -39,7 +41,7 @@ const routes: Routes = [
   {
     path:'teacher',
     loadChildren:()=>TeacherModule,
-    canActivate:[AutherizationGuard]
+  
   },
   {
     path:'auth',
@@ -47,7 +49,13 @@ const routes: Routes = [
   },
   {
     path:'driver',
-    loadChildren:()=>DriverModule
+    loadChildren:()=>DriverModule,
+    canActivate:[AutherizationDriverGuard]
+    
+  },
+  {
+    path:'parent',
+    loadChildren:()=>ParentModule
   },
 ];
 
