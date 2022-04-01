@@ -12,18 +12,20 @@ import { StudentService } from 'src/app/Services/student.service';
 })
 export class DayAttendanceComponent implements OnInit {
 
-  constructor(public home:AttendanceService,public homeStudent:StudentService, public dialog: MatDialog
+  constructor(
+    public attendance:AttendanceService,public student:StudentService,
+     public dialog: MatDialog
     , public homebus: BusService, public round:RoundStatusService)
  { }
 
   ngOnInit(): void {
     this.round.getAll();
-    this.home.getAll();
+    this.attendance.getAll();
     this.homebus.getTeachers();
     // this.round.getGetRoundStatus();
-    this.home.GETATTENDANCESTATUS();
-     this.home.GETBUSNUMBER();
-    this.home.GETSTUDENTNAME();
+    this.attendance.GETATTENDANCESTATUS();
+     this.attendance.GETBUSNUMBER();
+    this.attendance.GETSTUDENTNAME();
 
   }
 
@@ -31,21 +33,15 @@ export class DayAttendanceComponent implements OnInit {
 
 
 search(fullName :any){
-this.homeStudent.GetStudentListByTeacher(fullName);
+this.student.GetStudentListByTeacher(fullName);
 //console.log(this.homeStudent.GetStudentListByTeacher(name));
  
 
 }
 
 
-
-
-////////////////////////////////////////
-
-attData: any = [];
-
-  student:any= [];
-
+  attData: any = [];
+  students:any= [];
   status :any=[];
   parentname :any=[];
   busnumber:any=[];
@@ -57,11 +53,11 @@ attData: any = [];
 
 
 
- openUpdateDailog(id1 : any ,dateofattendance1 : any , status1 : any , name1:any , busnumber1:any){
+  openUpdateDailog(id1 : any ,dateofattendance1 : any , status1 : any , name1:any , busnumber1:any){
 
-     this.home.update
+  this.attendance.update
 
-    this.attData = {
+  this.attData = {
       id: id1,
       dateofattendance1:dateofattendance1,
       status1:status1,
@@ -73,8 +69,8 @@ attData: any = [];
 
   }
   sendEmail(Email:any){
-this.home.sendEmail
-this.email=this.student.getAll.email
+this.attendance.sendEmail
+this.email=this.students.getAll.email
   }
 
  
