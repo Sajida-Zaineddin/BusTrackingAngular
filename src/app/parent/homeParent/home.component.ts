@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { BusService } from 'src/app/Services/bus.service';
 import { ParentService } from 'src/app/Services/parent.service';
 
@@ -9,6 +10,7 @@ import { ParentService } from 'src/app/Services/parent.service';
 })
 export class HomeComponent implements OnInit {
 
+  @ViewChild('Attendence') Attendence!: TemplateRef<any>
 
   username: any = localStorage.getItem('name')
 
@@ -17,6 +19,7 @@ export class HomeComponent implements OnInit {
   ySchoolLoc: any = '35.853984';
 
   markers: any = [];
+   
   zoom = 12
   center: google.maps.LatLngLiteral = {
     lat: 32.025984,
@@ -31,7 +34,7 @@ export class HomeComponent implements OnInit {
     minZoom: 8,
   }
 
-  constructor(public parentservice: ParentService) {
+  constructor(public parentservice: ParentService,private dialog: MatDialog) {
     navigator.geolocation.getCurrentPosition((position) => {
       this.center = {
         lat: position.coords.latitude,
@@ -47,21 +50,12 @@ export class HomeComponent implements OnInit {
     setTimeout(() => {
 
       this.addMarkers();
-      console.log('s', this.parentservice.parentStudents);
+    
 
-    }, 1500);
+    }, 2000);
 
 
   }
-
-
-  // zoomIn() {
-  //   if (this.options.maxZoom != null && this.zoom < this.options.maxZoom) this.zoom++
-  // }
-
-  // zoomOut() {
-  //   if (this.options.minZoom != null && this.zoom > this.options.minZoom) this.zoom--
-  // }
 
   addMarkers() {
     for (let i = 0; i < this.parentservice.parentStudents.length; i++) {
@@ -146,6 +140,18 @@ export class HomeComponent implements OnInit {
     }
 
 
+  }
+
+
+  show(id : any){
+    this.parentservice.getStudentsAttendence({id:id})
+    setTimeout(() => {
+      this.dialog.open(this.Attendence)     
+
+    }, 1000);
+  
+    
+    
   }
 }
 

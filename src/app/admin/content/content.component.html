@@ -6,7 +6,18 @@
 </head>
 
 <body>
-
+    <div>
+        <p>
+            number of students: {{adminservice.allStudents.length}}
+        </p>
+        <p>
+            number of teachers: {{adminservice.allTeachers.length}}
+        </p>
+        <p>
+            number of drivers: {{adminservice.allDrivers.length}}
+        </p>
+    </div>
+    <h3>Buses Locations</h3>
     <div class="my-google-map">
         <google-map id="map" height="500px" width="100%" [zoom]="zoom" [center]="center" [options]="options">
             <map-marker *ngFor="let marker of markers" [position]="marker.position" [label]="marker.label" [title]="marker.title" [options]="marker.options">

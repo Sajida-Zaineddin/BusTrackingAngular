@@ -4,6 +4,9 @@
 <head>
     <title>Add Map</title>
 </head>
+<div>
+    <p *ngFor="let item of  this.parentservice.parentStudents" (click)="show(item.id)">{{item.name}} </p>
+</div>
 
 <body>
     <h1>mymap</h1>
@@ -18,3 +21,34 @@
 </body>
 
 </html>
+
+<ng-template #Attendence>
+    <h2 mat-dialog-title>Attendence </h2>
+    <mat-dialog-content class="mat-typography">
+        <table style="margin: 0 auto;">
+            <tr>
+                <th>date </th>
+                <th>status </th>
+
+            </tr>
+            <tr *ngFor="let item of this.parentservice.studentAttendence">
+                <td>{{item.dateofattendance|date}}</td>
+                <ng-container *ngIf="item.attendancestatus==1; then present; else absent">
+                </ng-container>
+                <ng-template #present>
+                    <td>
+                        present
+                    </td>
+                </ng-template>
+                <ng-template #absent>
+                    <td>
+                        absent
+                    </td>
+                </ng-template>
+
+
+            </tr>
+        </table>
+
+
+    </mat-dialog-content>

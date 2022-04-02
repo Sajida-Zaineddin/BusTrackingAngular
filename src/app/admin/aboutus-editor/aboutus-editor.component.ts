@@ -1,7 +1,8 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { AboutusEditorService } from 'src/app/services/aboutus-editor.service';
+import { AboutusEditorService } from 'src/app/Services/aboutus-editor.service';
+
 
 @Component({
   selector: 'app-aboutus-editor',

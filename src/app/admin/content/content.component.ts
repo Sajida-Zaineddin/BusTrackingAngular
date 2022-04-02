@@ -9,7 +9,7 @@ import { ParentService } from 'src/app/Services/parent.service';
 })
 export class ContentComponent implements OnInit {
   username: any = localStorage.getItem('name')
-
+  num=0;
 
   xSchoolLoc: any = '32.025984';
   ySchoolLoc: any = '35.853984';
@@ -40,6 +40,10 @@ export class ContentComponent implements OnInit {
   }
   ngOnInit(): void {
     this.adminservice.getAllBusesRoute();
+  this.adminservice.getAllStudentsData();
+  this.adminservice.getAllDriversData();
+  this.adminservice.getAllTeachersData();
+
     setTimeout(() => {
 
       this.addMarkers();

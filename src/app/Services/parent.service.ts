@@ -10,7 +10,7 @@ export class ParentService {
   constructor(private http: HttpClient) { }
 
 
-
+  studentAttendence:any =[];
   parentStudents: any = [];
 
  getParentStudents(name: any) {
@@ -20,6 +20,8 @@ export class ParentService {
       .subscribe((res: any) => {
 
         this.parentStudents = res
+        console.log(this.parentStudents);
+        
         
         
       }, err => {
@@ -27,4 +29,25 @@ export class ParentService {
      })
 
   }
+
+
+
+  getStudentsAttendence(id: any) {
+
+  
+    this.http.post('https://localhost:44346/api/student/GetStudentAttendence/', id)
+      .subscribe((res: any) => {
+
+        this.studentAttendence = res
+        console.log(this.studentAttendence);
+        
+        
+        
+      }, err => {
+
+     })
+
+  }
+
+
 }
