@@ -24,3 +24,9 @@
 .white-button a:hover {
     color: #dc8cdb;
 }
+
+.quoteImage {
+    margin-bottom: 30%;
+    display: block;
+    width: 50%;
+}

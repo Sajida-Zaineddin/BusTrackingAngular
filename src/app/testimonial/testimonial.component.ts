@@ -28,7 +28,7 @@ export class TestimonialComponent implements OnInit {
     mouseDrag: true,
     touchDrag: true,
     pullDrag: true,
-    dots: true,
+    dots: false,
     navSpeed: 700,
     navText: ['', ''],
     responsive: {
@@ -38,12 +38,6 @@ export class TestimonialComponent implements OnInit {
       400: {
         items: 2
       },
-      740: {
-        items: 3
-      },
-      940: {
-        items: 4
-      }
     },
     nav: true
   }
