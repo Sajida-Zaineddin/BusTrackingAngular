@@ -1,7 +1,7 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { TestimonialService } from 'src/app/services/testimonial.service';
+import { TestimonialService } from 'src/app/Services/testimonial.service';
 
 @Component({
   selector: 'app-testimonial',

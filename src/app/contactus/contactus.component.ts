@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ContactUsService } from '../Services/contact-us.service';
 
 @Component({
   selector: 'app-contactus',
@@ -8,17 +10,26 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class ContactusComponent implements OnInit {
 
-  constructor() { }
+  constructor(private contactusService:ContactUsService,private router:Router) { }
 
 
-  registerForm: FormGroup = new FormGroup({
+  CreateForm :FormGroup =new FormGroup({
+  
+    firstname:new FormControl('',Validators.required),
+    lastname:new FormControl(),
     email: new FormControl('', [Validators.required, Validators.email]),
-    fullName: new FormControl('', Validators.required),
-    message: new FormControl('' , Validators.required)
-
+    subject:new FormControl('',Validators.required),    
+    massage:new FormControl('',Validators.required),
   })
+
 
   ngOnInit(): void {
   }
+
+  send(){
+    this.contactusService.create(this.CreateForm.value);
+    window.location.reload();
+  }
+
 
 }
