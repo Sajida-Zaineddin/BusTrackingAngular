@@ -187,6 +187,8 @@
     background: #f7f7f7;
     border: 1px solid #eeeeee;
     padding: 50px 35px;
+    margin-bottom: -30%;
+    margin-left: 30%;
 }
 
 .s_comment_area .s_comment_inner .contact_us_form .form-group {
@@ -467,4 +469,24 @@
     font-size: 18px;
     line-height: 28px;
     font-style: italic;
+}
+
+.main-button-gradient {
+    font-size: 13px;
+    color: #fff;
+    background: rgb(219, 138, 222);
+    background: linear-gradient(-145deg, rgba(219, 138, 222, 1) 0%, rgba(246, 191, 159, 1) 100%);
+    padding: 12px 30px;
+    display: inline-block;
+    border-radius: 5px;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: all .3s;
+}
+
+.main-button-gradient:hover {
+    color: white;
+    background: rgb(219, 138, 222);
+    background: linear-gradient(-145deg, rgba(219, 138, 222, 1) 0%, rgba(246, 191, 159, 1) 100%);
+    opacity: 0.9;
 }
