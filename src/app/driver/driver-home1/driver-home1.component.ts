@@ -35,33 +35,17 @@ export class DriverHome1Component implements OnInit {
     setTimeout(() => {
 
       if (this.busService.busRoutesByUsername.xcurrent == 'null' || this.busService.busRoutesByUsername.ycurrent == 'null') {
-        console.log('true')
         this.currentLoc = new google.maps.LatLng({ lat: Number(this.busService.busRoutesByUsername.xstart), lng: Number(this.busService.busRoutesByUsername.ystart) })
       }
       else {
-        console.log('false')
         this.currentLoc = new google.maps.LatLng({ lat: Number(this.busService.busRoutesByUsername.xcurrent), lng: Number(this.busService.busRoutesByUsername.ycurrent) })
       }
-      console.log('busService.busRoutesByUsername:', this.busService.busRoutesByUsername);
-      console.log('currentLoc:', this.currentLoc);
-      console.log('waypts:', this.waypts);
-
       this.initMap();
-
-
-      console.log('waypts:', this.waypts);
 
     }, 2000);
     setTimeout(() => {
-
       this.calculateAndDisplayRoute(this.directionsService, this.directionsRenderer);
-      console.log('waypoints_order:', this.waypoints_order);
     }, 2000);
-
-  }
-
-  test() {
-    console.log('routesbyusername', this.busService.busRoutesByUsername);
   }
 
   initMap(): void {
@@ -82,20 +66,13 @@ export class DriverHome1Component implements OnInit {
         });
       }
     }
-
-
     this.directionsRenderer.setMap(map);
-
-
   }
 
   calculateAndDisplayRoute(
     directionsService: google.maps.DirectionsService,
     directionsRenderer: google.maps.DirectionsRenderer
   ): void {
-
-
-
     if (this.currentLoc != undefined)
       directionsService
         .route({
@@ -106,34 +83,25 @@ export class DriverHome1Component implements OnInit {
           travelMode: google.maps.TravelMode.DRIVING,
         })
         .then((response) => {
-          console.log(response)
           directionsRenderer.setDirections(response);
-
           const route = response.routes[0];
           this.waypoints_order = route.waypoint_order;
-          console.log('route', route);
           const summaryPanel = document.getElementById(
             "directions-panel"
           ) as HTMLElement;
-
           summaryPanel.innerHTML = "";
-
           // For each route, display summary information.
           for (let i = 0; i < route.legs.length; i++) {
             const routeSegment = i + 1;
-
             summaryPanel.innerHTML +=
-              "<b>Route Segment: " + routeSegment + "</b><br>";
-            summaryPanel.innerHTML += route.legs[i].start_address + " to ";
+            "<b>" + routeSegment + "</b>"+"<b>. Destination Route : </b><br>";
+            summaryPanel.innerHTML += route.legs[i].start_address + "<b> To </b>";
             summaryPanel.innerHTML += route.legs[i].end_address + "<br>";
-            summaryPanel.innerHTML += route.legs[i].distance!.text + "<br><br>";
+            summaryPanel.innerHTML +=  "<b>"+route.legs[i].distance!.text + "</b><br><br>";
           }
         })
         .catch((e) => window.alert("Directions request failed due to " + e));
   }
-
-
-
 
   next() {
     if(this.waypoints_order.length<1){
