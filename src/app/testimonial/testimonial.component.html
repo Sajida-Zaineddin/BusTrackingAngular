@@ -4,67 +4,18 @@
 <section class="testimonials_item_area p_100">
     <h2 class="cm_title_br text-capitalize" style="margin-left: 20%; margin-top: 5%; margin-bottom: 5%; font-size: 2.5rem;">What parents say about our school and its drivers</h2>
     <div class="container">
-        <div class="testi_item_inner">
-            <div class="media">
+        <div class="testi_item_inner" *ngFor="let item of this.testomonal.data">
+            <div class="media" *ngIf="item.status=='approved'">
                 <div class="d-flex">
-                    <img src="assets/images/client-1.png" style="width: 15%;" alt="">
+                    <img src="../../../assets/images/{{item.imagepath}}" style="width: 15%;" alt="">
                     <h3>“</h3>
                 </div>
                 <div class="media-body">
-                    <p>A beautiful and clean school that seeks to deliver its students safely.</p>
-                    <h5>- Robert joe</h5>
+                    <p>{{item.feedback}}</p>
+                    <h5>- {{item.name}}</h5>
                 </div>
             </div>
-            <div class="media">
-                <div class="d-flex">
-                    <img src="assets/images/client-2.png" style="width: 15%;" alt="">
-                    <h3>“</h3>
-                </div>
-                <div class="media-body">
-                    <p>School bus drivers are good people and come on time, deliver our children on time.</p>
-                    <h5>- Sumaya joe</h5>
-                </div>
-            </div>
-            <div class="media">
-                <div class="d-flex">
-                    <img src="assets/images/client-1.png" style="width: 15%;" alt="">
-                    <h3>“</h3>
-                </div>
-                <div class="media-body">
-                    <p>A beautiful and clean school that seeks to deliver its students safely.</p>
-                    <h5>- Robert joe</h5>
-                </div>
-            </div>
-            <div class="media">
-                <div class="d-flex">
-                    <img src="assets/images/client-2.png" style="width: 15%;" alt="">
-                    <h3>“</h3>
-                </div>
-                <div class="media-body">
-                    <p>School bus drivers are good people and come on time, deliver our children on time.</p>
-                    <h5>- Sumaya joe</h5>
-                </div>
-            </div>
-            <div class="media">
-                <div class="d-flex">
-                    <img src="assets/images/client-1.png" style="width: 15%;" alt="">
-                    <h3>“</h3>
-                </div>
-                <div class="media-body">
-                    <p>A beautiful and clean school that seeks to deliver its students safely.</p>
-                    <h5>- Robert joe</h5>
-                </div>
-            </div>
-            <div class="media">
-                <div class="d-flex">
-                    <img src="assets/images/client-2.png" style="width: 15%;" alt="">
-                    <h3>“</h3>
-                </div>
-                <div class="media-body">
-                    <p>School bus drivers are good people and come on time, deliver our children on time.</p>
-                    <h5>- Sumaya joe</h5>
-                </div>
-            </div>
+
         </div>
     </div>
 </section>
@@ -79,39 +30,40 @@
                     <div class="s_comment_area">
                         <h3 class="cm_title_br">Give Us Your Testimonial</h3>
                         <div class="s_comment_inner">
-                            <form class="row contact_us_form" method="post" [formGroup]="registerForm" action="" id="contactForm" novalidate="novalidate">
-                                <div class="form-group col-md-6">
-                                    <fieldset>
-                                        <input class="form-control" type="name" name="name" id="name" formControlName="fullName" placeholder="Full Name">
-                                        <mat-error *ngIf="registerForm.controls['fullName'].hasError('required')">
-                                            Name is <strong>required</strong>
-                                        </mat-error>
-                                    </fieldset>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <fieldset>
-                                        <input class="form-control" type="email" name="email" id="email" formControlName="email" placeholder="Your Email">
-                                        <mat-error *ngIf="registerForm.controls['email'].hasError('email') && !registerForm.controls['email'].hasError('required')">
-                                            Please enter a valid email
-                                        </mat-error>
-                                        <mat-error *ngIf="registerForm.controls['email'].hasError('required')">
-                                            Email is <strong>required</strong>
-                                        </mat-error>
-                                    </fieldset>
-                                </div>
-                                <div class="form-group col-md-12">
-                                    <fieldset>
-                                        <textarea class="form-control" name="message" id="message" formControlName="message" placeholder="Your Message"></textarea>
-                                        <mat-error *ngIf="registerForm.controls['message'].hasError('required')">
-                                            Message is <strong>required</strong>
-                                        </mat-error>
-                                    </fieldset>
-                                </div>
-                                <div class="form-group ">
-                                    <fieldset>
-                                        <button type="submit" value="submit" class="btn btn-primary p-2 " [disabled]=" !registerForm.valid ">Send  Message  </button>
-                                    </fieldset>
-                                </div>
+                            <form [formGroup]="CreateForm" class="example-form">
+                                <ul>
+
+                                    <li>
+                                        <mat-form-field class="example-full-width" appearance="fill">
+                                            <mat-label>Enter Your Name </mat-label>
+                                            <input type="text" matInput formControlName="name" placeholder="name ">
+                                            <mat-error *ngIf="CreateForm.controls['name'].hasError('required')">
+                                                Name is <strong>required</strong>
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </li>
+                                    <li>
+
+
+                                        <mat-form-field class="example-full-width" appearance="fill">
+                                            <mat-label>Enter Your Feedback </mat-label>
+                                            <input type="text" matInput formControlName="feedback" placeholder="feedback ">
+                                            <mat-error *ngIf="CreateForm.controls['feedback'].hasError('required')">
+                                                Feedback is <strong>required</strong>
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </li>
+
+
+
+                                    <li>
+                                        <input type="file" #file placeholder="Choose Image" formControlName="imagepath" (change)="uploadFile(file.files)" style="display:none;">
+                                        <button class="btn btn-dark" (click)="file.click()">Upload Image</button>
+                                    </li>
+
+                                </ul>
+
+                                <button class="btn btn-success" mat-button [mat-dialog-close]="true" (click)="save()" cdkFocusInitial>Save</button>
                             </form>
                         </div>
                     </div>
@@ -122,3 +74,121 @@
 </section>
 <!--================End Your Testimonial Area =================-->
 <app-footer></app-footer>
+
+
+
+
+
+
+<!-- <ng-template #callCreateDailog>
+    
+    <h2 mat-dialog-title> Add Course </h2>
+    <mat-dialog-content class="mat-typography">
+
+        <form [formGroup]="CreateForm" class="example-form">
+            <ul>
+
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Your Name </mat-label>
+                        <input type="text" matInput formControlName="name" placeholder="name ">
+                        <mat-error *ngIf="CreateForm.controls['name'].hasError('required')">
+                            title is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+
+
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Your Feedback </mat-label>
+                        <input type="text" matInput formControlName="feedback" placeholder="feedback ">
+                        <mat-error *ngIf="CreateForm.controls['feedback'].hasError('required')">
+                            information is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+
+
+
+                <li>
+                    <input type="file" #file placeholder="Choose Image" formControlName="imagepath"
+                        (change)="uploadFile(file.files)" style="display:none;">
+                    <button class="btn btn-dark" (click)="file.click()">Upload Image</button>
+                </li>
+
+                <li>
+                    <select formControlName="status">
+                        <option [ngValue]="null" disabled>Choose your status</option>
+
+                        <option *ngFor="let item of testimonial.test" [ngValue]="item.status"> {{item.status}}</option>
+
+                    </select>
+
+                </li>
+            </ul>
+        </form>
+
+
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button class="btn btn-danger" mat-button mat-dialog-close>Cancel</button>
+        <button class="btn btn-success" mat-button [mat-dialog-close]="true" (click)="save()"
+            cdkFocusInitial>Save</button>
+    </mat-dialog-actions>
+</ng-template> -->
+
+
+
+
+
+<!-- <div class="media">
+    <div class="d-flex">
+        <img src="assets/images/client-2.png" style="width: 15%;" alt="">
+        <h3>“</h3>
+    </div>
+    <div class="media-body">
+        <p>School bus drivers are good people and come on time, deliver our children on time.</p>
+        <h5>- Sumaya joe</h5>
+    </div>
+</div>
+<div class="media">
+    <div class="d-flex">
+        <img src="assets/images/client-1.png" style="width: 15%;" alt="">
+        <h3>“</h3>
+    </div>
+    <div class="media-body">
+        <p>A beautiful and clean school that seeks to deliver its students safely.</p>
+        <h5>- Robert joe</h5>
+    </div>
+</div>
+<div class="media">
+    <div class="d-flex">
+        <img src="assets/images/client-2.png" style="width: 15%;" alt="">
+        <h3>“</h3>
+    </div>
+    <div class="media-body">
+        <p>School bus drivers are good people and come on time, deliver our children on time.</p>
+        <h5>- Sumaya joe</h5>
+    </div>
+</div>
+<div class="media">
+    <div class="d-flex">
+        <img src="assets/images/client-1.png" style="width: 15%;" alt="">
+        <h3>“</h3>
+    </div>
+    <div class="media-body">
+        <p>A beautiful and clean school that seeks to deliver its students safely.</p>
+        <h5>- Robert joe</h5>
+    </div>
+</div>
+<div class="media">
+    <div class="d-flex">
+        <img src="assets/images/client-2.png" style="width: 15%;" alt="">
+        <h3>“</h3>
+    </div>
+    <div class="media-body">
+        <p>School bus drivers are good people and come on time, deliver our children on time.</p>
+        <h5>- Sumaya joe</h5>
+    </div>
+</div> -->
