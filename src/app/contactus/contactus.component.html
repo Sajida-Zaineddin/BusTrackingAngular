@@ -47,59 +47,37 @@
 
                                 <mat-error *ngIf="registerForm.controls['fullName'].hasError('required')">
                                     Name is <strong>required</strong>
-                                    <form [formGroup]="CreateForm" class="example-form">
-                                        <ul>
-                                            <li>
-                                                <mat-form-field class="example-full-width" appearance="fill">
-                                                    <mat-label>Enter Your first name </mat-label>
-                                                    <input type="text" matInput formControlName="firstname" placeholder="firstname">
-                                                    <mat-error *ngIf="CreateForm.controls['firstname'].hasError('required')">
-                                                        first name is <strong>required</strong>
-                                                    </mat-error>
-                                                </mat-form-field>
-                                            </li>
-                                            <li>
-                                                <mat-form-field class="example-full-width" appearance="fill">
-                                                    <mat-label>Enter Your last name </mat-label>
-                                                    <input type="text" matInput formControlName="lastname" placeholder="lastname">
-                                                </mat-form-field>
-                                            </li>
-                                            <li>
-                                                <mat-form-field class="example-full-width" appearance="fill">
-                                                    <mat-label>Enter Your email </mat-label>
-                                                    <input type="email" matInput formControlName="email" placeholder="email">
-                                                    <mat-error *ngIf="CreateForm.controls['email'].hasError('required')">
-                                                        email is <strong>required</strong>
-                                                    </mat-error>
-                                                </mat-form-field>
-                                            </li>
-                                            <li>
-                                                <mat-form-field class="example-full-width" appearance="fill">
-                                                    <mat-label> subject </mat-label>
-                                                    <input type="text" matInput formControlName="subject" placeholder="subject">
-                                                    <mat-error *ngIf="CreateForm.controls['subject'].hasError('required')">
-                                                        subject is <strong>required</strong>
-                                                    </mat-error>
-                                                </mat-form-field>
-                                            </li>
-
-                                            <li>
-                                                <mat-form-field class="example-full-width" appearance="fill">
-                                                    <mat-label> Massage </mat-label>
-                                                    <input type="text " matInput formControlName="massage" placeholder="massage">
-                                                    <mat-error *ngIf="CreateForm.controls['massage'].hasError('required')">
-                                                        massage is <strong>required</strong>
-                                                    </mat-error>
-                                                </mat-form-field>
-                                            </li>
-
-
-                                        </ul>
-
-                                        <button class="btn btn-success" mat-button [mat-dialog-close]="true" (click)="send()" cdkFocusInitial>Send</button>
-                                    </form>
+                                </mat-error>
+                            </fieldset>
+                        </div>
+                        <div class="col-lg-12">
+                            <fieldset>
+                                <input type="text" name="email" id="email" formControlName="email" placeholder="Your Email">
+                                <mat-error *ngIf="registerForm.controls['email'].hasError('email') && !registerForm.controls['email'].hasError('required')">
+                                    Please enter a valid email
+                                </mat-error>
+                                <mat-error *ngIf="registerForm.controls['email'].hasError('required')">
+                                    Email is <strong>required</strong>
+                                </mat-error>
+                            </fieldset>
+                        </div>
+                        <div class="col-lg-12">
+                            <fieldset>
+                                <textarea name="message" id="message" formControlName="message" placeholder="Your Message"></textarea>
+                                <mat-error *ngIf="registerForm.controls['message'].hasError('required')">
+                                    Message is <strong>required</strong>
+                                </mat-error>
+                            </fieldset>
+                        </div>
+                        <div class="col-lg-12">
+                            <fieldset>
+                                <button [disabled]=" !registerForm.valid ">Send  Message  </button>
+                            </fieldset>
                         </div>
                     </div>
+                </form>
             </div>
+        </div>
+    </div>
 </section>
 <app-footer></app-footer>

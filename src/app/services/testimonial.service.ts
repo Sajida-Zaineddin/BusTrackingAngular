@@ -11,8 +11,7 @@ export class TestimonialService {
   constructor(private http: HttpClient, private spinner: NgxSpinnerService, private toastr: ToastrService) { }
 
   display_Image: any;
-  data: any = [];
-  testimonialsToShow:any = [];
+  data: any = []
   results: any = [];
   test: any = [];
 
@@ -22,7 +21,7 @@ export class TestimonialService {
       .subscribe((res) => {
         console.log(res)
         this.test = res;
-     
+        this.toastr.success('Successfully :) ')
       }, err => {
         this.toastr.error('something error ');
       })
@@ -35,12 +34,12 @@ export class TestimonialService {
       .subscribe((res) => {
         console.log(res)
         this.data = res;
-       
+        this.toastr.success('Successfully :) ')
       }, err => {
         this.toastr.error('something error ');
       })
 
-   this.getTestimonialsToShow();
+    console.log(this.data);
   }
 
   createTestimonial(data: any) {
@@ -50,10 +49,10 @@ export class TestimonialService {
     this.http.post('https://localhost:44346/api/Testimonial/CreateTestimonial/', data)
       .subscribe((res: any) => {
 
-    
-
+        this.spinner.hide();
+        this.toastr.success('Saved Successfully :) ')
       }, err => {
-   
+        this.spinner.hide();
         this.toastr.error(err.message, err.status)
       })
 
@@ -94,14 +93,5 @@ export class TestimonialService {
       this.toastr.error(err.message, err.status);
     })
 
-  }
-
-  getTestimonialsToShow(){
-    for(let i =0;i<this.data;i++){
-      if(this.data[i].status=='approved'){
-        this.testimonialsToShow.push(this.data[i])
-      }
-      
-    }
   }
 }
