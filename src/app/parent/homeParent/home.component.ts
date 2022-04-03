@@ -14,12 +14,10 @@ export class HomeComponent implements OnInit {
 
   username: any = localStorage.getItem('name')
 
-
   xSchoolLoc: any = '32.025984';
   ySchoolLoc: any = '35.853984';
 
   markers: any = [];
-   
   zoom = 12
   center: google.maps.LatLngLiteral = {
     lat: 32.025984,
@@ -41,29 +39,20 @@ export class HomeComponent implements OnInit {
         lng: position.coords.longitude,
       }
     });
-
   }
   ngOnInit(): void {
     this.parentservice.getParentStudents({
       username: this.username
     });
     setTimeout(() => {
-
       this.addMarkers();
-    
-
     }, 2000);
-
-
   }
 
   addMarkers() {
     for (let i = 0; i < this.parentservice.parentStudents.length; i++) {
-
       if (this.parentservice.parentStudents[i].xstart == this.xSchoolLoc && this.parentservice.parentStudents[i].ystart == this.ySchoolLoc) {
-
         if (this.parentservice.parentStudents[i].inbusstatus == 'true') {
-
           if (this.parentservice.parentStudents[i].xcurrent == 'null' && this.parentservice.parentStudents[i].ycurrent == 'null') {
             this.markers.push({
               position: {
@@ -72,12 +61,9 @@ export class HomeComponent implements OnInit {
               },
               label: {
                 color: 'red',
-                text: (this.parentservice.parentStudents[i].name + ' in School now '),
-
+                text: (this.parentservice.parentStudents[i].name + ' In School Now '),
               },
-
               options: { animation: google.maps.Animation.DROP },
-
             })
 
           } else {
@@ -89,20 +75,13 @@ export class HomeComponent implements OnInit {
               label: {
                 color: 'black',
                 text: (this.parentservice.parentStudents[i].name),
-
               },
-
               options: { animation: google.maps.Animation.DROP },
-
             })
           }
-
         }
-
-
       }
       else {
-
         if (this.parentservice.parentStudents[i].inbusstatus == 'false') {
           this.markers.push({
             position: {
@@ -112,11 +91,8 @@ export class HomeComponent implements OnInit {
             label: {
               color: 'black',
               text: (this.parentservice.parentStudents[i].name),
-
             },
-
             options: { animation: google.maps.Animation.DROP },
-
           })
 
         }else{
@@ -128,30 +104,19 @@ export class HomeComponent implements OnInit {
             label: {
               color: 'green',
               text: (this.parentservice.parentStudents[i].name),            
-          
             },
-          
             options: { animation: google.maps.Animation.DROP },
-          
           })
         }
       }
-
     }
-
-
   }
-
 
   show(id : any){
     this.parentservice.getStudentsAttendence({id:id})
     setTimeout(() => {
       this.dialog.open(this.Attendence)     
-
     }, 1000);
-  
-    
-    
   }
 }
 
