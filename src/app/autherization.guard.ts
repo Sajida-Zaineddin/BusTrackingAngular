@@ -43,7 +43,7 @@ export class AutherizationGuard implements CanActivate {
       }
   
       else {
-        this.router.navigate(['security/login']);
+        this.router.navigate(['auth/login']);
         this.toaster.warning('Please login !!')
         return false;
       }

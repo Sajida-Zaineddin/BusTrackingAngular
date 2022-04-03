@@ -5,14 +5,14 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class StudentService {
-
   student:any=[];
-
   status: any = [];
   fullName: any = [];
   busnumber: any = [];
   TEACHERNAME:any ;
   TEACHERNAME1:any=[];
+  stdName:any=[];
+
   constructor(private http:HttpClient ) {  }
   getAll(){
     //show spinner 
@@ -54,18 +54,18 @@ export class StudentService {
      // this.toastr.error(err.message, err.status);
     })
   }
-  search(name:any){
-    //  this.spinner.show();
-     // body.imagename=this.display_Image;
-      this.http.post('https://localhost:44346/api/student/SearchStudent/',name).subscribe((res)=>{
-
-      //  this.spinner.hide();
-       // this.toastr.success('saved Successfully :)');
-      },error=>{
-       // this.spinner.hide();
-       // this.toastr.error(error.status,error.message);
-      })
-    }
+  // Search(name:any){
+  //   //  this.spinner.show();
+  //    // body.imagename=this.display_Image;
+  //     this.http.post('https://localhost:44346/api/student/SearchStudent/',name).subscribe((res)=>{
+  //       this.stdName=[res];
+  //     //  this.spinner.hide();
+  //      // this.toastr.success('saved Successfully :)');
+  //     },error=>{
+  //      // this.spinner.hide();
+  //      // this.toastr.error(error.status,error.message);
+  //     })
+  //   }
 
 
   create(student:any){

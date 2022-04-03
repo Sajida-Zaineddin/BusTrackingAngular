@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 
 import { BusService } from 'src/app/Services/bus.service';
 
@@ -17,35 +18,51 @@ export class DriverHome1Component implements OnInit {
   waypoints_order: any[] = []
   waypts: google.maps.DirectionsWaypoint[] = [];
   currentLoc: string | google.maps.LatLng | google.maps.Place |
-    google.maps.LatLngLiteral | undefined = "Sweileh, Amman";
+    google.maps.LatLngLiteral | undefined
 
-  constructor(public busService: BusService) {
+    setLocation:any={}
+  constructor(public busService: BusService,private toastr: ToastrService) {
+
 
   }
-
-
-  CreateForm: FormGroup = new FormGroup({
-    checkboxArray: new FormControl('',)
-  })
-
-  x: any = [];
-
 
   ngOnInit(): void {
 
+
+    this.busService.getBusRouteByUsername();
     this.busService.getBusStudents();
 
     setTimeout(() => {
+
+      if (this.busService.busRoutesByUsername.xcurrent == 'null' || this.busService.busRoutesByUsername.ycurrent == 'null') {
+        console.log('true')
+        this.currentLoc = new google.maps.LatLng({ lat: Number(this.busService.busRoutesByUsername.xstart), lng: Number(this.busService.busRoutesByUsername.ystart) })
+      }
+      else {
+        console.log('false')
+        this.currentLoc = new google.maps.LatLng({ lat: Number(this.busService.busRoutesByUsername.xcurrent), lng: Number(this.busService.busRoutesByUsername.ycurrent) })
+      }
+      console.log('busService.busRoutesByUsername:', this.busService.busRoutesByUsername);
+      console.log('currentLoc:', this.currentLoc);
+      console.log('waypts:', this.waypts);
+
       this.initMap();
+
+
+      console.log('waypts:', this.waypts);
+
+    }, 2000);
+    setTimeout(() => {
+
       this.calculateAndDisplayRoute(this.directionsService, this.directionsRenderer);
-      console.log('test:',this.busService.busStudents);
-  }, 1500);
-  
-    
+      console.log('waypoints_order:', this.waypoints_order);
+    }, 2000);
 
   }
 
- 
+  test() {
+    console.log('routesbyusername', this.busService.busRoutesByUsername);
+  }
 
   initMap(): void {
 
@@ -56,22 +73,16 @@ export class DriverHome1Component implements OnInit {
         center: { lat: 31.971746, lng: 35.840065 },
       }
     );
-   
+
     for (let i = 0; i < this.busService.busStudents.length; i++) {
-      this.waypts.push({
-        location: new google.maps.LatLng({ lat: Number(this.busService.busStudents[i].xhome), lng: Number(this.busService.busStudents[i].yhome) }),
-        stopover: true,
-      });
+      if (this.busService.busStudents[i].inbusstatus == 'true') {
+        this.waypts.push({
+          location: new google.maps.LatLng({ lat: Number(this.busService.busStudents[i].xhome), lng: Number(this.busService.busStudents[i].yhome) }),
+          stopover: true,
+        });
+      }
     }
 
-    // this.waypts.push({
-    //   location: new google.maps.LatLng({ lat: 31.971746, lng: 35.840065 }),
-    //   stopover: true,
-    // });
-    // this.waypts.push({
-    //   location: "Mahis",
-    //   stopover: true,
-    // });
 
     this.directionsRenderer.setMap(map);
 
@@ -89,7 +100,7 @@ export class DriverHome1Component implements OnInit {
       directionsService
         .route({
           origin: this.currentLoc,
-          destination: "Amman, Jordan",
+          destination: new google.maps.LatLng({ lat: Number(this.busService.busRoutesByUsername.xend), lng: Number(this.busService.busRoutesByUsername.yend) }),
           waypoints: this.waypts,
           optimizeWaypoints: true,
           travelMode: google.maps.TravelMode.DRIVING,
@@ -118,15 +129,34 @@ export class DriverHome1Component implements OnInit {
             summaryPanel.innerHTML += route.legs[i].distance!.text + "<br><br>";
           }
         })
-        .catch((e) => window.alert("Directions request failed due to " + status));
+        .catch((e) => window.alert("Directions request failed due to " + e));
   }
 
 
 
 
   next() {
-    console.log("NEXT");
-    this.currentLoc = this.waypts.splice(this.waypoints_order[0], 1)[0].location
+    if(this.waypoints_order.length<1){
+      this.busService.setCurrentBusLocationAfterEnd(
+        {
+          Username:localStorage.getItem('name'),
+        }
+        );
+      this.busService.changeAllStudentsBusStatus();
+      this.toastr.success("logout");
+      return;
+    }
+    this.currentLoc = this.waypts.splice(this.waypoints_order[0], 1)[0].location;
+    if (this.currentLoc instanceof google.maps.LatLng) {
+      this.busService.changeStudentBusStatus(this.currentLoc.lat().toString())//todo add lng
+      this.busService.SetCurrentBusLocation(
+        {
+          Username:localStorage.getItem('name'),
+          Xcurrent:this.currentLoc.lat().toString(),
+          Ycurrent:this.currentLoc.lng().toString()
+        }
+      )
+    }
     this.calculateAndDisplayRoute(this.directionsService, this.directionsRenderer)
   }
 }

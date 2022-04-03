@@ -1,69 +1,45 @@
 <app-header></app-header>
-
-<!--================Testimonials item Area =================-->
-<section class="testimonials_item_area p_100">
-    <h2 class="cm_title_br text-capitalize" style="margin-left: 20%; margin-top: 5%; margin-bottom: 5%; font-size: 2.5rem;">What parents say about our school and its drivers</h2>
+<section class="page-heading">
     <div class="container">
-        <div class="testi_item_inner">
-            <div class="media">
-                <div class="d-flex">
-                    <img src="assets/images/client-1.png" style="width: 15%;" alt="">
-                    <h3>“</h3>
-                </div>
-                <div class="media-body">
-                    <p>A beautiful and clean school that seeks to deliver its students safely.</p>
-                    <h5>- Robert joe</h5>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="header-text">
+                    <h4>More Testimonials</h4>
+                    <h1>Testimonial<span style="color: #dc8cdb;">s</span></h1>
                 </div>
             </div>
-            <div class="media">
-                <div class="d-flex">
-                    <img src="assets/images/client-2.png" style="width: 15%;" alt="">
-                    <h3>“</h3>
-                </div>
-                <div class="media-body">
-                    <p>School bus drivers are good people and come on time, deliver our children on time.</p>
-                    <h5>- Sumaya joe</h5>
-                </div>
-            </div>
-            <div class="media">
-                <div class="d-flex">
-                    <img src="assets/images/client-1.png" style="width: 15%;" alt="">
-                    <h3>“</h3>
-                </div>
-                <div class="media-body">
-                    <p>A beautiful and clean school that seeks to deliver its students safely.</p>
-                    <h5>- Robert joe</h5>
+        </div>
+    </div>
+</section>
+<!--================Testimonials item Area =================-->
+<section class="testimonials" id="testimonials">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-heading">
+                    <h6>Testimonials</h6>
+                    <h4>Children's Parent's <em>Opinions</em></h4>
                 </div>
             </div>
-            <div class="media">
-                <div class="d-flex">
-                    <img src="assets/images/client-2.png" style="width: 15%;" alt="">
-                    <h3>“</h3>
-                </div>
-                <div class="media-body">
-                    <p>School bus drivers are good people and come on time, deliver our children on time.</p>
-                    <h5>- Sumaya joe</h5>
-                </div>
-            </div>
-            <div class="media">
-                <div class="d-flex">
-                    <img src="assets/images/client-1.png" style="width: 15%;" alt="">
-                    <h3>“</h3>
-                </div>
-                <div class="media-body">
-                    <p>A beautiful and clean school that seeks to deliver its students safely.</p>
-                    <h5>- Robert joe</h5>
-                </div>
-            </div>
-            <div class="media">
-                <div class="d-flex">
-                    <img src="assets/images/client-2.png" style="width: 15%;" alt="">
-                    <h3>“</h3>
-                </div>
-                <div class="media-body">
-                    <p>School bus drivers are good people and come on time, deliver our children on time.</p>
-                    <h5>- Sumaya joe</h5>
-                </div>
+            <div class="col-lg-12">
+                <owl-carousel-o [options]="customOptions">
+                    <ng-template carouselSlide>
+                        <div class="item">
+                            <p>“just think about TemplateMo if you need free CSS templates for your website”</p>
+                            <h4>Catherine Walk</h4>
+                            <span>CEO &amp; Founder</span>
+                            <img src="assets/images/quote.png" alt="">
+                        </div>
+                    </ng-template>
+                    <ng-template carouselSlide>
+                        <div class="item">
+                            <p>“just think about our website wherever you need free templates for your website”</p>
+                            <h4>Sophia Whity</h4>
+                            <span>CEO and Co-Founder</span>
+                            <img src="assets/images/quote.png" alt="">
+                        </div>
+                    </ng-template>
+                </owl-carousel-o>
             </div>
         </div>
     </div>
@@ -77,7 +53,9 @@
             <div class="col-lg-9">
                 <div class="main_blog_inner single_blog_inner">
                     <div class="s_comment_area">
-                        <h3 class="cm_title_br">Give Us Your Testimonial</h3>
+                        <div class="section-heading">
+                            <h4>Give Us Your <em>Testimonial</em></h4>
+                        </div>
                         <div class="s_comment_inner">
                             <form class="row contact_us_form" method="post" [formGroup]="registerForm" action="" id="contactForm" novalidate="novalidate">
                                 <div class="form-group col-md-6">

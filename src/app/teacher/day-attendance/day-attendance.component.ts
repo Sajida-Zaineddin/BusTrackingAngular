@@ -27,22 +27,23 @@ export class DayAttendanceComponent implements OnInit {
   ngOnInit(): void {
 
     this.round.getAll();
-    this.home.getAll();
+    this.attendance.getAll();
     this.homebus.getTeachers();
     // this.round.getGetRoundStatus();
-    this.home.GETATTENDANCESTATUS();
-     this.home.GETBUSNUMBER();
-    this.home.GETSTUDENTNAME();
+    this.attendance.GETATTENDANCESTATUS();
+     this.attendance.GETBUSNUMBER();
+    this.attendance.GETSTUDENTNAME();
 
   }
 
-  Values:any=[];
 
-attData: any = [];
+  
 
-  student:any= [];
 
- // status :any=[];
+search(fullName :any){
+this.student.GetStudentListByTeacher(fullName);
+//console.log(this.homeStudent.GetStudentListByTeacher(name));
+ 
   parentname :any=[];
   busnumber:any=[];
   email:any="";
@@ -50,7 +51,6 @@ attData: any = [];
 
   
   UpdateForm:FormGroup=new FormGroup({
-    id : new FormControl(),
     dateofattendance:new FormControl(),
     status:new FormControl(),
     name:new FormControl(),
@@ -66,11 +66,11 @@ attData: any = [];
 })
 
 
- openUpdateDailog(id1 : any ,dateofattendance1 : any , status1 : any , name1:any , busnumber1:any){
+  openUpdateDailog(id1 : any ,dateofattendance1 : any , status1 : any , name1:any , busnumber1:any){
 
-     this.home.update
+  this.attendance.update
 
-    this.attData = {
+  this.attData = {
       id: id1,
       dateofattendance1:dateofattendance1,
       status1:status1,
@@ -82,8 +82,8 @@ attData: any = [];
 
   }
   sendEmail(Email:any){
-this.home.sendEmail
-this.email=this.student.getAll.email
+this.attendance.sendEmail
+this.email=this.students.getAll.email
   }
     update()
       {

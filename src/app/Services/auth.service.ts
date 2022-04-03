@@ -37,11 +37,15 @@ export class AuthService {
       localStorage.setItem('user',JSON.stringify({...data}))
      if(data.role==='Admin'){        
         
+        
      this.router.navigate(['admin/dashboard'])
      }
      else if (data.role==='Driver')
      this.router.navigate(['driver/home'])
-    
+
+     else if (data.role==='Parent')
+     this.router.navigate(['parent/home'])
+     
      localStorage.setItem('name',data.unique_name)
      
    },err=>{
