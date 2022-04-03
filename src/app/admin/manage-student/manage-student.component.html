@@ -49,26 +49,7 @@
 
             </li>
 
-            <!-- <li>
-                <h3 style="color: red;">
           
-                    <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter Student xhome</mat-label>
-                        <input type="text" matInput formControlName="xhome"
-                         [(ngModel)]="studentData.xhome">
-                      </mat-form-field>
-                      <h3 style="color: red;">
-                        <mat-form-field class="example-full-width" appearance="fill">
-                            <mat-label>Enter Student yhome</mat-label>
-                            <input type="text" matInput formControlName="yhome"
-                             [(ngModel)]="studentData.yhome">
-                          </mat-form-field>
-                    </h3>
-                </h3>
-   
-      
-            </li>
-             -->
    
             <li>
                 <h3 style="color: red;">
@@ -113,10 +94,10 @@
 
 
             <li>
-                <select formControlName="status">
+                <select formControlName="roundStatus">
                     <option [ngValue]="null" disabled>Choose Round status</option>
 
-                    <option *ngFor="let item of home.status" [ngValue]="item.status"> {{item.status}}</option>
+                    <option *ngFor="let item of home.status" [ngValue]="item.roundStatus"> {{item.roundStatus}}</option>
          
                 </select>
                 <select formControlName="busnumber">

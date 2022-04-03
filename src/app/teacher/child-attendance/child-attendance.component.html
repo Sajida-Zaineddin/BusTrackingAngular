@@ -4,11 +4,16 @@
             <option [ngValue]="null" disabled>Choose  busnumber</option>
 
             <option *ngFor="let item of home.busnumber1" 
-            (change)="ShowAttendance($event)" [ngValue]="busnumber" > {{item.busnumber}}</option>
+            (change)="ShowAttendance($event)" [ngValue]="busnumber" [(ngModel)]="busnumber"  > {{item.busnumber}}</option>
  
                  </select></td> -->
- 
-    <input type="number" value="busnumber" [(ngModel)]="busnumber" (change)="ShowAttendance($event)" >
+
+                 <select formControlName="busnumber">
+                    <option [ngValue]="null" disabled>Choose Bus Number</option>
+
+                    <option *ngFor="let item2 of homeStudent.busnumber" [ngValue]="item2.busnumber"> {{item2.busnumber}}</option>
+                </select>
+    <!-- <input type="number" value="busnumber" [(ngModel)]="busnumber" (change)="ShowAttendance($event)" > -->
     <button class="btn btn-success" mat-button [mat-dialog-close]="true" (click)="DayAttendance()" >Show Student List</button>
  
 

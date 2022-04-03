@@ -128,6 +128,7 @@ save(name:any , dateofattendance:any, busnumber:any , status:any){
     ShowAttendance(ev:any){
       this.busnumber=ev.target.value;
    console.log(ev.target.value);
+         console.log( typeof ev.target.value)
     }
 
 
@@ -135,8 +136,8 @@ save(name:any , dateofattendance:any, busnumber:any , status:any){
    const bus = this.busnumber;
 
      this.home.GETSTUDENTLIST(bus);
-     console.log(  bus)
-      console.log( typeof bus)
+    // console.log(  bus)
+     // console.log( typeof bus)
       //this.router.navigate(['teacher/manageAttendance'])
       return bus
 

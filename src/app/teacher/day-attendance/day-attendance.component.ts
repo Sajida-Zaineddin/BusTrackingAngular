@@ -14,109 +14,14 @@ import {ChildAttendanceComponent} from '../child-attendance/child-attendance.com
   styleUrls: ['./day-attendance.component.css']
 })
 export class DayAttendanceComponent implements OnInit {
-  @ViewChild('callUpdateDailog') callUpdateDailog! :TemplateRef<any>
-  @ViewChild('callDeleteDialog') callDeleteDialog! :TemplateRef<any>
-  @ViewChild('callCreateDialog') callCreateDialog! :TemplateRef<any>
-  @ViewChild('callselectDialog') callselectDialog! :TemplateRef<any>
-  @Input() bu :number | undefined;  
-  constructor(public home:AttendanceService,public homeStudent:StudentService, public dialog: MatDialog
-    , public homebus: BusService, public round:RoundStatusService )
+
+
+  constructor()
  { }
 
 
   ngOnInit(): void {
 
-    this.round.getAll();
-    this.attendance.getAll();
-    this.homebus.getTeachers();
-    // this.round.getGetRoundStatus();
-    this.attendance.GETATTENDANCESTATUS();
-     this.attendance.GETBUSNUMBER();
-    this.attendance.GETSTUDENTNAME();
-
   }
-
-
-  
-
-
-search(fullName :any){
-this.student.GetStudentListByTeacher(fullName);
-//console.log(this.homeStudent.GetStudentListByTeacher(name));
- 
-  parentname :any=[];
-  busnumber:any=[];
-  email:any="";
-
-
-  
-  UpdateForm:FormGroup=new FormGroup({
-    dateofattendance:new FormControl(),
-    status:new FormControl(),
-    name:new FormControl(),
-    busnumber:new FormControl(),
-
- })
-
- CreateForm :FormGroup =new FormGroup({  
-  dateofattendance:new FormControl(''),
-  status:new FormControl(''),
-  name:new FormControl(''),
-  busnumber:new FormControl(''),
-})
-
-
-  openUpdateDailog(id1 : any ,dateofattendance1 : any , status1 : any , name1:any , busnumber1:any){
-
-  this.attendance.update
-
-  this.attData = {
-      id: id1,
-      dateofattendance1:dateofattendance1,
-      status1:status1,
-      name: name1,
-      busnumber1:busnumber1,
-
-    }
-
-
-  }
-  sendEmail(Email:any){
-this.attendance.sendEmail
-this.email=this.students.getAll.email
-  }
-    update()
-      {
-       
-        this.home.update(this.UpdateForm.value);
-  
-        window.location.reload();
-      }
-  
-      save(name:any , dateofattendance:any, busnumber:any , status:any){
-   this.Values = {
-     name:name ,
-     dateofattendance:dateofattendance,
-     busnumber:busnumber,
-     status:status
-
-   }
-     this.CreateForm.controls['name'].setValue(this.Values.name);
-     this.CreateForm.controls['dateofattendance'].setValue(Date.now);
-        // this.CreateForm.controls['dateofattendance'].setValue(dateofattendance1);
-        // this.CreateForm.controls['status'].setValue(status1);
-      this.CreateForm.controls['busnumber'].setValue(this.bu);
-
-        console.log(this.CreateForm.value);
-        this.home.create(this.CreateForm.value);
-        //this.CreateForm.controls['name'].setValue(name);
-        console.log(this.CreateForm.value);
-    
-      }
-  
-    
-    
-
-
-
 }
+
