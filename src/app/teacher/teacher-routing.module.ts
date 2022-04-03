@@ -23,7 +23,7 @@ const routes: Routes = [{
   component:SearchStudentNameComponent
 },
 {
-  path:'manage',
+  path:'manageAttendance',
   component:DayAttendanceComponent
 }
 ];

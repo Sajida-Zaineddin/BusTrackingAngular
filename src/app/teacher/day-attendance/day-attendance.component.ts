@@ -24,4 +24,3 @@ export class DayAttendanceComponent implements OnInit {
 
   }
 }
-

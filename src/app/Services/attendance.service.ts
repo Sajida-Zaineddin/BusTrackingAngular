@@ -85,7 +85,7 @@ this.spinner.show();
   }
   
 
-  GetStudentList(){
+GetStudentList(){
     
 this.spinner.show();
      
