@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ContactUsService } from '../Services/contact-us.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-contactus',
@@ -10,7 +11,7 @@ import { ContactUsService } from '../Services/contact-us.service';
 })
 export class ContactusComponent implements OnInit {
 
-  constructor(private contactusService:ContactUsService,private router:Router) { }
+  constructor(private contactusService:ContactUsService,private router:Router, private toastr: ToastrService) { }
 
   CreateForm :FormGroup =new FormGroup({
     firstname:new FormControl('',Validators.required),
@@ -25,7 +26,7 @@ export class ContactusComponent implements OnInit {
 
   send(){
     this.contactusService.create(this.CreateForm.value);
+    this.toastr.success('Thank you for contacting us ❤️ ')
     window.location.reload();
   }
-
 }

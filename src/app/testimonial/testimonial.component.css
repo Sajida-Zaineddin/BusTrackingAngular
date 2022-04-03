@@ -166,22 +166,6 @@
     margin-bottom: 30px;
 }
 
-
-/* .example-full-width input {
-    background: #fff;
-    font-size: 17px;
-    color: #afaeae;
-    height: 45px;
-    border: 1px solid #eeeeee;
-    border-radius: 0px;
-    padding: 0px 20px;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    background: #fff;
-    font-family: "Playfair Display", serif;
-    line-height: 45px;
-} */
-
 .example-full-width input.placeholder {
     font-size: 17px;
     color: #afaeae;
@@ -215,31 +199,72 @@
 ============================================================================================ */
 
 
-/* End Contact Us Area css
+/* Testimonials Area css
 ============================================================================================ */
 
-.testi_item_inner .media {
-    display: block;
-    border: 2px solid #ccc;
-    background-color: rgba(238, 238, 238, 0.642);
-    border-radius: 5px;
-    padding: 16px;
-    margin: 16px 0
+.testimonials_item_area .testi_item_inner {
+    max-width: 1030px;
+    margin: 0px auto -75px;
 }
 
-.testi_item_inner .media .d-flex {
-    float: left;
+.testimonials_item_area .testi_item_inner .media {
+    margin-bottom: 120px;
 }
 
-.testi_item_inner .media .d-flex::before {
-    display: none;
+.testimonials_item_area .testi_item_inner .media .d-flex {
+    padding-right: 90px;
+    /* text-align: center; */
+    /* display: block !important; */
+    position: relative;
 }
 
-.testi_item_inner .media .media-body p {
-    font-size: 18px;
-    line-height: 30px;
+.testimonials_item_area .testi_item_inner .media .d-flex:before {
+    content: "";
+    height: 105px;
+    width: 1px;
+    background: #a1a1a1;
+    position: absolute;
+    left: 13%;
+    top: 50px;
+}
+
+.testimonials_item_area .testi_item_inner .media .d-flex img {
+    padding-top: 25px;
+}
+
+.testimonials_item_area .testi_item_inner .media .d-flex h3 {
+    text-align: center;
+    color: #e8e8e8;
+    font-family: Arial;
+    font-size: 120px;
+    line-height: 60px;
+    margin-top: 50px;
+}
+
+.testimonials_item_area .testi_item_inner .media .media-body p {
+    color: #797979;
+    font-size: 22px;
+    line-height: 28px;
+    letter-spacing: .66px;
+    font-family: "Lora", serif;
+    padding-top: 40px;
+    margin-bottom: 0px;
+}
+
+.testimonials_item_area .testi_item_inner .media .media-body h5 {
+    color: #3e606b;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: .66px;
+    font-family: "Open Sans", sans-serif;
     font-style: italic;
+    margin-bottom: 0px;
+    padding-top: 30px;
 }
+
+
+/* End Testimonials Area css
+============================================================================================ */
 
 .main-button-gradient {
     font-size: 13px;

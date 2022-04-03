@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { OwlOptions } from 'ngx-owl-carousel-o';
+import { ToastrService } from 'ngx-toastr';
 import { TestimonialService } from '../services/testimonial.service';
 
 
@@ -11,7 +11,7 @@ import { TestimonialService } from '../services/testimonial.service';
 })
 export class TestimonialComponent implements OnInit {
 
-  constructor(public testomonal:TestimonialService) { }
+  constructor(public testomonal:TestimonialService, private toastr: ToastrService) { }
 
   CreateForm :FormGroup =new FormGroup({
     name:new FormControl('',Validators.required),
@@ -37,5 +37,7 @@ export class TestimonialComponent implements OnInit {
 
   save(){
     this.testomonal.createTestimonial(this.CreateForm.value);
+    this.toastr.success('Thank you for your testimony ❤️ ')
+    window.location.reload();
   }
 }

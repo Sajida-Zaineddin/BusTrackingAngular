@@ -54,7 +54,6 @@ export class TestimonialService {
 
 
   updateTestimonial(body: any) {
-
     this.http.put('https://localhost:44346/api/Testimonial/UpdateTestimonial/', body).subscribe((res) => {
       this.toastr.success('Updated Successfully :) ')
     }, err => {
