@@ -8,12 +8,7 @@
  
                  </select></td> -->
 
-                 <select formControlName="busnumber">
-                    <option [ngValue]="null" disabled>Choose Bus Number</option>
-
-                    <option *ngFor="let item2 of homeStudent.busnumber" [ngValue]="item2.busnumber"> {{item2.busnumber}}</option>
-                </select>
-    <!-- <input type="number" value="busnumber" [(ngModel)]="busnumber" (change)="ShowAttendance($event)" > -->
+    <input type="number" value="busnumber" [(ngModel)]="busnumber" (change)="ShowAttendance($event)" >
     <button class="btn btn-success" mat-button [mat-dialog-close]="true" (click)="DayAttendance()" >Show Student List</button>
  
 
