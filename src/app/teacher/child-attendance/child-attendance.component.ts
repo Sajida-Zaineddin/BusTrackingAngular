@@ -1,8 +1,10 @@
 
 
-import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { outputAst } from '@angular/compiler';
+import { Component, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { BusComponent } from 'src/app/admin/bus/bus.component';
 import { AttendanceService } from 'src/app/Services/attendance.service';
 import { BusService } from 'src/app/Services/bus.service';
@@ -20,13 +22,12 @@ export class ChildAttendanceComponent implements OnInit {
   @ViewChild('callCreateDialog') callCreateDialog! :TemplateRef<any>
   @ViewChild('callselectDialog') callselectDialog! :TemplateRef<any>
 
-
   constructor(public home:AttendanceService,public homeStudent:StudentService, public dialog: MatDialog
-    , public homebus: BusService)
+    , public homebus: BusService , public router:Router , public round:RoundStatusService)
  { }
 
   ngOnInit(): void {
-   
+    this.round.getAll();
     this.home.getAll();
     this.homebus.getTeachers();
     // this.round.getGetRoundStatus();
@@ -37,35 +38,16 @@ export class ChildAttendanceComponent implements OnInit {
   }
 
   
-selectForm :FormGroup =new FormGroup({  
-  fullName:new FormControl('')
-})
 
-search(fullName :any){
-this.homeStudent.GetStudentListByTeacher(fullName);
-//console.log(this.homeStudent.GetStudentListByTeacher(name));
- 
-
-}
-
-openCreatedialog() {
-  this.home.getAll();
-  this.dialog.open(this.callCreateDialog)
-
-}
-
-
-////////////////////////////////////////
-
+Values:any=[];
 attData: any = [];
-
-  student:any= [];
-
-  status :any=[];
-  parentname :any=[];
-  busnumber:any=[];
+student:any= [];
+status :any=[];
+parentname :any=[];
+busnumber:any=[];
 
 
+  
   UpdateForm:FormGroup=new FormGroup({
     id : new FormControl(),
     dateofattendance:new FormControl(),
@@ -76,49 +58,55 @@ attData: any = [];
  })
 
  CreateForm :FormGroup =new FormGroup({  
-  dateofattendance:new FormControl('',Validators.required),
-  status:new FormControl('',Validators.required),    
-  name:new FormControl('',Validators.required),
-  busnumber:new FormControl('',Validators.required)
-
+  dateofattendance:new FormControl(''),
+  status:new FormControl(''),
+  name:new FormControl(''),
+  busnumber:new FormControl('')
 })
 
 
 
 
- openUpdateDailog(id1 : any ,dateofattendance1 : any , status1 : any , name1:any , busnumber1:any){
+openUpdateDailog(id1 : any ,dateofattendance1 : any , status1 : any , name1:any , busnumber1:any){
 
-     this.home.update
+  this.home.update
 
-    this.attData = {
-      id: id1,
-      dateofattendance1:dateofattendance1,
-      status1:status1,
-      name: name1,
-      busnumber1:busnumber1,
+ this.attData = {
+   id: id1,
+   dateofattendance1:dateofattendance1,
+   status1:status1,
+   name: name1,
+   busnumber1:busnumber1,
 
-    }
+ }
 
 
-    this.dialog.open(this.callUpdateDailog)
-    this.UpdateForm.controls['id'].setValue(id1);
+ this.dialog.open(this.callUpdateDailog)
+ this.UpdateForm.controls['id'].setValue(id1);
+}
+    
+save(name:any , dateofattendance:any, busnumber:any , status:any){
+  this.Values = {
+    name:name ,
+    dateofattendance:dateofattendance,
+    busnumber:Number(busnumber),
+    status:status
 
   }
+  console.log(typeof busnumber)
+  this.CreateForm.controls['name'].setValue(this.Values.name);
+  this.CreateForm.controls['dateofattendance'].setValue(Date.now);
+     // this.CreateForm.controls['dateofattendance'].setValue(dateofattendance1);
+     // this.CreateForm.controls['status'].setValue(status1);
+   this.CreateForm.controls['busnumber'].setValue(this.Values.busnumber);
 
-  openDeleteDialog(id1: any) {
-    const dialogRef = this.dialog.open(this.callDeleteDialog);
-    dialogRef.afterClosed().subscribe((res) => {
-      if (res !== undefined) {
-        if (res == "yes") {
-          this.home.delete(id1);
-          window.location.reload();
-        }
-        else if (res == "no")
-          console.log("Thank you ");
+     console.log(this.CreateForm.value);
+     this.home.create(this.CreateForm.value);
+     //this.CreateForm.controls['name'].setValue(name);
+     console.log(this.CreateForm.value);
+ 
+   }
 
-      }
-    })
-  }
 
   update()
     {
@@ -128,16 +116,33 @@ attData: any = [];
       window.location.reload();
     }
 
-    save(){
+    save1(){
       console.log(this.CreateForm.value);
       
       this.home.create(this.CreateForm.value);
       window.location.reload();
     }
-
    
-  
-  
+     
+
+    ShowAttendance(ev:any){
+      this.busnumber=ev.target.value;
+   console.log(ev.target.value);
+         console.log( typeof ev.target.value)
+    }
+
+
+ DayAttendance(){
+   const bus = this.busnumber;
+
+     this.home.GETSTUDENTLIST(bus);
+    // console.log(  bus)
+     // console.log( typeof bus)
+      //this.router.navigate(['teacher/manageAttendance'])
+      return bus
+
+    }
+
 
 }
   

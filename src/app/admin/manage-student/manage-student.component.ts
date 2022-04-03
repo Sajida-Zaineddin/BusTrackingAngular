@@ -27,7 +27,7 @@ export class ManageStudentComponent implements OnInit {
     xhome:new FormControl(),
     yhome:new FormControl(),
     grade:new FormControl(),
-    status:new FormControl(),
+    roundStatus:new FormControl(),
     fullName:new FormControl(),
     busnumber:new FormControl()
  })
@@ -37,7 +37,7 @@ export class ManageStudentComponent implements OnInit {
   xhome:new FormControl('',Validators.required),    
   yhome:new FormControl('',Validators.required),
   grade:new FormControl('',Validators.required),
-  status:new FormControl('',Validators.required),
+  roundStatus:new FormControl('',Validators.required),
   fullName:new FormControl('',Validators.required),
   busnumber:new FormControl('',Validators.required),
 
@@ -55,7 +55,7 @@ export class ManageStudentComponent implements OnInit {
 
   }
 
-  openUpdateDailog(id1: any, name1: any, xhome1: any,yhome1:any ,grade1:any,status1: any ,fullName1:any ,busnumber1:any) {
+  openUpdateDailog(id1: any, name1: any, xhome1: any,yhome1:any ,grade1:any,roundStatus1: any ,fullName1:any ,busnumber1:any) {
     console.log(id1,name1);
     this.home.update
 
@@ -65,7 +65,7 @@ export class ManageStudentComponent implements OnInit {
       xhome:xhome1,
       yhome:yhome1,
       grade:grade1,
-      status:status1,
+      roundStatusstatus:roundStatus1,
       fullName:fullName1,
       busnumber:busnumber1
     }
