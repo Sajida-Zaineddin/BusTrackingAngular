@@ -84,45 +84,24 @@ section.contact-us2 #contact {
     padding: 40px;
 }
 
-section.contact-us2 #contact input {
+section.contact-us2 #contact .example-full-width {
     width: 100%;
     height: 40px;
     border-radius: 5px;
-    background-color: #f4f7fb;
     outline: none;
     border: none;
     box-shadow: none;
     font-size: 13px;
     font-weight: 500;
     color: #7a7a7a;
-    padding: 0px 15px;
-    margin-bottom: 30px;
-}
-
-section.contact-us2 #contact textarea {
-    width: 100%;
-    min-height: 140px;
-    max-height: 180px;
-    border-radius: 5px;
-    background-color: #f4f7fb;
-    outline: none;
-    border: none;
-    box-shadow: none;
-    font-size: 13px;
-    font-weight: 500;
-    color: #7a7a7a;
-    padding: 15px;
     margin-bottom: 30px;
 }
 
 section.contact-us2 #contact button {
-    float: right;
-    font-size: 13px;
+    margin-left: 40%;
     color: #fff;
     background: rgb(219, 138, 222);
     background: linear-gradient(-145deg, rgba(219, 138, 222, 1) 0%, rgba(246, 191, 159, 1) 100%);
-    padding: 12px 30px;
-    display: inline-block;
     border-radius: 5px;
     font-weight: 500;
     text-transform: uppercase;

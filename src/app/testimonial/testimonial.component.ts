@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { TestimonialService } from '../services/testimonial.service';
 
 
 @Component({
@@ -10,36 +11,31 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 })
 export class TestimonialComponent implements OnInit {
 
-  constructor() { }
+  constructor(public testomonal:TestimonialService) { }
 
-
-  registerForm: FormGroup = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    fullName: new FormControl('', Validators.required),
-    message: new FormControl('' , Validators.required)
-
+  CreateForm :FormGroup =new FormGroup({
+    name:new FormControl('',Validators.required),
+    feedback:new FormControl('',Validators.required),
+    imagepath:new FormControl( )
   })
 
   ngOnInit(): void {
+    this.testomonal.gettestimonials();     
+    console.log('test',this.testomonal.testimonialsToShow);
   }
 
-  customOptions: OwlOptions = {
-    loop: true,
-    mouseDrag: true,
-    touchDrag: true,
-    pullDrag: true,
-    dots: false,
-    navSpeed: 700,
-    navText: ['', ''],
-    responsive: {
-      0: {
-        items: 1
-      },
-      400: {
-        items: 2
-      },
-    },
-    nav: true
+  uploadFile(file:any){
+    if(file.length===0){
+      return ;
+    }
+    let fileUpload=<File>file[0];
+    // file[0]:'angular.png';
+    const fromData=new FormData();
+    fromData.append('file',fileUpload,fileUpload.name);
+    this.testomonal.uploadAttachment(fromData);
   }
 
+  save(){
+    this.testomonal.createTestimonial(this.CreateForm.value);
+  }
 }

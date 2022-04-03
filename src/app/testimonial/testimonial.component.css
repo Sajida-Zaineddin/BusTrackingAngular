@@ -28,44 +28,6 @@
     color: #dc8cdb;
 }
 
-.white-button a:hover {
-    color: #dc8cdb;
-}
-
-.b_single_text {
-    font-size: 24px;
-    color: #3e606b;
-    font-family: "Playfair Display", serif;
-    font-weight: bold;
-    margin-bottom: 25px;
-}
-
-.single_blog_inner .blog_item {
-    margin-bottom: 0px;
-}
-
-.two_column_text {
-    margin-bottom: 55px;
-}
-
-.two_column_text p {
-    font-size: 16px;
-    font-family: "Open Sans", sans-serif;
-    line-height: 26px;
-    color: #797979;
-    margin-bottom: 0px;
-    font-weight: normal;
-}
-
-.single_element_text p {
-    font-size: 16px;
-    font-family: "Open Sans", sans-serif;
-    line-height: 26px;
-    color: #797979;
-    margin-bottom: 0px;
-    font-weight: normal;
-}
-
 .single_element_text p a {
     color: #f195b2;
     text-decoration: underline;
@@ -191,11 +153,21 @@
     margin-left: 30%;
 }
 
-.s_comment_area .s_comment_inner .contact_us_form .form-group {
-    margin-bottom: 20px;
+.example-full-width {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    font-size: 13px;
+    font-weight: 500;
+    color: #7a7a7a;
+    margin-bottom: 30px;
 }
 
-.s_comment_area .s_comment_inner .contact_us_form .form-group input {
+
+/* .example-full-width input {
     background: #fff;
     font-size: 17px;
     color: #afaeae;
@@ -208,85 +180,34 @@
     background: #fff;
     font-family: "Playfair Display", serif;
     line-height: 45px;
-}
+} */
 
-.s_comment_area .s_comment_inner .contact_us_form .form-group input.placeholder {
+.example-full-width input.placeholder {
     font-size: 17px;
     color: #afaeae;
     font-family: "Playfair Display", serif;
     line-height: 45px;
 }
 
-.s_comment_area .s_comment_inner .contact_us_form .form-group input:-moz-placeholder {
+.example-full-width input:-moz-placeholder {
     font-size: 17px;
     color: #afaeae;
     font-family: "Playfair Display", serif;
     line-height: 45px;
 }
 
-.s_comment_area .s_comment_inner .contact_us_form .form-group input::-moz-placeholder {
+.example-full-width input::-moz-placeholder {
     font-size: 17px;
     color: #afaeae;
     font-family: "Playfair Display", serif;
     line-height: 45px;
 }
 
-.s_comment_area .s_comment_inner .contact_us_form .form-group input::-webkit-input-placeholder {
+.example-full-width input::-webkit-input-placeholder {
     font-size: 17px;
     color: #afaeae;
     font-family: "Playfair Display", serif;
     line-height: 45px;
-}
-
-.s_comment_area .s_comment_inner .contact_us_form .form-group textarea {
-    background: #fff;
-    border-color: #eeeeee;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    height: 172px;
-    padding: 15px 20px;
-    border-radius: 0px;
-    resize: none;
-    font-size: 17px;
-    color: #afaeae;
-    font-family: "Playfair Display", serif;
-}
-
-.s_comment_area .s_comment_inner .contact_us_form .form-group textarea.placeholder {
-    font-size: 17px;
-    color: #afaeae;
-    font-family: "Playfair Display", serif;
-}
-
-.s_comment_area .s_comment_inner .contact_us_form .form-group textarea:-moz-placeholder {
-    font-size: 17px;
-    color: #afaeae;
-    font-family: "Playfair Display", serif;
-}
-
-.s_comment_area .s_comment_inner .contact_us_form .form-group textarea::-moz-placeholder {
-    font-size: 17px;
-    color: #afaeae;
-    font-family: "Playfair Display", serif;
-}
-
-.s_comment_area .s_comment_inner .contact_us_form .form-group textarea::-webkit-input-placeholder {
-    font-size: 17px;
-    color: #afaeae;
-    font-family: "Playfair Display", serif;
-}
-
-.s_comment_area .s_comment_inner .contact_us_form .form-group:last-child {
-    margin-top: 20px;
-    margin-bottom: 0px;
-}
-
-.s_comment_area .s_comment_inner .contact_us_form .form-group .order_s_btn {
-    background: #f195b2;
-    font-size: 14px;
-    font-family: "Open Sans", sans-serif;
-    font-weight: 600;
-    padding: 0px 45px;
 }
 
 
@@ -294,180 +215,29 @@
 ============================================================================================ */
 
 
-/* Contact Us Area css
-============================================================================================ */
-
-.contact_form_area .main_title {
-    padding-bottom: 55px;
-}
-
-.contact_us_form .form-group {
-    margin-bottom: 20px;
-}
-
-.contact_us_form .form-group:last-child {
-    margin-bottom: 0px;
-    margin-top: 20px;
-}
-
-.contact_us_form .form-group input {
-    height: 48px;
-    border-radius: 3px;
-    border: 1px solid #ededed;
-    padding: 0px 20px;
-    font-size: 16px;
-    font-family: "Open Sans", sans-serif;
-    color: #797979;
-    outline: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-}
-
-.contact_us_form .form-group input.placeholder {
-    font-size: 16px;
-    font-family: "Open Sans", sans-serif;
-    color: #797979;
-}
-
-.contact_us_form .form-group input:-moz-placeholder {
-    font-size: 16px;
-    font-family: "Open Sans", sans-serif;
-    color: #797979;
-}
-
-.contact_us_form .form-group input::-moz-placeholder {
-    font-size: 16px;
-    font-family: "Open Sans", sans-serif;
-    color: #797979;
-}
-
-.contact_us_form .form-group input::-webkit-input-placeholder {
-    font-size: 16px;
-    font-family: "Open Sans", sans-serif;
-    color: #797979;
-}
-
-.contact_us_form .form-group textarea {
-    height: 206px;
-    border-radius: 3px;
-    border: 1px solid #ededed;
-    padding: 20px 20px;
-    font-size: 16px;
-    font-family: "Open Sans", sans-serif;
-    color: #797979;
-    outline: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    resize: none;
-}
-
-.contact_us_form .form-group textarea.placeholder {
-    font-size: 16px;
-    font-family: "Open Sans", sans-serif;
-    color: #797979;
-}
-
-.contact_us_form .form-group textarea:-moz-placeholder {
-    font-size: 16px;
-    font-family: "Open Sans", sans-serif;
-    color: #797979;
-}
-
-.contact_us_form .form-group textarea::-moz-placeholder {
-    font-size: 16px;
-    font-family: "Open Sans", sans-serif;
-    color: #797979;
-}
-
-.contact_us_form .form-group textarea::-webkit-input-placeholder {
-    font-size: 16px;
-    font-family: "Open Sans", sans-serif;
-    color: #797979;
-}
-
-.contact_us_form .form-group .order_s_btn {
-    background: #f195b2;
-    font-size: 14px;
-    font-family: "Open Sans", sans-serif;
-    font-weight: 600;
-    padding: 0px 48px;
-}
-
-.contact_details .contact_d_item {
-    margin-bottom: 40px;
-}
-
-.contact_details .contact_d_item:last-child {
-    margin-bottom: 0px;
-}
-
-.contact_details .contact_d_item h3 {
-    font-size: 18px;
-    font-family: "Playfair Display", serif;
-    font-weight: bold;
-    color: #3e606b;
-    margin-bottom: 15px;
-}
-
-.contact_details .contact_d_item p {
-    font-size: 16px;
-    font-family: "Open Sans", sans-serif;
-    color: #797979;
-    line-height: 26px;
-    margin-bottom: 0px;
-}
-
-.contact_details .contact_d_item p+p {
-    margin-top: 10px;
-}
-
-.contact_details .contact_d_item h5 {
-    font-size: 18px;
-    font-family: "Playfair Display", serif;
-    font-weight: bold;
-    color: #3e606b;
-}
-
-.contact_details .contact_d_item h5 a {
-    font-size: 16px;
-    font-family: "Open Sans", sans-serif;
-    color: #797979;
-    line-height: 26px;
-    font-weight: normal;
-}
-
-.contact_details .contact_d_item h5+h5 {
-    margin-bottom: 0px;
-}
-
-.map_area .mapBox {
-    min-height: 485px;
-}
-
-
 /* End Contact Us Area css
 ============================================================================================ */
 
-.testimonials_item_area .testi_item_inner .media {
+.testi_item_inner .media {
     display: block;
+    border: 2px solid #ccc;
+    background-color: rgba(238, 238, 238, 0.642);
+    border-radius: 5px;
+    padding: 16px;
+    margin: 16px 0
 }
 
-.testimonials_item_area .testi_item_inner .media .d-flex {
-    padding-right: 0px;
-    text-align: left;
+.testi_item_inner .media .d-flex {
+    float: left;
 }
 
-.testimonials_item_area .testi_item_inner .media .d-flex h3 {
+.testi_item_inner .media .d-flex::before {
     display: none;
 }
 
-.testimonials_item_area .testi_item_inner .media .d-flex::before {
-    display: none;
-}
-
-.testimonials_item_area .testi_item_inner .media .media-body p {
+.testi_item_inner .media .media-body p {
     font-size: 18px;
-    line-height: 28px;
+    line-height: 30px;
     font-style: italic;
 }
 
