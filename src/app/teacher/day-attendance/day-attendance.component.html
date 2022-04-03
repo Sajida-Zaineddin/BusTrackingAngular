@@ -1,182 +1,47 @@
-<form [formGroup]="CreateForm" class="example-form">
-    <table style="margin:0 auto">
+<!-- 
+    <button class="btn btn-primary" style="color: red;" >submit</button> 
+    <li>
+        <select formControlName="busnumber">
+            <option [ngValue]="null" disabled>Choose bus</option>
+
+            <option *ngFor="let item of busnumber" [ngValue]="item.busnumber"> {{item.busnumber}}</option>
+ 
+        </select>
+
+   
+    </li> 
+    <li>
+        <select formControlName="round">
+            <option [ngValue]="null" disabled>Choose round</option>
+
+            <option *ngFor="let item of round" [ngValue]="item.status"> {{item.round}}</option>
+ 
+        </select>
+
+   
+    </li>  -->
+
+
+    <table style="margin: 0 auto;">
         <tr>
-
-
-
+    
+            <th>student name </th>
+            
         </tr>
-        <tr *ngFor="let att of home.busnumber">
-
-            <td>{{att.roundStatus}}</td>
-            <td>
-                <label formControlName="name">{{att.name}} </label></td>
-
-
-            <td>
-                <td>
-                    <label formControlName="dateofattendance">{{att.dateofattendance}} </label></td>
-
-
-
-                <td> <select formControlName="status">
-                        <option [ngValue]="null" disabled>Choose  status</option>
-        
-                        <option *ngFor="let item of home.status" [ngValue]="item.status"> {{item.status}}</option>
-             
-                    </select></td>
-
-
-
-
-
-                <ul>
-
-
-
-                </ul>
-
-                <td> <button class="btn btn-danger" (click)="save(att.name, home.attendance.dateofattendance , busnumber ,home.status.status)" cdkFocusInitial>Save</button>
-                </td>
-                <!-- <td>
-                           <button class="btn btn-primary" style="color: red;" (click)="openCreatedialog()">Attendance Creation</button> 
-                             <button class="btn btn-danger" (click)="openUpdateDailog(att.id,att.dateofattendance, att.status , att.name
-                              , att.busnumber)">Update</button> 
-                        </td> -->
-
+        <tr *ngFor="let item of homeStudent.student;let i=index">
+    
+            <td>{{homeStudent.fullName[i]}}</td>
+            
+    
+            <td><button class="btn btn-danger" (click)="sendEmail(item.email)">notify parent</button> </td>
+    
+    
+    
         </tr>
-
-
     </table>
 
 
 
 
-</form>
 
 
-
-
-
-
-
-<ng-template #callUpdateDailog>
-    <form [formGroup]="UpdateForm">
-        <ul>
-            <li>
-                <h3 style="color: red;">
-                    <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter Student name</mat-label>
-                        <input type="text" matInput formControlName="name" [(ngModel)]="attData.name">
-                    </mat-form-field>
-                </h3>
-            </li>
-            <li>
-                <h3 style="color: red;">
-                    <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter dateofattendance</mat-label>
-                        <input type="date" matInput formControlName="dateofattendance" [(ngModel)]="attData.dateofattendance">
-                    </mat-form-field>
-                </h3>
-
-
-
-
-
-                <li>
-                    <select formControlName="status">
-                    <option [ngValue]="null" disabled>Choose  status</option>
-    
-                    <option *ngFor="let item of home.status" [ngValue]="item.status"> {{item.status}}</option>
-         
-                </select>
-
-
-                </li>
-                <li>
-                    <select formControlName="busnumber">
-                        <option [ngValue]="null" disabled>Choose  busnumber</option>
-    
-                        <option *ngFor="let item of home.busnumber1" [ngValue]="item.busnumber"> {{item.busnumber}}</option>
-             
-                    </select>
-
-
-                </li>
-        </ul>
-        <button (click)="update()">Update</button>
-    </form>
-</ng-template>
-
-<th>student name </th>
-<th>absent status </th>
-
-<tr *ngFor="let item of homeStudent.student;let i=index">
-
-    <td>{{homeStudent.fullName}}</td>
-    <td><input type="checkbox" name="absent"></td>
-    <td><button class="btn btn-danger" (click)="sendEmail(item.email)">notify parent</button> </td>
-
-
-
-
-    <ng-template #callCreateDialog>
-        <h2 mat-dialog-title> Add student information </h2>
-        <mat-dialog-content class="mat-typography">
-
-            <form [formGroup]="CreateForm" class="example-form">
-                <ul>
-
-
-                    <li>
-                        <mat-form-field class="example-full-width" appearance="fill">
-                            <mat-label>dateofattendance </mat-label>
-                            <input type="date" matInput formControlName="dateofattendance" placeholder="dateofattendance ">
-                            <mat-error *ngIf="CreateForm.controls['dateofattendance'].hasError('required')">
-                                xhome is <strong>required</strong>
-                            </mat-error>
-                        </mat-form-field>
-                    </li>
-
-                    <li>
-                        <select formControlName="name">
-                            <option [ngValue]="null" disabled>Choose  name</option>
-            
-                            <option *ngFor="let item of home.name" [ngValue]="item.name"> {{item.name}}</option>
-                 
-                        </select>
-
-
-                    </li>
-                    <li>
-                        <select formControlName="status">
-                    <option [ngValue]="null" disabled>Choose  status</option>
-    
-                    <option *ngFor="let item of home.status" [ngValue]="item.status"> {{item.status}}</option>
-         
-                </select>
-
-
-                    </li>
-                    <li>
-                        <select formControlName="busnumber">
-                            <option [ngValue]="null" disabled>Choose  busnumber</option>
-        
-                            <option *ngFor="let item of home.busnumber1" [ngValue]="item.busnumber"> {{item.busnumber}}</option>
-                 
-                        </select>
-
-
-                    </li>
-                </ul>
-
-
-
-
-            </form>
-            <!-- <mat-dialog-actions align="end">
-                <button mat-button mat-dialog-close>Cancel</button>
-                <button mat-button [mat-dialog-close]="true" (click)="save()" cdkFocusInitial>Save</button>
-            </mat-dialog-actions> -->
-
-
-        </mat-dialog-content>

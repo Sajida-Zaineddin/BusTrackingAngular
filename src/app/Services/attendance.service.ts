@@ -14,12 +14,12 @@ export class AttendanceService {
   name:any=[];
   busnumber1:any=[];
   students:any=[];
-  
-  busnumber:any=[];
 
   constructor(private http:HttpClient, private spinner :NgxSpinnerService,private toastr:ToastrService) { }
   getAll(){
-this.spinner.show(); 
+    
+   this.spinner.show();
+    
       this.http.get('https://localhost:44346/api/attendance/getall').subscribe((res)=>{
       this.attendance=res;
      this.spinner.hide();
@@ -29,26 +29,6 @@ this.spinner.show();
       this.toastr.error(err.message, err.status);
     })
   }
-  delete(id:number){
-    this.http.delete('https://localhost:44346/api/attendance/delete/'+id).subscribe((res)=>{
-   this.toastr.success('Deleted Successfully :)');
-    },err=>{
-     this.toastr.error(err.status,err.message);
-    })
-  } 
-
-  GETSTUDENTLIST(busnumber:number){
-    this.spinner.show(); 
-          this.http.get('https://localhost:44346/api/bus/GetStudentList/'+ busnumber).subscribe((res)=>{
-          this.busnumber=res;
-         this.spinner.hide();
-        this.toastr.success('Data Retrieved !!');
-        },err=>{
-         this.spinner.hide();
-          this.toastr.error(err.message, err.status);
-        })
-      }
-
 
   GETBUSNUMBER(){
      
@@ -142,7 +122,13 @@ this.spinner.show();
         })
     
       } 
-  
+      delete(id:number){
+        this.http.delete('https://localhost:44346/api/attendance/delete/'+id).subscribe((res)=>{
+       this.toastr.success('Deleted Successfully :)');
+        },err=>{
+         this.toastr.error(err.status,err.message);
+        })
+      } 
       sendEmail(){
         this.http.delete('https://localhost:44346/api/attendance/SendEmail').subscribe((res)=>{
        this.toastr.success('sent Successfully :)');
