@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { HomePageService } from '../Services/home-page.service';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +9,10 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(public homeservice:HomePageService) { }
 
   ngOnInit(): void {
+    this.homeservice.getAll();
   }
 
   customOptions: OwlOptions = {
@@ -37,4 +39,7 @@ export class HomeComponent implements OnInit {
     },
     nav: true
   }
+
+
+  
 }

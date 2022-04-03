@@ -41,10 +41,10 @@
                             <div class="item ">
                                 <div class="service-item ">
                                     <div class="icon ">
-                                        <img src="assets/images/1.png " alt=" ">
+                                        <img src="../../../assets/images/{{this.homeservice.data[1].imagepath}}" alt=" ">
                                     </div>
-                                    <h4><span style="color: #ffd900;">N</span>otification</h4>
-                                    <p>You will receive a notification of your child's current location.</p>
+                                    <h4><span style="color: #ffd900;">N</span>{{this.homeservice.data[1].titel}}</h4>
+                                    <p>{{this.homeservice.data[1].text}}</p>
                                 </div>
                             </div>
                         </ng-template>
@@ -52,10 +52,10 @@
                             <div class="item ">
                                 <div class="service-item ">
                                     <div class="icon ">
-                                        <img src="assets/images/2.png " alt=" ">
+                                        <img src="../../../assets/images/{{this.homeservice.data[0].imagepath}}" alt=" ">
                                     </div>
-                                    <h4><span style="color: #7fc4c8;">A</span>ccompanier <span style="color: #7fc4c8;">T</span>eacher</h4>
-                                    <p>Your child will be accompanied by a teacher to take care of him who will strive to deliver your child to you safely.</p>
+                                    <h4><span style="color: #7fc4c8;">S</span>{{this.homeservice.data[0].titel}}</h4>
+                                    <p>{{this.homeservice.data[0].text}}</p>
                                 </div>
                             </div>
                         </ng-template>
@@ -63,10 +63,10 @@
                             <div class=" item ">
                                 <div class="service-item ">
                                     <div class="icon ">
-                                        <img src="assets/images/3.png " alt=" ">
+                                        <img src="../../../assets/images/{{this.homeservice.data[2].imagepath}}" alt=" ">
                                     </div>
-                                    <h4><span style="color: #80b5e0;">P</span>rofessional <span style="color: #80b5e0;">D</span>river</h4>
-                                    <p>We have professional drivers who never exceed speed while driving to keep your child safe.</p>
+                                    <h4><span style="color: #80b5e0;">S</span>{{this.homeservice.data[2].titel}}</h4>
+                                    <p>{{this.homeservice.data[2].text}}</p>
                                 </div>
                             </div>
                         </ng-template>
@@ -74,10 +74,10 @@
                             <div class="item ">
                                 <div class="service-item ">
                                     <div class="icon ">
-                                        <img src="assets/images/4.png " alt=" ">
+                                        <img src="../../../assets/images/{{this.homeservice.data[4].imagepath}}" alt=" ">
                                     </div>
-                                    <h4><span style="color: #f2952a;">S</span>afety</h4>
-                                    <p>Your child will be in safe hands seeking to protect your child.</p>
+                                    <h4><span style="color: #f2952a;">P</span>{{this.homeservice.data[4].titel}}</h4>
+                                    <p>{{this.homeservice.data[4].text}}</p>
                                 </div>
                             </div>
                         </ng-template>
@@ -115,35 +115,36 @@
                                     <li>
                                         <div>
                                             <div class="left-image ">
-                                                <img src="../assets/images/school1.jpg " alt=" " style="width:45%; ">
+                                                <img src="../../../assets/images/{{this.homeservice.data[2].imagepath}}" alt=" " style="width:45%; ">
 
                                             </div>
                                             <div class="right-content ">
-                                                <h4>School</h4>
-                                                <p>help school administration staff monitor and track the movements and routes of their buses in real-time; ensuring the safety of their students during their daily bus rounds.
+                                                <h4>{{this.homeservice.data[2].titel}}</h4>
+                                                <p>{{this.homeservice.data[2].text}}
                                             </div>
                                         </div>
                                     </li>
                                     <li>
                                         <div>
                                             <div class="left-image ">
-                                                <img src="../assets/images/parent1.jpg " alt=" " style="width:50%; ">
+                                                <img src="../../../assets/images/{{this.homeservice.data[3].imagepath}}" alt=" " style="width:45%; ">
+
                                             </div>
                                             <div class="right-content ">
-                                                <h4>Parents</h4>
-                                                <p>To monitor , Locate and receive notification about your children during the school bus journey to and from the school.
+                                                <h4>{{this.homeservice.data[3].titel}}</h4>
+                                                <p>{{this.homeservice.data[3].text}}
                                             </div>
                                         </div>
                                     </li>
                                     <li>
                                         <div>
                                             <div class="left-image ">
-                                                <img src="../assets/images/student1.jpg " alt=" " style="width:60%; ">
+                                                <img src="../../../assets/images/{{this.homeservice.data[4].imagepath}}" alt=" " style="width:45%; ">
 
                                             </div>
                                             <div class="right-content ">
-                                                <h4>Students</h4>
-                                                <p> system helps the school administration monitor and track the movements of their buses to ensure the safety of students during their transportation to and from school.
+                                                <h4>{{this.homeservice.data[4].titel}}</h4>
+                                                <p>{{this.homeservice.data[4].text}}
                                             </div>
                                         </div>
                                     </li>
@@ -151,12 +152,12 @@
                                         <div>
                                             <div class="left-image " style="width:39%;">
                                                 <div>
-                                                    <img src="assets/images/driver1.jpg " alt=" ">
+                                                    <img src="../../../assets/images/{{this.homeservice.data[4].imagepath}}" alt=" ">
                                                 </div>
                                             </div>
                                             <div class="right-content ">
-                                                <h4>Drivers</h4>
-                                                <p>The App Tell the driver about the student order to be picked up and show him The Students details like The pictures and the phone numbers.
+                                                <h4>{{this.homeservice.data[4].titel}}</h4>
+                                                <p>{{this.homeservice.data[4].text}}
                                             </div>
                                         </div>
                                     </li>
@@ -170,61 +171,7 @@
     </div>
 </section>
 
-<section class="simple-cta ">
-    <div class="container ">
-        <div class="row ">
-            <div class="col-lg-5 offset-lg-1 ">
-                <div class="left-image ">
-                    <img src="../assets/images/brothers.jpg " alt=" ">
-                </div>
-            </div>
-            <div class="col-lg-5 align-self-center ">
-                <h6>Get the Offer right now!</h6>
-                <h4>Up to 30% OFF For Brothers</h4>
-                <p></p>
-                <div class="white-button ">
-                    <a href="account/login">Login</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<section class="testimonials" id="testimonials">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-heading">
-                    <h6>Testimonials</h6>
-                    <h4>Children's Parent's <em>Opinions</em></h4>
-                </div>
-            </div>
-            <div class="col-lg-12">
-                <owl-carousel-o [options]="customOptions">
-                    <ng-template carouselSlide>
-                        <div class="item">
-                            <p>“just think about TemplateMo if you need free CSS templates for your website”</p>
-                            <h4>Catherine Walk</h4>
-                            <img src="assets/images/quote.png" alt="">
-                        </div>
-                    </ng-template>
-                    <ng-template carouselSlide>
-                        <div class="item">
-                            <p>“think about our website first when you need free HTML templates for your website”</p>
-                            <h4>David Martin</h4>
-                            <img src="assets/images/quote.png" alt="">
-                        </div>
-                    </ng-template>
-                    <ng-template carouselSlide>
-                        <div class="item">
-                            <p>“just think about our website wherever you need free templates for your website”</p>
-                            <h4>Sophia Whity</h4>
-                            <img src="assets/images/quote.png" alt="">
-                        </div>
-                    </ng-template>
-                </owl-carousel-o>
-            </div>
-        </div>
-    </div>
-</section>
+
+
 <app-footer></app-footer>
