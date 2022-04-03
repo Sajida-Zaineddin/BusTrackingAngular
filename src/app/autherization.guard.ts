@@ -19,7 +19,7 @@ export class AutherizationGuard implements CanActivate {
         if (state.url.indexOf('admin') >= 0) {
           let user: any = localStorage.getItem('user');
           if (user) {
-            debugger
+           
             user = JSON.parse(user);
             if (user.role == 'Admin') {
               this.toaster.success('welcome');
