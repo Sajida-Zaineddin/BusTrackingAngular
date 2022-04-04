@@ -1,7 +1,7 @@
-<app-dashboard> </app-dashboard>
-<div>
-    <button class="btn btn-primary" (click)="openCreatedialog()">Create New </button>
-
+<app-dashboard>
+    <div>
+        <button class="btn btn-primary" (click)="openCreatedialog()">Create New </button>
+    </div>
     <table style="margin: 0 auto;">
         <tr>
             <th>ID</th>
@@ -16,17 +16,12 @@
             <td>{{item.information}}</td>
             <td><img src="../../../assets/images/{{item.imagepath}}" style="height: 50px;width: 50px;"></td>
             <td><button class="btn btn-danger" (click)="openDeleteDialog(item.id)">Delete</button>
-
-
                 <button class="btn btn-secondary" (click)="openUpdateDialog(item.id,item.title,item.information,item.imagepath)">Update</button>
             </td>
-
-
-
         </tr>
     </table>
+</app-dashboard>
 
-</div>
 
 <ng-template #callUpdateDialog>
 

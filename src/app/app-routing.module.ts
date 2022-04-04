@@ -8,6 +8,7 @@ import { AutherizationGuard } from './autherization.guard';
 import { ContactusComponent } from './contactus/contactus.component';
 import { DriverModule } from './driver/driver.module';
 import { HomeComponent } from './home/home.component';
+import { ParentGuardGuard } from './parent-guard.guard';
 import { ParentModule } from './parent/parent.module';
 import { TeacherModule } from './teacher/teacher.module';
 import { TestimonialComponent } from './testimonial/testimonial.component';
@@ -55,7 +56,9 @@ const routes: Routes = [
   },
   {
     path:'parent',
-    loadChildren:()=>ParentModule
+    loadChildren:()=>ParentModule,
+    canActivate:[ParentGuardGuard]
+
   },
 ];
 
