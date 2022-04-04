@@ -86,6 +86,8 @@ export class DriverHome1Component implements OnInit {
           directionsRenderer.setDirections(response);
           const route = response.routes[0];
           this.waypoints_order = route.waypoint_order;
+          console.log('waypoints_order: ',this.waypoints_order);
+          
           const summaryPanel = document.getElementById(
             "directions-panel"
           ) as HTMLElement;
