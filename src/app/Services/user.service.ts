@@ -82,4 +82,16 @@ export class UserService {
       this.toastr.error(err.message, err.status);
     })
   }
+
+
+  updateUserNormal(body: any) {
+    if (this.display_Image != undefined) {
+      body.imagepath = this.display_Image;
+    }
+    this.http.put('https://localhost:44346/api/User/UpdateNormal/', body).subscribe((res) => {
+      this.toastr.success('Updated Successfully :) ')
+    }, err => {
+      this.toastr.error('something error ');
+    })
+  }
 }

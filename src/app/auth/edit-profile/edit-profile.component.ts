@@ -1,0 +1,78 @@
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { EditProfileService } from 'src/app/Services/edit-profile.service';
+import { UserService } from 'src/app/Services/user.service';
+
+@Component({
+  selector: 'app-edit-profile',
+  templateUrl: './edit-profile.component.html',
+  styleUrls: ['./edit-profile.component.css']
+})
+export class EditProfileComponent implements OnInit {
+
+  constructor(public editProfile:EditProfileService,public userservice:UserService , private toastr: ToastrService) { }
+  userValues: any = {}
+  username:any  = localStorage.getItem('name')
+  ngOnInit(): void {
+    this.editProfile.getUserData({username:this.username}) 
+    setTimeout(() => {
+      this.userValues = {
+        id: this.editProfile.dataFromUsers.id,
+        fullName: this.editProfile.dataFromUsers.fullName,
+        email: this.editProfile.dataFromUsers.email,
+        phone: this.editProfile.dataFromUsers.phone,
+        imagepath: this.editProfile.dataFromUsers.imagepath,
+        roleid: this.editProfile.dataFromUsers.roleid,
+      }
+    }, 1200);
+  
+  }
+
+  UpdateForm: FormGroup = new FormGroup({
+    id: new FormControl(),
+    fullName: new FormControl(),
+    email: new FormControl(),
+    phone: new FormControl(),
+    imagepath: new FormControl(),
+    roleid: new FormControl()
+  })
+
+
+  UpdatePassword: FormGroup = new FormGroup({
+    Userid: new FormControl(),
+    Password: new FormControl(),
+  
+  })
+
+
+
+  uploadFile(file:any)
+  {
+    if(file.length===0){
+      return;
+    }
+    let fileUpload=<File>file[0];
+    const fromData=new FormData();
+    fromData.append('file',fileUpload,fileUpload.name);
+    this.userservice.uploadAttachment(fromData);
+  }
+
+  update()
+  {
+    
+    this.UpdateForm.controls['id'].setValue( this.editProfile.dataFromUsers.id);
+    this.UpdateForm.controls['email'].setValue(this.editProfile.dataFromUsers.email);
+    this.UpdateForm.controls['roleid'].setValue( this.editProfile.dataFromUsers.roleid);  
+    this.userservice.updateUserNormal(this.UpdateForm.value);
+    window.location.reload();
+  }
+
+  passwordUpdate(){
+    this.UpdatePassword.controls['Userid'].setValue( this.editProfile.dataFromUsers.id);
+    this.editProfile.updatePassword(this.UpdatePassword.value);
+  
+    window.location.reload();
+    this.toastr.success('Your password updated');
+  }
+}

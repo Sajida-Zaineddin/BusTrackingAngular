@@ -1,0 +1,52 @@
+<app-header></app-header>
+<div>
+    <img src="../../../assets/images/{{userValues.imagepath}}" style="height: 150px;width: 150px;">
+    <p>
+        Welcome -{{userValues.fullName}}
+    </p>
+</div>
+<form [formGroup]="UpdateForm">
+    <ul>
+        <li>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Your Name </mat-label>
+                <input type="text" matInput formControlName="fullName" [(ngModel)]="userValues.fullName" placeholder="Enter User Full Name">
+                <mat-error *ngIf="UpdateForm.controls['fullName'].hasError('required')">
+                    feild is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </li>
+
+        <li>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Your Phone </mat-label>
+                <input type="text" matInput formControlName="phone" [(ngModel)]="userValues.phone" placeholder="Enter User Phone">
+                <mat-error *ngIf="UpdateForm.controls['phone'].hasError('required')">
+                    feild is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </li>
+        <li>
+            <input type="file" #file placeholder="Choose Image" formControlName="imagepath" (change)="uploadFile(file.files)" style="display:none;">
+            <button class="btn btn-dark" (click)="file.click()">Upload Image</button>
+        </li>
+
+    </ul>
+    <button class="btn btn-success" mat-button [mat-dialog-close]="true" (click)="update()">Update</button>
+</form>
+
+<form [formGroup]="UpdatePassword">
+    <ul>
+        <li>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label> Password </mat-label>
+                <input type="text" matInput formControlName="Password" placeholder="Enter new Password">
+
+            </mat-form-field>
+        </li>
+
+    </ul>
+    <button class="btn btn-success" mat-button [mat-dialog-close]="true" (click)="passwordUpdate()">change your password</button>
+</form>
+
+<app-footer></app-footer>
