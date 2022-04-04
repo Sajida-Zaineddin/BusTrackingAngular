@@ -23,6 +23,10 @@ const routes: Routes = [
     component:DashboardComponent
   },
   {
+    path:'bus',
+    component:BusComponent
+  },
+  {
     path:'content',
     component:ContentComponent
   },
@@ -38,7 +42,6 @@ const routes: Routes = [
     path:'footer',
     component:ManageFooterComponent
   },
-
   {
     path:'aboutus',
     component:AboutusComponent

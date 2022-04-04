@@ -21,8 +21,6 @@ import { RoleComponent } from './role/role.component';
 import { WebsiteComponent } from './website/website.component';
 import { WebsiteHomeComponent } from './website-home/website-home.component';
 
-
-
 @NgModule({
   declarations: [
     ContentComponent,

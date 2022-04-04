@@ -7,19 +7,17 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
-import {  ToastrModule, ToastNoAnimation,  ToastNoAnimationModule} from 'ngx-toastr';
-import{HttpClientModule}from '@angular/common/http';
+import { ToastrModule, ToastNoAnimation,  ToastNoAnimationModule} from 'ngx-toastr';
+import { HttpClientModule}from '@angular/common/http';
 import { GoogleMapsModule } from '@angular/google-maps';
-
-
-
-
-
+import { SidebarComponent } from './sidebar/sidebar.component';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SidebarComponent,
   ],
   imports: [
     FormsModule,
@@ -33,6 +31,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
     ToastNoAnimationModule.forRoot(),
     ToastrModule.forRoot(),
     HttpClientModule,
+    MatMenuModule
   
   ],
   exports: [
@@ -41,13 +40,12 @@ import { GoogleMapsModule } from '@angular/google-maps';
     ReactiveFormsModule,
     HeaderComponent,
     FooterComponent,
+    SidebarComponent,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     MatDialogModule,
     HttpClientModule,
-
-   
   ]
 })
 export class SharedModule { }

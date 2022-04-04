@@ -45,18 +45,13 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
       timeOut: 3000,
       positionClass: 'toast-bottom-center',
       preventDuplicates: true,
-      
-     
     }),
-    
   ],
   providers: [
     {
       provide:HTTP_INTERCEPTORS,
-      
       useClass:TokenInterceptor,
       multi:true
-      
     }
   ],
   bootstrap: [AppComponent]

@@ -42,7 +42,6 @@ const routes: Routes = [
   {
     path:'teacher',
     loadChildren:()=>TeacherModule,
-  
   },
   {
     path:'auth',
@@ -52,13 +51,11 @@ const routes: Routes = [
     path:'driver',
     loadChildren:()=>DriverModule,
     canActivate:[AutherizationDriverGuard]
-    
   },
   {
     path:'parent',
     loadChildren:()=>ParentModule,
     canActivate:[ParentGuardGuard]
-
   },
 ];
 
