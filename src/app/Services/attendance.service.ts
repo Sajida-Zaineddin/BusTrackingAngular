@@ -14,10 +14,12 @@ export class AttendanceService {
   name:any=[];
   busnumber1:any=[];
   students:any=[];
-  
+  new:any=[];
+  TeacherInfo: any = [];
   busnumber:any=[];
 
   constructor(private http:HttpClient, private spinner :NgxSpinnerService,private toastr:ToastrService) { }
+
   getAll(){
 this.spinner.show(); 
       this.http.get('https://localhost:44346/api/attendance/getall').subscribe((res)=>{
@@ -89,7 +91,20 @@ this.spinner.show();
   this.toastr.error(err.message, err.status);
     })
   }
-  
+   
+  GETTEACHERINFONEW(username:any){
+
+     
+    this.http.post('https://localhost:44346/api/attendance/GETTEACHERINFONEW/',username).subscribe((res)=>{
+
+this.TeacherInfo = res
+
+    },error=>{
+
+    })
+  }
+ 
+
   GETSTUDENTNAME(){
     
    this.spinner.show();
@@ -132,6 +147,10 @@ this.spinner.show();
        this.toastr.error(error.status,error.message);
       })
     }
+
+      
+ 
+
     update(attendance1:any){
      
         this.http.put('https://localhost:44346/api/attendance/update/',attendance1).subscribe((res)=>{

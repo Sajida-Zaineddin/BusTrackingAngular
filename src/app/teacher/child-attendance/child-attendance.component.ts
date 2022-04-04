@@ -26,15 +26,25 @@ export class ChildAttendanceComponent implements OnInit {
     , public homebus: BusService , public router:Router , public round:RoundStatusService)
  { }
 
-  ngOnInit(): void {
-    this.round.getAll();
-    this.home.getAll();
-    this.homebus.getTeachers();
-    // this.round.getGetRoundStatus();
-    this.home.GETATTENDANCESTATUS();
-     this.home.GETBUSNUMBER();
-    this.home.GETSTUDENTNAME();
+ username: any = localStorage.getItem('name')
 
+  ngOnInit(): void {
+   
+    this.home.GETTEACHERINFONEW({
+      username: this.username
+    });
+  
+
+    // this.round.getAll();
+     this.home.getAll();
+    // this.homebus.getTeachers();
+    // // this.round.getGetRoundStatus();
+     this.home.GETATTENDANCESTATUS();
+    //  this.home.GETBUSNUMBER();
+    // this.home.GETSTUDENTNAME();
+    setTimeout(() => {
+    console.log('test',this.home.TeacherInfo)
+  }, 1200);
   }
 
   
@@ -45,7 +55,7 @@ student:any= [];
 status :any=[];
 parentname :any=[];
 busnumber:any=[];
-
+fullName:any=[];
 
   
   UpdateForm:FormGroup=new FormGroup({
@@ -60,8 +70,11 @@ busnumber:any=[];
  CreateForm :FormGroup =new FormGroup({  
   dateofattendance:new FormControl(''),
   status:new FormControl(''),
-  name:new FormControl(''),
-  busnumber:new FormControl('')
+  name: new FormControl(''),
+// username:new FormControl(''),
+  busnumber:new FormControl(''),
+  fullName:new FormControl(''),
+  email : new FormControl('')
 })
 
 
@@ -96,10 +109,7 @@ save(name:any , dateofattendance:any, busnumber:any , status:any){
   console.log(typeof busnumber)
   this.CreateForm.controls['name'].setValue(this.Values.name);
   this.CreateForm.controls['dateofattendance'].setValue(Date.now);
-     // this.CreateForm.controls['dateofattendance'].setValue(dateofattendance1);
-     // this.CreateForm.controls['status'].setValue(status1);
    this.CreateForm.controls['busnumber'].setValue(this.Values.busnumber);
-
      console.log(this.CreateForm.value);
      this.home.create(this.CreateForm.value);
      //this.CreateForm.controls['name'].setValue(name);
@@ -126,20 +136,21 @@ save(name:any , dateofattendance:any, busnumber:any , status:any){
      
 
     ShowAttendance(ev:any){
-      this.busnumber=ev.target.value;
+      this.username=ev.target.value;
    console.log(ev.target.value);
          console.log( typeof ev.target.value)
     }
 
 
  DayAttendance(){
-   const bus = this.busnumber;
+   const username = this.username;
 
-     this.home.GETSTUDENTLIST(bus);
-    // console.log(  bus)
-     // console.log( typeof bus)
+     this.home.GETTEACHERINFONEW(username);
+
+    console.log(  username)
+      console.log( typeof username)
       //this.router.navigate(['teacher/manageAttendance'])
-      return bus
+      return username
 
     }
 

@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { DayAttendanceComponent } from './day-attendance/day-attendance.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { SearchStudentNameComponent } from './search-student-name/search-student-name.component';
+import { TestComponent } from './test/test.component';
 
 const routes: Routes = [{
   path:'editProfile',
@@ -25,6 +26,10 @@ const routes: Routes = [{
 {
   path:'manageAttendance',
   component:DayAttendanceComponent
+},
+{
+  path:'test',
+  component:TestComponent
 }
 ];
 

@@ -8,6 +8,7 @@ import { SharedModule } from '../shared/shared.module';
 import { SearchStudentNameComponent } from './search-student-name/search-student-name.component';
 import { DayAttendanceComponent } from './day-attendance/day-attendance.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { TestComponent } from './test/test.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     EditProfileComponent,
     ChildAttendanceComponent,
     SearchStudentNameComponent,
-    DayAttendanceComponent
+    DayAttendanceComponent,
+    TestComponent
   ],
   imports: [
     CommonModule,
