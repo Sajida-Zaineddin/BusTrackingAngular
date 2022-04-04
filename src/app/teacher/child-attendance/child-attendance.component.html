@@ -1,37 +1,28 @@
-<!--<td> 
-<select formControlName="busnumber">
-<option [ngValue]="null" disabled>Choose  busnumber</option>
-<option *ngFor="let item of home.busnumber1" 
-(change)="ShowAttendance($event)" [ngValue]="busnumber" [(ngModel)]="busnumber"  > {{item.busnumber}}</option>
-</select></td> -->
-
 <input type="number" value="busnumber" [(ngModel)]="busnumber" (change)="ShowAttendance($event)">
 <button class="btn btn-success" mat-button [mat-dialog-close]="true" (click)="DayAttendance()">Show Student List</button>
 
 <form [formGroup]="CreateForm" class="example-form">
     <table style="margin:0 auto">
-        <tr *ngFor="let att of home.busnumber1">
+        <tr *ngFor="let att of home.busnumber">
             <td>{{att.roundStatus}}</td>
             <td>
-                <label formControlName="name">{{att.name}} </label></td>
+                <label formControlName="name">{{att.name}} </label>
+            </td>
             <td>
-                <label formControlName="dateofattendance">{{att.dateofattendance}} </label></td>
+                <label formControlName="dateofattendance">{{att.dateofattendance}} </label>
+            </td>
             <td>
                 <select formControlName="status">
                     <option [ngValue]="null" disabled>Choose  status</option>
                     <option *ngFor="let item of home.status" [ngValue]="item.status"> {{item.status}}</option>
-                </select></td>
+                </select>
+            </td>
             <td>
-                <label formControlName="busnumber">{{home.busnumber1.busnumber}} </label></td>
-            <ul> </ul>
+                <label formControlName="busnumber">{{home.busnumber1.busnumber}} </label>
+            </td>
             <td>
                 <button class="btn btn-danger" (click)="save(att.name, home.attendance.dateofattendance , busnumber ,home.status.status)" cdkFocusInitial>Save</button>
             </td>
-            <!-- <td>
-                <button class="btn btn-primary" style="color: red;" (click)="openCreatedialog()">Attendance Creation</button> 
-                <button class="btn btn-danger" (click)="openUpdateDailog(att.id,att.dateofattendance, att.status , att.name
-                , att.busnumber)">Update</button> 
-            </td> -->
         </tr>
     </table>
 </form>
@@ -109,9 +100,5 @@
                 </li>
             </ul>
         </form>
-        <!-- <mat-dialog-actions align="end">
-            <button mat-button mat-dialog-close>Cancel</button>
-            <button mat-button [mat-dialog-close]="true" (click)="save()" cdkFocusInitial>Save</button>
-        </mat-dialog-actions> -->
     </mat-dialog-content>
 </ng-template>

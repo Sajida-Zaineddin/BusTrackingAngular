@@ -1,3 +1,5 @@
+
+
 import { outputAst } from '@angular/compiler';
 import { Component, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -21,8 +23,8 @@ export class ChildAttendanceComponent implements OnInit {
   @ViewChild('callselectDialog') callselectDialog! :TemplateRef<any>
 
   constructor(public home:AttendanceService,public homeStudent:StudentService, public dialog: MatDialog,
-     public homebus: BusService , public router:Router , public round:RoundStatusService){ }
- 
+     public homebus: BusService , public router:Router , public round:RoundStatusService) { }
+
   ngOnInit(): void {
     this.round.getAll();
     this.home.getAll();
@@ -58,12 +60,12 @@ export class ChildAttendanceComponent implements OnInit {
 openUpdateDailog(id1 : any ,dateofattendance1 : any , status1 : any , name1:any , busnumber1:any){
   this.home.update
   this.attData = {
-    id: id1,
-    dateofattendance1:dateofattendance1,
-    status1:status1,
-    name: name1,
-    busnumber1:busnumber1,
-  }
+   id: id1,
+   dateofattendance1:dateofattendance1,
+   status1:status1,
+   name: name1,
+   busnumber1:busnumber1,
+ }
  this.dialog.open(this.callUpdateDailog)
  this.UpdateForm.controls['id'].setValue(id1);
 }
@@ -87,33 +89,29 @@ save(name:any , dateofattendance:any, busnumber:any , status:any){
      console.log(this.CreateForm.value);
    }
 
-  update()
-    {
+    update(){
       this.home.update(this.UpdateForm.value);
       window.location.reload();
     }
 
-  save1(){
-    console.log(this.CreateForm.value);
-    this.home.create(this.CreateForm.value);
-    window.location.reload();
-  }
+    save1(){
+      console.log(this.CreateForm.value);
+      this.home.create(this.CreateForm.value);
+      window.location.reload();
+    }
 
-  ShowAttendance(ev:any){
-    this.busnumber=ev.target.value;
-    console.log(ev.target.value);
-    console.log( typeof ev.target.value)
-  }
+    ShowAttendance(ev:any){
+      this.busnumber=ev.target.value;
+      console.log(ev.target.value);
+      console.log( typeof ev.target.value)
+    }
 
-  DayAttendance(){
-    const bus = this.busnumber;
-    this.home.GetStudentList();
-     // console.log(  bus)
-     // console.log( typeof bus)
-     //this.router.navigate(['teacher/manageAttendance'])
-     return bus;
-  }
+
+    DayAttendance(){
+      const bus = this.busnumber;
+      this.home.GETSTUDENTLIST(bus);
+      return bus;
+    }
 }
-
   
 
