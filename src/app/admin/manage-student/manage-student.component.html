@@ -1,96 +1,94 @@
-<button class="btn btn-primary" style="color: red;" (click)="openCreatedialog()">Create New student  </button> 
+<app-dashboard>
+    <div class="page-header">
+        <h3 class="page-title text-uppercase" style="font-size: 1.5em; font-weight: 500;">
+            <span class="page-title-icon bg-gradient-primary text-white me-2">
+                    <i class="mdi mdi-account-child"></i>
+            </span> manage students table
+        </h3>
+        <button class="btn btn-success" (click)="openCreatedialog()">Create New</button>
+    </div>
 
+    <table style="margin:0 auto">
+        <tr>
+            <th>id </th>
+            <th> name </th>
+            <th> xhome </th>
+            <th> yhome </th>
+            <th> grade </th>
+            <th> Status </th>
+            <th> fullName</th>
+            <th> busnumber</th>
 
-
-
-<table style="margin:0 auto">
-    <tr>
-        <th>id </th>
-       <th> name </th> 
-       <th> xhome </th>
-        <th> yhome </th>
-        <th> grade </th>
-        <th>  Status </th>
-        <th> fullName</th>
-        <th> busnumber</th>
-
-    </tr>
-    <tr *ngFor="let student of home.student">
-        <td>{{student.id}}</td>
-        <td>{{student.name}}</td>
-        <td>{{student.xhome}}</td>
-        <td>{{student.yhome }}</td>
-        <td>{{student.grade }}</td>
-        <td>{{student.status }}</td>
-        <td>{{student.fullName }}</td>
-        <td>{{student.busnumber }}</td>
-     
-     
-        <td>
-            <button class="btn btn-danger" (click)="openDeleteDialog(student.id)">Delete</button>
-            <button class="btn btn-danger" (click)="openUpdateDailog(student.id,student.name, student.xhome , student.yhome
+        </tr>
+        <tr *ngFor="let student of home.student">
+            <td>{{student.id}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.xhome}}</td>
+            <td>{{student.yhome }}</td>
+            <td>{{student.grade }}</td>
+            <td>{{student.status }}</td>
+            <td>{{student.fullName }}</td>
+            <td>{{student.busnumber }}</td>
+            <td>
+                <button class="btn btn-danger" (click)="openDeleteDialog(student.id)">Delete</button>
+                <button class="btn btn-danger" (click)="openUpdateDailog(student.id,student.name, student.xhome , student.yhome
              , student.grade , student.status , student.fullName , student.busnumber )">Update</button>
-        </td>
-    </tr>
-</table>
-
+            </td>
+        </tr>
+    </table>
+</app-dashboard>
 
 <ng-template #callUpdateDailog>
     <form [formGroup]="UpdateForm">
         <ul>
             <li>
-                <h3 style="color: red;"> 
+                <h3 style="color: red;">
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Enter Student name</mat-label>
-                        <input type="text" matInput formControlName="name"
-                         [(ngModel)]="studentData.name">
-                      </mat-form-field>
-                    </h3>
+                        <input type="text" matInput formControlName="name" [(ngModel)]="studentData.name">
+                    </mat-form-field>
+                </h3>
 
             </li>
 
-          
-   
+
+
             <li>
                 <h3 style="color: red;">
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Enter Student grade</mat-label>
-                        <input type="text" matInput formControlName="grade"
-                         [(ngModel)]="studentData.grade">
-                      </mat-form-field>
+                        <input type="text" matInput formControlName="grade" [(ngModel)]="studentData.grade">
+                    </mat-form-field>
                 </h3>
-   
+
                 <h3 style="color: red;">
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Enter Student status</mat-label>
-                        <input type="text" matInput formControlName="status"
-                         [(ngModel)]="studentData.status">
-                      </mat-form-field>
+                        <input type="text" matInput formControlName="status" [(ngModel)]="studentData.status">
+                    </mat-form-field>
                 </h3>
-   
+
             </li>
 
-            
+
             <li>
                 <h3 style="color: red;">
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Enter parent fullName</mat-label>
-                        <input type="text" matInput formControlName="fullName"
-                         [(ngModel)]="studentData.fullName">
-                      </mat-form-field>
+                        <input type="text" matInput formControlName="fullName" [(ngModel)]="studentData.fullName">
+                    </mat-form-field>
                 </h3>
                 <h3 style="color: red;">
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Enter bus number </mat-label>
-                        <input type="number" matInput formControlName="busnumber"
-                         [(ngModel)]="studentData.busnumber">
-                      </mat-form-field>
+                        <input type="number" matInput formControlName="busnumber" [(ngModel)]="studentData.busnumber">
+                    </mat-form-field>
                 </h3>
-              
-           
+
+
             </li>
-            
-        
+
+
 
 
             <li>
@@ -111,7 +109,7 @@
                     <option *ngFor="let item1 of home.fullName" [ngValue]="item1.fullName"> {{item1.fullName}}</option>
            
                 </select>
-           
+
             </li>
         </ul>
         <button (click)="update()">Update</button>
@@ -199,5 +197,3 @@
 
 
     </mat-dialog-content>
-
-

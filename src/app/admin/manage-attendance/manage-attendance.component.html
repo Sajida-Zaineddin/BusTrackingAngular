@@ -1,37 +1,36 @@
+<app-dashboard>
+    <div class="page-header">
+        <h3 class="page-title text-uppercase" style="font-size: 1.5em; font-weight: 500;">
+            <span class="page-title-icon bg-gradient-primary text-white me-2">
+                    <i class="mdi mdi-account-check"></i>
+            </span> manage students attendance table
+        </h3>
+        <button class="btn btn-success" (click)="openCreatedialog()">Create New</button>
+    </div>
 
-<button class="btn btn-primary" style="color: red;" (click)="openCreatedialog()">Create New student  </button> 
-
-
-
-
-<table style="margin:0 auto">
-    <tr>
-        <th>id </th>
-       <th> dateofattendance </th> 
-       <th> status </th>
-        <th> name </th>
-        <th> busnumber </th>
-
-
-    </tr>
-    <tr *ngFor="let att of home.attendance">
-        <td>{{att.id}}</td>
-        <td>{{att.dateofattendance}}</td>
-        <td>{{att.status}}</td>
-        <td>{{att.name }}</td>
-        <td>{{att.busnumber }}</td>
-
-     
-     
-        <td>
-            <button class="btn btn-danger" (click)="openDeleteDialog(att.id)">Delete</button>
-            <button class="btn btn-danger" (click)="openUpdateDailog(att.id,att.dateofattendance, att.status 
+    <table style="margin:0 auto">
+        <tr>
+            <th>id </th>
+            <th> dateofattendance </th>
+            <th> status </th>
+            <th> name </th>
+            <th> busnumber </th>
+        </tr>
+        <tr *ngFor="let att of home.attendance">
+            <td>{{att.id}}</td>
+            <td>{{att.dateofattendance}}</td>
+            <td>{{att.status}}</td>
+            <td>{{att.name }}</td>
+            <td>{{att.busnumber }}</td>
+            <td>
+                <button class="btn btn-danger" (click)="openDeleteDialog(att.id)">Delete</button>
+                <button class="btn btn-danger" (click)="openUpdateDailog(att.id,att.dateofattendance, att.status 
             , att.name
              , att.busnumber )">Update</button>
-        </td>
-    </tr>
-</table>
-
+            </td>
+        </tr>
+    </table>
+</app-dashboard>
 
 <ng-template #callUpdateDailog>
     <form [formGroup]="UpdateForm">
@@ -43,38 +42,37 @@
                     <option *ngFor="let item1 of home.name" [ngValue]="item1.name"> {{item1.name}}</option>
            
                 </select>
-                <h3 style="color: red;"> 
+                <h3 style="color: red;">
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Enter Date of attendance</mat-label>
-                        <input type="date" matInput formControlName="dateofattendance"
-                         [(ngModel)]="attendanceData.dateofattendance">
-                      </mat-form-field>
-                    </h3>
+                        <input type="date" matInput formControlName="dateofattendance" [(ngModel)]="attendanceData.dateofattendance">
+                    </mat-form-field>
+                </h3>
 
             </li>
 
-      
-   
-           
-   
-        
 
-                <select formControlName="status">
+
+
+
+
+
+            <select formControlName="status">
                     <option [ngValue]="null" disabled>Choose Attendance status</option>
 
                     <option *ngFor="let item of home.status" [ngValue]="item.status"> {{item.status}}</option>
          
                 </select>
-                <select formControlName="busnumber">
+            <select formControlName="busnumber">
                     <option [ngValue]="null" disabled>Choose Bus Number</option>
 
                     <option *ngFor="let item2 of home.busnumber1" [ngValue]="item2.busnumber"> {{item2.busnumber}}</option>
                 </select>
-          
-   
-       
-    
-        
+
+
+
+
+
 
         </ul>
         <button (click)="update()">Update</button>
@@ -108,7 +106,7 @@
                         </mat-error>
                     </mat-form-field>
                 </li>
-                
+
                 <select formControlName="status">
                     <option [ngValue]="null" disabled>Choose Round status</option>
 
@@ -126,8 +124,8 @@
                     <option *ngFor="let item1 of home.name" [ngValue]="item1.name"> {{item1.name}}</option>
            
                 </select>
-                
-        
+
+
 
             </ul>
         </form>
@@ -138,5 +136,3 @@
 
 
     </mat-dialog-content>
-
-

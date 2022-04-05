@@ -1,36 +1,40 @@
+<app-dashboard>
+    <div class="page-header">
+        <h3 class="page-title text-uppercase" style="font-size: 1.5em; font-weight: 500;">
+            <span class="page-title-icon bg-gradient-primary text-white me-2">
+                    <i class="mdi mdi-phone"></i>
+            </span> manage contact us table
+        </h3>
+        <!-- <button class="btn btn-success" (click)="openCreatedialog()">Create New</button> -->
+    </div>
 
+    <table style="margin:0 auto">
+        <tr>
+            <th>id </th>
+            <th> firstname </th>
+            <th> lastname </th>
+            <th> email </th>
+            <th> subject </th>
+            <th> massage </th>
 
-<table style="margin:0 auto">
-     <tr>
-         <th>id </th>
-        <th> firstname </th> 
-        <th> lastname </th>
-         <th> email </th>
-         <th> subject </th>
-         <th>  massage </th>
- 
-     </tr>
-     <tr *ngFor="let contact of home.contactus">
-         <td>{{contact.id}}</td>
-         <td>{{contact.firstname}}</td>
-         <td>{{contact.lastname}}</td>
-         <td>{{contact.email }}</td>
-         <td>{{contact.subject }}</td>
-         <td>{{contact.massage }}</td>
+        </tr>
+        <tr *ngFor="let contact of home.contactus">
+            <td>{{contact.id}}</td>
+            <td>{{contact.firstname}}</td>
+            <td>{{contact.lastname}}</td>
+            <td>{{contact.email }}</td>
+            <td>{{contact.subject }}</td>
+            <td>{{contact.massage }}</td>
+            <td>
+                <button class="btn btn-danger" (click)="openDeleteDialog(contact.id)">Delete</button>
+        </tr>
 
-      
-      
-         <td>
-             <button class="btn btn-danger" (click)="openDeleteDialog(contact.id)">Delete</button>
-
-     </tr>
-     
-<ng-template #callDeleteDialog>
-     <h2>Are You Sure you want to delete this item</h2>
-     <mat-dialog-actions align="end">
-         <button mat-button mat-dialog-close="no">No</button>
-         <button mat-button mat-dialog-close="yes">yes</button>
-     </mat-dialog-actions>
- 
- </ng-template>
- </table>
+        <ng-template #callDeleteDialog>
+            <h2>Are You Sure you want to delete this item</h2>
+            <mat-dialog-actions align="end">
+                <button mat-button mat-dialog-close="no">No</button>
+                <button mat-button mat-dialog-close="yes">yes</button>
+            </mat-dialog-actions>
+        </ng-template>
+    </table>
+</app-dashboard>

@@ -1,37 +1,45 @@
-<button class="btn btn-primary" (click)="openCreatedialog()">Create New </button>
+<app-dashboard>
+    <div class="page-header">
+        <h3 class="page-title text-uppercase" style="font-size: 1.5em; font-weight: 500;">
+            <span class="page-title-icon bg-gradient-primary text-white me-2">
+                    <i class="mdi mdi-pencil"></i>
+            </span> manage footer table
+        </h3>
+        <button class="btn btn-success" (click)="openCreatedialog()">Create New</button>
+    </div>
 
-<table style="margin: 0 auto;">
-    <tr>
-
-
-        <th>id </th>
-        <th>abouttext </th>
-        <th>city </th>
-        <th>phone</th>
-        <th>email</th>
-    </tr>
-    <tr *ngFor="let footer of home.footer">
-
-        <td>{{footer.id}}</td>
-        <td>{{footer.abouttext}}</td>
-        <td>{{footer.city}}</td>
-        <td>{{footer.phone}}</td>
-        <td>{{footer.email}}</td>
-
- 
-
-        <td><button class="btn btn-danger" (click)="openDeleteDialog(footer.id)">Delete</button>
+    <table style="margin: 0 auto;">
+        <tr>
 
 
-            <button class="btn btn-secondary" (click)="openUpdateDialog(footer.id,footer.abouttext
+            <th>id </th>
+            <th>abouttext </th>
+            <th>city </th>
+            <th>phone</th>
+            <th>email</th>
+        </tr>
+        <tr *ngFor="let footer of home.footer">
+
+            <td>{{footer.id}}</td>
+            <td>{{footer.abouttext}}</td>
+            <td>{{footer.city}}</td>
+            <td>{{footer.phone}}</td>
+            <td>{{footer.email}}</td>
+
+
+
+            <td><button class="btn btn-danger" (click)="openDeleteDialog(footer.id)">Delete</button>
+
+
+                <button class="btn btn-secondary" (click)="openUpdateDialog(footer.id,footer.abouttext
             ,footer.city,footer.phone , footer.email)">Update</button>
-        </td>
+            </td>
 
 
 
-    </tr>
-</table>
-
+        </tr>
+    </table>
+</app-dashboard>
 
 
 <ng-template #callUpdateDailog>
@@ -42,45 +50,41 @@
             <li>
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label> </mat-label>
-                    <input type="text" matInput formControlName="abouttext" 
-                    placeholder="abouttext ">
+                    <input type="text" matInput formControlName="abouttext" placeholder="abouttext ">
                     <mat-error *ngIf="UpdateForm.controls['abouttext'].hasError('required')">
                         title is <strong>required</strong>
                     </mat-error>
                 </mat-form-field>
-   </li>
-   <li>
-    <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label> </mat-label>
-        <input type="text" matInput formControlName="city" 
-        placeholder="city ">
-        <mat-error *ngIf="UpdateForm.controls['city'].hasError('required')">
-            title is <strong>required</strong>
-        </mat-error>
-    </mat-form-field>
-</li>
+            </li>
+            <li>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label> </mat-label>
+                    <input type="text" matInput formControlName="city" placeholder="city ">
+                    <mat-error *ngIf="UpdateForm.controls['city'].hasError('required')">
+                        title is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </li>
 
-<li>
-    <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label> </mat-label>
-        <input type="text" matInput formControlName="phone" 
-        placeholder="phone ">
-        <mat-error *ngIf="UpdateForm.controls['phone'].hasError('required')">
-            title is <strong>required</strong>
-        </mat-error>
-    </mat-form-field>
-</li>
+            <li>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label> </mat-label>
+                    <input type="text" matInput formControlName="phone" placeholder="phone ">
+                    <mat-error *ngIf="UpdateForm.controls['phone'].hasError('required')">
+                        title is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </li>
 
-<li>
-    <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label> </mat-label>
-        <input type="text" matInput formControlName="email" 
-        placeholder="email ">
-        <mat-error *ngIf="UpdateForm.controls['email'].hasError('required')">
-            title is <strong>required</strong>
-        </mat-error>
-    </mat-form-field>
-</li>
+            <li>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label> </mat-label>
+                    <input type="text" matInput formControlName="email" placeholder="email ">
+                    <mat-error *ngIf="UpdateForm.controls['email'].hasError('required')">
+                        title is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </li>
 
 
 
@@ -110,7 +114,7 @@
         <form [formGroup]="CreateForm" class="example-form">
             <ul>
 
-                
+
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>abouttext </mat-label>
@@ -120,7 +124,7 @@
                         </mat-error>
                     </mat-form-field>
                 </li>
-                
+
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>city</mat-label>
@@ -130,7 +134,7 @@
                         </mat-error>
                     </mat-form-field>
                 </li>
-                
+
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>phone </mat-label>
@@ -140,7 +144,7 @@
                         </mat-error>
                     </mat-form-field>
                 </li>
-                
+
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>email </mat-label>

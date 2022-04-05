@@ -1,29 +1,37 @@
-<!-- <button (click)="openCreatedialog()">Create New  </button> -->
+<app-dashboard>
+    <div class="page-header">
+        <h3 class="page-title text-uppercase" style="font-size: 1.5em; font-weight: 500;">
+            <span class="page-title-icon bg-gradient-primary text-white me-2">
+                    <i class="mdi mdi-thought-bubble"></i>
+            </span> manage Testimonial table
+        </h3>
+    </div>
 
-<table style="margin:0 auto">
-    <tr>
-        <th> Testimonial number </th>
-        <th> customer name </th>
-        <th> Feed back </th>
-        <th> Image </th>
-        <th> Testimonial Status </th>
-        <th> Opreation</th>
-    </tr>
-    <tr *ngFor="let testimonials of testimonial.data">
-        <td>{{testimonials.id}}</td>
-        <td>{{testimonials.name}}</td>
-        <td>{{testimonials.feedback }}</td>
-        <td><img src="../../../assets/images/{{testimonials.imagepath}}" style="height: 50px;width:50px;"></td>
-        <td>
-            {{testimonials.status}}
-        </td>
-        <td>
-            <button class="btn btn-danger" (click)="openDeleteDialog(testimonials.id)">Delete</button>
-            <button (click)="openUpdateDailog(testimonials.id,
+    <table style="margin:0 auto">
+        <tr>
+            <th> Testimonial number </th>
+            <th> customer name </th>
+            <th> Feed back </th>
+            <th> Image </th>
+            <th> Testimonial Status </th>
+            <th> Opreation</th>
+        </tr>
+        <tr *ngFor="let testimonials of testimonial.data">
+            <td>{{testimonials.id}}</td>
+            <td>{{testimonials.name}}</td>
+            <td>{{testimonials.feedback }}</td>
+            <td><img src="../../../assets/images/{{testimonials.imagepath}}" style="height: 50px;width:50px;"></td>
+            <td>
+                {{testimonials.status}}
+            </td>
+            <td>
+                <button class="btn btn-danger" (click)="openDeleteDialog(testimonials.id)">Delete</button>
+                <button (click)="openUpdateDailog(testimonials.id,
             testimonials.name,testimonials.feedback ,testimonials.status,testimonials.imagepath)">Update</button>
-        </td>
-    </tr>
-</table>
+            </td>
+        </tr>
+    </table>
+</app-dashboard>
 
 
 <ng-template #callUpdateDailog>

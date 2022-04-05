@@ -1,31 +1,38 @@
-<button class="btn btn-primary" (click)="openCreatedialog()">Create New </button>
+<app-dashboard>
+    <div class="page-header">
+        <h3 class="page-title text-uppercase" style="font-size: 1.5em; font-weight: 500;">
+            <span class="page-title-icon bg-gradient-primary text-white me-2">
+                    <i class="mdi mdi-circle-edit-outline"></i>
+            </span> manage about us editor table
+        </h3>
+        <button class="btn btn-success" (click)="openCreatedialog()">Create New</button>
+    </div>
+    <table style="margin: 0 auto;">
+        <tr>
+            <th>ID</th>
+            <th>title </th>
+            <th>text </th>
+            <th>Image </th>
+            <th>about us id </th>
+            <th>Opreation</th>
+        </tr>
+        <tr *ngFor="let item of aboutuseEitor.data">
+            <td>{{item.id}}</td>
+            <td>{{item.titel}}</td>
+            <td>{{item.text}}</td>
+            <td><img src="../../../assets/images/{{item.imagepath}}" style="height: 50px;width: 50px;"></td>
+            <td>{{item.aboutid}}</td>
+            <td><button class="btn btn-danger" (click)="openDeleteDialog(item.id)">Delete</button>
 
-<table style="margin: 0 auto;">
-    <tr>
-        <th>ID</th>
-        <th>title </th>
-        <th>text </th>
-        <th>Image </th>
-        <th>about us id </th>
-        <th>Opreation</th>
-    </tr>
-    <tr *ngFor="let item of aboutuseEitor.data">
-        <td>{{item.id}}</td>
-        <td>{{item.titel}}</td>
-        <td>{{item.text}}</td>
-        <td><img src="../../../assets/images/{{item.imagepath}}" style="height: 50px;width: 50px;"></td>
-        <td>{{item.aboutid}}</td>
-        <td><button class="btn btn-danger" (click)="openDeleteDialog(item.id)">Delete</button>
 
-
-            <button class="btn btn-secondary" (click)="openUpdateDialog(item.id,item.titel,item.text,item.imagepath,item.aboutid)">Update</button>
-        </td>
+                <button class="btn btn-secondary" (click)="openUpdateDialog(item.id,item.titel,item.text,item.imagepath,item.aboutid)">Update</button>
+            </td>
 
 
 
-    </tr>
-</table>
-
+        </tr>
+    </table>
+</app-dashboard>
 
 
 <ng-template #callUpdateDialog>
