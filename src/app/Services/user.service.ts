@@ -65,10 +65,11 @@ export class UserService {
   }
 
   uploadAttachment(file: FormData) {
+  
     this.http.post('https://localhost:44346/api/User/UploadImage/', file)
       .subscribe((res: any) => {
         if (res)
-          console.log(res);
+          console.log('uploadimage res',res);
         this.display_Image = res.imagepath;
       }, err => {
         this.toastr.error(err.message, err.status);

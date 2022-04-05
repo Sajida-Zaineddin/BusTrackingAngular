@@ -25,7 +25,11 @@ export class EditProfileComponent implements OnInit {
         imagepath: this.editProfile.dataFromUsers.imagepath,
         roleid: this.editProfile.dataFromUsers.roleid,
       }
-    }, 1200);
+
+      console.log('this.editProfile.dataFromUsers.imagepath',this.editProfile.tempimg)
+
+    }, 2000);
+
   
   }
 
@@ -56,15 +60,19 @@ export class EditProfileComponent implements OnInit {
     const fromData=new FormData();
     fromData.append('file',fileUpload,fileUpload.name);
     this.userservice.uploadAttachment(fromData);
+  
   }
 
   update()
   {
-    
+    debugger
     this.UpdateForm.controls['id'].setValue( this.editProfile.dataFromUsers.id);
     this.UpdateForm.controls['email'].setValue(this.editProfile.dataFromUsers.email);
-    this.UpdateForm.controls['roleid'].setValue( this.editProfile.dataFromUsers.roleid);  
+    this.UpdateForm.controls['roleid'].setValue( this.editProfile.dataFromUsers.roleid);     
     this.userservice.updateUserNormal(this.UpdateForm.value);
+    console.log('dataFromUsers',this.editProfile.dataFromUsers)
+
+    
     window.location.reload();
   }
 

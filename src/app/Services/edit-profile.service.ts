@@ -12,16 +12,18 @@ export class EditProfileService {
 
 
   dataFromUsers: any = [];  
-
+  tempimg:any;
 
 
     
   getUserData(data: any) {
     this.spinner.show();   
-    debugger
+    
     this.http.post('https://localhost:44346/api/User/GteUserByUusernameFroEdit/', data)
       .subscribe((res: any) => {
         this.dataFromUsers=res
+        this.tempimg = this.dataFromUsers.imagepath
+        console.log('getuserdata',res)
         this.spinner.hide();
        
       }, err => {

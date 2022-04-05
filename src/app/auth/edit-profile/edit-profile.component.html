@@ -1,8 +1,8 @@
 <app-header></app-header>
 <div>
-    <img src="../../../assets/images/{{userValues.imagepath}}" style="height: 150px;width: 150px;">
+    <img src="../../../assets/images/{{editProfile.dataFromUsers.imagepath}}" style="height: 150px;width: 150px;">
     <p>
-        Welcome -{{userValues.fullName}}
+        Welcome -{{editProfile.dataFromUsers.fullName}}
     </p>
 </div>
 <form [formGroup]="UpdateForm">
@@ -27,7 +27,7 @@
             </mat-form-field>
         </li>
         <li>
-            <input type="file" #file placeholder="Choose Image" formControlName="imagepath" (change)="uploadFile(file.files)" style="display:none;">
+            <input type="file" #file placeholder="Choose Image" formControlName="imagepath" (change)="uploadFile(file.files)" [(ngModel)]="userValues.imagepath" style="display:none;">
             <button class="btn btn-dark" (click)="file.click()">Upload Image</button>
         </li>
 
