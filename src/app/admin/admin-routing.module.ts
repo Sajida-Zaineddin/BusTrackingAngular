@@ -18,10 +18,10 @@ import { WebsiteComponent } from './website/website.component';
 
 
 const routes: Routes = [
-  {
-    path:'dashboard',
-    component:DashboardComponent
-  },
+  // {
+  //   path:'dashboard',
+  //   component:DashboardComponent
+  // },
   {
     path:'role',
     component:RoleComponent

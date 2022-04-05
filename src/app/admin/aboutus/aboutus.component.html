@@ -7,24 +7,37 @@
         </h3>
         <button class="btn btn-success" (click)="openCreatedialog()">Create New</button>
     </div>
-    <table style="margin: 0 auto;">
-        <tr>
-            <th>ID</th>
-            <th>title </th>
-            <th>information </th>
-            <th>Image </th>
-            <th>Opreation</th>
-        </tr>
-        <tr *ngFor="let item of home.data">
-            <td>{{item.id}}</td>
-            <td>{{item.title}}</td>
-            <td>{{item.information}}</td>
-            <td><img src="../../../assets/images/{{item.imagepath}}" style="height: 50px;width: 50px;"></td>
-            <td><button class="btn btn-danger" (click)="openDeleteDialog(item.id)">Delete</button>
-                <button class="btn btn-secondary" (click)="openUpdateDialog(item.id,item.title,item.information,item.imagepath)">Update</button>
-            </td>
-        </tr>
-    </table>
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>title </th>
+                            <th>information </th>
+                            <th>Image </th>
+                            <th colspan="2">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of home.data">
+                            <td>{{item.id}}</td>
+                            <td>{{item.title}}</td>
+                            <td>{{item.information}}</td>
+                            <td><img src="../../../assets/images/{{item.imagepath}}" style="height: 50px;width: 50px;"></td>
+                            <td class="col-lg-2">
+                                <button class="btn btn-secondary" (click)="openUpdateDialog(item.id,item.title,item.information,item.imagepath)">Update</button>
+                            </td>
+                            <td class="col-lg-2">
+                                <button class="btn btn-danger" (click)="openDeleteDialog(item.id)">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </app-dashboard>
 
 <!-- <button class="btn btn-primary" (click)="openCreatedialog()">Create New </button> -->
@@ -59,16 +72,6 @@
         <button class="btn btn-success" mat-button [mat-dialog-close]="true" (click)="updateCourse()">Update</button>
     </form>
 </ng-template>
-
-
-<ng-template #callDeleteDialog>
-    <h2>Are You Sure you want ti delete this item</h2>
-    <mat-dialog-actions align="end">
-        <button mat-button mat-dialog-close="no">No</button>
-        <button mat-button mat-dialog-close="yes">yes</button>
-    </mat-dialog-actions>
-</ng-template>
-
 
 <ng-template #callCreateDialog>
     <h2 mat-dialog-title> Add Abouts us </h2>
@@ -108,9 +111,9 @@
 </ng-template>
 
 <ng-template #callDeleteDialog>
-    <h2>Are You Sure you want to delete this item</h2>
+    <h2 class="text-uppercase">Are You Sure You Want To Delete This About Data!</h2>
     <mat-dialog-actions align="end">
-        <button mat-button mat-dialog-close="no">No</button>
-        <button mat-button mat-dialog-close="yes">yes</button>
+        <button class="btn btn-danger" mat-dialog-close="yes">Yes</button>
+        <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close="no">No</button>
     </mat-dialog-actions>
 </ng-template>

@@ -5,36 +5,45 @@
                     <i class="mdi mdi-phone"></i>
             </span> manage contact us table
         </h3>
-        <!-- <button class="btn btn-success" (click)="openCreatedialog()">Create New</button> -->
     </div>
-
-    <table style="margin:0 auto">
-        <tr>
-            <th>id </th>
-            <th> firstname </th>
-            <th> lastname </th>
-            <th> email </th>
-            <th> subject </th>
-            <th> massage </th>
-
-        </tr>
-        <tr *ngFor="let contact of home.contactus">
-            <td>{{contact.id}}</td>
-            <td>{{contact.firstname}}</td>
-            <td>{{contact.lastname}}</td>
-            <td>{{contact.email }}</td>
-            <td>{{contact.subject }}</td>
-            <td>{{contact.massage }}</td>
-            <td>
-                <button class="btn btn-danger" (click)="openDeleteDialog(contact.id)">Delete</button>
-        </tr>
-
-        <ng-template #callDeleteDialog>
-            <h2>Are You Sure you want to delete this item</h2>
-            <mat-dialog-actions align="end">
-                <button mat-button mat-dialog-close="no">No</button>
-                <button mat-button mat-dialog-close="yes">yes</button>
-            </mat-dialog-actions>
-        </ng-template>
-    </table>
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th> firstname </th>
+                            <th> lastname </th>
+                            <th> email </th>
+                            <th> subject </th>
+                            <th> massage </th>
+                            <th colspan="2">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let contact of home.contactus">
+                            <td>{{contact.id}}</td>
+                            <td>{{contact.firstname}}</td>
+                            <td>{{contact.lastname}}</td>
+                            <td>{{contact.email }}</td>
+                            <td>{{contact.subject }}</td>
+                            <td>{{contact.massage }}</td>
+                            <td class="col-lg-2">
+                                <button class="btn btn-danger" (click)="openDeleteDialog(contact.id)">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </app-dashboard>
+
+<ng-template #callDeleteDialog>
+    <h2 class="text-uppercase">Are You Sure You Want To Delete This Contact Data!</h2>
+    <mat-dialog-actions align="end">
+        <button class="btn btn-danger" mat-dialog-close="yes">Yes</button>
+        <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close="no">No</button>
+    </mat-dialog-actions>
+</ng-template>
