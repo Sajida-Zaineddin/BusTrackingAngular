@@ -33,7 +33,6 @@ export class LoginManegeDataComponent implements OnInit {
     username: new FormControl,
     password: new FormControl(),
     userid: new FormControl()
-
   })
 
 
@@ -46,24 +45,22 @@ export class LoginManegeDataComponent implements OnInit {
   openCreatedialog() {  
     this.loginManege.getUsersName();  
     this.dialog.open(this.callCreateDialog)
-
   }
 
-  openDeleteDialog(busId: any) {
+  openDeleteDialog(loginId: any) {
     const dialogRef = this.dialog.open(this.callDeleteDialog);
     dialogRef.afterClosed().subscribe((res) => {
       if (res !== undefined) {
         if (res == "yes") {
-          this.loginManege.delete(busId);
+          this.loginManege.delete(loginId);
           window.location.reload();
         }
         else if (res == "no")
           console.log("Thank you ");
-
       }
     })
-
   }
+  
   openUpdateDialog(id: any, uname: any, upass: any, uid: any,) {
     debugger
     this.userValue = {
@@ -71,19 +68,15 @@ export class LoginManegeDataComponent implements OnInit {
       username: uname,
       password: upass,
       userid: uid,
-
     }
     this.updatForm.controls['id'].setValue(id); 
     this.updatForm.controls['userid'].setValue(uid); 
     this.loginManege.getUsersName();
     this.dialog.open(this.callUpdateDialog)
-
   }
 
   updateAboutusEditor() {
     this.loginManege.updateLoginUser(this.updatForm.value);
     window.location.reload();
-
   }
-
 }

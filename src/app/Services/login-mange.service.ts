@@ -27,7 +27,6 @@ export class LoginMangeService {
       this.spinner.hide();
       this.toastr.error('Error ')
     })
-
   }
 
   getUsersName() {
@@ -44,7 +43,6 @@ export class LoginMangeService {
       this.spinner.hide();
       this.toastr.error('Error ')
     })
-
   }
 
   
@@ -58,7 +56,6 @@ export class LoginMangeService {
         this.spinner.hide();
         this.toastr.error(err.message, err.status)
       })
-    
     }
 
 
@@ -68,7 +65,6 @@ export class LoginMangeService {
     }, err => {
       this.toastr.error(err.message, err.status);
     })
-
   }
 
   updateLoginUser(body: any) { 
@@ -77,9 +73,5 @@ export class LoginMangeService {
     }, err => {
       this.toastr.error('something error ');
     })
-
-
-
-
   }
 }

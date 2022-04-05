@@ -1,93 +1,120 @@
 <app-dashboard>
-    <button class="btn btn-primary" (click)="openCreatedialog()">Create New </button>
-    <table style="margin: 0 auto;">
-        <tr>
-            <th>User Name</th>
-            <th> Name </th>
-            <th>Opreation</th>
-        </tr>
-        <tr *ngFor="let item of loginManege.data">
-            <td>{{item.username}}</td>
-            <td>{{item.fullName}}</td>
-            <td><button class="btn btn-danger" (click)="openDeleteDialog(item.id)">Delete</button>
-                <button class="btn btn-secondary" (click)="openUpdateDialog(item.id,item.username,item.password,item.userid)">Update</button>
-            </td>
-        </tr>
-    </table>
+    <div class="page-header">
+        <h3 class="page-title text-uppercase" style="font-size: 1.5em; font-weight: 500;">
+            <span class="page-title-icon bg-gradient-primary text-white me-2">
+                    <i class="mdi mdi-login"></i>
+            </span> manage users login table
+        </h3>
+        <button class="btn btn-success" (click)="openCreatedialog()">Create New</button>
+    </div>
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>User Name</th>
+                            <th colspan="2">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of loginManege.data">
+                            <td>{{item.id}}</td>
+                            <td>{{item.fullName}}</td>
+                            <td>{{item.username}}</td>
+                            <td class="col-lg-2">
+                                <button class="btn btn-secondary" (click)="openUpdateDialog(item.id,item.username,item.password,item.userid)">Update</button>
+                            </td>
+                            <td class="col-lg-2">
+                                <button class="btn btn-danger" (click)="openDeleteDialog(item.id)">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </app-dashboard>
 
 <ng-template #callCreateDialog>
-    <h2 mat-dialog-title> Add User </h2>
+    <h2 class="text-uppercase"> Add New User Login </h2>
     <mat-dialog-content class="mat-typography">
         <form [formGroup]="CreateForm" class="example-form">
             <ul>
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter the UserName </mat-label>
-                        <input type="text" matInput formControlName="username" [(ngModel)]="userValue.username" placeholder="username ">
+                        <mat-label>Enter Username</mat-label>
+                        <input type="text" matInput formControlName="username" [(ngModel)]="userValue.username" placeholder="Username">
                         <mat-error *ngIf="updatForm.controls['username'].hasError('required')">
-                            title is <strong>required</strong>
+                            field is <strong>required</strong>
                         </mat-error>
                     </mat-form-field>
                 </li>
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter the password </mat-label>
-                        <input type="password" matInput formControlName="password" [(ngModel)]="userValue.password" placeholder="password ">
+                        <mat-label>Enter Password</mat-label>
+                        <input type="password" matInput formControlName="password" [(ngModel)]="userValue.password" placeholder="Password">
                         <mat-error *ngIf="updatForm.controls['password'].hasError('required')">
-                            title is <strong>required</strong>
+                            field is <strong>required</strong>
                         </mat-error>
                     </mat-form-field>
                 </li>
                 <li>
-                    <label for="cars">Choose a user name:</label>
+                    <h4 style="margin-bottom: 0px; margin-top: 10px;">Choose User Name</h4>
                     <select formControlName="userid">
-                        <option [ngValue]="null" disabled>Choose  user name</option>
-                        <option *ngFor="let item of loginManege.allUsers" [ngValue]="item.id"> {{item.fullName}}</option>
+                        <option [ngValue]="null" disabled>Choose User Name</option>
+                        <option *ngFor="let item of loginManege.allUsers" [ngValue]="item.id">{{item.fullName}}</option>
                     </select>
                 </li>
             </ul>
         </form>
         <mat-dialog-actions align="end">
-            <button mat-button mat-dialog-close>Cancel</button>
-            <button mat-button [mat-dialog-close]="true" (click)="save()" cdkFocusInitial>Save</button>
+            <button class="btn btn-success" [mat-dialog-close]="true" (click)="save()" cdkFocusInitial>Save</button>
+            <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close>Cancel</button>
         </mat-dialog-actions>
     </mat-dialog-content>
 </ng-template>
 
 <ng-template #callUpdateDialog>
-    <form [formGroup]="updatForm">
-        <ul>
-            <li>
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>Enter New User Name </mat-label>
-                    <input type="text" matInput formControlName="username" [(ngModel)]="userValue.username" placeholder="username ">
-                    <mat-error *ngIf="updatForm.controls['username'].hasError('required')">
-                        title is <strong>required</strong>
-                    </mat-error>
-                </mat-form-field>
-            </li>
-            <li>
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>Enter New password </mat-label>
-                    <input type="password" matInput formControlName="password" [(ngModel)]="userValue.password" placeholder="password ">
-                    <mat-error *ngIf="updatForm.controls['password'].hasError('required')">
-                        title is <strong>required</strong>
-                    </mat-error>
-                </mat-form-field>
-            </li>
-            <li>
-                <label for="cars">Choose a user name:</label>
-                <select formControlName="userid">
-                    <option [ngValue]="null" disabled>Choose  user name</option>
-                    <option *ngFor="let item of loginManege.allUsers" [ngValue]="item.id"> {{item.fullName}}</option>
-                </select>
-            </li>
-        </ul>
-        <button class="btn btn-success" mat-button [mat-dialog-close]="true" (click)="updateAboutusEditor()">Update</button>
-    </form>
+    <h2 class="text-uppercase"> Update User </h2>
+    <mat-dialog-content class="mat-typography">
+        <form [formGroup]="updatForm">
+            <ul>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter New User Name</mat-label>
+                        <input type="text" matInput formControlName="username" [(ngModel)]="userValue.username" placeholder="Username">
+                        <mat-error *ngIf="updatForm.controls['username'].hasError('required')">
+                            field is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter New Password</mat-label>
+                        <input type="password" matInput formControlName="password" [(ngModel)]="userValue.password" placeholder="Password">
+                        <mat-error *ngIf="updatForm.controls['password'].hasError('required')">
+                            field is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <h4 style="margin-bottom: 0px; margin-top: 10px;">Choose User Name</h4>
+                    <select formControlName="userid">
+                        <option [ngValue]="null" disabled>Choose User Name</option>
+                        <option *ngFor="let item of loginManege.allUsers" [ngValue]="item.id">{{item.fullName}}</option>
+                    </select>
+                </li>
+            </ul>
+        </form>
+        <mat-dialog-actions align="end">
+            <button class="btn btn-success" [mat-dialog-close]="true" (click)="updateAboutusEditor()" cdkFocusInitial>Update</button>
+            <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close>Cancel</button>
+        </mat-dialog-actions>
+    </mat-dialog-content>
 </ng-template>
-
 
 <ng-template #callDeleteDialog>
     <h2 class="text-uppercase">Are You Sure You Want To Delete This User Login!</h2>
