@@ -1,16 +1,51 @@
 <app-dashboard>
-    <div>
-        <p>
-            number of students: {{adminservice.allStudents.length}}
-        </p>
-        <p>
-            number of teachers: {{adminservice.allTeachers.length}}
-        </p>
-        <p>
-            number of drivers: {{adminservice.allDrivers.length}}
-        </p>
+    <div class="page-header">
+        <h3 class="page-title text-uppercase" style="font-size: 1.5em; font-weight: 500;">
+            <span class="page-title-icon bg-gradient-primary text-white me-2">
+                 <i class="mdi mdi-school"></i>
+            </span> your school information
+        </h3>
     </div>
-    <h3>Buses Locations</h3>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card bg-gradient-danger card-img-holder text-white">
+                <div class="card-body">
+                    <h4 class="text-uppercase" style="font-size: 1.5em;">Number Of Students
+                        <i class="mdi mdi-account-child float-right" style="font-size: 1.5em;"></i>
+                    </h4>
+                    <h2 style="font-size: 1.5em;">{{adminservice.allStudents.length}}</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card bg-gradient-info card-img-holder text-white">
+                <div class="card-body">
+                    <h4 class="text-uppercase" style="font-size: 1.5em;">Number Of Teachers
+                        <i class="mdi mdi-teach float-right" style="font-size: 1.5em;"></i>
+                    </h4>
+                    <h2 style="font-size: 1.5em;">{{adminservice.allTeachers.length}}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-gradient-success card-img-holder text-white">
+                <div class="card-body">
+                    <h4 class="text-uppercase" style="font-size: 1.5em;">Number Of Drivers
+                        <i class="mdi mdi-bus" style="font-size: 1.5em;"></i>
+                    </h4>
+                    <h2 style="font-size: 1.5em;">{{adminservice.allDrivers.length}}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-header" style="margin-top: 6%;">
+        <h3 class="page-title text-uppercase" style="font-size: 1.5em; font-weight: 500;">
+            <span class="page-title-icon bg-gradient-primary text-white me-2">
+                 <i class="mdi mdi-map"></i>
+            </span> Buses Locations
+        </h3>
+    </div>
     <div class="my-google-map">
         <google-map id="map" height="500px" width="100%" [zoom]="zoom" [center]="center" [options]="options">
             <map-marker *ngFor="let marker of markers" [position]="marker.position" [label]="marker.label" [title]="marker.title" [options]="marker.options">

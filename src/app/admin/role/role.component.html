@@ -1,98 +1,89 @@
+<app-dashboard>
+    <div class="page-header">
+        <h3 class="page-title text-uppercase" style="font-size: 1.5em; font-weight: 500;">
+            <span class="page-title-icon bg-gradient-primary text-white me-2">
+                    <i class="mdi mdi-briefcase"></i>
+            </span> manage roles table
+        </h3>
+        <button class="btn btn-success" (click)="openCreatedialog()">Create New </button>
+    </div>
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Role Name</th>
+                            <th colspan="2">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of role.data">
+                            <td>{{item.id}}</td>
+                            <td>{{item.rolename}}</td>
+                            <td class="col-lg-2">
+                                <button class="btn btn-secondary" (click)="openUpdateDialog(item.id,item.rolename) ">Update</button>
+                            </td>
+                            <td class="col-lg-2">
+                                <button class="btn btn-danger" (click)="openDeleteDialog(item.id) ">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</app-dashboard>
 
-
-
-<button class="btn btn-primary" (click)="openCreatedialog()">Create New </button>
-
-<table style="margin: 0 auto;">
-    <tr>
-        <th>id</th>
-        <th>rolename </th>
-    </tr>
-    <tr *ngFor="let item of role.data">
-        <td>{{item.id}}</td>
-        <td>{{item.rolename}}</td>
-        <td><button class="btn btn-danger" (click)="openDeleteDialog(item.id)">Delete</button>
-
-
-            <button class="btn btn-secondary" (click)="openUpdateDialog(item.id,item.rolename)">Update</button>
-        </td>
-
-
-
-    </tr>
-</table>
-
-
+<ng-template #callCreateDialog>
+    <h2 class="text-uppercase">Add New Role</h2>
+    <mat-dialog-content class="mat-typography ">
+        <form [formGroup]="CreateForm " class="example-form ">
+            <ul>
+                <li>
+                    <mat-form-field class="example-full-width " appearance="fill">
+                        <mat-label>Enter The Role Name</mat-label>
+                        <input type="text " matInput formControlName="rolename " placeholder="Role Name">
+                        <mat-error *ngIf="CreateForm.controls[ 'rolename'].hasError( 'required') ">
+                            role is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+            </ul>
+        </form>
+        <mat-dialog-actions align="end">
+            <button class="btn btn-success" [mat-dialog-close]="true" (click)="save()" cdkFocusInitial class="btn btn-success">Save</button>
+            <button mat-dialog-close style="margin-left: 10px;" class="btn btn-secondary ">Cancel </button>
+        </mat-dialog-actions>
+    </mat-dialog-content>
+</ng-template>
 
 <ng-template #callUpdateDialog>
-
-    <form [formGroup]="updatForm">
+    <h2 class="text-uppercase">Update Role</h2>
+    <form [formGroup]="updatForm ">
         <ul>
-
             <li>
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>Enter the Role Name </mat-label>
-                    <input type="text" matInput formControlName="rolename"  placeholder="rolename">
-                    <mat-error *ngIf="updatForm.controls['rolename'].hasError('required')">
+                    <input type="text " matInput formControlName="rolename " placeholder="Role Name">
+                    <mat-error *ngIf="updatForm.controls['rolename'].hasError('required') ">
                         rolename is <strong>required</strong>
                     </mat-error>
                 </mat-form-field>
             </li>
-           
-            
         </ul>
         <mat-dialog-actions align="end">
-        <button class="btn btn-success" mat-button [mat-dialog-close]="true" (click)="updateRole()">Update</button>
-        <button mat-button mat-dialog-close>Cancel</button>
-    </mat-dialog-actions>
+            <button class="btn btn-success" [mat-dialog-close]="true" (click)="updateRole()">Update</button>
+            <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close>Cancel</button>
+        </mat-dialog-actions>
     </form>
-
-
 </ng-template>
-
 
 <ng-template #callDeleteDialog>
-    <h2>Are You Sure you want to delete this item</h2>
+    <h2 class="text-uppercase">Are You Sure You Want To Delete This Role!</h2>
     <mat-dialog-actions align="end">
-        <button mat-button mat-dialog-close="no">No</button>
-        <button mat-button mat-dialog-close="yes">yes</button>
+        <button class="btn btn-danger" mat-dialog-close="yes">Yes</button>
+        <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close="no">No</button>
     </mat-dialog-actions>
-
 </ng-template>
-
-
-<ng-template #callCreateDialog>
-    <h2 mat-dialog-title>Add roles</h2>
-    <mat-dialog-content class="mat-typography">
-
-        <form [formGroup]="CreateForm" class="example-form">
-            <ul>
-
-                <li>
-                    <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter the Role Name </mat-label>
-                        <input type="text" matInput formControlName="rolename" placeholder="rolename ">
-                        <mat-error *ngIf="CreateForm.controls['rolename'].hasError('required')">
-                            title is <strong>required</strong>
-                        </mat-error>
-                    </mat-form-field>
-                </li>
-               
-                
-            </ul>
-        </form>
-        <mat-dialog-actions align="end">
-            <button mat-button mat-dialog-close>Cancel</button>
-            <button mat-button [mat-dialog-close]="true" (click)="save()" cdkFocusInitial>Save</button>
-        </mat-dialog-actions>
-
-
-    </mat-dialog-content>
-    <ng-template #callDeleteDialog>
-        <h2>Are You Sure you want to delete this item</h2>
-        <mat-dialog-actions align="end">
-            <button mat-button mat-dialog-close="no">No</button>
-            <button mat-button mat-dialog-close="yes">yes</button>
-        </mat-dialog-actions>
-
-    </ng-template>

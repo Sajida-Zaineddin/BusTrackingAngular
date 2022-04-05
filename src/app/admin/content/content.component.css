@@ -1,0 +1,30 @@
+.bg-gradient-primary {
+    background: -webkit-gradient(linear, left top, right top, from(rgb(219, 138, 222)), to(rgb(146, 83, 148))) !important;
+    background: linear-gradient(-145deg, rgb(219, 138, 222) 0%, rgb(146, 83, 148) 100%) !important;
+}
+
+.page-header {
+    margin-bottom: 5%;
+    margin-top: 2%;
+}
+
+.page-title {
+    color: #343a40;
+    font-size: 1.125rem;
+    margin-bottom: 0;
+}
+
+.page-title .page-title-icon {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    text-align: center;
+    -webkit-box-shadow: 0px 3px 8.3px 0.7px rgb(219, 138, 222);
+    box-shadow: 0px 3px 8.3px 0.7px rgb(146, 83, 148);
+}
+
+.page-title .page-title-icon i {
+    font-size: .9375rem;
+    line-height: 36px;
+}

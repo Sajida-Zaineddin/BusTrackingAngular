@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
   contentToggle=true;
+  roleToggle=true;
   busToggle=true;
 
   constructor( private router:Router) { }
@@ -15,9 +16,14 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  dashboardBus(){
+  manageContent(){
     this.contentToggle=false;
     this.router.navigate(['admin/content'])
+  }
+
+  manageRole(){
+    this.roleToggle=false;
+    this.router.navigate(['admin/role'])
   }
 
   manageBus(){
