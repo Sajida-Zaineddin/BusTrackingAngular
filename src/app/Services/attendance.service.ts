@@ -162,8 +162,15 @@ this.spinner.show();
     
       } 
   
-      sendEmail(){
-        this.http.delete('https://localhost:44346/api/attendance/SendEmail').subscribe((res)=>{
+      SendArrivalEmail(email:any){
+        this.http.post('https://localhost:44346/api/attendance/SendArrivalEmail/',email).subscribe((res)=>{
+       this.toastr.success('sent Successfully :)');
+        },err=>{
+         this.toastr.error(err.status,err.message);
+        })
+      }
+      SendAbsentEmail(email:any){
+        this.http.post('https://localhost:44346/api/attendance/SendAbsentEmail/',email).subscribe((res)=>{
        this.toastr.success('sent Successfully :)');
         },err=>{
          this.toastr.error(err.status,err.message);

@@ -46,4 +46,24 @@ export class TestComponent implements OnInit {
     console.log('f',this.CreateForm.controls['status'].value);
     
   }
+
+  ArrivalEmail(name1:any, email1:any, fullName1:any){
+    let emailObj={
+            name:name1,
+            email:email1,
+            fullName:fullName1}
+      console.log(emailObj);
+
+      this.home.SendArrivalEmail(emailObj);
+    }
+
+   AbsentEmail(name1:any,  email1:any, fullName1:any){
+    let emailObj2={
+      name:name1,
+      email:email1,
+      fullName:fullName1,}
+      console.log(emailObj2);
+      
+    this.home.SendAbsentEmail(emailObj2);
+    }
 }
