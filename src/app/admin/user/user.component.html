@@ -1,31 +1,51 @@
-<app-dashboard><button class="btn btn-primary" (click)="openCreateDialog()">Create New </button>
-
-    <table style="margin: 0 auto;">
-        <tr>
-            <th>ID</th>
-            <th>Full Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Image</th>
-            <th>Role</th>
-            <th>Opreation</th>
-        </tr>
-        <tr *ngFor="let item of userservice.data">
-            <td>{{item.id}}</td>
-            <td>{{item.fullName}}</td>
-            <td>{{item.email}}</td>
-            <td>{{item.phone}}</td>
-            <td><img src="../../../assets/images/{{item.imagepath}}" style="height: 50px;width: 50px;"></td>
-            <td>{{item.rolename}}</td>
-            <td><button class="btn btn-danger" (click)="openDeleteDialog(item.id)">Delete</button>
-                <button class="btn btn-secondary" (click)="openUpdateDialog(item.id, item.fullName, item.email, item.phone, item.imagepath, item.rolename)">Update</button>
-            </td>
-        </tr>
-    </table>
+<app-dashboard>
+    <div class="page-header">
+        <h3 class="page-title text-uppercase" style="font-size: 1.5em; font-weight: 500;">
+            <span class="page-title-icon bg-gradient-primary text-white me-2">
+                    <i class="mdi mdi-account-circle"></i>
+            </span> manage users table
+        </h3>
+        <button class="btn btn-success" (click)="openCreateDialog()">Create New</button>
+    </div>
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Image</th>
+                            <th>Role</th>
+                            <th colspan="2">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of userservice.data">
+                            <td>{{item.id}}</td>
+                            <td>{{item.fullName}}</td>
+                            <td>{{item.email}}</td>
+                            <td>{{item.phone}}</td>
+                            <td><img src="../../../assets/images/{{item.imagepath}}" style="height: 50px; width: 50px;"></td>
+                            <td>{{item.rolename}}</td>
+                            <td class="col-lg-2">
+                                <button class="btn btn-secondary" (click)="openUpdateDialog(item.id, item.fullName, item.email, item.phone, item.imagepath, item.rolename)">Update</button>
+                            </td>
+                            <td class="col-lg-2">
+                                <button class="btn btn-danger" (click)="openDeleteDialog(item.id)">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </app-dashboard>
 
 <ng-template #callCreateDialog>
-    <h2 mat-dialog-title> Add New User </h2>
+    <h2 class="text-uppercase"> Add New User </h2>
     <mat-dialog-content class="mat-typography">
         <form [formGroup]="CreateForm" class="example-form">
             <ul>
@@ -34,7 +54,7 @@
                         <mat-label>User Full Name </mat-label>
                         <input type="text" matInput formControlName="fullName" placeholder="Enter User Full Name">
                         <mat-error *ngIf="CreateForm.controls['fullName'].hasError('required')">
-                            feild is <strong>required</strong>
+                            field is <strong>required</strong>
                         </mat-error>
                     </mat-form-field>
                 </li>
@@ -43,7 +63,7 @@
                         <mat-label>User Email </mat-label>
                         <input type="email" matInput formControlName="email" placeholder="Enter User Email">
                         <mat-error *ngIf="CreateForm.controls['email'].hasError('required')">
-                            feild is <strong>required</strong>
+                            field is <strong>required</strong>
                         </mat-error>
                     </mat-form-field>
                 </li>
@@ -52,15 +72,16 @@
                         <mat-label>User Phone </mat-label>
                         <input type="text" matInput formControlName="phone" placeholder="Enter User Phone">
                         <mat-error *ngIf="CreateForm.controls['phone'].hasError('required')">
-                            feild is <strong>required</strong>
+                            field is <strong>required</strong>
                         </mat-error>
                     </mat-form-field>
                 </li>
                 <li>
                     <input type="file" #file placeholder="Choose Image" formControlName="imagepath" (change)="uploadFile(file.files)" style="display:none;">
-                    <button class="btn btn-dark" (click)="file.click()">Upload Image</button>
+                    <button class="btn btn-info" (click)="file.click()">Upload Image</button>
                 </li>
                 <li>
+                    <h4 style="margin-bottom: 0px; margin-top: 10px;">Choose User Role</h4>
                     <select formControlName="rolename">
                         <option [ngValue]="null" disabled>Choose User Role</option>
                         <option *ngFor="let item of userservice.user" [ngValue]="item.rolename">{{item.rolename}}</option>
@@ -69,63 +90,69 @@
             </ul>
         </form>
         <mat-dialog-actions align="end">
-            <button mat-button mat-dialog-close>Cancel</button>
-            <button mat-button [mat-dialog-close]="true" (click)="save()" cdkFocusInitial>Save</button>
+            <button class="btn btn-success" [mat-dialog-close]="true" (click)="save()" cdkFocusInitial>Save</button>
+            <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close>Cancel</button>
         </mat-dialog-actions>
     </mat-dialog-content>
 </ng-template>
 
 
 <ng-template #callUpdateDialog>
-    <form [formGroup]="UpdateForm">
-        <ul>
-            <li>
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>User Full Name </mat-label>
-                    <input type="text" matInput formControlName="fullName" [(ngModel)]="userValues.fullName" placeholder="Enter User Full Name">
-                    <mat-error *ngIf="UpdateForm.controls['fullName'].hasError('required')">
-                        feild is <strong>required</strong>
-                    </mat-error>
-                </mat-form-field>
-            </li>
-            <li>
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>User Email </mat-label>
-                    <input type="email" matInput formControlName="email" [(ngModel)]="userValues.email" placeholder="Enter User Email">
-                    <mat-error *ngIf="UpdateForm.controls['email'].hasError('required')">
-                        feild is <strong>required</strong>
-                    </mat-error>
-                </mat-form-field>
-            </li>
-            <li>
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>User Phone </mat-label>
-                    <input type="text" matInput formControlName="phone" [(ngModel)]="userValues.phone" placeholder="Enter User Phone">
-                    <mat-error *ngIf="UpdateForm.controls['phone'].hasError('required')">
-                        feild is <strong>required</strong>
-                    </mat-error>
-                </mat-form-field>
-            </li>
-            <li>
-                <input type="file" #file placeholder="Choose Image" formControlName="imagepath" (change)="uploadFile(file.files)" style="display:none;">
-                <button class="btn btn-dark" (click)="file.click()">Upload Image</button>
-            </li>
-            <li>
-                <select formControlName="rolename">
-                    <option [ngValue]="null" disabled>Choose User Role</option>
-                    <option *ngFor="let item of userservice.user" [ngValue]="item.rolename">{{item.rolename}}</option>
-                </select>
-            </li>
-        </ul>
-        <button class="btn btn-success" mat-button [mat-dialog-close]="true" (click)="update()">Update</button>
-    </form>
+    <h2 class="text-uppercase"> Add New User </h2>
+    <mat-dialog-content class="mat-typography">
+        <form [formGroup]="UpdateForm">
+            <ul>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>User Full Name </mat-label>
+                        <input type="text" matInput formControlName="fullName" [(ngModel)]="userValues.fullName" placeholder="Enter User Full Name">
+                        <mat-error *ngIf="UpdateForm.controls['fullName'].hasError('required')">
+                            feild is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>User Email </mat-label>
+                        <input type="email" matInput formControlName="email" [(ngModel)]="userValues.email" placeholder="Enter User Email">
+                        <mat-error *ngIf="UpdateForm.controls['email'].hasError('required')">
+                            feild is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>User Phone </mat-label>
+                        <input type="text" matInput formControlName="phone" [(ngModel)]="userValues.phone" placeholder="Enter User Phone">
+                        <mat-error *ngIf="UpdateForm.controls['phone'].hasError('required')">
+                            feild is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <input type="file" #file placeholder="Choose Image" formControlName="imagepath" (change)="uploadFile(file.files)" style="display:none;">
+                    <button class="btn btn-info" (click)="file.click()">Upload Image</button>
+                </li>
+                <li>
+                    <h4 style="margin-bottom: 0px; margin-top: 10px;">Choose User Role</h4>
+                    <select formControlName="rolename">
+                        <option [ngValue]="null" disabled>Choose User Role</option>
+                        <option *ngFor="let item of userservice.user" [ngValue]="item.rolename">{{item.rolename}}</option>
+                    </select>
+                </li>
+            </ul>
+        </form>
+        <mat-dialog-actions align="end">
+            <button class="btn btn-success" [mat-dialog-close]="true" (click)="update()" cdkFocusInitial>Update</button>
+            <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close>Cancel</button>
+        </mat-dialog-actions>
+    </mat-dialog-content>
 </ng-template>
 
-
 <ng-template #callDeleteDialog>
-    <h2>Are You Sure You Want To Delete This Item</h2>
+    <h2 class="text-uppercase">Are You Sure You Want To Delete This User!</h2>
     <mat-dialog-actions align="end">
-        <button mat-button mat-dialog-close="no">No</button>
-        <button mat-button mat-dialog-close="yes">yes</button>
+        <button class="btn btn-danger" mat-dialog-close="yes">Yes</button>
+        <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close="no">No</button>
     </mat-dialog-actions>
 </ng-template>
