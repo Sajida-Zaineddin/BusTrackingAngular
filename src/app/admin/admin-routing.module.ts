@@ -23,16 +23,32 @@ const routes: Routes = [
     component:DashboardComponent
   },
   {
+    path:'role',
+    component:RoleComponent
+  },
+  {
+    path:'user',
+    component:UserComponent
+  },
+  {
+    path:'loginManage',
+    component:LoginManegeDataComponent
+  },
+  {
     path:'bus',
     component:BusComponent
   },
   {
-    path:'content',
-    component:ContentComponent
-  },
-  {
     path:'student',
     component:ManageStudentComponent
+  },
+  {
+    path:'attendance',
+    component:ManageAttendanceComponent
+  },
+  {
+    path:'content',
+    component:ContentComponent
   },
   {
     path:'contact',
@@ -54,22 +70,8 @@ const routes: Routes = [
     path:'aboutusEditor',
     component:AboutusEditorComponent
   },
-  {
-    path:'user',
-    component:UserComponent
-  },
-  {
-    path:'role',
-    component:RoleComponent
-  },
-  {
-    path:'attendance',
-    component:ManageAttendanceComponent
-  },
-  {
-    path:'loginManage',
-    component:LoginManegeDataComponent
-  },
+
+
   {
     path:'webHome',
     component:WebsiteHomeComponent

@@ -1,37 +1,29 @@
-<button class="btn btn-primary" (click)="openCreatedialog()">Create New </button>
-
-<table style="margin: 0 auto;">
-    <tr>
-
-        <th>Bus Number </th>
-        <th>Driver Name </th>
-        <th>Teacher Name </th>
-        <th>Opreation</th>
-    </tr>
-    <tr *ngFor="let item of busservice.data;let i=index">
-
-        <td>{{busservice.busDrivers[i].busnumber}}</td>
-        <td>{{busservice.busDrivers[i].fullName}}</td>
-        <td>{{busservice.busTeachers[i].fullName}}</td>
-
-        <td><button class="btn btn-danger" (click)="openDeleteDialog(item.id)">Delete</button>
-
-
-            <button class="btn btn-secondary" (click)="openUpdateDialog(item.id,item.busnumber,item.busdriver,item.busteacher)">Update</button>
-        </td>
-
-
-
-    </tr>
-</table>
-
-
+<app-dashboard>
+    <div>
+        <button class="btn btn-primary" (click)="openCreatedialog()">Create New </button>
+    </div>
+    <table style="margin: 0 auto;">
+        <tr>
+            <th>Bus Number </th>
+            <th>Driver Name </th>
+            <th>Teacher Name </th>
+            <th>Opreation</th>
+        </tr>
+        <tr *ngFor="let item of busservice.data;let i=index">
+            <td>{{busservice.busDrivers[i].busnumber}}</td>
+            <td>{{busservice.busDrivers[i].fullName}}</td>
+            <td>{{busservice.busTeachers[i].fullName}}</td>
+            <td>
+                <button class="btn btn-danger" (click)="openDeleteDialog(item.id)">Delete</button>
+                <button class="btn btn-secondary" (click)="openUpdateDialog(item.id,item.busnumber,item.busdriver,item.busteacher)">Update</button>
+            </td>
+        </tr>
+    </table>
+</app-dashboard>
 
 <ng-template #callUpdateDialog>
-
     <form [formGroup]="updatForm">
         <ul>
-
             <li>
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>Enter the bus number </mat-label>
@@ -44,31 +36,21 @@
             <li>
                 <label for="cars">Choose a bus driver name:</label>
                 <select formControlName="busdriver">
-                        <option [ngValue]="null" disabled>Choose your status</option>
-    
-                        <option *ngFor="let item of busservice.drivers" [ngValue]="item.id"> {{item.fullName}}</option>
-    
-                    </select>
+                    <option [ngValue]="null" disabled>Choose your status</option>
+                    <option *ngFor="let item of busservice.drivers" [ngValue]="item.id"> {{item.fullName}}</option>
+                </select>
             </li>
 
             <li>
                 <label for="cars">Choose a bus teacher name:</label>
                 <select formControlName="busteacher">
-                        <option [ngValue]="null" disabled>Choose your status</option>
-    
-                        <option *ngFor="let item of busservice.teachers" [ngValue]="item.id"> {{item.fullName}}</option>
-    
-                    </select>
+                    <option [ngValue]="null" disabled>Choose your status</option>
+                    <option *ngFor="let item of busservice.teachers" [ngValue]="item.id"> {{item.fullName}}</option>
+                </select>
             </li>
-
-
-
         </ul>
         <button class="btn btn-success" mat-button [mat-dialog-close]="true" (click)="updateAboutusEditor()">Update</button>
-
     </form>
-
-
 </ng-template>
 
 
@@ -78,17 +60,14 @@
         <button mat-button mat-dialog-close="no">No</button>
         <button mat-button mat-dialog-close="yes">yes</button>
     </mat-dialog-actions>
-
 </ng-template>
 
 
 <ng-template #callCreateDialog>
     <h2 mat-dialog-title> Add Abouts us editor file </h2>
     <mat-dialog-content class="mat-typography">
-
         <form [formGroup]="CreateForm" class="example-form">
             <ul>
-
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Enter the bus number </mat-label>
@@ -102,37 +81,31 @@
                 <li>
                     <label for="driver">Choose a driver:</label>
                     <select formControlName="busdriver">
-                            <option [ngValue]="null" disabled>Choose your bus driver</option>
-        
-                            <option *ngFor="let item of busservice.drivers" [ngValue]="item.id"> {{item.fullName}}</option>
-        
-                        </select>
+                        <option [ngValue]="null" disabled>Choose your bus driver</option>
+                        <option *ngFor="let item of busservice.drivers" [ngValue]="item.id"> {{item.fullName}}</option>
+                    </select>
                 </li>
 
                 <li>
                     <label for="teacher">Choose a teacher:</label>
                     <select formControlName="busteacher">
-                            <option [ngValue]="null" disabled>Choose the teacher</option>
-        
-                            <option *ngFor="let item of busservice.teachers" [ngValue]="item.id"> {{item.fullName}}</option>
-        
-                        </select>
+                        <option [ngValue]="null" disabled>Choose the teacher</option>
+                        <option *ngFor="let item of busservice.teachers" [ngValue]="item.id"> {{item.fullName}}</option>
+                    </select>
                 </li>
-
             </ul>
         </form>
         <mat-dialog-actions align="end">
             <button mat-button mat-dialog-close>Cancel</button>
             <button mat-button [mat-dialog-close]="true" (click)="save()" cdkFocusInitial>Save</button>
         </mat-dialog-actions>
-
-
     </mat-dialog-content>
-    <ng-template #callDeleteDialog>
-        <h2>Are You Sure you want to delete this item</h2>
-        <mat-dialog-actions align="end">
-            <button mat-button mat-dialog-close="no">No</button>
-            <button mat-button mat-dialog-close="yes">yes</button>
-        </mat-dialog-actions>
+</ng-template>
 
-    </ng-template>
+<ng-template #callDeleteDialog>
+    <h2>Are You Sure you want to delete this item</h2>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close="no">No</button>
+        <button mat-button mat-dialog-close="yes">yes</button>
+    </mat-dialog-actions>
+</ng-template>

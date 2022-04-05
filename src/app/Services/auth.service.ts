@@ -38,7 +38,7 @@ export class AuthService {
      if(data.role==='Admin'){        
         
         
-     this.router.navigate(['admin/dashboard'])
+     this.router.navigate(['admin/content'])
      }
      else if (data.role==='Driver')
      this.router.navigate(['driver/home'])

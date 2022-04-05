@@ -1,1 +1,115 @@
-<app-sidebar></app-sidebar>
+<!-- navbar -->
+<nav class="navbar p-0 d-flex flex-row">
+    <div class="align-items-center" style="width: 8%;">
+        <a class="navbar-brand brand-logo" (click)="dashboardBus()"><img src="../../../assets/images/templatemo-eduwell.png" alt="logo" /></a>
+    </div>
+    <div class="navbar-menu-wrapper d-flex align-items-stretch">
+        <ul class="navbar-nav navbar-nav-right">
+            <li class="nav-item nav-logout d-none d-lg-block" style="color: white;">
+                <a class="nav-link" href="#">
+                    <i class="mdi mdi-account"></i>
+                </a>
+            </li>
+            <li class="nav-item nav-logout d-none d-lg-block" style="color: white;">
+                <a class="nav-link" href="">
+                    <i class="mdi mdi-home"></i>
+                </a>
+            </li>
+            <li class="nav-item nav-logout d-none d-lg-block" style="color: white;">
+                <a class="nav-link" (click)="logout()">
+                    <i class="mdi mdi-power"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!-- partial -->
+<div class="container-scroller">
+    <!-- partial -->
+    <div class="page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
+        <nav class="sidebar" id="sidebar">
+            <ul class="nav" style="margin-top: 10%;">
+                <li class="nav-item">
+                    <a class="nav-link" (click)="dashboardBus()">
+                        <span class="menu-title">Dashboard</span>
+                        <i class="mdi mdi-view-dashboard-outline menu-icon"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin/role">
+                        <span class="menu-title">Roles</span>
+                        <i class="mdi mdi-briefcase menu-icon"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin/user">
+                        <span class="menu-title">Users</span>
+                        <i class="mdi mdi-account-circle menu-icon"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin/loginManage">
+                        <span class="menu-title">Manage Login</span>
+                        <i class="mdi mdi-login menu-icon"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="manageBus()">
+                        <span class="menu-title">Buses</span>
+                        <i class="mdi mdi-bus menu-icon"></i>
+                    </a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="pages/icons/mdi.html">
+                        <span class="menu-title">Teachers</span>
+                        <i class="mdi mdi-teach menu-icon"></i>
+                    </a>
+                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link" href="admin/student">
+                        <span class="menu-title">Students</span>
+                        <i class="mdi mdi-account-child menu-icon"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin/attendance">
+                        <span class="menu-title">Students Attendance</span>
+                        <i class="mdi mdi-account-check menu-icon"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <span class="menu-title">Manage Home</span>
+                        <i class="mdi mdi-home menu-icon"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <span class="menu-title">Manage About us</span>
+                        <i class="mdi mdi-home menu-icon"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <span class="menu-title">Manage Contact Us</span>
+                        <i class="mdi mdi-home menu-icon"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <span class="menu-title">Manage Testimonial</span>
+                        <i class="mdi mdi-home menu-icon"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <ng-content></ng-content>
+                <app-content *ngif="contentToggle"></app-content>
+                <app-bus *ngif="busToggle"></app-bus>
+            </div>
+        </div>
+    </div>
+</div>

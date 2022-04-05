@@ -10,14 +10,12 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ToastrModule, ToastNoAnimation,  ToastNoAnimationModule} from 'ngx-toastr';
 import { HttpClientModule}from '@angular/common/http';
 import { GoogleMapsModule } from '@angular/google-maps';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
-    SidebarComponent,
   ],
   imports: [
     FormsModule,
@@ -31,8 +29,7 @@ import {MatMenuModule} from '@angular/material/menu';
     ToastNoAnimationModule.forRoot(),
     ToastrModule.forRoot(),
     HttpClientModule,
-    MatMenuModule
-  
+    MatMenuModule,
   ],
   exports: [
     FormsModule,
@@ -40,7 +37,6 @@ import {MatMenuModule} from '@angular/material/menu';
     ReactiveFormsModule,
     HeaderComponent,
     FooterComponent,
-    SidebarComponent,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
