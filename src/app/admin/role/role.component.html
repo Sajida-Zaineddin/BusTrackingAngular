@@ -5,7 +5,7 @@
                     <i class="mdi mdi-briefcase"></i>
             </span> manage roles table
         </h3>
-        <button class="btn btn-success" (click)="openCreatedialog()">Create New </button>
+        <button class="btn btn-success" (click)="openCreatedialog()">Create New</button>
     </div>
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
@@ -44,8 +44,8 @@
                 <li>
                     <mat-form-field class="example-full-width " appearance="fill">
                         <mat-label>Enter The Role Name</mat-label>
-                        <input type="text " matInput formControlName="rolename " placeholder="Role Name">
-                        <mat-error *ngIf="CreateForm.controls[ 'rolename'].hasError( 'required') ">
+                        <input type="text " matInput formControlName="rolename" placeholder="Role Name">
+                        <mat-error *ngIf="CreateForm.controls['rolename'].hasError( 'required')">
                             role is <strong>required</strong>
                         </mat-error>
                     </mat-form-field>
@@ -54,7 +54,7 @@
         </form>
         <mat-dialog-actions align="end">
             <button class="btn btn-success" [mat-dialog-close]="true" (click)="save()" cdkFocusInitial class="btn btn-success">Save</button>
-            <button mat-dialog-close style="margin-left: 10px;" class="btn btn-secondary ">Cancel </button>
+            <button mat-dialog-close style="margin-left: 10px;" class="btn btn-secondary">Cancel</button>
         </mat-dialog-actions>
     </mat-dialog-content>
 </ng-template>
@@ -66,8 +66,8 @@
             <li>
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>Enter the Role Name </mat-label>
-                    <input type="text " matInput formControlName="rolename " placeholder="Role Name">
-                    <mat-error *ngIf="updatForm.controls['rolename'].hasError('required') ">
+                    <input type="text " matInput formControlName="rolename" placeholder="Role Name">
+                    <mat-error *ngIf="updatForm.controls['rolename'].hasError('required')">
                         rolename is <strong>required</strong>
                     </mat-error>
                 </mat-form-field>

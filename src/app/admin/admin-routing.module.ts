@@ -70,8 +70,6 @@ const routes: Routes = [
     path:'aboutusEditor',
     component:AboutusEditorComponent
   },
-
-
   {
     path:'webHome',
     component:WebsiteHomeComponent

@@ -11,12 +11,12 @@
                 </a>
             </li>
             <li class="nav-item nav-logout d-none d-lg-block" style="color: white;">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="#">
                     <i class="mdi mdi-home"></i>
                 </a>
             </li>
             <li class="nav-item nav-logout d-none d-lg-block" style="color: white;">
-                <a class="nav-link" (click)="logout()">
+                <a class="nav-link" href="#" (click)="logout()">
                     <i class="mdi mdi-power"></i>
                 </a>
             </li>
@@ -43,14 +43,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="admin/user">
+                    <a class="nav-link" (click)="manageUser()">
                         <span class="menu-title">Users</span>
                         <i class="mdi mdi-account-circle menu-icon"></i>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="admin/loginManage">
-                        <span class="menu-title">Manage Login</span>
+                    <a class="nav-link" (click)="manageLogin()">
+                        <span class="menu-title">Users Login</span>
                         <i class="mdi mdi-login menu-icon"></i>
                     </a>
                 </li>
@@ -60,46 +60,59 @@
                         <i class="mdi mdi-bus menu-icon"></i>
                     </a>
                 </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="pages/icons/mdi.html">
-                        <span class="menu-title">Teachers</span>
-                        <i class="mdi mdi-teach menu-icon"></i>
-                    </a>
-                </li> -->
                 <li class="nav-item">
-                    <a class="nav-link" href="admin/student">
+                    <a class="nav-link" (click)="manageStudent()">
                         <span class="menu-title">Students</span>
                         <i class="mdi mdi-account-child menu-icon"></i>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="admin/attendance">
+                    <a class="nav-link" (click)="manageAttendance()">
                         <span class="menu-title">Students Attendance</span>
                         <i class="mdi mdi-account-check menu-icon"></i>
                     </a>
                 </li>
+
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">
-                        <span class="menu-title">Manage Home</span>
+                    <a class="nav-link" (click)="manageAboutUs()">
+                        <span class="menu-title">About us</span>
+                        <i class="mdi mdi-information-outline menu-icon"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="manageAboutUsEditor()">
+                        <span class="menu-title">About Us Editor</span>
+                        <i class="mdi mdi-circle-edit-outline menu-icon"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="manageContactUs()">
+                        <span class="menu-title">Contact Us</span>
+                        <i class="mdi mdi-phone menu-icon"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="manageTestimonial()">
+                        <span class="menu-title">Testimonial</span>
+                        <i class="mdi mdi-thought-bubble menu-icon"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="manageWebsite()">
+                        <span class="menu-title">Website</span>
+                        <i class="mdi mdi-web menu-icon"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="manageWebsiteHome()">
+                        <span class="menu-title">Website Home</span>
                         <i class="mdi mdi-home menu-icon"></i>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">
-                        <span class="menu-title">Manage About us</span>
-                        <i class="mdi mdi-home menu-icon"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">
-                        <span class="menu-title">Manage Contact Us</span>
-                        <i class="mdi mdi-home menu-icon"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">
-                        <span class="menu-title">Manage Testimonial</span>
-                        <i class="mdi mdi-home menu-icon"></i>
+                    <a class="nav-link" (click)="manageFooter()">
+                        <span class="menu-title">Footer</span>
+                        <i class="mdi mdi-pencil menu-icon"></i>
                     </a>
                 </li>
             </ul>
@@ -109,7 +122,18 @@
                 <ng-content></ng-content>
                 <app-content *ngif="contentToggle"></app-content>
                 <app-role *ngif="roleToggle"></app-role>
+                <app-user *ngif="userToggle"></app-user>
+                <app-login-manege-data *ngif="loginToggle"></app-login-manege-data>
                 <app-bus *ngif="busToggle"></app-bus>
+                <app-manage-student *ngif="studentToggle"></app-manage-student>
+                <app-manage-attendance *ngif="attendanceToggle"></app-manage-attendance>
+                <app-aboutus *ngif="aboutToggle"></app-aboutus>
+                <app-aboutus-editor *ngif="aboutEditorToggle"></app-aboutus-editor>
+                <app-manage-contact-us *ngif="contactToggle"></app-manage-contact-us>
+                <app-testimonial *ngif="testimonialToggle"></app-testimonial>
+                <app-website *ngif="websiteToggle"></app-website>
+                <app-website-home *ngif="websiteHomeToggle"></app-website-home>
+                <app-manage-footer *ngif="footerToggle"></app-manage-footer>
             </div>
         </div>
     </div>
