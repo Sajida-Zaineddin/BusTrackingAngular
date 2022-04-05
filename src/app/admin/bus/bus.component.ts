@@ -23,9 +23,7 @@ export class BusComponent implements OnInit {
     busnumber: new FormControl(),
     busdriver: new FormControl(),
     busteacher: new FormControl(),
-
   })
-
 
   CreateForm: FormGroup = new FormGroup({
     busnumber: new FormControl('', Validators.required),
@@ -37,9 +35,7 @@ export class BusComponent implements OnInit {
     this.busservice.getBusDrivers();
     this.busservice.getBusTeachers();
     this.busservice.getAll();
-    
   }
-
 
   save() {
     console.log(this.CreateForm.value);
@@ -51,7 +47,22 @@ export class BusComponent implements OnInit {
     this.busservice.getDrivers();
     this.busservice.getTeachers();
     this.dialog.open(this.callCreateDialog)
+  }
 
+  openUpdateDialog(id: any, busnum: any, driver: any, teacher: any,) {
+    this.busValues = {
+      id: id,
+      busnumber: busnum,
+      busdriver: driver,
+      busteacher: teacher,
+    }
+    this.updatForm.controls['id'].setValue(id);
+    this.updatForm.controls['busnumber'].setValue(busnum);
+    this.updatForm.controls['busdriver'].setValue(driver);
+    this.updatForm.controls['busteacher'].setValue(teacher);
+    this.busservice.getDrivers();
+    this.busservice.getTeachers();
+    this.dialog.open(this.callUpdateDialog)
   }
 
   openDeleteDialog(busId: any) {
@@ -64,34 +75,12 @@ export class BusComponent implements OnInit {
         }
         else if (res == "no")
           console.log("Thank you ");
-
       }
     })
-
-  }
-  openUpdateDialog(id: any, busnum: any, driver: any, teacher: any,) {
-
-    this.busValues = {
-      id: id,
-      busnumber: busnum,
-      busdriver: driver,
-      busteacher: teacher,
-
-    }
-    this.updatForm.controls['id'].setValue(id);
-    this.updatForm.controls['busnumber'].setValue(busnum);
-    this.updatForm.controls['busdriver'].setValue(driver);
-    this.updatForm.controls['busteacher'].setValue(teacher);
-    this.busservice.getDrivers();
-    this.busservice.getTeachers();
-    this.dialog.open(this.callUpdateDialog)
-
   }
 
   updateAboutusEditor() {
     this.busservice.updateBus(this.updatForm.value);
     window.location.reload();
-
   }
-
 }

@@ -40,75 +40,78 @@
 
 
 <ng-template #callCreateDialog>
-    <h2 mat-dialog-title> Add Abouts us editor file </h2>
+    <h2 class="text-uppercase">Add New Bus</h2>
     <mat-dialog-content class="mat-typography">
         <form [formGroup]="CreateForm" class="example-form">
             <ul>
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter the bus number </mat-label>
-                        <input type="number" matInput formControlName="busnumber" [(ngModel)]="busValues.busnumber" placeholder="busnumber ">
-                        <mat-error *ngIf="updatForm.controls['busnumber'].hasError('required')">
-                            title is <strong>required</strong>
+                        <mat-label>Enter Bus Number </mat-label>
+                        <input type="number" matInput formControlName="busnumber" [(ngModel)]="busValues.busnumber" placeholder="Bus Number">
+                        <mat-error *ngIf="CreateForm.controls['busnumber'].hasError('required')">
+                            field is <strong>required</strong>
                         </mat-error>
                     </mat-form-field>
                 </li>
-
                 <li>
-                    <label for="driver">Choose a driver:</label>
+                    <h4 style="margin-bottom: 0px; margin-top: 10px;">Choose Driver</h4>
                     <select formControlName="busdriver">
-                        <option [ngValue]="null" disabled>Choose your bus driver</option>
-                        <option *ngFor="let item of busservice.drivers" [ngValue]="item.id"> {{item.fullName}}</option>
-                    </select>
+                        <option [ngValue]="null" disabled>Choose Driver</option>
+                        <option *ngFor="let item of busservice.drivers" [ngValue]="item.id"> {{item.fullName}}</option> 
+                     </select>
                 </li>
-
                 <li>
-                    <label for="teacher">Choose a teacher:</label>
+                    <h4 style="margin-bottom: 0px; margin-top: 10px;">Choose Teacher</h4>
                     <select formControlName="busteacher">
-                        <option [ngValue]="null" disabled>Choose the teacher</option>
+                        <option [ngValue]="null" disabled>Choose Teacher</option>
                         <option *ngFor="let item of busservice.teachers" [ngValue]="item.id"> {{item.fullName}}</option>
-                    </select>
+                     </select>
                 </li>
             </ul>
         </form>
         <mat-dialog-actions align="end">
-            <button mat-button mat-dialog-close>Cancel</button>
-            <button mat-button [mat-dialog-close]="true" (click)="save()" cdkFocusInitial>Save</button>
+            <button class="btn btn-success" [mat-dialog-close]="true" (click)="save()" cdkFocusInitial>Save</button>
+            <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close>Cancel</button>
         </mat-dialog-actions>
     </mat-dialog-content>
 </ng-template>
 
 
 <ng-template #callUpdateDialog>
-    <form [formGroup]="updatForm">
-        <ul>
-            <li>
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>Enter the bus number </mat-label>
-                    <input type="number" matInput formControlName="busnumber" [(ngModel)]="busValues.busnumber" placeholder="busnumber ">
-                    <mat-error *ngIf="updatForm.controls['busnumber'].hasError('required')">
-                        title is <strong>required</strong>
-                    </mat-error>
-                </mat-form-field>
-            </li>
-            <li>
-                <label for="cars">Choose a bus driver name:</label>
-                <select formControlName="busdriver">
-                    <option [ngValue]="null" disabled>Choose your status</option>
-                    <option *ngFor="let item of busservice.drivers" [ngValue]="item.id"> {{item.fullName}}</option>
-                </select>
-            </li>
-
-            <li>
-                <label for="cars">Choose a bus teacher name:</label>
-                <select formControlName="busteacher">
-                    <option [ngValue]="null" disabled>Choose your status</option>
+    <h2 class="text-uppercase">Add New Bus</h2>
+    <mat-dialog-content class="mat-typography">
+        <form [formGroup]="updatForm">
+            <ul>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Bus Number </mat-label>
+                        <input type="number" matInput formControlName="busnumber" [(ngModel)]="busValues.busnumber" placeholder="Bus Number">
+                        <mat-error *ngIf="updatForm.controls['busnumber'].hasError('required')">
+                            field is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <h4 style="margin-bottom: 0px; margin-top: 10px;">Choose Driver</h4>
+                    <select formControlName="busdriver">
+                    <option [ngValue]="null" disabled>Choose Driver</option>
+                    <option *ngFor="let item of busservice.drivers" [ngValue]="item.id"> {{item.fullName}}</option> 
+                 </select>
+                </li>
+                <li>
+                    <h4 style="margin-bottom: 0px; margin-top: 10px;">Choose Teacher</h4>
+                    <select formControlName="busteacher">
+                    <option [ngValue]="null" disabled>Choose Teacher</option>
                     <option *ngFor="let item of busservice.teachers" [ngValue]="item.id"> {{item.fullName}}</option>
-                </select>
-            </li>
-        </ul>
-        <button class="btn btn-success" mat-button [mat-dialog-close]="true" (click)="updateAboutusEditor()">Update</button>
-    </form>
+                 </select>
+                </li>
+            </ul>
+        </form>
+        <mat-dialog-actions align="end">
+            <button class="btn btn-success" [mat-dialog-close]="true" ((click)="updateAboutusEditor()" cdkFocusInitial>Update</button>
+            <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close>Cancel</button>
+        </mat-dialog-actions>
+    </mat-dialog-content>
 </ng-template>
 
 <ng-template #callDeleteDialog>
