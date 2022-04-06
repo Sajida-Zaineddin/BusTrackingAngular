@@ -14,8 +14,8 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>title </th>
-                            <th>information </th>
+                            <th>Title</th>
+                            <th>Information</th>
                             <th>Image </th>
                             <th colspan="2">Action</th>
                         </tr>
@@ -40,75 +40,78 @@
     </div>
 </app-dashboard>
 
-<!-- <button class="btn btn-primary" (click)="openCreatedialog()">Create New </button> -->
-
-<ng-template #callUpdateDialog>
-    <form [formGroup]="updatForm">
-        <ul>
-            <li>
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>Enter the title </mat-label>
-                    <input type="text" matInput formControlName="title" [(ngModel)]="about.title" placeholder="title ">
-                    <mat-error *ngIf="updatForm.controls['title'].hasError('required')">
-                        title is <strong>required</strong>
-                    </mat-error>
-                </mat-form-field>
-            </li>
-            <li>
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>Enter the information </mat-label>
-                    <input type="text" matInput formControlName="information" [(ngModel)]="about.information" placeholder="information ">
-                    <mat-error *ngIf="updatForm.controls['information'].hasError('required')">
-                        information is <strong>required</strong>
-                    </mat-error>
-                </mat-form-field>
-            </li>
-            <li>
-                <li>
-                    <input type="file" #file placeholder="Choose Image" formControlName="imagepath" [(ngModel)]="about.imagepath" (change)="uploadFile(file.files)" style="display:none;">
-                    <button class="btn btn-dark" (click)="file.click()">Upload Image</button>
-                </li>
-        </ul>
-        <button class="btn btn-success" mat-button [mat-dialog-close]="true" (click)="updateCourse()">Update</button>
-    </form>
-</ng-template>
-
 <ng-template #callCreateDialog>
-    <h2 mat-dialog-title> Add Abouts us </h2>
+    <h2 class="text-uppercase"> Add New About us </h2>
     <mat-dialog-content class="mat-typography">
         <form [formGroup]="CreateForm" class="example-form">
             <ul>
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter the title </mat-label>
-                        <input type="text" matInput formControlName="title" placeholder="title ">
+                        <mat-label>Enter Title</mat-label>
+                        <input type="text" matInput formControlName="title" placeholder="Enter Title">
                         <mat-error *ngIf="CreateForm.controls['title'].hasError('required')">
-                            title is <strong>required</strong>
+                            feild is <strong>required</strong>
                         </mat-error>
                     </mat-form-field>
                 </li>
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter the information </mat-label>
-                        <input type="text" matInput formControlName="information" placeholder="information ">
+                        <mat-label>Enter Information </mat-label>
+                        <input type="text" matInput formControlName="information" placeholder="Enter Information">
                         <mat-error *ngIf="CreateForm.controls['information'].hasError('required')">
-                            information is <strong>required</strong>
+                            feild is <strong>required</strong>
                         </mat-error>
                     </mat-form-field>
                 </li>
                 <li>
-                    <li>
-                        <input type="file" #file placeholder="Choose Image" formControlName="imagepath" (change)="uploadFile(file.files)" style="display:none;">
-                        <button class="btn btn-dark" (click)="file.click()">Upload Image</button>
-                    </li>
+                    <input type="file" #file placeholder="Choose Image" formControlName="imagepath" (change)="uploadFile(file.files)" style="display:none;">
+                    <button class="btn btn-info" (click)="file.click()">Upload Image</button>
+                </li>
             </ul>
         </form>
         <mat-dialog-actions align="end">
-            <button mat-button mat-dialog-close>Cancel</button>
-            <button mat-button [mat-dialog-close]="true" (click)="save()" cdkFocusInitial>Save</button>
+            <button class="btn btn-success" [mat-dialog-close]="true" (click)="save()" cdkFocusInitial>Save</button>
+            <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close>Cancel</button>
         </mat-dialog-actions>
     </mat-dialog-content>
 </ng-template>
+
+<ng-template #callUpdateDialog>
+    <h2 class="text-uppercase"> Update About Us </h2>
+    <mat-dialog-content class="mat-typography">
+        <form [formGroup]="updatForm">
+            <ul>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Title </mat-label>
+                        <input type="text" matInput formControlName="title" [(ngModel)]="about.title" placeholder="Enter Title">
+                        <mat-error *ngIf="updatForm.controls['title'].hasError('required')">
+                            feild is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Information </mat-label>
+                        <input type="text" matInput formControlName="information" [(ngModel)]="about.information" placeholder="Enter Information">
+                        <mat-error *ngIf="updatForm.controls['information'].hasError('required')">
+                            feild is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <input type="file" #file placeholder="Choose Image" formControlName="imagepath" (change)="uploadFile(file.files)" style="display:none;">
+                    <button class="btn btn-info" (click)="file.click()">Upload Image</button>
+                </li>
+            </ul>
+            <mat-dialog-actions align="end">
+                <button class="btn btn-success" [mat-dialog-close]="true" (click)="update()" cdkFocusInitial>Update</button>
+                <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close>Cancel</button>
+            </mat-dialog-actions>
+        </form>
+    </mat-dialog-content>
+</ng-template>
+
 
 <ng-template #callDeleteDialog>
     <h2 class="text-uppercase">Are You Sure You Want To Delete This About Data!</h2>
