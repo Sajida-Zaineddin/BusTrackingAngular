@@ -42,85 +42,93 @@
     </div>
 </app-dashboard>
 
-<ng-template #callUpdateDailog>
-    <form [formGroup]="UpdateForm">
-        <ul>
-            <li>
-                <select formControlName="fullName">
-                    <option [ngValue]="null" disabled>Choose student Name</option>
-
-                    <option *ngFor="let item1 of home.name" [ngValue]="item1.name"> {{item1.name}}</option>
-           
-                </select>
-                <h3 style="color: red;">
-                    <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter Date of attendance</mat-label>
-                        <input type="date" matInput formControlName="dateofattendance" [(ngModel)]="attendanceData.dateofattendance">
-                    </mat-form-field>
-                </h3>
-
-            </li>
-
-
-            <select formControlName="status">
-                    <option [ngValue]="null" disabled>Choose Attendance status</option>
-
-                    <option *ngFor="let item of home.status" [ngValue]="item.status"> {{item.status}}</option>
-         
-                </select>
-            <select formControlName="busnumber">
-                    <option [ngValue]="null" disabled>Choose Bus Number</option>
-
-                    <option *ngFor="let item2 of home.busnumber1" [ngValue]="item2.busnumber"> {{item2.busnumber}}</option>
-                </select>
-        </ul>
-        <button (click)="update()">Update</button>
-    </form>
-</ng-template>
-
 <ng-template #callCreateDialog>
-    <h2 mat-dialog-title> Add student information </h2>
+    <h2 mat-dialog-title> Add Student Attendance</h2>
     <mat-dialog-content class="mat-typography">
-
         <form [formGroup]="CreateForm" class="example-form">
             <ul>
-
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter the dateofattendance </mat-label>
-                        <input type="date" matInput formControlName="dateofattendance" placeholder="titel ">
+                        <mat-label>Enter Date Of Attendance</mat-label>
+                        <input type="date" matInput formControlName="dateofattendance" placeholder="Enter Date Of Attendance">
                         <mat-error *ngIf="CreateForm.controls['dateofattendance'].hasError('required')">
-                            name is <strong>required</strong>
+                            field is <strong>required</strong>
                         </mat-error>
                     </mat-form-field>
                 </li>
-
-                <select formControlName="status">
-                    <option [ngValue]="null" disabled>Choose Round status</option>
-
-                    <option *ngFor="let item of home.status" [ngValue]="item.status"> {{item.status}}</option>
-         
-                </select>
-                <select formControlName="busnumber">
-                    <option [ngValue]="null" disabled>Choose Bus Number</option>
-
-                    <option *ngFor="let item2 of home.busnumber1" [ngValue]="item2.busnumber"> {{item2.busnumber}}</option>
-                </select>
-                <select formControlName="fullName">
-                    <option [ngValue]="null" disabled>Choose student Name</option>
-                    <option *ngFor="let item1 of home.name" [ngValue]="item1.name"> {{item1.name}}</option>
-                </select>
+                <li>
+                    <h4 style="margin-bottom: 0px; margin-top: 10px;">Choose Student Name</h4>
+                    <select formControlName="fullName">
+                        <option [ngValue]="null" disabled>Choose Student Name</option>
+                        <option *ngFor="let item1 of home.name" [ngValue]="item1.name">{{item1.name}}</option>
+                    </select>
+                </li>
+                <li>
+                    <h4 style="margin-bottom: 0px; margin-top: 10px;">Choose Bus Number</h4>
+                    <select formControlName="busnumber">
+                        <option [ngValue]="null" disabled>Choose Bus Number</option>
+                        <option *ngFor="let item2 of home.busnumber1" [ngValue]="item2.busnumber">{{item2.busnumber}}</option>
+                    </select>
+                </li>
+                <li>
+                    <h4 style="margin-bottom: 0px; margin-top: 10px;">Choose Attendance Status</h4>
+                    <select formControlName="status">
+                        <option [ngValue]="null" disabled>Choose Attendance Status</option>
+                        <option *ngFor="let item of home.status" [ngValue]="item.status">{{item.status}}</option>
+                    </select>
+                </li>
             </ul>
         </form>
         <mat-dialog-actions align="end">
-            <button mat-button mat-dialog-close>Cancel</button>
-            <button mat-button [mat-dialog-close]="true" (click)="save()" cdkFocusInitial>Save</button>
+            <button class="btn btn-success" [mat-dialog-close]="true" (click)="save()" cdkFocusInitial>Save</button>
+            <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close>Cancel</button>
         </mat-dialog-actions>
-
-
     </mat-dialog-content>
 </ng-template>
 
+<ng-template #callUpdateDailog>
+    <h2 class="text-uppercase"> Update Student Attendance </h2>
+    <mat-dialog-content class="mat-typography">
+        <form [formGroup]="UpdateForm">
+            <ul>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Date Of Attendance</mat-label>
+                        <input type="date" matInput formControlName="dateofattendance" [(ngModel)]="attendanceData.dateofattendance" placeholder="Enter Date Of Attendance">
+                        <mat-error *ngIf="UpdateForm.controls['dateofattendance'].hasError('required')">
+                            field is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <h4 style="margin-bottom: 0px; margin-top: 10px;">Choose Student Name</h4>
+                    <select formControlName="fullName">
+                        <option [ngValue]="null" disabled>Choose Student Name</option>
+                        <option *ngFor="let item1 of home.name" [ngValue]="item1.name">{{item1.name}}</option>
+                    </select>
+                </li>
+                <li>
+                    <h4 style="margin-bottom: 0px; margin-top: 10px;">Choose Bus Number</h4>
+                    <select formControlName="busnumber">
+                        <option [ngValue]="null" disabled>Choose Bus Number</option>
+                        <option *ngFor="let item2 of home.busnumber1" [ngValue]="item2.busnumber">{{item2.busnumber}}</option>
+                    </select>
+                </li>
+                <li>
+                    <h4 style="margin-bottom: 0px; margin-top: 10px;">Choose Attendance Status</h4>
+                    <select formControlName="status">
+                        <option [ngValue]="null" disabled>Choose Attendance Status</option>
+                        <option *ngFor="let item of home.status" [ngValue]="item.status">{{item.status}}</option>
+                    </select>
+                </li>
+            </ul>
+        </form>
+        <mat-dialog-actions align="end">
+            <button class="btn btn-success" [mat-dialog-close]="true" (click)="update()" cdkFocusInitial>Update</button>
+            <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close>Cancel</button>
+        </mat-dialog-actions>
+    </mat-dialog-content>
+</ng-template>
 
 <ng-template #callDeleteDialog>
     <h2 class="text-uppercase">Are You Sure You Want To Delete This Student Attendance!</h2>

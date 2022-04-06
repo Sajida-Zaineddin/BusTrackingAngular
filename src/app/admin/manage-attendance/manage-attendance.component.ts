@@ -66,15 +66,13 @@ openDeleteDialog(id1: any) {
       }
       else if (res == "no")
         console.log("Thank you ");
-
     }
   })
 }
+
 update()
 {
- 
   this.home.update(this.UpdateForm.value);
-
   window.location.reload();
 }
 
@@ -86,9 +84,6 @@ save() {
 
 openCreatedialog() {
   this.home.getAll();
-
   this.dialog.open(this.callCreateDialog)
-
 }
-
 }
