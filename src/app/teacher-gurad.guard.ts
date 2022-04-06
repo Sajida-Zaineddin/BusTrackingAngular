@@ -36,11 +36,11 @@ export class TeacherGuradGuard implements CanActivate {
               }
       
               else {
+                this.router.navigate(['auth/login']);
                 this.toaster.warning('role name is undfined ');
                 return false;
               }
             }
-      
             return true;
           }
       
@@ -49,7 +49,6 @@ export class TeacherGuradGuard implements CanActivate {
             this.toaster.warning('Please login !!')
             return false;
           }
-      
         }
   }
   

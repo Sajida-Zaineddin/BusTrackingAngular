@@ -52,7 +52,6 @@ export class ManageStudentComponent implements OnInit {
     this.home.getGetRoundStatus();
     this.home.GetBusNum();
     this.home.GetParentName();
-
   }
 
   openUpdateDailog(id1: any, name1: any, xhome1: any,yhome1:any ,grade1:any,roundStatus1: any ,fullName1:any ,busnumber1:any) {

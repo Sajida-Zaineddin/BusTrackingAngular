@@ -75,7 +75,7 @@ export class LoginManegeDataComponent implements OnInit {
     this.dialog.open(this.callUpdateDialog)
   }
 
-  updateAboutusEditor() {
+  update() {
     this.loginManege.updateLoginUser(this.updatForm.value);
     window.location.reload();
   }

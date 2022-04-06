@@ -13,6 +13,7 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
+                            <th>ID </th>
                             <th>Bus Number </th>
                             <th>Driver Name </th>
                             <th>Teacher Name </th>
@@ -21,6 +22,7 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let item of busservice.data;let i=index">
+                            <td>{{item.id}}</td>
                             <td>{{busservice.busDrivers[i].busnumber}}</td>
                             <td>{{busservice.busDrivers[i].fullName}}</td>
                             <td>{{busservice.busTeachers[i].fullName}}</td>

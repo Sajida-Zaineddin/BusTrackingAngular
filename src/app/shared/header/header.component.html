@@ -11,14 +11,12 @@
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li class="scroll-to-section"><a href="" class="active">Home</a></li>
+                        <li class="scroll-to-section"><a href="home">Home</a></li>
                         <li class="scroll-to-section"><a href="about">About Us</a></li>
                         <li class="scroll-to-section"><a href="testimonial">Testimonials</a></li>
                         <li class="scroll-to-section"><a href="contact">Contact Us</a></li>
-
                         <li *ngIf="!isLoggedIn" class="scroll-to-section"><a href="account/login">Login</a></li>
                         <li *ngIf="isLoggedIn" class="scroll-to-section"><a href="account/login">profile username</a></li>
-
                     </ul>
                     <a class='menu-trigger'>
                         <span>Menu</span>

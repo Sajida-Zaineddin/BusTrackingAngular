@@ -27,14 +27,15 @@ export class AutherizationDriverGuard implements CanActivate {
             }
        
             else {
+              this.router.navigate(['auth/login']);
               this.toaster.warning('this page for Driver');
-              this.router.navigate(['security/login']);
               return false;
             }
             
           }
   
           else {
+            this.router.navigate(['auth/login']);
             this.toaster.warning('role name is undfined ');
             return false;
           }

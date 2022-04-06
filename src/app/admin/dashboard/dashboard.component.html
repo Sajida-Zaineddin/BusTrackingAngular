@@ -66,13 +66,12 @@
                         <i class="mdi mdi-account-child menu-icon"></i>
                     </a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" (click)="manageAttendance()">
                         <span class="menu-title">Students Attendance</span>
                         <i class="mdi mdi-account-check menu-icon"></i>
                     </a>
-                </li>
-
+                </li> -->
                 <li class="nav-item">
                     <a class="nav-link" (click)="manageAboutUs()">
                         <span class="menu-title">About us</span>
@@ -126,7 +125,7 @@
                 <app-login-manege-data *ngif="loginToggle"></app-login-manege-data>
                 <app-bus *ngif="busToggle"></app-bus>
                 <app-manage-student *ngif="studentToggle"></app-manage-student>
-                <app-manage-attendance *ngif="attendanceToggle"></app-manage-attendance>
+                <!-- <app-manage-attendance *ngif="attendanceToggle"></app-manage-attendance> -->
                 <app-aboutus *ngif="aboutToggle"></app-aboutus>
                 <app-aboutus-editor *ngif="aboutEditorToggle"></app-aboutus-editor>
                 <app-manage-contact-us *ngif="contactToggle"></app-manage-contact-us>

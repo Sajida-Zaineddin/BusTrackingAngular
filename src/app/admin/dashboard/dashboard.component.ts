@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
   loginToggle=true;
   busToggle=true;
   studentToggle=true;
-  attendanceToggle=true;
+  // attendanceToggle=true;
   aboutToggle=true;
   aboutEditorToggle=true;
   contactToggle=true;
@@ -57,10 +57,10 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['admin/student'])
   }
 
-  manageAttendance(){
-    this.attendanceToggle=false;
-    this.router.navigate(['admin/attendance'])
-  }
+  // manageAttendance(){
+  //   this.attendanceToggle=false;
+  //   this.router.navigate(['admin/attendance'])
+  // }
 
   manageAboutUs(){
     this.aboutToggle=false;

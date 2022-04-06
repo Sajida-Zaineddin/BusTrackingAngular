@@ -27,6 +27,7 @@ export class ParentGuardGuard implements CanActivate {
             }
        
             else {
+              this.router.navigate(['auth/login']);
               this.toaster.warning('this page for Parent');
               return false;
             }
@@ -34,6 +35,7 @@ export class ParentGuardGuard implements CanActivate {
           }
   
           else {
+            this.router.navigate(['auth/login']);
             this.toaster.warning('role name is undfined ');
             return false;
           }

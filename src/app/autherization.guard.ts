@@ -27,6 +27,7 @@ export class AutherizationGuard implements CanActivate {
             }
        
             else {
+              this.router.navigate(['auth/login']);
               this.toaster.warning('this page for admin');
               return false;
             }
@@ -34,6 +35,7 @@ export class AutherizationGuard implements CanActivate {
           }
   
           else {
+            this.router.navigate(['auth/login']);
             this.toaster.warning('role name is undfined ');
             return false;
           }

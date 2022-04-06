@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 
@@ -21,10 +22,7 @@ export class DriverHome1Component implements OnInit {
     google.maps.LatLngLiteral | undefined
 
     setLocation:any={}
-  constructor(public busService: BusService,private toastr: ToastrService) {
-
-
-  }
+  constructor(public busService: BusService,private toastr: ToastrService, private router:Router) {}
 
   ngOnInit(): void {
 
@@ -113,6 +111,8 @@ export class DriverHome1Component implements OnInit {
         }
         );
       this.busService.changeAllStudentsBusStatus();
+      this.router.navigate(['auth/login']);
+      localStorage.clear();
       this.toastr.success("logout");
       return;
     }
