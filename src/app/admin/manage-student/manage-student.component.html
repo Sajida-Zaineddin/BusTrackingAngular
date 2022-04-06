@@ -29,9 +29,9 @@
                             <td>{{student.id}}</td>
                             <td>{{student.name}}</td>
                             <td>{{student.xhome}}</td>
-                            <td>{{student.yhome }}</td>
-                            <td>{{student.grade }}</td>
-                            <td>{{student.status }}</td>
+                            <td>{{student.yhome}}</td>
+                            <td>{{student.grade}}</td>
+                            <td>{{student.roundStatus}}</td>
                             <td>{{student.fullName }}</td>
                             <td>{{student.busnumber }}</td>
                             <td class="col-lg-2">
@@ -91,9 +91,9 @@
                 </li>
                 <li>
                     <h4 style="margin-bottom: 0px; margin-top: 10px;">Choose Round Status</h4>
-                    <select formControlName="status">
+                    <select formControlName="roundStatus">
                         <option [ngValue]="null" disabled>Choose Round Status</option>
-                        <option *ngFor="let item of home.status" [ngValue]="item.status"> {{item.status}}</option>
+                        <option *ngFor="let item of home.status" [ngValue]="item.roundStatus"> {{item.roundStatus}}</option>
                     </select>
                 </li>
                 <li>

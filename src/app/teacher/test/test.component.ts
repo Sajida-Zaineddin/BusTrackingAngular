@@ -35,25 +35,22 @@ export class TestComponent implements OnInit {
     this.CreateForm.controls['name'].setValue(this.Values.name);  
      this.CreateForm.controls['busnumber'].setValue(this.Values.busnumber);
      this.CreateForm.controls['dateofattendance'].setValue(Date.now);
-
-       
-       this.home.create(this.Values);
-       console.log('sdsdd',this.Values);
-       
+     this.home.create(this.Values);
+     console.log('sdsdd',this.Values);
   }
 
   prnts(){
     console.log('f',this.CreateForm.controls['status'].value);
-    
   }
 
   ArrivalEmail(name1:any, email1:any, fullName1:any){
-    let emailObj={
+    let emailObj=
+    {
             name:name1,
             email:email1,
-            fullName:fullName1}
+            fullName:fullName1
+    }
       console.log(emailObj);
-
       this.home.SendArrivalEmail(emailObj);
     }
 
@@ -63,7 +60,6 @@ export class TestComponent implements OnInit {
       email:email1,
       fullName:fullName1,}
       console.log(emailObj2);
-      
     this.home.SendAbsentEmail(emailObj2);
     }
 }

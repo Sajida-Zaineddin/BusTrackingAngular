@@ -1,18 +1,11 @@
-
-
 <form [formGroup]="CreateForm" class="example-form">
     <table style="margin:0 auto">
-        
-       
-            <tr>
-                
-                <th>name </th>
-                
-                <th>choose status </th>
-                <th>Opreation</th>
-            </tr>
-            <tr *ngFor="let item of home.TeacherInfo">
-  
+        <tr>
+            <th>name </th>
+            <th>choose status </th>
+            <th>Opreation</th>
+        </tr>
+        <tr *ngFor="let item of home.TeacherInfo">
             <td>{{item.name}}</td>
             <td>
                 <select formControlName="status">
@@ -20,20 +13,12 @@
                     <option *ngFor="let item1 of home.status" [ngValue]="item1.status" (click)="prnts()"> {{item1.status}}</option>
                 </select>
             </td>
-            <td> <button class="btn btn-danger"
-                (click)="save(item.name,  item.busid )"
-                cdkFocusInitial>Save</button>
-        </td>
-        <td> <button class="btn btn-danger"   
-            (click)="ArrivalEmail(item.name, item.email, item.fullName)" 
-            cdkFocusInitial>Notify Arrival</button>
-        </td>
-        <td> <button class="btn btn-danger"  
-            (click)="AbsentEmail(item.name, item.email, item.fullName)" 
-            cdkFocusInitial>Notify Absent</button>
-        </td>
-
-       </tr>
-
+            <td> <button class="btn btn-danger" (click)="save(item.name,  item.busid )" cdkFocusInitial>Save</button>
+            </td>
+            <td> <button class="btn btn-danger" (click)="ArrivalEmail(item.name, item.email, item.fullName)" cdkFocusInitial>Notify Arrival</button>
+            </td>
+            <td> <button class="btn btn-danger" (click)="AbsentEmail(item.name, item.email, item.fullName)" cdkFocusInitial>Notify Absent</button>
+            </td>
+        </tr>
     </table>
 </form>

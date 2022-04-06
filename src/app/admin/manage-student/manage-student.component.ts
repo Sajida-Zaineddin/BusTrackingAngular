@@ -64,16 +64,14 @@ export class ManageStudentComponent implements OnInit {
       xhome:xhome1,
       yhome:yhome1,
       grade:grade1,
-      roundStatusstatus:roundStatus1,
+      roundStatus:roundStatus1,
       fullName:fullName1,
       busnumber:busnumber1
     }
-
-
     this.dialog.open(this.callUpdateDailog)
     this.UpdateForm.controls['id'].setValue(id1);
-
   }
+
   openDeleteDialog(id1: any) {
     const dialogRef = this.dialog.open(this.callDeleteDialog);
     dialogRef.afterClosed().subscribe((res) => {
@@ -84,32 +82,25 @@ export class ManageStudentComponent implements OnInit {
         }
         else if (res == "no")
           console.log("Thank you ");
-
       }
     })
   }
 
   update()
+  {
+    this.home.update(this.UpdateForm.value);
+    window.location.reload();
+  }
+
+    save()
     {
-     
-      this.home.update(this.UpdateForm.value);
-
-      window.location.reload();
-    }
-
-    save(){
       console.log(this.CreateForm.value);
-      
       this.home.create(this.CreateForm.value);
       window.location.reload();
     }
 
     openCreatedialog() {
       this.home.getAll();
-      this.dialog.open(this.callCreateDialog)
-  
+      this.dialog.open(this.callCreateDialog);
     }
-  
-  
-
 }
