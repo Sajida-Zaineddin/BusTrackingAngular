@@ -1,7 +1,7 @@
 import { Component, OnInit, TemplateRef, ViewChild  } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { UserService } from 'src/app/services/user.service';
+import { UserService } from 'src/app/Services/user.service';
 
 @Component({
   selector: 'app-user',

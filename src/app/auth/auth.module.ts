@@ -8,11 +8,13 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
+    EditProfileComponent,
     
   ],
   imports: [
