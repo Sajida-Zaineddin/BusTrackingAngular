@@ -48,150 +48,144 @@
     </div>
 </app-dashboard>
 
-<ng-template #callUpdateDailog>
-    <form [formGroup]="UpdateForm">
-        <ul>
-            <li>
-                <h3 style="color: red;">
-                    <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter Student name</mat-label>
-                        <input type="text" matInput formControlName="name" [(ngModel)]="studentData.name">
-                    </mat-form-field>
-                </h3>
-
-            </li>
-
-
-
-            <li>
-                <h3 style="color: red;">
-                    <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter Student grade</mat-label>
-                        <input type="text" matInput formControlName="grade" [(ngModel)]="studentData.grade">
-                    </mat-form-field>
-                </h3>
-
-                <h3 style="color: red;">
-                    <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter Student status</mat-label>
-                        <input type="text" matInput formControlName="status" [(ngModel)]="studentData.status">
-                    </mat-form-field>
-                </h3>
-
-            </li>
-
-
-            <li>
-                <h3 style="color: red;">
-                    <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter parent fullName</mat-label>
-                        <input type="text" matInput formControlName="fullName" [(ngModel)]="studentData.fullName">
-                    </mat-form-field>
-                </h3>
-                <h3 style="color: red;">
-                    <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter bus number </mat-label>
-                        <input type="number" matInput formControlName="busnumber" [(ngModel)]="studentData.busnumber">
-                    </mat-form-field>
-                </h3>
-
-
-            </li>
-
-
-
-
-            <li>
-                <select formControlName="roundStatus">
-                    <option [ngValue]="null" disabled>Choose Round status</option>
-
-                    <option *ngFor="let item of home.status" [ngValue]="item.roundStatus"> {{item.roundStatus}}</option>
-         
-                </select>
-                <select formControlName="busnumber">
-                    <option [ngValue]="null" disabled>Choose Bus Number</option>
-
-                    <option *ngFor="let item2 of home.busnumber" [ngValue]="item2.busnumber"> {{item2.busnumber}}</option>
-                </select>
-                <select formControlName="parefullNamentname">
-                    <option [ngValue]="null" disabled>Choose Parent Name</option>
-
-                    <option *ngFor="let item1 of home.fullName" [ngValue]="item1.fullName"> {{item1.fullName}}</option>
-           
-                </select>
-
-            </li>
-        </ul>
-        <button (click)="update()">Update</button>
-    </form>
-</ng-template>
-
 <ng-template #callCreateDialog>
-    <h2 mat-dialog-title> Add student information </h2>
+    <h2 class="text-uppercase"> Add New Student </h2>
     <mat-dialog-content class="mat-typography">
-
         <form [formGroup]="CreateForm" class="example-form">
             <ul>
-
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter the name </mat-label>
-                        <input type="text" matInput formControlName="name" placeholder="titel ">
+                        <mat-label>Enter Student Name </mat-label>
+                        <input type="text" matInput formControlName="name" placeholder="Enter Student Name">
                         <mat-error *ngIf="CreateForm.controls['name'].hasError('required')">
-                            name is <strong>required</strong>
+                            field is <strong>required</strong>
                         </mat-error>
                     </mat-form-field>
                 </li>
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter the xhome </mat-label>
-                        <input type="text" matInput formControlName="xhome" placeholder="titel ">
+                        <mat-label>Enter X-Home </mat-label>
+                        <input type="text" matInput formControlName="xhome" placeholder="Enter X-Home">
                         <mat-error *ngIf="CreateForm.controls['xhome'].hasError('required')">
-                            xhome is <strong>required</strong>
+                            field is <strong>required</strong>
                         </mat-error>
                     </mat-form-field>
                 </li>
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter the yhome </mat-label>
-                        <input type="text" matInput formControlName="yhome" placeholder="titel ">
+                        <mat-label>Enter Y-Home </mat-label>
+                        <input type="text" matInput formControlName="yhome" placeholder="Enter Y-Home">
                         <mat-error *ngIf="CreateForm.controls['yhome'].hasError('required')">
-                            yhome is <strong>required</strong>
+                            field is <strong>required</strong>
                         </mat-error>
                     </mat-form-field>
                 </li>
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter the grade </mat-label>
-                        <input type="text" matInput formControlName="grade" placeholder="titel ">
+                        <mat-label>Enter Student Grade </mat-label>
+                        <input type="text" matInput formControlName="grade" placeholder="Enter Student Grade">
                         <mat-error *ngIf="CreateForm.controls['grade'].hasError('required')">
-                            grade is <strong>required</strong>
+                            field is <strong>required</strong>
                         </mat-error>
                     </mat-form-field>
                 </li>
-                <select formControlName="status">
-                    <option [ngValue]="null" disabled>Choose Round status</option>
-
-                    <option *ngFor="let item of home.status" [ngValue]="item.status"> {{item.status}}</option>
-         
-                </select>
-                <select formControlName="busnumber">
-                    <option [ngValue]="null" disabled>Choose Bus Number</option>
-
-                    <option *ngFor="let item2 of home.busnumber" [ngValue]="item2.busnumber"> {{item2.busnumber}}</option>
-                </select>
-                <select formControlName="fullName">
-                    <option [ngValue]="null" disabled>Choose Parent Name</option>
-
-                    <option *ngFor="let item1 of home.fullName" [ngValue]="item1.fullName"> {{item1.fullName}}</option>
-           
-                </select>
-
+                <li>
+                    <h4 style="margin-bottom: 0px; margin-top: 10px;">Choose Round Status</h4>
+                    <select formControlName="status">
+                        <option [ngValue]="null" disabled>Choose Round Status</option>
+                        <option *ngFor="let item of home.status" [ngValue]="item.status"> {{item.status}}</option>
+                    </select>
+                </li>
+                <li>
+                    <h4 style="margin-bottom: 0px; margin-top: 10px;">Choose Bus Number</h4>
+                    <select formControlName="busnumber">
+                        <option [ngValue]="null" disabled>Choose Bus Number</option>
+                        <option *ngFor="let item2 of home.busnumber" [ngValue]="item2.busnumber"> {{item2.busnumber}}</option>
+                    </select>
+                </li>
+                <li>
+                    <h4 style="margin-bottom: 0px; margin-top: 10px;">Choose Parent Name</h4>
+                    <select formControlName="fullName">
+                        <option [ngValue]="null" disabled>Choose Parent Name</option>
+                        <option *ngFor="let item1 of home.fullName" [ngValue]="item1.fullName"> {{item1.fullName}}</option>
+                    </select>
+                </li>
             </ul>
         </form>
         <mat-dialog-actions align="end">
-            <button mat-button mat-dialog-close>Cancel</button>
-            <button mat-button [mat-dialog-close]="true" (click)="save()" cdkFocusInitial>Save</button>
+            <button class="btn btn-success" [mat-dialog-close]="true" (click)="save()" cdkFocusInitial>Save</button>
+            <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close>Cancel</button>
+        </mat-dialog-actions>
+    </mat-dialog-content>
+</ng-template>
+
+<ng-template #callUpdateDailog>
+    <h2 class="text-uppercase"> Update User </h2>
+    <mat-dialog-content class="mat-typography">
+        <form [formGroup]="UpdateForm">
+            <ul>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Student Name </mat-label>
+                        <input type="text" matInput formControlName="name" [(ngModel)]="studentData.name" placeholder="Enter Student Name">
+                        <mat-error *ngIf="UpdateForm.controls['name'].hasError('required')">
+                            field is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter X-Home </mat-label>
+                        <input type="text" matInput formControlName="xhome" [(ngModel)]="studentData.xhome" placeholder="Enter X-Home">
+                        <mat-error *ngIf="UpdateForm.controls['xhome'].hasError('required')">
+                            field is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Y-Home </mat-label>
+                        <input type="text" matInput formControlName="yhome" [(ngModel)]="studentData.yhome" placeholder="Enter Y-Home">
+                        <mat-error *ngIf="UpdateForm.controls['yhome'].hasError('required')">
+                            field is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Student Grade </mat-label>
+                        <input type="text" matInput formControlName="grade" [(ngModel)]="studentData.grade" placeholder="Enter Student Grade">
+                        <mat-error *ngIf="UpdateForm.controls['grade'].hasError('required')">
+                            field is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <h4 style="margin-bottom: 0px; margin-top: 10px;">Choose Round Status</h4>
+                    <select formControlName="roundStatus">
+                        <option [ngValue]="null" disabled>Choose Round Status</option>
+                        <option *ngFor="let item of home.status" [ngValue]="item.roundStatus"> {{item.roundStatus}}</option>
+                    </select>
+                </li>
+                <li>
+                    <h4 style="margin-bottom: 0px; margin-top: 10px;">Choose Bus Number</h4>
+                    <select formControlName="busnumber">
+                        <option [ngValue]="null" disabled>Choose Bus Number</option>
+                        <option *ngFor="let item2 of home.busnumber" [ngValue]="item2.busnumber"> {{item2.busnumber}}</option>
+                    </select>
+                </li>
+                <li>
+                    <h4 style="margin-bottom: 0px; margin-top: 10px;">Choose Parent Name</h4>
+                    <select formControlName="fullName">
+                        <option [ngValue]="null" disabled>Choose Parent Name</option>
+                        <option *ngFor="let item1 of home.fullName" [ngValue]="item1.fullName"> {{item1.fullName}}</option>
+                    </select>
+                </li>
+            </ul>
+        </form>
+        <mat-dialog-actions align="end">
+            <button class="btn btn-success" [mat-dialog-close]="true" (click)="update()" cdkFocusInitial>Update</button>
+            <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close>Cancel</button>
         </mat-dialog-actions>
     </mat-dialog-content>
 </ng-template>

@@ -12,6 +12,7 @@ export class ManageFooterComponent implements OnInit {
   @ViewChild('callUpdateDailog') callUpdateDailog! :TemplateRef<any>
   @ViewChild('callDeleteDialog') callDeleteDialog! :TemplateRef<any>
   @ViewChild('callCreateDialog') callCreateDialog! :TemplateRef<any>
+
   footerData: any = []
   
   UpdateForm:FormGroup=new FormGroup({
@@ -20,7 +21,6 @@ export class ManageFooterComponent implements OnInit {
     city:new FormControl(),
     phone:new FormControl(),
     email:new FormControl(),
-
  })
 
  CreateForm :FormGroup =new FormGroup({  
@@ -28,7 +28,6 @@ export class ManageFooterComponent implements OnInit {
   city:new FormControl('',Validators.required),    
   phone:new FormControl('',Validators.required),
   email:new FormControl('',Validators.required),
-
 })
 
 
@@ -47,7 +46,6 @@ export class ManageFooterComponent implements OnInit {
   openCreatedialog() {
     this.home.getAll();
     this.dialog.open(this.callCreateDialog)
-
   }
 
   openDeleteDialog(id1: any) {
@@ -60,36 +58,26 @@ export class ManageFooterComponent implements OnInit {
         }
         else if (res == "no")
           console.log("Thank you ");
-
       }
     })
-
   }
 
 
   openUpdateDialog(id1: any, abouttext1: any, city1: any, phone1: any,email1:any) {
-
     this.footerData = {
       id: id1,
       abouttext: abouttext1,
       city: city1,
       phone: phone1,
       email:email1
-
     }
     this.UpdateForm.controls['id'].setValue(id1);
-
     // this.home.getAll();
-
     this.dialog.open(this.callUpdateDailog)
-
   }
 
   update() {
     this.home.update(this.UpdateForm.value);
     window.location.reload();
-
   }
-
-
 }

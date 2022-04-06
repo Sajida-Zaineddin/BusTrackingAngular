@@ -47,103 +47,110 @@
 
 
 <ng-template #callCreateDialog>
-    <h2 mat-dialog-title> Add Abouts us editor file </h2>
+    <h2 class="text-uppercase"> Add New Footer Data </h2>
     <mat-dialog-content class="mat-typography">
         <form [formGroup]="CreateForm" class="example-form">
             <ul>
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>abouttext </mat-label>
-                        <input type="text" matInput formControlName="abouttext" placeholder="abouttext ">
-                        <mat-error *ngIf="UpdateForm.controls['abouttext'].hasError('required')">
-                            title is <strong>required</strong>
+                        <mat-label>Enter About Text</mat-label>
+                        <input type="text" matInput formControlName="abouttext" placeholder="Enter About Text">
+                        <mat-error *ngIf="CreateForm.controls['abouttext'].hasError('required')">
+                            field is <strong>required</strong>
                         </mat-error>
                     </mat-form-field>
                 </li>
 
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>city</mat-label>
-                        <input type="text" matInput formControlName="city" placeholder="city ">
-                        <mat-error *ngIf="UpdateForm.controls['city'].hasError('required')">
-                            title is <strong>required</strong>
+                        <mat-label>Enter City</mat-label>
+                        <input type="text" matInput formControlName="city" placeholder="Enter City">
+                        <mat-error *ngIf="CreateForm.controls['city'].hasError('required')">
+                            field is <strong>required</strong>
                         </mat-error>
                     </mat-form-field>
                 </li>
 
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>phone </mat-label>
-                        <input type="text" matInput formControlName="phone" placeholder="phone ">
-                        <mat-error *ngIf="UpdateForm.controls['phone'].hasError('required')">
-                            title is <strong>required</strong>
+                        <mat-label>Enter Phone </mat-label>
+                        <input type="text" matInput formControlName="phone" placeholder="Enter Phone">
+                        <mat-error *ngIf="CreateForm.controls['phone'].hasError('required')">
+                            field is <strong>required</strong>
                         </mat-error>
                     </mat-form-field>
                 </li>
 
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>email </mat-label>
-                        <input type="text" matInput formControlName="email" placeholder="email ">
-                        <mat-error *ngIf="UpdateForm.controls['email'].hasError('required')">
-                            title is <strong>required</strong>
+                        <mat-label>Enter Email </mat-label>
+                        <input type="text" matInput formControlName="email" placeholder="Enter Email">
+                        <mat-error *ngIf="CreateForm.controls['email'].hasError('required')">
+                            field is <strong>required</strong>
                         </mat-error>
                     </mat-form-field>
                 </li>
             </ul>
         </form>
         <mat-dialog-actions align="end">
-            <button mat-button mat-dialog-close>Cancel</button>
-            <button mat-button [mat-dialog-close]="true" (click)="save()" cdkFocusInitial>Save</button>
+            <button class="btn btn-success" [mat-dialog-close]="true" (click)="save()" cdkFocusInitial>Save</button>
+            <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close>Cancel</button>
         </mat-dialog-actions>
     </mat-dialog-content>
 </ng-template>
 
 <ng-template #callUpdateDailog>
-    <form [formGroup]="UpdateForm">
-        <ul>
-            <li>
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label> </mat-label>
-                    <input type="text" matInput formControlName="abouttext" placeholder="abouttext ">
-                    <mat-error *ngIf="UpdateForm.controls['abouttext'].hasError('required')">
-                        title is <strong>required</strong>
-                    </mat-error>
-                </mat-form-field>
-            </li>
-            <li>
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label> </mat-label>
-                    <input type="text" matInput formControlName="city" placeholder="city ">
-                    <mat-error *ngIf="UpdateForm.controls['city'].hasError('required')">
-                        title is <strong>required</strong>
-                    </mat-error>
-                </mat-form-field>
-            </li>
+    <h2 class="text-uppercase"> Update User </h2>
+    <mat-dialog-content class="mat-typography">
+        <form [formGroup]="UpdateForm">
+            <ul>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter About Text </mat-label>
+                        <input type="text" matInput formControlName="abouttext" [(ngModel)]="footerData.abouttext" placeholder="Enter About Text">
+                        <mat-error *ngIf="UpdateForm.controls['abouttext'].hasError('required')">
+                            field is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter City</mat-label>
+                        <input type="text" matInput formControlName="city" [(ngModel)]="footerData.city" placeholder="Enter City">
+                        <mat-error *ngIf="UpdateForm.controls['city'].hasError('required')">
+                            field is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
 
-            <li>
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label> </mat-label>
-                    <input type="text" matInput formControlName="phone" placeholder="phone ">
-                    <mat-error *ngIf="UpdateForm.controls['phone'].hasError('required')">
-                        title is <strong>required</strong>
-                    </mat-error>
-                </mat-form-field>
-            </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Phone</mat-label>
+                        <input type="text" matInput formControlName="phone" [(ngModel)]="footerData.phone" placeholder="Enter Phone">
+                        <mat-error *ngIf="UpdateForm.controls['phone'].hasError('required')">
+                            field is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
 
-            <li>
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label> </mat-label>
-                    <input type="text" matInput formControlName="email" placeholder="email ">
-                    <mat-error *ngIf="UpdateForm.controls['email'].hasError('required')">
-                        title is <strong>required</strong>
-                    </mat-error>
-                </mat-form-field>
-            </li>
-        </ul>
-        <button class="btn btn-success" mat-button [mat-dialog-close]="true" (click)="update()">Update</button>
-    </form>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Email</mat-label>
+                        <input type="text" matInput formControlName="email" [(ngModel)]="footerData.email" placeholder="Enter Email">
+                        <mat-error *ngIf="UpdateForm.controls['email'].hasError('required')">
+                            field is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+            </ul>
+        </form>
+        <mat-dialog-actions align="end">
+            <button class="btn btn-success" [mat-dialog-close]="true" (click)="update()" cdkFocusInitial>Update</button>
+            <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close>Cancel</button>
+        </mat-dialog-actions>
+    </mat-dialog-content>
 </ng-template>
+
 
 <ng-template #callDeleteDialog>
     <h2 class="text-uppercase">Are You Sure You Want To Delete This Footer Data!</h2>

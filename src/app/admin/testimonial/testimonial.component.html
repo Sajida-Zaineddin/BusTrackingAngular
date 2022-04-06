@@ -44,36 +44,32 @@
 
 
 <ng-template #callUpdateDailog>
-    <form [formGroup]="UpdateForm">
-        <ul>
-            <li>
-                <h3 style="color: red;">
-                    Name
-                </h3>
-                <p>{{testtemonialsData.name}}</p>
-            </li>
-
-            <li>
-                <h3 style="color: red;">
-                    FeedBack
-                </h3>
-                <p>{{testtemonialsData.feedback}}</p>
-            </li>
-
-
-
-            <li>
-                <label for="cars">Update the status</label>
-                <select formControlName="status">
-                    <option [ngValue]="null" disabled>Choose your status</option>
-
-                    <option *ngFor="let item of testimonial.test" [ngValue]="item.status"> {{item.status}}</option>
-
-                </select>
-            </li>
-        </ul>
-        <button (click)="update()">Update</button>
-    </form>
+    <h2 class="text-uppercase"> Update Testimonial Status </h2>
+    <mat-dialog-content class="mat-typography">
+        <form [formGroup]="UpdateForm">
+            <ul>
+                <li>
+                    <h4 style="margin-bottom: 0px; margin-top: 10px;">Customer Name</h4>
+                    <p style="margin-top: 2px; background-color: rgb(235, 235, 235);">{{testtemonialsData.name}}</p>
+                </li>
+                <li>
+                    <h4 style="margin-bottom: 0px; margin-top: 10px;">Customer Feedback</h4>
+                    <p style="margin-top: 2px; background-color: rgb(235, 235, 235);">{{testtemonialsData.feedback}}</p>
+                </li>
+                <li>
+                    <h4 style="margin-bottom: 0px; margin-top: 10px;">Update Testimonial Status</h4>
+                    <select formControlName="status">
+                        <option [ngValue]="null" disabled>Update Testimonial Status</option>
+                        <option *ngFor="let item of testimonial.test" [ngValue]="item.status">{{item.status}}</option>
+                    </select>
+                </li>
+            </ul>
+        </form>
+        <mat-dialog-actions align="end">
+            <button class="btn btn-success" [mat-dialog-close]="true" (click)="update()" cdkFocusInitial>Update</button>
+            <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close>Cancel</button>
+        </mat-dialog-actions>
+    </mat-dialog-content>
 </ng-template>
 
 <ng-template #callDeleteDialog>
