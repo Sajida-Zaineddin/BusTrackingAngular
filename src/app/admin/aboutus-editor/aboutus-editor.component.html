@@ -42,112 +42,89 @@
     </div>
 </app-dashboard>
 
-
-<ng-template #callUpdateDialog>
-
-    <form [formGroup]="updatForm">
-        <ul>
-
-            <li>
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>Enter the title </mat-label>
-                    <input type="text" matInput formControlName="titel" [(ngModel)]="about.titel" placeholder="title ">
-                    <mat-error *ngIf="updatForm.controls['titel'].hasError('required')">
-                        title is <strong>required</strong>
-                    </mat-error>
-                </mat-form-field>
-            </li>
-            <li>
-
-
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>Enter the information </mat-label>
-                    <input type="text" matInput formControlName="text" [(ngModel)]="about.text" placeholder="text ">
-                    <mat-error *ngIf="updatForm.controls['text'].hasError('required')">
-                        information is <strong>required</strong>
-                    </mat-error>
-                </mat-form-field>
-            </li>
-
-
-
-            <li>
-                <input type="file" #file placeholder="Choose Image" formControlName="imagepath" [(ngModel)]="about.imagepath" (change)="uploadFile(file.files)" style="display:none;">
-                <button class="btn btn-dark" (click)="file.click()">Upload Image</button>
-            </li>
-
-
-            <li>
-                <label for="cars">Choose a aboutid:</label>
-
-                <select formControlName="aboutid">
-                        <option [ngValue]="null" disabled>Choose your status</option>
-    
-                        <option *ngFor="let item of aboutuseEitor.abId" [ngValue]="item.id"> {{item.id}}</option>
-    
-                    </select>
-            </li>
-        </ul>
-        <button class="btn btn-success" mat-button [mat-dialog-close]="true" (click)="updateAboutusEditor()">Update</button>
-
-    </form>
-
-
-</ng-template>
-
-
 <ng-template #callCreateDialog>
-    <h2 mat-dialog-title> Add Abouts us editor file </h2>
+    <h2 class="text-uppercase"> Add New About Us Editor</h2>
     <mat-dialog-content class="mat-typography">
-
         <form [formGroup]="CreateForm" class="example-form">
             <ul>
-
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter the title </mat-label>
-                        <input type="text" matInput formControlName="titel" placeholder="titel ">
+                        <mat-label>Enter Title</mat-label>
+                        <input type="text" matInput formControlName="titel" placeholder="Enter Title">
                         <mat-error *ngIf="CreateForm.controls['titel'].hasError('required')">
-                            title is <strong>required</strong>
+                            field is <strong>required</strong>
                         </mat-error>
                     </mat-form-field>
                 </li>
                 <li>
-
-
                     <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter the information </mat-label>
-                        <input type="text" matInput formControlName="text" placeholder="text">
+                        <mat-label>Enter Information </mat-label>
+                        <input type="text" matInput formControlName="text" placeholder="Enter Information">
                         <mat-error *ngIf="CreateForm.controls['text'].hasError('required')">
-                            information is <strong>required</strong>
+                            field is <strong>required</strong>
                         </mat-error>
                     </mat-form-field>
                 </li>
                 <li>
-
-
-                    <li>
-                        <input type="file" #file placeholder="Choose Image" formControlName="imagepath" (change)="uploadFile(file.files)" style="display:none;">
-                        <button class="btn btn-dark" (click)="file.click()">Upload Image</button>
-                    </li>
-
-                    <li>
-                        <label for="cars">Choose a aboutid:</label>
-                        <select formControlName="aboutid">
-                                <option [ngValue]="null" disabled>Choose your status</option>
-            
-                                <option *ngFor="let item of aboutuseEitor.abId" [ngValue]="item.id"> {{item.id}}</option>
-            
-                            </select>
-                    </li>
+                    <input type="file" #file placeholder="Choose Image" formControlName="imagepath" (change)="uploadFile(file.files)" style="display:none;">
+                    <button class="btn btn-info" (click)="file.click()">Upload Image</button>
+                </li>
+                <li>
+                    <h4 style="margin-bottom: 0px; margin-top: 10px;">Choose About ID</h4>
+                    <select formControlName="aboutid">
+                        <option [ngValue]="null" disabled>Choose About ID</option>
+                        <option *ngFor="let item of aboutuseEitor.abId" [ngValue]="item.id"> {{item.id}}</option>
+                    </select>
+                </li>
             </ul>
         </form>
         <mat-dialog-actions align="end">
-            <button mat-button mat-dialog-close>Cancel</button>
-            <button mat-button [mat-dialog-close]="true" (click)="save()" cdkFocusInitial>Save</button>
+            <button class="btn btn-success" [mat-dialog-close]="true" (click)="save()" cdkFocusInitial>Save</button>
+            <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close>Cancel</button>
         </mat-dialog-actions>
+    </mat-dialog-content>
+</ng-template>
 
-
+<ng-template #callUpdateDialog>
+    <h2 class="text-uppercase"> Update About Us Editor </h2>
+    <mat-dialog-content class="mat-typography">
+        <form [formGroup]="updatForm">
+            <ul>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Title</mat-label>
+                        <input type="text" matInput formControlName="titel" [(ngModel)]="about.titel" placeholder="Enter Title">
+                        <mat-error *ngIf="updatForm.controls['titel'].hasError('required')">
+                            field is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Information</mat-label>
+                        <input type="text" matInput formControlName="text" [(ngModel)]="about.text" placeholder="Enter Information">
+                        <mat-error *ngIf="updatForm.controls['text'].hasError('required')">
+                            field is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <input type="file" #file placeholder="Choose Image" formControlName="imagepath" (change)="uploadFile(file.files)" style="display:none;">
+                    <button class="btn btn-info" (click)="file.click()">Upload Image</button>
+                </li>
+                <li>
+                    <h4 style="margin-bottom: 0px; margin-top: 10px;">Choose About ID</h4>
+                    <select formControlName="aboutid">
+                        <option [ngValue]="null" disabled>Choose About ID</option>
+                        <option *ngFor="let item of aboutuseEitor.abId" [ngValue]="item.id"> {{item.id}}</option>
+                    </select>
+                </li>
+            </ul>
+        </form>
+        <mat-dialog-actions align="end">
+            <button class="btn btn-success" [mat-dialog-close]="true" (click)="updateAboutusEditor()" cdkFocusInitial>Update</button>
+            <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close>Cancel</button>
+        </mat-dialog-actions>
     </mat-dialog-content>
 </ng-template>
 
