@@ -65,10 +65,11 @@ export class UserService {
   }
 
   uploadAttachment(file: FormData) {
+  
     this.http.post('https://localhost:44346/api/User/UploadImage/', file)
       .subscribe((res: any) => {
         if (res)
-          console.log(res);
+          console.log('uploadimage res',res);
         this.display_Image = res.imagepath;
       }, err => {
         this.toastr.error(err.message, err.status);
@@ -80,6 +81,18 @@ export class UserService {
       this.toastr.success('Deleted Successfully :) ')
     }, err => {
       this.toastr.error(err.message, err.status);
+    })
+  }
+
+
+  updateUserNormal(body: any) {
+    if (this.display_Image != undefined) {
+      body.imagepath = this.display_Image;
+    }
+    this.http.put('https://localhost:44346/api/User/UpdateNormal/', body).subscribe((res) => {
+      this.toastr.success('Updated Successfully :) ')
+    }, err => {
+      this.toastr.error('something error ');
     })
   }
 }

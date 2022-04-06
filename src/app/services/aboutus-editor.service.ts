@@ -70,9 +70,8 @@ export class AboutusEditorService {
 
   uploadAttachment(file: FormData) {
     this.http.post('https://localhost:44346/api/AboutusEditor/Upload/', file)
-      .subscribe((res: any) => {
-        if (res)
-          console.log(res);
+      .subscribe((res: any) => {     
+          
         this.display_Image = res.imagepath;
       }, err => {
         this.toastr.error(err.message, err.status);
@@ -98,9 +97,6 @@ export class AboutusEditorService {
     }, err => {
       this.toastr.error('something error ');
     })
-
-
-
 
   }
 

@@ -10,6 +10,7 @@ import { DriverModule } from './driver/driver.module';
 import { HomeComponent } from './home/home.component';
 import { ParentGuardGuard } from './parent-guard.guard';
 import { ParentModule } from './parent/parent.module';
+import { TeacherGuradGuard } from './teacher-gurad.guard';
 import { TeacherModule } from './teacher/teacher.module';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 
@@ -46,6 +47,8 @@ const routes: Routes = [
   {
     path:'teacher',
     loadChildren:()=>TeacherModule,
+    canActivate:[TeacherGuradGuard]
+  
   },
   {
     path:'auth',
