@@ -29,7 +29,7 @@ export class TeacherGuradGuard implements CanActivate {
            
                 else {
                   this.toaster.warning('this page for Teacher');
-                  this.router.navigate(['security/login']);
+                  this.router.navigate(['auth/login']);
                   return false;
                 }
                 
