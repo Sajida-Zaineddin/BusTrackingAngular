@@ -47,7 +47,7 @@ export class AuthService {
      this.router.navigate(['parent/home'])
 
      else if (data.role==='Teacher')
-     this.router.navigate(['teacher/test'])
+     this.router.navigate(['teacher/home'])
      
      localStorage.setItem('name',data.unique_name)
      

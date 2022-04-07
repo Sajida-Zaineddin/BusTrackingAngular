@@ -1,0 +1,64 @@
+<app-header></app-header>
+<section class="page-heading">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="header-text">
+                    <h1>Students<span style="color: #dc8cdb;"> Absence</span></h1>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="search-field d-none d-md-block">
+    <div class="input-group">
+        <div class="input-group-prepend bg-transparent">
+            <i class="input-group-text border-0 mdi mdi-magnify"></i>
+        </div>
+        <input type="text" class="form-control " placeholder="Search" name="search" [(ngModel)]="studentName">
+    </div>
+</div>
+<div class="col-lg-10 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <form [formGroup]="CreateForm" class="example-form">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID </th>
+                            <th>Name </th>
+                            <th>Parent Email</th>
+                            <th>Attendance Status</th>
+                            <th colspan="3">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of home.TeacherInfo | filter:studentName">
+                            <td>{{item.id}}</td>
+                            <td>{{item.name}}</td>
+                            <td>{{item.email}}</td>
+                            <td>
+                                <select formControlName="status">
+                                    <option [ngValue]="null" disabled>Choose Status</option>
+                                    <option *ngFor="let item1 of home.status" [ngValue]="item1.status" (click)="prnts()"> {{item1.status}}</option>
+                                </select>
+                            </td>
+                            <td class="col-lg-1">
+                                <button class="btn btn-primary" (click)="save(item.name,  item.busid )" cdkFocusInitial>Save</button>
+                            </td>
+                            <td class="col-lg-1">
+                                <button class="btn btn-success" (click)="ArrivalEmail(item.name, item.email, item.fullName)" cdkFocusInitial>Notify Arrival</button>
+                            </td>
+                            <td class="col-lg-1">
+                                <button class="btn btn-danger" (click)="AbsentEmail(item.name, item.email, item.fullName)" cdkFocusInitial>Notify Absent</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

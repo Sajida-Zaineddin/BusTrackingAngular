@@ -11,13 +11,38 @@
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li class="scroll-to-section"><a href="home">Home</a></li>
-                        <li class="scroll-to-section"><a href="about">About Us</a></li>
-                        <li class="scroll-to-section"><a href="testimonial">Testimonials</a></li>
-                        <li class="scroll-to-section"><a href="contact">Contact Us</a></li>
-                        <li *ngIf="!isLoggedIn" class="scroll-to-section"><a href="account/login">Login</a></li>
-                        <li *ngIf="isLoggedIn" class="scroll-to-section"><a href="account/profile">profile username</a></li>
-                        <li *ngIf="isLoggedIn" class="scroll-to-section"><a href="account/login" (click)="logout()">Logout</a></li>
+                        <!-- Home -->
+                        <li class="scroll-to-section" style="padding-left: 0%; padding-right: 0%;">
+                            <a href="home">Home</a>
+                        </li>
+                        <!-- About Us -->
+                        <li class="scroll-to-section">
+                            <a href="about">About Us</a>
+                        </li>
+                        <!-- Testimonials -->
+                        <li class="scroll-to-section" style="padding-left: 0%; padding-right: 0%;">
+                            <a href="testimonial">Testimonials</a>
+                        </li>
+                        <!-- Contact Us -->
+                        <li class="scroll-to-section">
+                            <a href="contact">Contact Us</a>
+                        </li>
+                        <!-- Login -->
+                        <li *ngIf="!isLoggedIn" class="scroll-to-section">
+                            <a href="account/login">Login</a>
+                        </li>
+                        <!-- Dashboard -->
+                        <li *ngIf="isLoggedIn" class="iconStyle" style="padding-left: 0%; padding-right: 0%;">
+                            <a href="account/profile"><i class="mdi mdi-account-circle"></i></a>
+                        </li>
+                        <!-- Edit Profile -->
+                        <li *ngIf="isLoggedIn" class="iconStyle">
+                            <a href="account/profile"><i class="mdi mdi-table-edit"></i></a>
+                        </li>
+                        <!-- Logout -->
+                        <li *ngIf="isLoggedIn" class="iconStyle" style="padding-left: 0%; padding-right: 0%;">
+                            <a href=" account/login " (click)="logout() "><i class="mdi mdi-power "></i></a>
+                        </li>
                     </ul>
                     <a class='menu-trigger'>
                         <span>Menu</span>

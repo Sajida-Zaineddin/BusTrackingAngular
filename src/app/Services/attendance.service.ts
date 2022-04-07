@@ -88,17 +88,11 @@ export class AttendanceService {
   }
    
   GETTEACHERINFONEW(username:any){
-
-     
     this.http.post('https://localhost:44346/api/attendance/GETTEACHERINFONEW/',username).subscribe((res)=>{
-
-this.TeacherInfo = res
-
+    this.TeacherInfo = res
     },error=>{
-
     })
   }
- 
 
   GETSTUDENTNAME(){
    this.spinner.show();
@@ -124,7 +118,6 @@ this.TeacherInfo = res
     })
   }
   
-  
   create(attendance:any){
     this.spinner.show();
       this.http.post('https://localhost:44346/api/attendance/create/',attendance).subscribe((res)=>{
@@ -136,27 +129,22 @@ this.TeacherInfo = res
       })
     }
 
-      
- 
-
     update(attendance1:any){
-     
-        this.http.put('https://localhost:44346/api/attendance/update/',attendance1).subscribe((res)=>{
+       this.http.put('https://localhost:44346/api/attendance/update/',attendance1).subscribe((res)=>{
        this.toastr.success('updated Successfully :)');
-    
         },err=>{
         this.toastr.error(err.status,err.message);
         })
-    
       } 
   
-      SendArrivalEmail(email:any){
+    SendArrivalEmail(email:any){
         this.http.post('https://localhost:44346/api/attendance/SendArrivalEmail/',email).subscribe((res)=>{
        this.toastr.success('sent Successfully :)');
         },err=>{
          this.toastr.error(err.status,err.message);
         })
       }
+      
       SendAbsentEmail(email:any){
         this.http.post('https://localhost:44346/api/attendance/SendAbsentEmail/',email).subscribe((res)=>{
        this.toastr.success('sent Successfully :)');

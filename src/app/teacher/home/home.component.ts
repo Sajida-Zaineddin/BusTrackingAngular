@@ -1,14 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AttendanceService } from 'src/app/Services/attendance.service';
+import { MatDialog } from '@angular/material/dialog';
+import { StudentService } from 'src/app/Services/student.service';
 
 @Component({
-  selector: 'app-test',
-  templateUrl: './test.component.html',
-  styleUrls: ['./test.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class TestComponent implements OnInit {
+export class HomeComponent implements OnInit {
+
   Values:any=[];
+  studentName:any;
+
   constructor(public home:AttendanceService) { }
 
   ngOnInit(): void {
@@ -62,4 +67,5 @@ export class TestComponent implements OnInit {
       console.log(emailObj2);
     this.home.SendAbsentEmail(emailObj2);
     }
+
 }
