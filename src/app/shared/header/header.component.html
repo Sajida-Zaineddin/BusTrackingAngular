@@ -28,19 +28,19 @@
                             <a href="contact">Contact Us</a>
                         </li>
                         <!-- Login -->
-                        <li *ngIf="!isLoggedIn" class="scroll-to-section">
-                            <a href="account/login">Login</a>
+                        <li *ngIf="isLoggedIn==null" class="scroll-to-section ">
+                            <a href="account/login ">Login</a>
                         </li>
                         <!-- Dashboard -->
-                        <li *ngIf="isLoggedIn" class="iconStyle" style="padding-left: 0%; padding-right: 0%;">
-                            <a href="account/profile"><i class="mdi mdi-account-circle"></i></a>
+                        <li *ngIf="isLoggedIn!=null " class="iconStyle " style="padding-left: 0%; padding-right: 0%; ">
+                            <a href="account/profile "><i class="mdi mdi-account-circle "></i></a>
                         </li>
                         <!-- Edit Profile -->
-                        <li *ngIf="isLoggedIn" class="iconStyle">
-                            <a href="account/profile"><i class="mdi mdi-table-edit"></i></a>
+                        <li *ngIf="isLoggedIn!=null " class="iconStyle ">
+                            <a href="account/profile "><i class="mdi mdi-table-edit "></i></a>
                         </li>
                         <!-- Logout -->
-                        <li *ngIf="isLoggedIn" class="iconStyle" style="padding-left: 0%; padding-right: 0%;">
+                        <li *ngIf="isLoggedIn!=null " class="iconStyle " style="padding-left: 0%; padding-right: 0%; ">
                             <a href=" account/login " (click)="logout() "><i class="mdi mdi-power "></i></a>
                         </li>
                     </ul>

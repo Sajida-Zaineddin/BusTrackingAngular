@@ -15,6 +15,8 @@ import { TestimonialComponent } from './testimonial/testimonial.component';
 import { UserComponent } from './user/user.component';
 import { WebsiteHomeComponent } from './website-home/website-home.component';
 import { WebsiteComponent } from './website/website.component';
+import { RouteComponent } from './route/route.component';
+import { EditPorfileAdminComponent } from './edit-porfile-admin/edit-porfile-admin.component';
 
 
 const routes: Routes = [
@@ -77,6 +79,14 @@ const routes: Routes = [
   {
     path:'website',
     component:WebsiteComponent
+  },
+  {
+    path:'route',
+    component:RouteComponent
+  },
+  {
+    path:'editeprofileadmie',
+    component:EditPorfileAdminComponent
   },
 ];
 

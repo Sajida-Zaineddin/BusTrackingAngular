@@ -39,21 +39,14 @@ export class ContentComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    this.adminservice.getAllBusesRoute();
+  this.adminservice.getAllBusesRoute();
   this.adminservice.getAllStudentsData();
   this.adminservice.getAllDriversData();
   this.adminservice.getAllTeachersData();
 
     setTimeout(() => {
-
       this.addMarkers();
-      console.log('s', this.adminservice.busesRoute);
-
-    }, 1500);
-
-    console.log('test',this.adminservice.busesRoute);
-    
-
+    }, 2000);   
   }
 
 
@@ -69,7 +62,7 @@ export class ContentComponent implements OnInit {
             },
             label: {
               color: 'red',
-              text: String(this.adminservice.busesRoute[i].busid),
+              text: String(this.adminservice.busesRoute[i].busnumber),
 
             },
 
@@ -89,7 +82,7 @@ export class ContentComponent implements OnInit {
             },
             label: {
               color: 'blue',
-              text: String(this.adminservice.busesRoute[i].busid),
+              text: String(this.adminservice.busesRoute[i].busnumber),
 
             },
 
@@ -108,7 +101,7 @@ export class ContentComponent implements OnInit {
           },
           label: {
             color: 'black',
-            text: String(this.adminservice.busesRoute[i].busid),
+            text: String(this.adminservice.busesRoute[i].busnumber),
 
           },
 

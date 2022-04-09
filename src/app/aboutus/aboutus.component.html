@@ -17,32 +17,31 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="left-image">
-                    <img src="assets/images/about-left-image.png" alt="">
+                    <img src="../../../assets/images/{{aboutusPageService.data[2].imagepath}}" alt="">
                 </div>
             </div>
             <div class="col-lg-6 align-self-center">
                 <div class="section-heading">
-                    <h2>Our <span style="color: #dc8cdb;">Aim</span></h2>
-                    <p>Our school delivers your children on time, and we always strive to deliver them to you safely. Our drivers are experienced in driving and teachers are highly qualified, whether in education or in protecting your students during their
-                        coming and going periods.</p>
+                    <h2><span style="color: #dc8cdb;">{{aboutusPageService.data[2].title}}</span></h2>
+                    <p>{{aboutusPageService.data[2].information}}</p>
                 </div>
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="info-item">
                             <div class="icon">
-                                <img src="assets/images/3.png" alt="">
+                                <img src="../../../assets/images/{{aboutusPageService.data[0].imagepath}}" alt="">
                             </div>
-                            <h4>Best Drivers</h4>
-                            <p>Highly efficient to deliver your children to your homes.</p>
+                            <h4>{{aboutusPageService.data[0].title}}</h4>
+                            <p>{{aboutusPageService.data[0].information}}</p>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="info-item">
                             <div class="icon">
-                                <img src="assets/images/2.png" alt="">
+                                <img src="../../../assets/images/{{aboutusPageService.data[1].imagepath}}" alt="">
                             </div>
-                            <h4>Creative Teachers</h4>
-                            <p>Highly efficient to deliver your children to your homes</p>
+                            <h4>{{aboutusPageService.data[1].title}}</h4>
+                            <p>{{aboutusPageService.data[1].information}}</p>
                         </div>
                     </div>
                 </div>
@@ -66,127 +65,14 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="menu">
-                                    <div class="active">
-                                        <img src="assets/images/team-member-thumb-01.jpg" alt="">
-                                        <h4>Ruby Foster</h4>
+                                    <div class="active" *ngFor="let item of aboutusPageService.teachers">
+                                        <img src="../../../assets/images/{{item.imagepath}}" alt="">
+                                        <h4>{{item.fullName}}</h4>
                                     </div>
-                                    <div>
-                                        <img src="assets/images/team-member-thumb-03.jpg" alt="">
-                                        <h4>Luis Oconnell</h4>
-                                    </div>
-                                    <div>
-                                        <img src="assets/images/team-member-thumb-02.jpg" alt="">
-                                        <h4>Jackie Riggs</h4>
-                                    </div>
-                                    <div>
-                                        <img src="assets/images/team-member-thumb-04.jpg" alt="">
-                                        <h4>Alfred Small</h4>
-                                    </div>
-                                    <div>
-                                        <img src="assets/images/team-member-thumb-05.jpg" alt="">
-                                        <h4>Denis Mitchel</h4>
-                                    </div>
+
                                 </div>
                             </div>
-                            <div class="col-lg-12">
-                                <ul class="nacc">
-                                    <li class="active">
-                                        <div>
-                                            <div class="left-content">
-                                                <h4>Ruby Foster</h4>
-                                                <p>Quinoa roof party squid prism sustainable letterpress cray hammock tumeric man bun mixtape tofu subway tile cronut. Deep v ennui subway tile organic seitan kogi freegan bicycle rights try-hard green juice
-                                                    probably.
-                                                </p>
-                                                <span><a href="#">Facebook</a></span>
-                                                <span><a href="#">Twitter</a></span>
-                                                <span class="last-span"><a href="#">Linkedin</a></span>
-                                                <div class="text-button">
-                                                    <a href="#">Contact Teacher</a>
-                                                </div>
-                                            </div>
-                                            <div class="right-image">
-                                                <img src="assets/images/team-member-01.jpg" alt="">
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div>
-                                            <div class="left-content">
-                                                <h4>Luis Oconnell</h4>
-                                                <p>Quinoa roof party squid prism sustainable letterpress cray hammock tumeric man bun mixtape tofu subway tile cronut. Deep v ennui subway tile organic seitan kogi freegan bicycle rights try-hard green juice
-                                                    probably.
-                                                </p>
-                                                <span><a href="#">Facebook</a></span>
-                                                <span><a href="#">Twitter</a></span>
-                                                <span class="last-span"><a href="#">Linkedin</a></span>
-                                                <div class="text-button">
-                                                    <a href="#">Contact Member</a>
-                                                </div>
-                                            </div>
-                                            <div class="right-image">
-                                                <img src="assets/images/team-member-03.jpg" alt="">
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div>
-                                            <div class="left-content">
-                                                <h4>Jackie Riggs</h4>
-                                                <p>Quinoa roof party squid prism sustainable letterpress cray hammock tumeric man bun mixtape tofu subway tile cronut. Deep v ennui subway tile organic seitan kogi freegan bicycle rights try-hard green juice
-                                                    probably.
-                                                </p>
-                                                <span><a href="#">Facebook</a></span>
-                                                <span><a href="#">Twitter</a></span>
-                                                <span class="last-span"><a href="#">Linkedin</a></span>
-                                                <div class="text-button">
-                                                    <a href="#">Contact Member</a>
-                                                </div>
-                                            </div>
-                                            <div class="right-image">
-                                                <img src="assets/images/team-member-02.jpg" alt="">
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div>
-                                            <div class="left-content">
-                                                <h4>Alfred Small</h4>
-                                                <p>Quinoa roof party squid prism sustainable letterpress cray hammock tumeric man bun mixtape tofu subway tile cronut. Deep v ennui subway tile organic seitan kogi freegan bicycle rights try-hard green juice
-                                                    probably.
-                                                </p>
-                                                <span><a href="#">Facebook</a></span>
-                                                <span><a href="#">Twitter</a></span>
-                                                <span class="last-span"><a href="#">Linkedin</a></span>
-                                                <div class="text-button">
-                                                    <a href="#">Contact Member</a>
-                                                </div>
-                                            </div>
-                                            <div class="right-image">
-                                                <img src="assets/images/team-member-04.jpg" alt="">
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div>
-                                            <div class="left-content">
-                                                <h4>Dennis Mitchel</h4>
-                                                <p>Quinoa roof party squid prism sustainable letterpress cray hammock tumeric man bun mixtape tofu subway tile cronut. Deep v ennui subway tile organic seitan kogi freegan bicycle rights try-hard green juice
-                                                    probably.
-                                                </p>
-                                                <span><a href="#">Facebook</a></span>
-                                                <span><a href="#">Twitter</a></span>
-                                                <span class="last-span"><a href="#">Linkedin</a></span>
-                                                <div class="text-button">
-                                                    <a href="#">Contact Member</a>
-                                                </div>
-                                            </div>
-                                            <div class="right-image">
-                                                <img src="assets/images/team-member-05.jpg" alt="">
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
+
                         </div>
                     </div>
                 </div>

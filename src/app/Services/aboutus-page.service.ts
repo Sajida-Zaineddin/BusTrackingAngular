@@ -11,6 +11,7 @@ export class AboutusPAgeService {
   constructor(private http: HttpClient, private spinner: NgxSpinnerService, private toastr: ToastrService) { }
 
   teachers: any = [];
+  data:any=[];
 
   getAllTeachers() {
     //show spinner
@@ -27,6 +28,22 @@ export class AboutusPAgeService {
 
   }
 
+  getAll() {
+    //show spinner
+    this.spinner.show();
+    //hite api
+    this.http.get('https://localhost:44346/api/Aboutus').subscribe((res) => {
+      this.data = res;
+      //hide spinner
+      this.spinner.hide();
+      // res --> show toastr
+      this.toastr.success('Data Retrieved !!');
+    }, err => {
+      this.spinner.hide();
+      this.toastr.error('Error ')
+    })
+
+  }
 
 
 

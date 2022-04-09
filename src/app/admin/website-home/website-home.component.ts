@@ -1,7 +1,7 @@
 import { Component, OnInit, TemplateRef, ViewChild  } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { WebsiteHomeService } from 'src/app/services/website-home.service';
+import { WebsiteHomeService } from 'src/app/Services/website-home.service';
 
 @Component({
   selector: 'app-website-home',

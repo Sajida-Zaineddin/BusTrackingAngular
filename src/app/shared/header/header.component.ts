@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
   isLoggedIn :any;
 
   ngOnInit(): void {
-    this.isLoggedIn = localStorage.getItem('token') != null; 
+    this.isLoggedIn = localStorage.getItem('token'); 
   }
 
   logout(){

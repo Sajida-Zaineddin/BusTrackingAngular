@@ -20,7 +20,7 @@ export class AdminService {
 
 
   getAllBusesRoute() {   
-    this.http.get('https://localhost:44346/api/route/GetAll').subscribe((res) => {
+    this.http.get('https://localhost:44346/api/route/getBusRouteDTO/').subscribe((res) => {
       this.busesRoute = res;   
     }, err => {    
       this.toastr.error('Error ')

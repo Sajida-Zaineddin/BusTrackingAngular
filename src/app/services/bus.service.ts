@@ -26,15 +26,9 @@ export class BusService {
   
   username:any  = localStorage.getItem('name')
   getAll() {
-    //show spinner
-    this.spinner.show();
-    //hite api
+  
     this.http.get('https://localhost:44346/api/Bus/GetAll/').subscribe((res) => {
       this.data = res;
-      //hide spinner
-      this.spinner.hide();
-      // res --> show toastr
-      this.toastr.success('Data Retrieved !!');
     }, err => {
       this.spinner.hide();
       this.toastr.error('Error ')

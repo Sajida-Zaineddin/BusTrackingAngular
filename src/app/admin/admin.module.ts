@@ -20,6 +20,8 @@ import { LoginManegeDataComponent } from './login-manege-data/login-manege-data.
 import { RoleComponent } from './role/role.component';
 import { WebsiteComponent } from './website/website.component';
 import { WebsiteHomeComponent } from './website-home/website-home.component';
+import { RouteComponent } from './route/route.component';
+import { EditPorfileAdminComponent } from './edit-porfile-admin/edit-porfile-admin.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { WebsiteHomeComponent } from './website-home/website-home.component';
     RoleComponent,
     LoginManegeDataComponent,
     WebsiteComponent,
-    WebsiteHomeComponent
+    WebsiteHomeComponent,
+    RouteComponent,
+    EditPorfileAdminComponent
 
   ],
   imports: [

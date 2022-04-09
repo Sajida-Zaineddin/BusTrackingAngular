@@ -1,0 +1,171 @@
+<app-dashboard>
+    <div class="page-header">
+        <h3 class="page-title text-uppercase" style="font-size: 1.5em; font-weight: 500;">
+            <span class="page-title-icon bg-gradient-primary text-white me-2">
+                    <i class="mdi mdi-information-outline"></i>
+            </span> manage Route table
+        </h3>
+        <button class="btn btn-success" (click)="openCreatedialog()">Create New</button>
+    </div>
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Driver name</th>
+                            <th>Bus Number</th>
+                            <th>xstart</th>
+                            <th>ystart </th>
+                            <th>xend</th>
+                            <th>yend</th>
+                            <th colspan="2">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of routeService.data">
+                            <td>{{item.fullName}}</td>
+                            <td>{{item.busnumber}}</td>
+                            <td>{{item.xstart}}</td>
+                            <td>{{item.ystart}}</td>
+                            <td>{{item.xend}}</td>
+                            <td>{{item.yend}}</td>
+                            <td class="col-lg-2">
+                                <button class="btn btn-secondary" (click)="openUpdateDialog(item.id,item.xstart,item.ystart,item.xend,item.yend,item.busnumber)">Update</button>
+                            </td>
+                            <td class="col-lg-2">
+                                <button class="btn btn-danger" (click)="openDeleteDialog(item.id)">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</app-dashboard>
+
+
+<ng-template #callCreateDialog>
+    <h2 class="text-uppercase"> Add New About us </h2>
+    <mat-dialog-content class="mat-typography">
+        <form [formGroup]="CreateForm" class="example-form">
+            <ul>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter xstart Point</mat-label>
+                        <input type="text" matInput formControlName="xstart" placeholder="Enter xstart Point">
+                        <mat-error *ngIf="CreateForm.controls['xstart'].hasError('required')">
+                            feild is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter ystart Pointe </mat-label>
+                        <input type="text" matInput formControlName="ystart" placeholder="Enter ystart Point">
+                        <mat-error *ngIf="CreateForm.controls['ystart'].hasError('required')">
+                            feild is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter xend Point </mat-label>
+                        <input type="text" matInput formControlName="xend" placeholder="Enter xend Point">
+                        <mat-error *ngIf="CreateForm.controls['xend'].hasError('required')">
+                            feild is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter yend Point </mat-label>
+                        <input type="text" matInput formControlName="yend" placeholder="Enter yend Point">
+                        <mat-error *ngIf="CreateForm.controls['yend'].hasError('required')">
+                            feild is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <h4 style="margin-bottom: 0px; margin-top: 10px;">Choose bus number</h4>
+                    <select formControlName="busid">
+                        <option [ngValue]="null" disabled>Choose Bus Number</option>
+                        <option *ngFor="let item of busService.data" [ngValue]="item.id"> {{item.busnumber}}</option>
+                     </select>
+                </li>
+
+            </ul>
+        </form>
+        <mat-dialog-actions align="end">
+            <button class="btn btn-success" [mat-dialog-close]="true" (click)="save()" cdkFocusInitial>Save</button>
+            <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close>Cancel</button>
+        </mat-dialog-actions>
+    </mat-dialog-content>
+</ng-template>
+
+
+<ng-template #callUpdateDialog>
+    <h2 class="text-uppercase"> Update Bus Route</h2>
+    <mat-dialog-content class="mat-typography">
+        <form [formGroup]="updatForm">
+            <ul>
+
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter xstart Point </mat-label>
+                        <input type="text" matInput formControlName="xstart" [(ngModel)]="route.xstart" placeholder="Enter xstart Point">
+                        <mat-error *ngIf="updatForm.controls['xstart'].hasError('required')">
+                            feild is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter ystart Point </mat-label>
+                        <input type="text" matInput formControlName="ystart" [(ngModel)]="route.ystart" placeholder="Enter ystart Point">
+                        <mat-error *ngIf="updatForm.controls['ystart'].hasError('required')">
+                            feild is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter xend Point </mat-label>
+                        <input type="text" matInput formControlName="xend" [(ngModel)]="route.xend" placeholder="Enter xend Point">
+                        <mat-error *ngIf="updatForm.controls['xend'].hasError('required')">
+                            feild is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter yend Point </mat-label>
+                        <input type="text" matInput formControlName="yend" [(ngModel)]="route.yend" placeholder="Enter yend Point">
+                        <mat-error *ngIf="updatForm.controls['yend'].hasError('required')">
+                            feild is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <h4 style="margin-bottom: 0px; margin-top: 10px;">Choose bus number</h4>
+                    <select formControlName="busid">
+                        <option [ngValue]="null" disabled>Choose Bus number</option>
+                        <option *ngFor="let item of busService.data" [ngValue]="item.id"> {{item.busnumber}}</option>
+                     </select>
+                </li>
+            </ul>
+            <mat-dialog-actions align="end">
+                <button class="btn btn-success" [mat-dialog-close]="true" (click)="update()" cdkFocusInitial>Update</button>
+                <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close>Cancel</button>
+            </mat-dialog-actions>
+        </form>
+    </mat-dialog-content>
+</ng-template>
+
+<ng-template #callDeleteDialog>
+    <h2 class="text-uppercase">Are You Sure You Want To Delete This Route Data!</h2>
+    <mat-dialog-actions align="end">
+        <button class="btn btn-danger" mat-dialog-close="yes">Yes</button>
+        <button style="margin-left: 10px;" class="btn btn-secondary" mat-dialog-close="no">No</button>
+    </mat-dialog-actions>
+</ng-template>
