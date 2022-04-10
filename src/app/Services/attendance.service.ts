@@ -25,7 +25,7 @@ export class AttendanceService {
     this.http.get('https://localhost:44346/api/attendance/getall').subscribe((res)=>{
     this.attendance=res;
     this.spinner.hide();
-    this.toastr.success('Data Retrieved !!');
+  
     },err=>{
      this.spinner.hide();
       this.toastr.error(err.message, err.status);
@@ -44,7 +44,7 @@ export class AttendanceService {
           this.http.get('https://localhost:44346/api/bus/GetStudentList/'+ busnumber).subscribe((res)=>{
           this.busnumber=res;
          this.spinner.hide();
-        this.toastr.success('Data Retrieved !!');
+
         },err=>{
          this.spinner.hide();
           this.toastr.error(err.message, err.status);
@@ -56,7 +56,7 @@ export class AttendanceService {
     this.http.get('https://localhost:44346/api/attendance/GetBusNum').subscribe((res)=>{
     this.busnumber1=res;
     this.spinner.hide();
-    this.toastr.success('Data Retrieved !!');
+
      },err=>{
     this.spinner.hide();
        this.toastr.error(err.message, err.status);
@@ -68,7 +68,7 @@ export class AttendanceService {
     this.http.post('https://localhost:44346/api/student/SearchStudent/',name).subscribe((res)=>{
     this.name=res;
     this.spinner.hide();
-    this.toastr.success('saved Successfully :)');
+
       },error=>{
        this.spinner.hide();
        this.toastr.error(error.status,error.message);
@@ -80,7 +80,7 @@ export class AttendanceService {
     this.http.get('https://localhost:44346/api/attendance/GetAttendance').subscribe((res)=>{
     this.status=res;
     this.spinner.hide();
-    this.toastr.success('Data Retrieved !!');
+
     },err=>{
    this.spinner.hide();
   this.toastr.error(err.message, err.status);
@@ -99,7 +99,7 @@ export class AttendanceService {
    this.http.get('https://localhost:44346/api/attendance/GetStudent').subscribe((res)=>{
    this.name=res;
    this.spinner.hide();
-   this.toastr.success('Data Retrieved !!');
+
     },err=>{
     this.spinner.hide();
     this.toastr.error(err.message, err.status);
@@ -111,7 +111,7 @@ export class AttendanceService {
     this.http.get('https://localhost:44346/api/bus/GetStudentList').subscribe((res)=>{
     this.students=res;
     this.spinner.hide();
-     this.toastr.success('Data Retrieved !!');
+
     },err=>{
      this.spinner.hide();
      this.toastr.error(err.message, err.status);
@@ -122,7 +122,7 @@ export class AttendanceService {
     this.spinner.show();
       this.http.post('https://localhost:44346/api/attendance/create/',attendance).subscribe((res)=>{
        this.spinner.hide();
-       this.toastr.success('saved Successfully :)');
+
       },error=>{
        this.spinner.hide();
        this.toastr.error(error.status,error.message);

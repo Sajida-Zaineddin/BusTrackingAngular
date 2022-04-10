@@ -37,7 +37,10 @@
                         </li>
                         <!-- Edit Profile -->
                         <li *ngIf="isLoggedIn!=null " class="iconStyle ">
-                            <a href="account/profile "><i class="mdi mdi-table-edit "></i></a>
+                            <a *ngIf="role=='Driver'" href="driver/home"><i class="mdi mdi-table-edit "></i></a>
+                            <a *ngIf="role=='Parent'" href="parent/home"><i class="mdi mdi-table-edit "></i></a>
+                            <a *ngIf="role=='Teacher'" href="teacher/home"><i class="mdi mdi-table-edit "></i></a>
+                            <a *ngIf="role=='Admin'" href="admin/content"><i class="mdi mdi-table-edit "></i></a>
                         </li>
                         <!-- Logout -->
                         <li *ngIf="isLoggedIn!=null " class="iconStyle " style="padding-left: 0%; padding-right: 0%; ">

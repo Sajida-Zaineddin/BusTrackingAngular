@@ -48,7 +48,7 @@ export class BusService {
       //hide spinner
       this.spinner.hide();
       // res --> show toastr
-      this.toastr.success('Data Retrieved !!');
+  
     }, err => {
       this.spinner.hide();
       this.toastr.error('Error ')
@@ -57,18 +57,15 @@ export class BusService {
   }
 
   getBusStudents() {
-    //show spinner
+   
     
     this.spinner.show();
-    //hite api
+   
     this.http.get('https://localhost:44346/api/bus/GetStudentsInfoByUsername/'+this.username).subscribe((res1) => {
       this.busStudents =res1;
-      console.log('students',this.busStudents);
-      
-      //hide spinner
+   
       this.spinner.hide();
-      // res --> show toastr
-      this.toastr.success('Data Retrieved !!');
+
     }, err => {
       this.spinner.hide();
       this.toastr.error('Error ')
@@ -77,18 +74,17 @@ export class BusService {
   }
 
   getBusInfoByName() {
-    //show spinner
+
     this.spinner.show();
-    //hite api
+
     this.http.get('https://localhost:44346/api/bus/GetBusInfoByUsername/'+this.username).subscribe((res) => {
       this.busData =res;
 
-      console.log(this.busData)
+   
       
       //hide spinner
       this.spinner.hide();
-      // res --> show toastr
-      this.toastr.success('Data Retrieved !!');
+  
     }, err => {
       this.spinner.hide();
       this.toastr.error('Error ')
@@ -104,10 +100,9 @@ export class BusService {
     //hite api
     this.http.get('https://localhost:44346/api/user/GetAllDrivers/').subscribe((res) => {
       this.drivers = res;
-      //hide spinner
+  
       this.spinner.hide();
-      // res --> show toastr
-      this.toastr.success('Data Retrieved !!');
+   
     }, err => {
       this.spinner.hide();
       this.toastr.error('Error ')

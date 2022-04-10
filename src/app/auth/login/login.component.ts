@@ -16,14 +16,20 @@ export class LoginComponent implements OnInit {
   registerForm: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(8)]),
-    rememberMe: new FormControl('')
+    rememberMe: new FormControl(''),
+  },  )
 
-  })
+
+
+  
+
   constructor(public auth: AuthService) { }
 
 
 
   ngOnInit(): void {
+
+    
   }
   submit() {
 

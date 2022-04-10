@@ -33,7 +33,7 @@ export class AuthService {
      
      localStorage.setItem('token', String(res));
       let data:any= jwt_decode(String(res));
-
+      localStorage.setItem('role',data.role)
       localStorage.setItem('user',JSON.stringify({...data}))
      if(data.role==='Admin'){        
         
@@ -50,6 +50,7 @@ export class AuthService {
      this.router.navigate(['teacher/home'])
      
      localStorage.setItem('name',data.unique_name)
+  
      
    },err=>{
      console.log(err);

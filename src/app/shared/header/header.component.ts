@@ -10,9 +10,11 @@ export class HeaderComponent implements OnInit {
   constructor() { }
 
   isLoggedIn :any;
+  role:any;
 
   ngOnInit(): void {
     this.isLoggedIn = localStorage.getItem('token'); 
+    this.role=localStorage.getItem('role')
   }
 
   logout(){

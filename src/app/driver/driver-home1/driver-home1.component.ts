@@ -113,7 +113,7 @@ export class DriverHome1Component implements OnInit {
       this.busService.changeAllStudentsBusStatus();
       this.router.navigate(['auth/login']);
       localStorage.clear();
-      this.toastr.success("logout");
+      this.toastr.success("Thank You");
       return;
     }
     this.currentLoc = this.waypts.splice(this.waypoints_order[0], 1)[0].location;
