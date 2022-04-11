@@ -6,7 +6,7 @@
                 <div class="header-text">
                     <h6>Welcome to our Website</h6>
                     <h2>Best Place To Track your <em>kid's Bus</em></h2>
-                    <div class="main-button-gradient">
+                    <div class="main-button-gradient" *ngIf="isLoggedIn==null">
                         <div class="scroll-to-section"><a href="account/login">Login</a></div>
                     </div>
                 </div>

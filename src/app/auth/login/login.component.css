@@ -33,31 +33,7 @@
     }
     
     #login .login-card .content {
-        padding: 4rem 2rem 4rem;
-    }
-    
-    #login .login-card #email,
-    #login .login-card #password {
-        display: block;
-        width: 100%;
-        font-size: 1rem;
-        margin-bottom: 1.75rem;
-        padding: 0.25rem 0;
-        border: none;
-        border-bottom: 1px solid #dbdbdb;
-        transition: all 0.5s;
-    }
-    
-    #login .login-card #email:hover,
-    #login .login-card #password:hover {
-        border-color: #7a7a7a;
-    }
-    
-    #login .login-card #email:active,
-    #login .login-card #email:focus,
-    #login .login-card #password:active,
-    #login .login-card #password:focus {
-        border-color: #F5BDA1;
+        padding: 2rem 2rem 5rem;
     }
     
     #login .login-card .checkbox {
@@ -65,17 +41,10 @@
         font-size: 0.8rem;
     }
     
-    #login .login-card .checkbox span {
+    #login .login-card .checkbox strong {
         margin-left: 0.5rem;
-    }
-    
-    #login .login-card a {
-        font-size: 0.8rem;
-    }
-    
-    #login .login-card .options {
-        color: #b5b5b5;
-        margin-bottom: 1.5rem;
+        color: rgb(155, 155, 155);
+        letter-spacing: 1px;
     }
     
     #login .login-card button {
@@ -84,8 +53,9 @@
         color: #F5BDA1;
         border-radius: 4rem;
         display: block;
-        width: 100%;
-        background: transparent;
+        width: 50%;
+        right: 25%;
+        margin-top: 2%;
         border: 2px solid #F5BDA1;
         padding: 0.9rem 0 1.1rem;
         transition: color 0.5s, border-color 0.5s;
@@ -93,16 +63,13 @@
     
     #login .login-card button:hover,
     #login .login-card button:focus {
-        color: #ff9966;
+        color: white;
         border-color: #ff9966;
+        background-color: #fbbfa2;
     }
     
     #login .login-card button:active {
         transform: translateY(1px);
-    }
-    
-    label {
-        cursor: pointer;
     }
     
     .regular-checkbox {
@@ -111,17 +78,18 @@
     
     .regular-checkbox+label {
         background-color: #fafafa;
-        border: 1px solid #dbdbdb;
+        border: 1px solid #ff9966;
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        margin-bottom: 15px;
         margin-top: 15px;
-        padding: 7px;
+        padding: 0px 1px 2px 15px;
         border-radius: 3px;
-        display: inline-block;
+        display: inline;
         position: relative;
     }
     
     .regular-checkbox:checked+label {
-        background-color: #aaabac;
+        background-color: #ff9966;
     }
     
     .regular-checkbox:checked+label:after {
@@ -130,7 +98,7 @@
         position: absolute;
         top: 0;
         left: 3px;
-        color: #8a8a8a;
+        color: #ffffff;
     }
     
     input:focus,
@@ -138,4 +106,12 @@
     textarea:focus,
     button:focus {
         outline: none;
+    }
+    
+    li {
+        margin-bottom: 5%;
+    }
+    
+    mat-form-field {
+        width: 100%;
     }

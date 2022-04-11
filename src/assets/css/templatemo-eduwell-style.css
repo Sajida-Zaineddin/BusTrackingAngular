@@ -340,7 +340,7 @@ header
     background-repeat: no-repeat;
     background-position: center;
     position: absolute;
-    height: 110px;
+    height: 105px;
     top: 0;
     left: 0;
     right: 0;
@@ -1186,13 +1186,11 @@ contact us
 
 section.contact-us {
     background-image: url(../images/footer-bg.png);
-    /* background-position: center center; */
+    background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-repeat: no-repeat;
-    position: absolute;
-    padding: 0px;
     position: relative;
+    padding: 0px;
 }
 
 section.contact-us:after {

@@ -85,7 +85,7 @@ const routes: Routes = [
     component:RouteComponent
   },
   {
-    path:'editeprofileadmie',
+    path:'editeprofileadmin',
     component:EditPorfileAdminComponent
   },
 ];

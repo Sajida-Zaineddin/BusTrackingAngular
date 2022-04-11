@@ -224,7 +224,7 @@
     width: 1px;
     background: #a1a1a1;
     position: absolute;
-    left: 13%;
+    left: 15%;
     top: 50px;
 }
 
@@ -239,6 +239,7 @@
     font-size: 120px;
     line-height: 60px;
     margin-top: 50px;
+    margin-left: 3%;
 }
 
 .testimonials_item_area .testi_item_inner .media .media-body p {

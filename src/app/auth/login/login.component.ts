@@ -19,35 +19,19 @@ export class LoginComponent implements OnInit {
     rememberMe: new FormControl(''),
   },  )
 
-
-
-  
-
   constructor(public auth: AuthService) { }
 
+  ngOnInit(): void {}
 
-
-  ngOnInit(): void {
-
-    
-  }
   submit() {
-
     if (this.registerForm.controls['rememberMe'].value == true) {
       this.checkCheckBoxvalue()
-
     }
     this.auth.submit(this.registerForm, this.registerForm.controls['email'].value, this.registerForm.controls['password'].value)
-
-
   }
 
   checkCheckBoxvalue() {
-
     localStorage.setItem('email', this.registerForm.controls['email'].value)
     localStorage.setItem('password', this.registerForm.controls['password'].value)
-
   }
-
-
 }

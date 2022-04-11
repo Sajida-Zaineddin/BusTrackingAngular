@@ -9,10 +9,15 @@ import { HomePageService } from '../Services/home-page.service';
 })
 export class HomeComponent implements OnInit {
 
+  isLoggedIn :any;
+  role:any;
+
   constructor(public homeservice:HomePageService) { }
 
   ngOnInit(): void {
     this.homeservice.getAll();
+    this.isLoggedIn = localStorage.getItem('token'); 
+    this.role=localStorage.getItem('role')
   }
 
   customOptions: OwlOptions = {
@@ -39,7 +44,4 @@ export class HomeComponent implements OnInit {
     },
     nav: true
   }
-
-
-  
 }

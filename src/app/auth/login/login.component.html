@@ -2,34 +2,46 @@
 <div id="login">
     <div class="login-card">
         <div class="card-title">
-            <h1>Sign In</h1>
+            <h1>Log In</h1>
         </div>
         <div class="content">
-            <form method="POST" action="#" [formGroup]="registerForm">
-                <input id="email" type="email" formControlName="email" name="youremail" title="email" placeholder="Your Email" [(ngModel)]="youremail">
-                <mat-error *ngIf="registerForm.controls['email'].hasError('email') && !registerForm.controls['email'].hasError('required')">
-                    Please enter a valid email
-                </mat-error>
-                <mat-error *ngIf="registerForm.controls['email'].hasError('required')">
-                    email is <strong>required</strong>
-                </mat-error>
-                <input id="password" type="password" formControlName="password" name="yourPassword" title="password" placeholder="Your password" [(ngModel)]="yourPassword">
-                <mat-error *ngIf="registerForm.controls['password'].hasError('minlength') && !registerForm.controls['password'].hasError('required')">
-                    Please enter a valid password
-                </mat-error>
-                <mat-error *ngIf="registerForm.controls['password'].hasError('required')">
-                    password is <strong>required</strong>
-                </mat-error>
-                <div class="level options">
-                    <div class="checkbox level-left">
-                        <input type="checkbox" id="checkbox" class="regular-checkbox" formControlName="rememberMe">
-                        <label for="checkbox"></label>
-                        <span>Remember me</span>
-                    </div>
-                </div>
-                <button [disabled]=" !registerForm.valid" (click)="submit() ">Log in
-                </button>
-                <!-- <p style="cursor: pointer; text-align: center;"> Create new Account</p> -->
+            <form [formGroup]="registerForm" class="example-form">
+                <ul>
+                    <li>
+                        <mat-form-field class="example-full-width" appearance="fill">
+                            <mat-label>Enter Your Email </mat-label>
+                            <input id="email" type="email" matInput formControlName="email" name="youremail" title="email" placeholder="Your Email" [(ngModel)]="youremail">
+                            <mat-error *ngIf="registerForm.controls['email'].hasError('email') && !registerForm.controls['email'].hasError('required')">
+                                Please Enter A Valid Email
+                            </mat-error>
+                            <mat-error *ngIf="registerForm.controls['email'].hasError('required')">
+                                Email Is <strong>Required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </li>
+                    <li>
+                        <mat-form-field class="example-full-width" appearance="fill">
+                            <mat-label>Enter Your Password </mat-label>
+                            <input id="password" type="password" matInput formControlName="password" name="yourPassword" title="password" placeholder="Your Password" [(ngModel)]="yourPassword">
+                            <mat-error *ngIf="registerForm.controls['password'].hasError('minlength') && !registerForm.controls['password'].hasError('required')">
+                                Please Enter A Valid Password
+                            </mat-error>
+                            <mat-error *ngIf="registerForm.controls['password'].hasError('required')">
+                                Password Is <strong>Required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </li>
+                    <li>
+                        <div class="level options">
+                            <div class="checkbox level-left">
+                                <input type="checkbox" id="checkbox" class="regular-checkbox" formControlName="rememberMe">
+                                <label for="checkbox"></label>
+                                <strong>Remember Me</strong>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <button class="main-button-gradient" style="float: right; padding: 0;" mat-button [mat-dialog-close]="true" (click)="submit()" cdkFocusInitial>Login</button>
             </form>
         </div>
     </div>
