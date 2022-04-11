@@ -35,7 +35,7 @@
                             <td>{{student.fullName }}</td>
                             <td>{{student.busnumber }}</td>
                             <td class="col-lg-2">
-                                <button class="btn btn-secondary" (click)="openUpdateDailog(student.id,student.name, student.xhome, student.yhome, student.grade, student.status, student.fullName, student.busnumber)">Update</button>
+                                <button class="btn btn-secondary" (click)="openUpdateDailog(student.id,student.name, student.xhome, student.yhome, student.grade, student.roundstatusid, student.userid, student.busid)">Update</button>
                             </td>
                             <td class="col-lg-2">
                                 <button class="btn btn-danger" (click)="openDeleteDialog(student.id)">Delete</button>
@@ -91,23 +91,23 @@
                 </li>
                 <li>
                     <h4 style="margin-bottom: 0px; margin-top: 10px;">Choose Round Status</h4>
-                    <select formControlName="roundStatus">
+                    <select formControlName="roundid">
                         <option [ngValue]="null" disabled>Choose Round Status</option>
-                        <option *ngFor="let item of home.status" [ngValue]="item.roundStatus"> {{item.roundStatus}}</option>
+                        <option *ngFor="let item of home.status" [ngValue]="item.id"> {{item.roundStatus}}</option>
                     </select>
                 </li>
                 <li>
                     <h4 style="margin-bottom: 0px; margin-top: 10px;">Choose Bus Number</h4>
-                    <select formControlName="busnumber">
+                    <select formControlName="busid">
                         <option [ngValue]="null" disabled>Choose Bus Number</option>
-                        <option *ngFor="let item2 of home.busnumber" [ngValue]="item2.busnumber"> {{item2.busnumber}}</option>
+                        <option *ngFor="let item2 of home.busnumber" [ngValue]="item2.id"> {{item2.busnumber}}</option>
                     </select>
                 </li>
                 <li>
                     <h4 style="margin-bottom: 0px; margin-top: 10px;">Choose Parent Name</h4>
-                    <select formControlName="fullName">
+                    <select formControlName="parentid">
                         <option [ngValue]="null" disabled>Choose Parent Name</option>
-                        <option *ngFor="let item1 of home.fullName" [ngValue]="item1.fullName"> {{item1.fullName}}</option>
+                        <option *ngFor="let item1 of home.fullName" [ngValue]="item1.id"> {{item1.fullName}}</option>
                     </select>
                 </li>
             </ul>
@@ -162,23 +162,23 @@
                 </li>
                 <li>
                     <h4 style="margin-bottom: 0px; margin-top: 10px;">Choose Round Status</h4>
-                    <select formControlName="roundStatus">
+                    <select formControlName="roundid">
                         <option [ngValue]="null" disabled>Choose Round Status</option>
-                        <option *ngFor="let item of home.status" [ngValue]="item.roundStatus"> {{item.roundStatus}}</option>
+                        <option *ngFor="let item of home.status" [ngValue]="item.id"> {{item.roundStatus}}</option>
                     </select>
                 </li>
                 <li>
                     <h4 style="margin-bottom: 0px; margin-top: 10px;">Choose Bus Number</h4>
-                    <select formControlName="busnumber">
+                    <select formControlName="busid">
                         <option [ngValue]="null" disabled>Choose Bus Number</option>
-                        <option *ngFor="let item2 of home.busnumber" [ngValue]="item2.busnumber"> {{item2.busnumber}}</option>
+                        <option *ngFor="let item2 of home.busnumber" [ngValue]="item2.id"> {{item2.busnumber}}</option>
                     </select>
                 </li>
                 <li>
                     <h4 style="margin-bottom: 0px; margin-top: 10px;">Choose Parent Name</h4>
-                    <select formControlName="fullName">
+                    <select formControlName="parentid">
                         <option [ngValue]="null" disabled>Choose Parent Name</option>
-                        <option *ngFor="let item1 of home.fullName" [ngValue]="item1.fullName"> {{item1.fullName}}</option>
+                        <option *ngFor="let item1 of home.fullName" [ngValue]="item1.id"> {{item1.fullName}}</option>
                     </select>
                 </li>
             </ul>
