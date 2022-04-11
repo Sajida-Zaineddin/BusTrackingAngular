@@ -30,9 +30,7 @@ export class RoleComponent implements OnInit {
 
   ngOnInit(): void {
     this.role.getAll();
-    
   }
-
 
   save() {
     console.log(this.CreateForm.value);
@@ -43,7 +41,6 @@ export class RoleComponent implements OnInit {
   openCreatedialog() {
     this.role.getAll();
     this.dialog.open(this.callCreateDialog)
-
   }
 
   openDeleteDialog(busId: any) {
@@ -56,37 +53,30 @@ export class RoleComponent implements OnInit {
         }
         else if (res == "no")
           console.log("Thank you ");
-
       }
     })
 
   }
   openUpdateDialog(id: any, rolename: any) {
-
     this.roleValues = {
       id: new FormControl(),
       rolename: new FormControl()
-
     }
     this.updatForm.controls['id'].setValue(id);
     this.updatForm.controls['rolename'].setValue(rolename);
     this.role.getAll();
     this.dialog.open(this.callUpdateDialog)
-
   }
 
   updateRoleEditor() {
     this.role.updateRole(this.updatForm.value);
     window.location.reload();
-
   }
+
   updateRole(){
     console.log("updatForm",this.updatForm.value);
     console.log("about",this.role);
-
     this.role.updateRole(this.updatForm.value);
     window.location.reload();
-
   }
-
 }

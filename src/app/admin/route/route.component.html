@@ -15,10 +15,10 @@
                         <tr>
                             <th>Driver name</th>
                             <th>Bus Number</th>
-                            <th>xstart</th>
-                            <th>ystart </th>
-                            <th>xend</th>
-                            <th>yend</th>
+                            <th>X-Start</th>
+                            <th>Y-Start </th>
+                            <th>X-End</th>
+                            <th>Y-End</th>
                             <th colspan="2">Action</th>
                         </tr>
                     </thead>
@@ -52,8 +52,8 @@
             <ul>
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter xstart Point</mat-label>
-                        <input type="text" matInput formControlName="xstart" placeholder="Enter xstart Point">
+                        <mat-label>Enter X-Start Point</mat-label>
+                        <input type="text" matInput formControlName="xstart" placeholder="Enter X-Start Point">
                         <mat-error *ngIf="CreateForm.controls['xstart'].hasError('required')">
                             feild is <strong>required</strong>
                         </mat-error>
@@ -61,8 +61,8 @@
                 </li>
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter ystart Pointe </mat-label>
-                        <input type="text" matInput formControlName="ystart" placeholder="Enter ystart Point">
+                        <mat-label>Enter Y-Start Pointe </mat-label>
+                        <input type="text" matInput formControlName="ystart" placeholder="Enter Y-Start Point">
                         <mat-error *ngIf="CreateForm.controls['ystart'].hasError('required')">
                             feild is <strong>required</strong>
                         </mat-error>
@@ -70,8 +70,8 @@
                 </li>
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter xend Point </mat-label>
-                        <input type="text" matInput formControlName="xend" placeholder="Enter xend Point">
+                        <mat-label>Enter X-End Point </mat-label>
+                        <input type="text" matInput formControlName="xend" placeholder="Enter X-End Point">
                         <mat-error *ngIf="CreateForm.controls['xend'].hasError('required')">
                             feild is <strong>required</strong>
                         </mat-error>
@@ -79,8 +79,8 @@
                 </li>
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter yend Point </mat-label>
-                        <input type="text" matInput formControlName="yend" placeholder="Enter yend Point">
+                        <mat-label>Enter Y-End Point </mat-label>
+                        <input type="text" matInput formControlName="yend" placeholder="Enter Y-End Point">
                         <mat-error *ngIf="CreateForm.controls['yend'].hasError('required')">
                             feild is <strong>required</strong>
                         </mat-error>
@@ -112,8 +112,8 @@
 
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter xstart Point </mat-label>
-                        <input type="text" matInput formControlName="xstart" [(ngModel)]="route.xstart" placeholder="Enter xstart Point">
+                        <mat-label>Enter X-Start Point </mat-label>
+                        <input type="text" matInput formControlName="xstart" [(ngModel)]="route.xstart" placeholder="Enter X-Start Point">
                         <mat-error *ngIf="updatForm.controls['xstart'].hasError('required')">
                             feild is <strong>required</strong>
                         </mat-error>
@@ -121,8 +121,8 @@
                 </li>
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter ystart Point </mat-label>
-                        <input type="text" matInput formControlName="ystart" [(ngModel)]="route.ystart" placeholder="Enter ystart Point">
+                        <mat-label>Enter Y-Start Point </mat-label>
+                        <input type="text" matInput formControlName="ystart" [(ngModel)]="route.ystart" placeholder="Enter Y-Start Point">
                         <mat-error *ngIf="updatForm.controls['ystart'].hasError('required')">
                             feild is <strong>required</strong>
                         </mat-error>
@@ -130,8 +130,8 @@
                 </li>
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter xend Point </mat-label>
-                        <input type="text" matInput formControlName="xend" [(ngModel)]="route.xend" placeholder="Enter xend Point">
+                        <mat-label>Enter X-End Point </mat-label>
+                        <input type="text" matInput formControlName="xend" [(ngModel)]="route.xend" placeholder="Enter X-End Point">
                         <mat-error *ngIf="updatForm.controls['xend'].hasError('required')">
                             feild is <strong>required</strong>
                         </mat-error>
@@ -139,18 +139,18 @@
                 </li>
                 <li>
                     <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Enter yend Point </mat-label>
-                        <input type="text" matInput formControlName="yend" [(ngModel)]="route.yend" placeholder="Enter yend Point">
+                        <mat-label>Enter Y-End Point </mat-label>
+                        <input type="text" matInput formControlName="yend" [(ngModel)]="route.yend" placeholder="Enter Y-End Point">
                         <mat-error *ngIf="updatForm.controls['yend'].hasError('required')">
                             feild is <strong>required</strong>
                         </mat-error>
                     </mat-form-field>
                 </li>
                 <li>
-                    <h4 style="margin-bottom: 0px; margin-top: 10px;">Choose bus number</h4>
+                    <h4 style="margin-bottom: 0px; margin-top: 10px;">Choose Bus Number</h4>
                     <select formControlName="busid">
-                        <option [ngValue]="null" disabled>Choose Bus number</option>
-                        <option *ngFor="let item of busService.data" [ngValue]="item.id"> {{item.busnumber}}</option>
+                        <option [ngValue]="null" disabled>Choose Bus Number</option>
+                        <option *ngFor="let item of busService.data" [ngValue]="item.id">{{item.busnumber}}</option>
                      </select>
                 </li>
             </ul>

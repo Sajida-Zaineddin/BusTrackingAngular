@@ -25,7 +25,7 @@ export class RoleService {
       //hide spinner
       this.spinner.hide();
       // res --> show toastr
-      this.toastr.success('Data Retrieved !!');
+      // this.toastr.success('Data Retrieved !!');
     }, err => {
       this.spinner.hide();
       this.toastr.error('Error ')
@@ -36,25 +36,19 @@ export class RoleService {
 
   createRole(data: any) {
     this.spinner.show();
-
     this.http.post('https://localhost:44346/api/Role/Create/', data)
       .subscribe((res: any) => {
-
         this.spinner.hide();
-        this.toastr.success('Saved Successfully :) ')
+        this.toastr.success('Created Successfully ✔️ ')
       }, err => {
         this.spinner.hide();
         this.toastr.error(err.message, err.status)
       })
-
-
   }
-
-
 
   delete(id: number) {
     this.http.delete('https://localhost:44346/api/Role/Delete/' + id).subscribe((res) => {
-      this.toastr.success('Deleted Successfully :) ')
+      this.toastr.success('Deleted Successfully ✔️ ')
     }, err => {
       this.toastr.error(err.message, err.status);
     })
@@ -62,30 +56,22 @@ export class RoleService {
   }
 
   updateRole(body: any) {
-   
     this.http.put('https://localhost:44346/api/Role/Update/', body).subscribe((res) => {
-      this.toastr.success('Updated Successfully :) ')
+      this.toastr.success('Updated Successfully ✔️ ')
     }, err => {
-      this.toastr.error('something error ');
+      this.toastr.error('Something Error ❗');
     })
-
-
-
-
   }
 
   search(obj: any) {
-
     this.http.get('https://localhost:44346/api/Role/GetById/' + obj)
       .subscribe((res) => {
         console.log(res)
         this.results = [res];
-        this.toastr.success('Successfully :) ')
+        this.toastr.success('Successfully ✔️ ')
       }, err => {
-        this.toastr.error('something error ');
+        this.toastr.error('Something Error ❗');
       })
-
     console.log(this.results);
-
   }
 }
