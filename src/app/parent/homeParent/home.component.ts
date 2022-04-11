@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
     lng: 35.853984,
   };
   options: google.maps.MapOptions = {
-    mapTypeId: 'hybrid',
+    mapTypeId: 'roadmap',
     zoomControl: true,
     scrollwheel: true,
     disableDoubleClickZoom: true,
