@@ -27,9 +27,9 @@ export class ManageStudentComponent implements OnInit {
     xhome:new FormControl(),
     yhome:new FormControl(),
     grade:new FormControl(),
-    roundStatus:new FormControl(),
-    fullName:new FormControl(),
-    busnumber:new FormControl()
+    roundid:new FormControl(),
+    parentid:new FormControl(),
+    busid:new FormControl()
  })
 
  CreateForm :FormGroup =new FormGroup({  
@@ -37,9 +37,9 @@ export class ManageStudentComponent implements OnInit {
   xhome:new FormControl('',Validators.required),    
   yhome:new FormControl('',Validators.required),
   grade:new FormControl('',Validators.required),
-  roundStatus:new FormControl('',Validators.required),
-  fullName:new FormControl('',Validators.required),
-  busnumber:new FormControl('',Validators.required),
+  roundid:new FormControl('',Validators.required),
+  parentid:new FormControl('',Validators.required),
+  busid:new FormControl('',Validators.required),
 
 })
 
@@ -64,12 +64,16 @@ export class ManageStudentComponent implements OnInit {
       xhome:xhome1,
       yhome:yhome1,
       grade:grade1,
-      roundStatus:roundStatus1,
-      fullName:fullName1,
-      busnumber:busnumber1
+      roundid:roundStatus1,
+      parentid:fullName1,
+      busid:busnumber1
     }
-    this.dialog.open(this.callUpdateDailog)
     this.UpdateForm.controls['id'].setValue(id1);
+    this.UpdateForm.controls['roundid'].setValue(roundStatus1);
+    this.UpdateForm.controls['parentid'].setValue(fullName1);
+    this.UpdateForm.controls['busid'].setValue(busnumber1);
+    this.dialog.open(this.callUpdateDailog)
+
   }
 
   openDeleteDialog(id1: any) {

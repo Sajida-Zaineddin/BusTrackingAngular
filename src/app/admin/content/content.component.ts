@@ -46,7 +46,7 @@ export class ContentComponent implements OnInit {
 
     setTimeout(() => {
       this.addMarkers();
-    }, 2000);   
+    }, 1500);   
   }
 
 
