@@ -1,5 +1,5 @@
 <app-dashboard>
-    <div class="page-header">
+    <div class="page-header mt-4">
         <h3 class="page-title text-uppercase" style="font-size: 1.5em; font-weight: 500;">
             <span class="page-title-icon bg-gradient-primary text-white me-2">
                     <i class="mdi mdi-information-outline"></i>
@@ -24,7 +24,7 @@
                         <tr *ngFor="let item of home.data">
                             <td>{{item.id}}</td>
                             <td>{{item.title}}</td>
-                            <td>{{item.information}}</td>
+                            <td class="text-wrap">{{item.information}}</td>
                             <td><img src="../../../assets/images/{{item.imagepath}}" style="height: 50px;width: 50px;"></td>
                             <td class="col-lg-2">
                                 <button class="btn btn-secondary" (click)="openUpdateDialog(item.id,item.title,item.information,item.imagepath)">Update</button>
