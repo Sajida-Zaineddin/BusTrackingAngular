@@ -10,12 +10,12 @@ export class DashboardComponent implements OnInit {
   contentToggle=true;
   roleToggle=true;
   userToggle=true;
-  loginToggle=true;
+  loginToggle=true; 
   busToggle=true;
   studentToggle=true;
-RouteToggle=true;
+  RouteToggle=true;
   aboutToggle=true;
-  aboutEditorToggle=true;
+  // aboutEditorToggle=true;
   contactToggle=true;
   testimonialToggle=true;
   websiteToggle=true;
@@ -67,10 +67,10 @@ RouteToggle=true;
     this.router.navigate(['admin/aboutus'])
   }
 
-  manageAboutUsEditor(){
-    this.aboutEditorToggle=false;
-    this.router.navigate(['admin/aboutusEditor'])
-  }
+  // manageAboutUsEditor(){
+  //   this.aboutEditorToggle=false;
+  //   this.router.navigate(['admin/aboutusEditor'])
+  // }
 
   manageContactUs(){
     this.contactToggle=false;

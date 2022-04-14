@@ -19,13 +19,10 @@ export class AboutusPAgeService {
     //hite api
     this.http.get('https://localhost:44346/api/User/GetAllTeachers/').subscribe((res) => {
       this.teachers = res;
-   
-     
     }, err => {
       this.spinner.hide();
-      this.toastr.error('Error ')
+      this.toastr.error(err.message, err.status)
     })
-
   }
 
   getAll() {
@@ -37,14 +34,10 @@ export class AboutusPAgeService {
       //hide spinner
       this.spinner.hide();
       // res --> show toastr
-      this.toastr.success('Data Retrieved !!');
+      // this.toastr.success('Data Retrieved !!');
     }, err => {
       this.spinner.hide();
-      this.toastr.error('Error ')
+      this.toastr.error(err.message, err.status)
     })
-
   }
-
-
-
 }

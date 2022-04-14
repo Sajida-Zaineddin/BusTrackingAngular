@@ -22,7 +22,7 @@ export class LoginMangeService {
       //hide spinner
       this.spinner.hide();
       // res --> show toastr
-      this.toastr.success('Data Retrieved !!');
+      // this.toastr.success('Data Retrieved !!');
     }, err => {
       this.spinner.hide();
       this.toastr.error('Error ')
@@ -38,7 +38,7 @@ export class LoginMangeService {
       //hide spinner
       this.spinner.hide();
       // res --> show toastr
-      this.toastr.success('Data Retrieved !!');
+      // this.toastr.success('Data Retrieved !!');
     }, err => {
       this.spinner.hide();
       this.toastr.error('Error ')

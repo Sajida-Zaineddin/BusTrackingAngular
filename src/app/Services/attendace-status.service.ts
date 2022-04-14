@@ -36,15 +36,13 @@ export class AttendaceStatusService {
 
     update(attendancestatus:any){
       //  body.imagename=this.display_Image;
-     
         this.http.put('https://localhost:44320/api/course/',attendancestatus).subscribe((res)=>{
         //  this.toastr.success('updated Successfully :)');
-    
         },err=>{
         //  this.toastr.error(err.status,err.message);
         })
-    
       } 
+      
       delete(id:number){
         this.http.delete('https://localhost:44320/api/course/'+id).subscribe((res)=>{
          // this.toastr.success('Deleted Successfully :)');

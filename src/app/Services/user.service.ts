@@ -20,7 +20,7 @@ export class UserService {
       .subscribe((res) => {
         console.log(res)
         this.user = res;
-        this.toastr.success('Successfully :) ')
+        // this.toastr.success('Successfully :) ')
       }, err => {
         this.toastr.error('something error ');
       })
@@ -32,7 +32,7 @@ export class UserService {
       .subscribe((res) => {
         console.log(res)
         this.data = res;
-        this.toastr.success('Successfully :) ')
+        // this.toastr.success('Successfully :) ')
       }, err => {
         this.toastr.error('something error ');
       })

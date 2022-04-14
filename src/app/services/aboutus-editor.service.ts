@@ -25,12 +25,11 @@ export class AboutusEditorService {
       //hide spinner
       this.spinner.hide();
       // res --> show toastr
-      this.toastr.success('Data Retrieved !!');
+      // this.toastr.success('Data Retrieved !!');
     }, err => {
       this.spinner.hide();
-      this.toastr.error('Error ')
+      this.toastr.error(err.message, err.status)
     })
-
   }
 
   getAabouusId() {
@@ -42,50 +41,24 @@ export class AboutusEditorService {
       //hide spinner
       this.spinner.hide();
       // res --> show toastr
-      this.toastr.success('Data Retrieved !!');
+      // this.toastr.success('Data Retrieved !!');
     }, err => {
       this.spinner.hide();
-      this.toastr.error('Error ')
+      this.toastr.error(err.message, err.status)
     })
-
   }
-
   
   createAboutusEditor(data: any) {
     this.spinner.show();
-
     data.imagepath = this.display_Image;
     this.http.post('https://localhost:44346/api/AboutusEditor/Create/', data)
       .subscribe((res: any) => {
-
         this.spinner.hide();
-        this.toastr.success('Saved Successfully :) ')
+        this.toastr.success('Created Successfully ✔️ ')
       }, err => {
         this.spinner.hide();
         this.toastr.error(err.message, err.status)
       })
-
-
-  }
-
-  uploadAttachment(file: FormData) {
-    this.http.post('https://localhost:44346/api/AboutusEditor/Upload/', file)
-      .subscribe((res: any) => {     
-          
-        this.display_Image = res.imagepath;
-      }, err => {
-        this.toastr.error(err.message, err.status);
-      })
-  }
-
-
-  delete(id: number) {
-    this.http.delete('https://localhost:44346/api/AboutusEditor/delete/' + id).subscribe((res) => {
-      this.toastr.success('Deleted Successfully :) ')
-    }, err => {
-      this.toastr.error(err.message, err.status);
-    })
-
   }
 
   updateAboutusEditor(body: any) {
@@ -93,11 +66,26 @@ export class AboutusEditorService {
       body.imagepath = this.display_Image;
     }
     this.http.put('https://localhost:44346/api/AboutusEditor/Update/', body).subscribe((res) => {
-      this.toastr.success('Updated Successfully :) ')
+      this.toastr.success('Updated Successfully ✔️ ')
     }, err => {
-      this.toastr.error('something error ');
+      this.toastr.error(err.message, err.status)
     })
-
   }
 
+  delete(id: number) {
+    this.http.delete('https://localhost:44346/api/AboutusEditor/delete/' + id).subscribe((res) => {
+      this.toastr.success('Deleted Successfully ✔️ ')
+    }, err => {
+      this.toastr.error(err.message, err.status);
+    })
+  }
+  
+  uploadAttachment(file: FormData) {
+    this.http.post('https://localhost:44346/api/AboutusEditor/Upload/', file)
+      .subscribe((res: any) => {     
+        this.display_Image = res.imagepath;
+      }, err => {
+        this.toastr.error(err.message, err.status);
+      })
+  }
 }
