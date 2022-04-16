@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/Services/admin.service';
 import { ParentService } from 'src/app/Services/parent.service';
+import Chart from 'chart.js/auto'
 
 @Component({
   selector: 'app-content',
@@ -9,7 +10,7 @@ import { ParentService } from 'src/app/Services/parent.service';
 })
 export class ContentComponent implements OnInit {
   username: any = localStorage.getItem('name')
-  num=0;
+  num = 0;
 
   xSchoolLoc: any = '32.025984';
   ySchoolLoc: any = '35.853984';
@@ -20,6 +21,7 @@ export class ContentComponent implements OnInit {
     lat: 32.025984,
     lng: 35.853984,
   };
+
   options: google.maps.MapOptions = {
     mapTypeId: 'hybrid',
     zoomControl: true,
@@ -36,19 +38,88 @@ export class ContentComponent implements OnInit {
         lng: position.coords.longitude,
       }
     });
-
   }
+
   ngOnInit(): void {
-  this.adminservice.getAllBusesRoute();
-  this.adminservice.getAllStudentsData();
-  this.adminservice.getAllDriversData();
-  this.adminservice.getAllTeachersData();
+    this.adminservice.getAllBusesRoute();
+    this.adminservice.getAllStudentsData();
+    this.adminservice.getAllDriversData();
+    this.adminservice.getAllTeachersData();
 
     setTimeout(() => {
       this.addMarkers();
-    }, 1500);   
-  }
+    }, 1500);
 
+    const barChart = new Chart("barChart", {
+      type: 'bar',
+      data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+          label: '# of Votes',
+          data: [14, 19, 3, 5, 2, 3],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    const pieChart = new Chart("pieChart", {
+      type: 'pie',
+      data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  }
 
   addMarkers() {
     for (let i = 0; i < this.adminservice.busesRoute.length; i++) {
@@ -63,18 +134,11 @@ export class ContentComponent implements OnInit {
             label: {
               color: 'red',
               text: String(this.adminservice.busesRoute[i].busnumber),
-
             },
-
             options: { animation: google.maps.Animation.DROP },
-
           })
-
-
-
         }
         else {
-
           this.markers.push({
             position: {
               lat: Number(this.adminservice.busesRoute[i].xend),
@@ -83,17 +147,11 @@ export class ContentComponent implements OnInit {
             label: {
               color: 'blue',
               text: String(this.adminservice.busesRoute[i].busnumber),
-
             },
-
             options: { animation: google.maps.Animation.DROP },
-
           })
-
         }
-
       } else {
-
         this.markers.push({
           position: {
             lat: Number(this.adminservice.busesRoute[i].xcurrent),
@@ -102,19 +160,11 @@ export class ContentComponent implements OnInit {
           label: {
             color: 'black',
             text: String(this.adminservice.busesRoute[i].busnumber),
-
           },
-
           options: { animation: google.maps.Animation.DROP },
-
         })
       }
-
-
-
     }
-
-
   }
 }
 
