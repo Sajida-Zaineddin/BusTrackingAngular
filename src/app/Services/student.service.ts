@@ -13,6 +13,8 @@ export class StudentService {
   TEACHERNAME1:any=[];
   stdName:any=[];
 
+  studentid:any ;
+
   constructor(private http:HttpClient ) {  }
   getAll(){
     //show spinner 

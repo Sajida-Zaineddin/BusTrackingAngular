@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { AttendanceService } from 'src/app/Services/attendance.service';
 import { MatDialog } from '@angular/material/dialog';
 import { StudentService } from 'src/app/Services/student.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,7 @@ export class HomeComponent implements OnInit {
   Values:any=[];
   studentName:any;
 
-  constructor(public home:AttendanceService) { }
+  constructor(public home:AttendanceService ,private router:Router ,public student:StudentService) { }
 
   ngOnInit(): void {
     this.home.GETTEACHERINFONEW({username:localStorage.getItem('name')})
@@ -66,6 +67,11 @@ export class HomeComponent implements OnInit {
       fullName:fullName1,}
       console.log(emailObj2);
     this.home.SendAbsentEmail(emailObj2);
+    }
+    pasa(id :any){
+      this.student.studentid=id;
+      this.router.navigate(['teacher/studentpage'])
+      
     }
 
 }
