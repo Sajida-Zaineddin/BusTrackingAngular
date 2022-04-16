@@ -17,7 +17,6 @@ export class AttendanceService {
   new:any=[];
   TeacherInfo: any = [];
   busnumber:any=[];
-
   studentAttendens:any=[];
 
   constructor(private http:HttpClient, private spinner :NgxSpinnerService,private toastr:ToastrService) { }

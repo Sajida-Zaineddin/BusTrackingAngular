@@ -1,0 +1,109 @@
+/* Tables */
+
+.table {
+    margin-top: 5%;
+    background: rgb(248, 227, 248);
+    background: linear-gradient(-145deg, rgb(248, 227, 248) 0%, rgb(247, 227, 216) 100%);
+    margin-left: 10%;
+}
+
+.table thead th {
+    border-top: 0;
+    border-bottom-width: 1px;
+    font-family: "ubuntu-medium", sans-serif;
+    font-weight: initial;
+}
+
+.table thead th i {
+    margin-left: 0.325rem;
+}
+
+.table th,
+.table td {
+    vertical-align: middle;
+    font-size: 1.2rem;
+    line-height: 1;
+    white-space: nowrap;
+    padding: 0.9375rem;
+}
+
+.table th img,
+.table td img {
+    width: 36px;
+    height: 36px;
+    border-radius: 100%;
+}
+
+.table th .badge,
+.table td .badge {
+    margin-bottom: 0;
+}
+
+.table.table-borderless {
+    border: none;
+}
+
+.table.table-borderless tr,
+.table.table-borderless td,
+.table.table-borderless th {
+    border: none;
+}
+
+.table> :not(:last-child)> :last-child>*,
+.jsgrid .jsgrid-table> :not(:last-child)> :last-child>* {
+    border-bottom-color: #ebedf2;
+}
+
+.table> :not(:first-child),
+.jsgrid .jsgrid-table> :not(:first-child) {
+    border-top: none;
+}
+
+.search-field {
+    margin-top: 5%;
+    margin-left: 10%;
+    width: 20%;
+}
+
+.search-field .input-group input {
+    font-size: 0.875rem;
+    border-color: #dadada;
+}
+
+.search-field .input-group input:-ms-input-placeholder {
+    font-size: 0.875rem;
+    color: #9c9fa6;
+    font-family: "ubuntu-light", sans-serif;
+}
+
+.search-field .input-group input:-moz-placeholder {
+    font-size: 0.875rem;
+    color: #9c9fa6;
+    font-family: "ubuntu-light", sans-serif;
+}
+
+.search-field .input-group input::-moz-placeholder {
+    font-size: 0.875rem;
+    color: #9c9fa6;
+    font-family: "ubuntu-light", sans-serif;
+}
+
+.search-field .input-group input::-webkit-input-placeholder {
+    font-size: 0.875rem;
+    color: #9c9fa6;
+    font-family: "ubuntu-light", sans-serif;
+}
+
+.search-field .input-group i {
+    font-size: 17px;
+    margin-right: 0;
+    color: rgb(218, 129, 221);
+}
+
+.search-field .input-group .input-group-text {
+    background: #f1f1f1;
+}
+
+.container {
+    margin-top: 6%;
+}

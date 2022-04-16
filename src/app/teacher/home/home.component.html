@@ -49,13 +49,13 @@
                                 <button class="btn btn-primary" (click)="save(item.name,  item.busid )" cdkFocusInitial>Save</button>
                             </td>
                             <td class="col-lg-1">
+                                <button class="btn btn-info" (click)="pasa(item.id)" cdkFocusInitial>Attendance History</button>
+                            </td>
+                            <td class="col-lg-1">
                                 <button class="btn btn-success" (click)="ArrivalEmail(item.name, item.email, item.fullName)" cdkFocusInitial>Notify Arrival</button>
                             </td>
                             <td class="col-lg-1">
                                 <button class="btn btn-danger" (click)="AbsentEmail(item.name, item.email, item.fullName)" cdkFocusInitial>Notify Absent</button>
-                            </td>
-                            <td class="col-lg-1">
-                                <button class="btn btn-danger" (click)="pasa(item.id)" cdkFocusInitial>Attendance History</button>
                             </td>
                         </tr>
                     </tbody>
