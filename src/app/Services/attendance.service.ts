@@ -18,6 +18,8 @@ export class AttendanceService {
   TeacherInfo: any = [];
   busnumber:any=[];
 
+  studentAttendens:any=[];
+
   constructor(private http:HttpClient, private spinner :NgxSpinnerService,private toastr:ToastrService) { }
 
   getAll(){
@@ -152,4 +154,20 @@ export class AttendanceService {
          this.toastr.error(err.status,err.message);
         })
       }
+
+
+
+         
+    StudentAttendeansWithId(id:any){
+    this.spinner.show();
+    this.http.post('https://localhost:44346/api/Attendance/StudentAttendeansWithId/',id).subscribe((res)=>{
+    this.studentAttendens=res;
+    this.spinner.hide();
+
+      },error=>{
+       this.spinner.hide();
+       this.toastr.error(error.status,error.message);
+      })
+    }
+
 }

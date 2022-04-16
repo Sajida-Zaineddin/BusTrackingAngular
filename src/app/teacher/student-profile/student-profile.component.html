@@ -1,0 +1,35 @@
+<app-header>
+
+</app-header>
+<div class="col-lg-10 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+
+            <P>Student name : {{name}}</P>
+            <P> Bus Number : {{busnumber}}</P>
+            <P>Round : {{round}}</P>
+
+            <h1>Attendance History</h1>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+
+                        <th>date </th>
+
+                        <th>Attendance Status</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of attendens.studentAttendens ">
+                        <td>{{item.dateofattendance |date}}</td>
+                        <td>{{item.roundStatus}}</td>
+
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

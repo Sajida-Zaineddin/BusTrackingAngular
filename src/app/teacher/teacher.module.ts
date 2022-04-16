@@ -4,11 +4,13 @@ import { TeacherRoutingModule } from './teacher-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { HomeComponent } from './home/home.component';
+import { StudentProfileComponent } from './student-profile/student-profile.component';
 
 
 @NgModule({
   declarations: [
-      HomeComponent
+      HomeComponent,
+      StudentProfileComponent
   ],
   imports: [
     CommonModule,
