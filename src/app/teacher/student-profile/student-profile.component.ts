@@ -14,6 +14,8 @@ export class StudentProfileComponent implements OnInit {
   name:any |undefined
   round:any
   busnumber:any
+  history:any;
+  
   ngOnInit(): void {
     this.attendens.StudentAttendeansWithId({id:this.student.studentid});
     setTimeout(() => {

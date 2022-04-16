@@ -45,6 +45,14 @@
             </div>
         </div>
     </div>
+    <div class="search-field d-none d-md-block">
+        <div class="input-group">
+            <div class="input-group-prepend bg-transparent">
+                <i class="input-group-text border-0 mdi mdi-magnify"></i>
+            </div>
+            <input type="text" class="form-control " placeholder="Search" name="search" [(ngModel)]="history">
+        </div>
+    </div>
     <div class="col-lg-10 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
@@ -56,7 +64,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let item of attendens.studentAttendens">
+                        <tr *ngFor="let item of attendens.studentAttendens | filter:history">
                             <td>{{item.dateofattendance |date}}</td>
                             <td>{{item.status}}</td>
                         </tr>
