@@ -17,6 +17,7 @@ import { WebsiteHomeComponent } from './website-home/website-home.component';
 import { WebsiteComponent } from './website/website.component';
 import { RouteComponent } from './route/route.component';
 import { EditPorfileAdminComponent } from './edit-porfile-admin/edit-porfile-admin.component';
+import { ReportComponent } from './report/report.component';
 
 
 const routes: Routes = [
@@ -87,6 +88,10 @@ const routes: Routes = [
   {
     path:'editeprofileadmin',
     component:EditPorfileAdminComponent
+  },
+  {
+    path:'report',
+    component:ReportComponent
   },
 ];
 

@@ -21,6 +21,7 @@ export class DashboardComponent implements OnInit {
   websiteToggle=true;
   websiteHomeToggle=true;
   footerToggle=true;
+  reportToggle=true;
 
   constructor( private router:Router) { }
 
@@ -98,6 +99,11 @@ export class DashboardComponent implements OnInit {
   logout(){
     this.router.navigate(['auth/login']);
     localStorage.clear();
+  }
+
+  report(){
+    this.reportToggle=false;
+    this.router.navigate(['admin/report'])
   }
 }
 

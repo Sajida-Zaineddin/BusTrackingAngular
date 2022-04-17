@@ -22,6 +22,7 @@ import { WebsiteComponent } from './website/website.component';
 import { WebsiteHomeComponent } from './website-home/website-home.component';
 import { RouteComponent } from './route/route.component';
 import { EditPorfileAdminComponent } from './edit-porfile-admin/edit-porfile-admin.component';
+import { ReportComponent } from './report/report.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { EditPorfileAdminComponent } from './edit-porfile-admin/edit-porfile-adm
     WebsiteComponent,
     WebsiteHomeComponent,
     RouteComponent,
-    EditPorfileAdminComponent
+    EditPorfileAdminComponent,
+    ReportComponent
 
   ],
   imports: [
