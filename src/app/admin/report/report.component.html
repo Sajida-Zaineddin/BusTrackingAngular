@@ -1,5 +1,29 @@
 <app-dashboard>
-    <div class="barchart">
+    <!-- <div class="barchart" id="contentToConvert">
         <canvas id="barChart"></canvas>
+    </div> -->
+
+    <div id="contentToConvert">
+
+        <div>
+            <h1>
+                Report
+            </h1>
+            <p>
+                Bus Tracking Report
+            </p>
+            <p>
+                date: {{date| date}}
+            </p>
+            <div class="barchart">
+
+                <canvas id="barChart"></canvas>
+
+            </div>
+            <div class="pieChart">
+                <canvas id="pieChart"></canvas>
+            </div>
+        </div>
     </div>
+    <input type="button" value="Downlode" (click)="convetToPDF()">
 </app-dashboard>
