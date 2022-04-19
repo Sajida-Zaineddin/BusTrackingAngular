@@ -15,7 +15,6 @@ export class DashboardComponent implements OnInit {
   studentToggle=true;
   RouteToggle=true;
   aboutToggle=true;
-  // aboutEditorToggle=true;
   contactToggle=true;
   testimonialToggle=true;
   websiteToggle=true;
@@ -67,11 +66,6 @@ export class DashboardComponent implements OnInit {
     this.aboutToggle=false;
     this.router.navigate(['admin/aboutus'])
   }
-
-  // manageAboutUsEditor(){
-  //   this.aboutEditorToggle=false;
-  //   this.router.navigate(['admin/aboutusEditor'])
-  // }
 
   manageContactUs(){
     this.contactToggle=false;

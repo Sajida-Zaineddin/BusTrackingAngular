@@ -25,13 +25,10 @@ export class ReportComponent implements OnInit {
     this.studentService.GetParentName();
 
     setTimeout(() => {      
-
- 
     const barChart = new Chart("barChart", {
       type: 'bar',
       data: {
-        labels: ['students', 'Drivers', 'Teacers', ],
-       
+        labels: ['Students', 'Drivers', 'Teacers', ],
         datasets: [{
           label: 'Number Of',
           data: [ this.adminservice.allStudents.length, this.adminservice.allDrivers.length, this.adminservice.allTeachers.length],
@@ -39,13 +36,11 @@ export class ReportComponent implements OnInit {
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',
             'rgba(255, 206, 86, 0.2)',
-            
           ],
           borderColor: [
             'rgba(255, 99, 132, 1)',
             'rgba(54, 162, 235, 1)',
             'rgba(255, 206, 86, 1)',
-            
           ],
           borderWidth: 1
         }]
@@ -62,20 +57,19 @@ export class ReportComponent implements OnInit {
     const pieChart = new Chart("pieChart", {
       type: 'pie',
       data: {
-        labels: ['parent', 'children', 'buses', ],
+        labels: ['Parent', 'Children', 'Buses', ],
         datasets: [{
           label: '# of Votes',
           data: [this.studentService.fullName.length, this.adminservice.allStudents.length, this.busService.data.length],
           backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-         
+            'rgba(100, 50, 130, 0.2)',
+            'rgba(34, 100, 120, 0.2)',
+            'rgba(215, 106, 56, 0.2)',
           ],
           borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',     
+            'rgba(100, 50, 130, 1)',
+            'rgba(34, 100, 120, 1)',
+            'rgba(215, 106, 56, 1)',     
           ],
           borderWidth: 1
         }]
