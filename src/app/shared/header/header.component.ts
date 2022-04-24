@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WebsiteService } from 'src/app/services/website.service';
 
 @Component({
   selector: 'app-header',
@@ -7,12 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public website:WebsiteService) { }
 
   isLoggedIn :any;
   role:any;
 
   ngOnInit(): void {
+   
+    setTimeout(() => {
+      this.website.getWebsites();
+    }, 1000);
     this.isLoggedIn = localStorage.getItem('token'); 
     this.role=localStorage.getItem('role')
   }
